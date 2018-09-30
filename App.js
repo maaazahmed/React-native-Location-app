@@ -206,7 +206,15 @@ import {
   Dimensions,
   Easing
 } from 'react-native';
-import { FirstAnimation, SlidAnimation, TransfromAnimation } from "./src/Comonents"
+import {
+  FirstAnimation,
+  SlidAnimation,
+  TransfromAnimation,
+  BackAnimation,
+  ImageAnimation,
+  RresponseAnimation,
+  MovingPoint
+} from "./src/Comonents"
 
 
 
@@ -224,21 +232,24 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ flex: 1, 
-
-        justifyContent:"center", alignItems:"center"
-        }} >
+      <View style={{
+        flex: 1,
+        // justifyContent: "center", alignItems: "center"
+      }} >
         {/* <FirstAnimation /> */}
         {/* <SlidAnimation /> */}
         {/* <TransfromAnimation/>
         <TransfromAnimation/> */}
 
-        <TransfromAnimation style={{backgroundColor:"blue"}}>  
+        {/* <TransfromAnimation style={{backgroundColor:"blue"}}>  
           <Text style={{fontSize: 30, color: "#fff", fontWeight: "bold", }}>Rotate box</Text>
-        </TransfromAnimation>
-        <TransfromAnimation style={{backgroundColor:"red"}} >
+          </TransfromAnimation>
+          <TransfromAnimation style={{backgroundColor:"red"}} >
           <Text style={{fontSize: 30, color: "#fff", fontWeight: "bold", }}>Rotate box 2</Text>
-        </TransfromAnimation>
+        </TransfromAnimation> */}
+        {/* <ImageAnimation /> */}
+        <RresponseAnimation />
+        {/* <MovingPoint /> */}
       </View>
     )
   }
