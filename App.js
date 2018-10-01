@@ -213,7 +213,8 @@ import {
   BackAnimation,
   ImageAnimation,
   RresponseAnimation,
-  MovingPoint
+  MovingPointm,
+  ImageSlider
 } from "./src/Comonents"
 
 
@@ -248,8 +249,9 @@ export default class App extends Component {
           <Text style={{fontSize: 30, color: "#fff", fontWeight: "bold", }}>Rotate box 2</Text>
         </TransfromAnimation> */}
         {/* <ImageAnimation /> */}
-        <RresponseAnimation />
+        {/* <RresponseAnimation /> */}
         {/* <MovingPoint /> */}
+        <ImageSlider />
       </View>
     )
   }

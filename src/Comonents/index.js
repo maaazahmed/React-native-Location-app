@@ -5,6 +5,7 @@ import BackAnimation from "./backchangeAnimmation"
 import ImageAnimation from  "./ImageAnimation/index"
 import RresponseAnimation from "./ResponseView/index"
 import MovingPoint from "./MOvingPoint/index"
+import ImageSlider from "./imageSlider/index"
 
 
 export {
@@ -14,5 +15,6 @@ export {
     BackAnimation,
     ImageAnimation,
     RresponseAnimation,
-    MovingPoint
+    MovingPoint,
+    ImageSlider
 }
