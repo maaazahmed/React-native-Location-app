@@ -214,7 +214,8 @@ import {
   ImageAnimation,
   RresponseAnimation,
   MovingPointm,
-  ImageSlider
+  ImageSlider,
+  HeaderAnimation
 } from "./src/Comonents"
 
 
@@ -241,7 +242,6 @@ export default class App extends Component {
         {/* <SlidAnimation /> */}
         {/* <TransfromAnimation/>
         <TransfromAnimation/> */}
-
         {/* <TransfromAnimation style={{backgroundColor:"blue"}}>  
           <Text style={{fontSize: 30, color: "#fff", fontWeight: "bold", }}>Rotate box</Text>
           </TransfromAnimation>
@@ -251,7 +251,8 @@ export default class App extends Component {
         {/* <ImageAnimation /> */}
         {/* <RresponseAnimation /> */}
         {/* <MovingPoint /> */}
-        <ImageSlider />
+        {/* <ImageSlider /> */}
+        <HeaderAnimation />
       </View>
     )
   }
