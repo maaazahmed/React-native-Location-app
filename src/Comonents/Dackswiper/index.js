@@ -26,6 +26,7 @@ export default class DackSwiper extends Component {
     constructor(props) {
         super(props)
         this.position = new Animated.ValueXY(0)
+        this.swipedCardPosition = new Animated.ValueXY(0)
         this.state = {
             currentIndex: 0
         }
@@ -69,8 +70,73 @@ export default class DackSwiper extends Component {
 
     renderArtical() {
         return ARTICALS.map((item, i) => {
+            if (i === this.state.currentIndex - 1) {
+                return (
+                    <Animated.View key={item.id} style={this.swipedCardPosition.getLayout()} {...this.PanResponder.panHandlers} >
+                        <View style={{ flex: 1, position: "absolute", height: SCREEN_HEIGHT, width: SCREEN_WIDTH, backgroundColor: "#fff" }} >
+                            <View style={{ flex: 2, backgroundColor: "#000" }} >
+                                <Image style={{ flex: 1, height: null, width: null, resizeMode: "center" }}
+                                    source={ARTICALS[i].uri}
+                                />
+                            </View>
+                            <View style={{ flex: 3, padding: 5 }} >
+                                <Text>
+                                    Button is a pure NativeBase component.
+                                    Buttons are the
+                                    integral part of an application. They
+                                    are used for various purposes like,
+                                    submit or reset a form, navigate,
+                                    Button is a pure NativeBase component.
+                                    Buttons are the
+                                    integral part of an application. They
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    performing interactive actions such as
+                                    showing or hiding something in an app on
+                                    click of the button, etc.
+                                    Button is a pure NativeBase component.
+                                    Buttons are the
 
-            if (i < this.state.currentIndex) {
+                                    Button is a pure NativeBase component.
+                                    Buttons are the
+                                    integral part of an application. They
+                                    are used for various purposes like,
+                                    submit or reset a form, navigate,
+                                    performing interactive actions such as
+                                    showing or hiding something in an app on
+                                    click of the button, etc.
+                                    Button is a pure NativeBase component.
+                                    Buttons are the
+                                    integral part of an application. They
+                                    are used for various purposes like,
+                                    submit or reset a form, navigate,
+                                    performing interactive actions such as
+                                    showing or hiding something in an app on
+                                    click of the button, etc.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    performing interactive actions such as
+                                    showing or hiding something in an app on
+                                    click of the button, etc.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    showing or hiding something in an app on
+                                    click of the button, etc.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    performing interactive actions such as
+                                    showing or hiding something in an app on
+                                    click of the button, etc.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                                    Note: Always import and use Text from NativeBase with Buttons.
+                      </Text>
+                            </View>
+                        </View>
+                    </Animated.View>
+                )
+
+            }
+
+           else if (i < this.state.currentIndex) {
                 return null
             }
 
