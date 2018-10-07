@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import {
     Text,
@@ -44,7 +43,6 @@ export default class DackSwiper extends Component {
                     })
                 }
                 else {
-                    // this.position.setValue({x:gestrueState.dx})
                     this.position.setValue({ y: gestrueState.dy })
                 }
 
@@ -65,8 +63,6 @@ export default class DackSwiper extends Component {
                         })
                     })
                 }
-
-
 
                 else if (-gestrueState.dy > 50 && -gestrueState.vy > 0.7) {
                     Animated.timing(this.position, {
@@ -127,7 +123,6 @@ export default class DackSwiper extends Component {
                                     click of the button, etc.
                                     Button is a pure NativeBase component.
                                     Buttons are the
-
                                     Button is a pure NativeBase component.
                                     Buttons are the
                                     integral part of an application. They
