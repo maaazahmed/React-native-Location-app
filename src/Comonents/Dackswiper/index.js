@@ -37,13 +37,38 @@ export default class DackSwiper extends Component {
         this.PanResponder = PanResponder.create({
             onStartShouldSetPanResponder: (e, gestrueState) => true,
             onPanResponderMove: (evt, gestrueState) => {
-                // this.position.setValue({x:gestrueState.dx})
-                this.position.setValue({ y: gestrueState.dy })
+                if (gestrueState.dy > 0 && (this.state.currentIndex > 0)) {
+                    this.swipedCardPosition.setValue({
+                        x: 0,
+                        y: -SCREEN_HEIGHT + gestrueState.dy
+                    })
+                }
+                else {
+                    // this.position.setValue({x:gestrueState.dx})
+                    this.position.setValue({ y: gestrueState.dy })
+                }
 
             },
             onPanResponderRelease: (evt, gestrueState) => {
-                if (-gestrueState.dy > 50 && -gestrueState.vy > 0.7) {
-                    // alert("s")
+
+                if (this.state.currentIndex > 0 && gestrueState.dy > 50 && gestrueState.vy > 0.7) {
+                    Animated.timing(this.swipedCardPosition, {
+                        toValue: { x: 0, y: 0 },
+                        duration: 400
+                    }).start(() => {
+                        this.setState({
+                            currentIndex: this.state.currentIndex - 1,
+                        })
+                        this.swipedCardPosition.setValue({
+                            x: 0,
+                            y: -SCREEN_HEIGHT
+                        })
+                    })
+                }
+
+
+
+                else if (-gestrueState.dy > 50 && -gestrueState.vy > 0.7) {
                     Animated.timing(this.position, {
                         toValue: { x: 0, y: -SCREEN_HEIGHT },
                         duration: 400
@@ -58,10 +83,16 @@ export default class DackSwiper extends Component {
                     })
                 }
                 else {
-                    Animated.timing(this.position, {
-                        toValue: { x: 0, y: 0 },
-                        easing: Easing.elastic()
-                    }).start()
+                    Animated.parallel([
+                        Animated.timing(this.position, {
+                            toValue: { x: 0, y: 0 },
+                            easing: Easing.elastic()
+                        }),
+                        Animated.timing(this.swipedCardPosition, {
+                            toValue: { x: 0, y: -SCREEN_HEIGHT },
+                            easing: Easing.elastic()
+                        })
+                    ]).start()
                 }
             }
         })
@@ -76,7 +107,7 @@ export default class DackSwiper extends Component {
                         <View style={{ flex: 1, position: "absolute", height: SCREEN_HEIGHT, width: SCREEN_WIDTH, backgroundColor: "#fff" }} >
                             <View style={{ flex: 2, backgroundColor: "#000" }} >
                                 <Image style={{ flex: 1, height: null, width: null, resizeMode: "center" }}
-                                    source={ARTICALS[i].uri}
+                                    source={item.uri}
                                 />
                             </View>
                             <View style={{ flex: 3, padding: 5 }} >
@@ -136,7 +167,7 @@ export default class DackSwiper extends Component {
 
             }
 
-           else if (i < this.state.currentIndex) {
+            else if (i < this.state.currentIndex) {
                 return null
             }
 
@@ -147,7 +178,7 @@ export default class DackSwiper extends Component {
                         <View style={{ flex: 1, position: "absolute", height: SCREEN_HEIGHT, width: SCREEN_WIDTH, backgroundColor: "#fff" }} >
                             <View style={{ flex: 2, backgroundColor: "#000" }} >
                                 <Image style={{ flex: 1, height: null, width: null, resizeMode: "center" }}
-                                    source={ARTICALS[i].uri}
+                                    source={item.uri}
                                 />
                             </View>
                             <View style={{ flex: 3, padding: 5 }} >
@@ -212,7 +243,7 @@ export default class DackSwiper extends Component {
                         <View style={{ flex: 1, position: "absolute", height: SCREEN_HEIGHT, width: SCREEN_WIDTH, backgroundColor: "#fff" }} >
                             <View style={{ flex: 2, backgroundColor: "#000" }} >
                                 <Image style={{ flex: 1, height: null, width: null, resizeMode: "center" }}
-                                    source={ARTICALS[i].uri}
+                                    source={item.uri}
                                 />
                             </View>
                             <View style={{ flex: 3, padding: 5 }} >
