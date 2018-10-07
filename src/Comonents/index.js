@@ -7,7 +7,8 @@ import RresponseAnimation from "./ResponseView/index"
 import MovingPoint from "./MOvingPoint/index"
 import ImageSlider from "./imageSlider/index"
 import HeaderAnimation from "./HeaderAnimation/index"
-import ListAnimation from "./ListAnimation"
+import ListAnimation from "./ListAnimation";
+import DackSwiper from "./Dackswiper/index"
 
 export {
     FirstAnimation,
@@ -19,5 +20,6 @@ export {
     MovingPoint,
     ImageSlider,
     HeaderAnimation,
-    ListAnimation
+    ListAnimation,
+    DackSwiper
 }

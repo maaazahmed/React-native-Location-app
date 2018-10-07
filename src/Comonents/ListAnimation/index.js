@@ -11,7 +11,6 @@ import {
     Button,
     ScrollView,
 } from 'react-native';
-import { Item } from 'native-base';
 
 
 
@@ -31,7 +30,7 @@ export default class ListAnimation extends Component {
             Animated.timing(this.animatedValue, {
                 toValue: 1,
                 duration: 500,
-                easing:Easing.elastic(),
+                easing: Easing.elastic(),
                 useNativeDriver: true,
             }).start(() => {
                 this.index = this.index + 1
@@ -44,8 +43,13 @@ export default class ListAnimation extends Component {
     render() {
         const animatedPower = this.animatedValue.interpolate({
             inputRange: [0, 1],
-            // outputRange: [-70, 0], // ==>> Top to bottom
-            outputRange: [-400, 0], // ==>> Bottom to top
+            outputRange: [-400, 0], // ==>> Top to bottom
+            // outputRange: [70, 0], // ==>> Bottom to top
+        })
+
+        const opacity = this.animatedValue.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [0, 0, 1],
         })
 
 
@@ -53,7 +57,8 @@ export default class ListAnimation extends Component {
             if ((key) === this.index) {
                 return (
                     <Animated.View key={key} style={{
-                        backgroundColor: "#000", margin: 10, padding:10,
+                        backgroundColor: "#000", margin: 10, padding: 10,
+                        opacity,
                         transform: [{ translateX: animatedPower }], // ==>> Left to right 
                         //  transform: [{ translateY: animatedPower }], // ==>> Right to left 
                     }} >

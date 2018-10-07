@@ -216,7 +216,8 @@ import {
   MovingPointm,
   ImageSlider,
   HeaderAnimation,
-  ListAnimation
+  ListAnimation,
+  DackSwiper
 } from "./src/Comonents"
 
 
@@ -254,7 +255,8 @@ export default class App extends Component {
         {/* <MovingPoint /> */}
         {/* <ImageSlider /> */}
         {/* <HeaderAnimation /> */}
-        <ListAnimation/>
+        {/* <ListAnimation/> */}
+        <DackSwiper/>
       </View>
     )
   }
