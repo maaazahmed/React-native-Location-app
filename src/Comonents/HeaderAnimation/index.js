@@ -49,7 +49,6 @@ export default class HeaderAnimation extends Component {
             extrapolate: "clamp"
         })
 
-
         const headerZindex = this.state.scrollY.interpolate({
             inputRange: [0, HEADER_MAX_HEIGHT - HEADER_MIN_HEIGHT],
             outputRange: [1,0],

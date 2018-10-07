@@ -7,6 +7,7 @@ import RresponseAnimation from "./ResponseView/index"
 import MovingPoint from "./MOvingPoint/index"
 import ImageSlider from "./imageSlider/index"
 import HeaderAnimation from "./HeaderAnimation/index"
+import ListAnimation from "./ListAnimation"
 
 export {
     FirstAnimation,
@@ -17,5 +18,6 @@ export {
     RresponseAnimation,
     MovingPoint,
     ImageSlider,
-    HeaderAnimation
+    HeaderAnimation,
+    ListAnimation
 }

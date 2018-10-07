@@ -215,7 +215,8 @@ import {
   RresponseAnimation,
   MovingPointm,
   ImageSlider,
-  HeaderAnimation
+  HeaderAnimation,
+  ListAnimation
 } from "./src/Comonents"
 
 
@@ -252,7 +253,8 @@ export default class App extends Component {
         {/* <RresponseAnimation /> */}
         {/* <MovingPoint /> */}
         {/* <ImageSlider /> */}
-        <HeaderAnimation />
+        {/* <HeaderAnimation /> */}
+        <ListAnimation/>
       </View>
     )
   }
