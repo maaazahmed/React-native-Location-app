@@ -1,90 +1,3 @@
-
-
-// import React, { Component } from 'react';
-// import {
-//     Platform,
-//     StyleSheet,
-//     Text,
-//     View,
-//     Animated,
-//     Dimensions,
-//     Easing,
-//     TouchableOpacity,
-//     Button,
-//     LayoutAnimation
-// } from 'react-native';
-// import { Item } from 'native-base';
-
-
-
-
-// export default class ListAnimation extends Component {
-//     constructor() {
-//         super()
-//         this.state = {
-//             arry: [],
-//             id: 0
-//         }
-//     }
-
-//     addNotification() {
-//         var newId = this.state.id + 1
-//         let newArr = this.state.arry.slice()
-//         newArr.push({ id: newId })
-//         LayoutAnimation.configureNext(LayoutAnimation.Presets.spring)
-//         this.setState({ arry: newArr, id: newId })
-
-//     }
-
-
-//     removeItem(id) {
-//         let newArr = this.state.arry.slice()
-//         const index = newArr.findIndex(item => item.id === id)
-//         if(index > -1){
-//             newArr.splice(index,1)
-//         }
-//         this.setState({
-//             arry:newArr
-//         })
-//     }
-
-
-//     render() {
-//         const { arry } = this.state
-//         const Views = arry.map((val, index) => {
-//             return (
-//                 <View
-//                     key={index}
-//                     style={{
-//                         height: 40,
-//                         backgroundColor: "#000",
-//                         justifyContent: "space-between",
-//                         flexDirection: "row",
-//                         alignItems: "center",
-//                         padding: 10,
-//                         margin: 10,
-//                         borderRadius: 5,
-//                     }}  >
-//                     <Text style={{ color: "#fff" }} >{val.id}</Text>
-//                     <TouchableOpacity onPress={() => this.removeItem(val.id)} >
-//                         <Text style={{ color: "#fff" }}>Remove</Text>
-//                     </TouchableOpacity>
-//                 </View>
-//             )
-//         })
-//         return (
-//             <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
-//                 <Button title="Add" onPress={() => this.addNotification()} />
-//                 <View style={{ position: "absolute", bottom: 0, left: 0, right: 0, backgroundColor: "tomato" }} >{Views}</View>
-//             </View>
-//         )
-//     }
-// }
-
-
-
-
-
 import React, { Component } from 'react';
 import {
     Platform,
@@ -96,7 +9,7 @@ import {
     Easing,
     TouchableOpacity,
     Button,
-    ScrollView
+    ScrollView,
 } from 'react-native';
 import { Item } from 'native-base';
 
@@ -118,6 +31,7 @@ export default class ListAnimation extends Component {
             Animated.timing(this.animatedValue, {
                 toValue: 1,
                 duration: 500,
+                easing:Easing.elastic(),
                 useNativeDriver: true,
             }).start(() => {
                 this.index = this.index + 1
@@ -131,20 +45,24 @@ export default class ListAnimation extends Component {
         const animatedPower = this.animatedValue.interpolate({
             inputRange: [0, 1],
             // outputRange: [-70, 0], // ==>> Top to bottom
-            outputRange: [70, 0], // ==>> Bottom to top
+            outputRange: [-400, 0], // ==>> Bottom to top
         })
 
 
         let rows = this.state.valueArry.map((val, key) => {
             if ((key) === this.index) {
                 return (
-                    <Animated.View key={key} style={{ backgroundColor: "#000", margin: 10, padding: 10,transform:[{translateY:animatedPower}]  }} >
+                    <Animated.View key={key} style={{
+                        backgroundColor: "#000", margin: 10, padding:10,
+                        transform: [{ translateX: animatedPower }], // ==>> Left to right 
+                        //  transform: [{ translateY: animatedPower }], // ==>> Right to left 
+                    }} >
                         <Text style={{ color: "#fff", }} >Row {val.index}</Text>
                     </Animated.View>
                 )
             } else {
                 return (
-                    <View key={key} style={{ backgroundColor: "#000", margin: 10, padding: 10,  }} >
+                    <View key={key} style={{ backgroundColor: "#000", margin: 10, padding: 10, }} >
                         <Text style={{ color: "#fff", }}>Row {val.index}</Text>
                     </View>
                 )
@@ -154,7 +72,7 @@ export default class ListAnimation extends Component {
 
 
         return (
-            <View style={{ flex: 1, justifyContent: "center",  }} >
+            <View style={{ flex: 1, justifyContent: "center", }} >
                 <ScrollView>
                     <View>
                         {
