@@ -96,6 +96,7 @@ import {
     Easing,
     TouchableOpacity,
     Button,
+    ScrollView
 } from 'react-native';
 import { Item } from 'native-base';
 
@@ -113,7 +114,7 @@ export default class ListAnimation extends Component {
     addRow() {
         this.animatedValue.setValue(0)
         let newAdd = { index: this.index }
-        this.setState({ valueArry: [this.state.valueArry, newAdd] }, () => {
+        this.setState({ valueArry: [...this.state.valueArry, newAdd] }, () => {
             Animated.timing(this.animatedValue, {
                 toValue: 1,
                 duration: 500,
@@ -129,17 +130,38 @@ export default class ListAnimation extends Component {
     render() {
         const animatedPower = this.animatedValue.interpolate({
             inputRange: [0, 1],
-            outputRange: [-70, 0]
+            // outputRange: [-70, 0], // ==>> Top to bottom
+            outputRange: [70, 0], // ==>> Bottom to top
         })
 
 
-        let rows = this.state.valueArry.map((val, index)=>{
-            
+        let rows = this.state.valueArry.map((val, key) => {
+            if ((key) === this.index) {
+                return (
+                    <Animated.View key={key} style={{ backgroundColor: "#000", margin: 10, padding: 10,transform:[{translateY:animatedPower}]  }} >
+                        <Text style={{ color: "#fff", }} >Row {val.index}</Text>
+                    </Animated.View>
+                )
+            } else {
+                return (
+                    <View key={key} style={{ backgroundColor: "#000", margin: 10, padding: 10,  }} >
+                        <Text style={{ color: "#fff", }}>Row {val.index}</Text>
+                    </View>
+                )
+
+            }
         })
 
 
         return (
-            <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
+            <View style={{ flex: 1, justifyContent: "center",  }} >
+                <ScrollView>
+                    <View>
+                        {
+                            rows
+                        }
+                    </View>
+                </ScrollView>
 
                 <TouchableOpacity onPress={() => this.addRow()} activeOpacity={0.6} style={{
                     height: 60,
