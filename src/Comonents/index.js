@@ -10,6 +10,7 @@ import HeaderAnimation from "./HeaderAnimation/index"
 import ListAnimation from "./ListAnimation";
 import DackSwiper from "./Dackswiper/index";
 import SwiperLeftRight from "./SwiperLeftRight/index";
+import MaiterailCard from "./MaterialAnimatedCard"
 
 export {
     FirstAnimation,
@@ -23,5 +24,6 @@ export {
     HeaderAnimation,
     ListAnimation,
     DackSwiper,
-    SwiperLeftRight
+    SwiperLeftRight,
+    MaiterailCard
 }

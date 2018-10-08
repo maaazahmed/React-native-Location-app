@@ -92,10 +92,8 @@ export default class SwiperLeftRight extends Component {
                 else {
                     this.position.setValue({ y: gestrueState.dy })
                 }
-
             },
             onPanResponderRelease: (evt, gestrueState) => {
-
                 if (this.state.currentIndex > 0 && gestrueState.dy > 50 && gestrueState.vy > 0.7) {
                     Animated.timing(this.swipedCardPosition, {
                         toValue: { x: 0, y: 0 },
@@ -139,7 +137,6 @@ export default class SwiperLeftRight extends Component {
                 }
             }
         })
-
     }
 
     renderArtical() {
@@ -160,12 +157,13 @@ export default class SwiperLeftRight extends Component {
                         </View>
                     </Animated.View>
                 )
-
             }
+
 
             else if (i < this.state.currentIndex) {
                 return null
             }
+
 
             if (i === this.state.currentIndex) {
                 return (
