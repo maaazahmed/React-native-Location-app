@@ -23,7 +23,9 @@ export default class MaiterailCard extends Component {
             buttonBottomPosition: new Animated.Value(0),
             buttonLeftPosition: new Animated.Value(0),
             buttonHeightWidth: new Animated.Value(0),
-            butnText: "+"
+            buttonTextFont: new Animated.Value(0),
+            butnText: "+",
+            functionFlage: true
         }
     }
 
@@ -45,20 +47,58 @@ export default class MaiterailCard extends Component {
                 toValue: 1,
                 duration: 300,
                 easing: Easing.ease
+            }),
+            Animated.timing(this.state.buttonHeightWidth, {
+                toValue: 1,
+                duration: 300,
+                easing: Easing.ease
+            }),
+            Animated.timing(this.state.buttonTextFont, {
+                toValue: 1,
+                duration: 300,
             })
-        ]).start()
-        Animated.timing(this.state.buttonHeightWidth, {
-            toValue: 1,
-            duration: 300,
-            easing: Easing.ease
-        }).start(() => {
-            this.setState({ butnText: "-" })
+        ]).start(() => {
+            this.setState({ butnText: "-", functionFlage: false })
         })
-
-
     }
 
+
+    closeModal() {
+        Animated.parallel([
+            Animated.timing(this.state.modalHeight, {
+                toValue: 0,
+                duration: 500,
+                easing: Easing.elastic()
+            }),
+        ]).start()
+        Animated.parallel([
+            Animated.timing(this.state.buttonBottomPosition, {
+                toValue: 0,
+                duration: 300,
+                easing: Easing.ease
+            }),
+            Animated.timing(this.state.buttonLeftPosition, {
+                toValue: 0,
+                duration: 300,
+                easing: Easing.ease
+            }),
+            Animated.timing(this.state.buttonHeightWidth, {
+                toValue: 0,
+                duration: 300,
+                easing: Easing.ease
+            }),
+            Animated.timing(this.state.buttonTextFont, {
+                toValue: 0,
+                duration: 300,
+            })
+        ]).start(() => {
+            this.setState({ butnText: "+", functionFlage: true })
+        })
+    }
+
+
     render() {
+        const { functionFlage } = this.state
         const height = this.state.modalHeight.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: ["0%", "50%", "80%"],
@@ -75,6 +115,10 @@ export default class MaiterailCard extends Component {
         const buttonHeightWidth = this.state.buttonHeightWidth.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [60, 100, 150],
+        })
+        const buttonTextFont = this.state.buttonTextFont.interpolate({
+            inputRange: [0, 1],
+            outputRange: [30, 80],
         })
 
 
@@ -93,10 +137,10 @@ export default class MaiterailCard extends Component {
                     elevation: 20,
                     backgroundColor: "#fff"
                 }} >
-                    <TouchableOpacity onPress={() => this.onpenModal()} activeOpacity={.7} style={{
+                    <TouchableOpacity onPress={() => functionFlage ? this.onpenModal() : this.closeModal()} activeOpacity={.7} style={{
                         flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#8911fb", borderRadius: 100,
                     }} >
-                        <Animated.Text style={{ color: "#fff", fontSize: 30 }} >
+                        <Animated.Text style={{ color: "#fff", fontSize: buttonTextFont }} >
                             {this.state.butnText}
                         </Animated.Text>
                     </TouchableOpacity>
