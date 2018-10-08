@@ -8,7 +8,8 @@ import MovingPoint from "./MOvingPoint/index"
 import ImageSlider from "./imageSlider/index"
 import HeaderAnimation from "./HeaderAnimation/index"
 import ListAnimation from "./ListAnimation";
-import DackSwiper from "./Dackswiper/index"
+import DackSwiper from "./Dackswiper/index";
+import SwiperLeftRight from "./SwiperLeftRight/index";
 
 export {
     FirstAnimation,
@@ -21,5 +22,6 @@ export {
     ImageSlider,
     HeaderAnimation,
     ListAnimation,
-    DackSwiper
+    DackSwiper,
+    SwiperLeftRight
 }
