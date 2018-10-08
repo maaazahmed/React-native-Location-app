@@ -20,7 +20,10 @@ export default class MaiterailCard extends Component {
         super()
         this.state = {
             modalHeight: new Animated.Value(0),
-            buttonBottomPosition: new Animated.Value(0)
+            buttonBottomPosition: new Animated.Value(0),
+            buttonLeftPosition: new Animated.Value(0),
+            buttonHeightWidth: new Animated.Value(0),
+            butnText: "+"
         }
     }
 
@@ -31,12 +34,28 @@ export default class MaiterailCard extends Component {
                 duration: 500,
                 easing: Easing.elastic()
             }),
+        ]).start()
+        Animated.parallel([
             Animated.timing(this.state.buttonBottomPosition, {
                 toValue: 1,
-                duration: 500,
+                duration: 300,
+                easing: Easing.ease
+            }),
+            Animated.timing(this.state.buttonLeftPosition, {
+                toValue: 1,
+                duration: 300,
                 easing: Easing.ease
             })
         ]).start()
+        Animated.timing(this.state.buttonHeightWidth, {
+            toValue: 1,
+            duration: 300,
+            easing: Easing.ease
+        }).start(() => {
+            this.setState({ butnText: "-" })
+        })
+
+
     }
 
     render() {
@@ -46,11 +65,16 @@ export default class MaiterailCard extends Component {
         })
         const buttonBottom = this.state.buttonBottomPosition.interpolate({
             inputRange: [0, 0.5, 1],
-            outputRange: ["5%", "30%", "77%"],
+            outputRange: ["5%", "30%", "71%"],
         })
-        const buttonLeft= this.state.buttonBottomPosition.interpolate({
+        const buttonLeft = this.state.buttonLeftPosition.interpolate({
             inputRange: [0, 0.5, 1],
-            outputRange: ["5%", "20%", "42%"],
+            outputRange: ["5%", "20%", "35%"],
+        })
+
+        const buttonHeightWidth = this.state.buttonHeightWidth.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [60, 100, 150],
         })
 
 
@@ -60,8 +84,8 @@ export default class MaiterailCard extends Component {
                     <Animated.View style={{ backgroundColor: "#fff", height }} ></Animated.View>
                 </View>
                 <Animated.View style={{
-                    height: 60,
-                    width: 60,
+                    height: buttonHeightWidth,
+                    width: buttonHeightWidth,
                     borderRadius: 100,
                     position: "absolute",
                     bottom: buttonBottom,
@@ -72,9 +96,9 @@ export default class MaiterailCard extends Component {
                     <TouchableOpacity onPress={() => this.onpenModal()} activeOpacity={.7} style={{
                         flex: 1, justifyContent: "center", alignItems: "center", backgroundColor: "#8911fb", borderRadius: 100,
                     }} >
-                        <Text style={{ color: "#fff", fontSize: 30 }} >
-                            +
-                    </Text>
+                        <Animated.Text style={{ color: "#fff", fontSize: 30 }} >
+                            {this.state.butnText}
+                        </Animated.Text>
                     </TouchableOpacity>
                 </Animated.View>
 
