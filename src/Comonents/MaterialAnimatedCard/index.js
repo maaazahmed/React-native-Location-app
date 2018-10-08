@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
 import {
-    Platform,
-    StyleSheet,
-    Text,
     View,
     Animated,
-    Dimensions,
     Easing,
     TouchableOpacity,
-    Button,
-    ScrollView,
 } from 'react-native';
 
 
@@ -134,7 +128,7 @@ export default class MaiterailCard extends Component {
                     position: "absolute",
                     bottom: buttonBottom,
                     right: buttonLeft,
-                    elevation: 20,
+                    elevation: 50,
                     backgroundColor: "#fff"
                 }} >
                     <TouchableOpacity onPress={() => functionFlage ? this.onpenModal() : this.closeModal()} activeOpacity={.7} style={{
