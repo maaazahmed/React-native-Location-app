@@ -20,35 +20,36 @@ export default class SignIn extends Component {
     constructor() {
         super()
         this.state = {
-            buttonSignAnimmation: new Animated.Value(0)
+            buttonSignAnimmation: new Animated.Value(0),
+            buttonTextSignAnimmation: new Animated.Value(0)
         }
 
     }
 
 
     SignInHeandler() {
-        Animated.timing(this.state.buttonSignAnimmation, {
-            toValue: 1,
-            duration: 300
-        }).start()
+        Animated.parallel([
+            Animated.timing(this.state.buttonSignAnimmation, {
+                toValue: 1,
+                duration: 300
+            }),
+        ]).start()
     }
 
     render() {
 
         const { buttonSignAnimmation } = this.state
-
-
-        // const sighButtonWidth = buttonSignAnimmation.interpolate({
-        //     inputRange: [],
-        //     outputRange: []
-        // })
+        const sighButtonWidth = buttonSignAnimmation.interpolate({
+            inputRange: [0, 1],
+            outputRange:["100%", "12%"]
+        })
 
 
 
         return (
             <View style={styles.container}>
                 <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
-                    <Icons name="street-view" size={100} color="#fff" />
+                    {/* <Icons name="street-view" size={100} color="#fff" /> */}
                     <Text style={{ color: "#fff", fontSize: 18, marginTop: 0 }} >F Location</Text>
                 </View>
                 <View style={{ flex: 2, alignItems: "center" }} >
@@ -83,14 +84,14 @@ export default class SignIn extends Component {
                     </View>
                     <View style={{ flex: 1, width: "90%" }} >
 
-                        <View style={{ marginTop: 20, }} >
-                            <View style={{ height: 50, width: "100%", borderColor: "#fff", borderWidth: 1, borderRadius: 100, justifyContent: "center", alignItems: "center" }} >
+                        <View style={{ marginTop: 20, justifyContent:"center", alignItems:"center" }} >
+                            <Animated.View style={{ height: 50, width: sighButtonWidth, borderColor: "#fff", borderWidth: 1, borderRadius: 100, justifyContent: "center", alignItems: "center" }} >
                                 <TouchableOpacity
-                                style={{ backgroundColor: "#312e3f",width: "100%", height:"100%", borderRadius:100, justifyContent:"center", alignItems:"center"}}
+                                    style={{ backgroundColor: "#312e3f", width: "100%", height: "100%", borderRadius: 100, justifyContent: "center", alignItems: "center" }}
                                     onPress={() => { this.SignInHeandler() }}  >
-                                    <Text style={{ color: "#fff", fontSize: 20 }}  >SIGN IN</Text>
+                                    {/* <Text style={{ color: "#fff", fontSize: 20 }}  >SIGN IN</Text> */}
                                 </TouchableOpacity>
-                            </View>
+                            </Animated.View>
                         </View>
 
                         <View style={{ flex: 1, justifyContent: "flex-end", padding: 15, }} >
