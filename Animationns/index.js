@@ -11,6 +11,7 @@ import ListAnimation from "./ListAnimation";
 import DackSwiper from "./Dackswiper/index";
 import SwiperLeftRight from "./SwiperLeftRight/index";
 import MaiterailCard from "./MaterialAnimatedCard"
+import Map from "./GoogleMap/index"
 
 export {
     FirstAnimation,
@@ -25,5 +26,6 @@ export {
     ListAnimation,
     DackSwiper,
     SwiperLeftRight,
-    MaiterailCard
+    MaiterailCard,
+    Map
 }

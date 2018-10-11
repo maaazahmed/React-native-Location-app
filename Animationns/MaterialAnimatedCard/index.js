@@ -92,6 +92,7 @@ export default class MaiterailCard extends Component {
 
 
     render() {
+        Number()
         const { functionFlage } = this.state
         const height = this.state.modalHeight.interpolate({
             inputRange: [0, 0.5, 1],
