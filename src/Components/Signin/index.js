@@ -27,10 +27,24 @@ export default class SignIn extends Component {
 
 
     SignInHeandler() {
-        
+        Animated.timing(this.state.buttonSignAnimmation, {
+            toValue: 1,
+            duration: 300
+        }).start()
     }
 
     render() {
+
+        const { buttonSignAnimmation } = this.state
+
+
+        // const sighButtonWidth = buttonSignAnimmation.interpolate({
+        //     inputRange: [],
+        //     outputRange: []
+        // })
+
+
+
         return (
             <View style={styles.container}>
                 <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
@@ -68,14 +82,17 @@ export default class SignIn extends Component {
                         </View>
                     </View>
                     <View style={{ flex: 1, width: "90%" }} >
+
                         <View style={{ marginTop: 20, }} >
-                            <TouchableOpacity
-                                SignInHeandler
-                                onPress={() => { this.SignInHeandler() }}
-                                style={{ height: 50, width: "100%", borderColor: "#fff", borderWidth: 1, backgroundColor: "#312e3f", borderRadius: 100, justifyContent: "center", alignItems: "center" }} >
-                                <Text style={{ color: "#fff", fontSize: 20 }}  >SIGN IN</Text>
-                            </TouchableOpacity>
+                            <View style={{ height: 50, width: "100%", borderColor: "#fff", borderWidth: 1, borderRadius: 100, justifyContent: "center", alignItems: "center" }} >
+                                <TouchableOpacity
+                                style={{ backgroundColor: "#312e3f",width: "100%", height:"100%", borderRadius:100, justifyContent:"center", alignItems:"center"}}
+                                    onPress={() => { this.SignInHeandler() }}  >
+                                    <Text style={{ color: "#fff", fontSize: 20 }}  >SIGN IN</Text>
+                                </TouchableOpacity>
+                            </View>
                         </View>
+
                         <View style={{ flex: 1, justifyContent: "flex-end", padding: 15, }} >
                             <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "flex-end", }} >
                                 <Text style={{ color: "#f2f2f2", fontSize: 15 }} >don't have an account yet, </Text>
