@@ -8,6 +8,7 @@ import {
   Signin,
   SignUp
 } from "./src/Components/index"
+import Dashboard from "./src/index"
 
 
 export default class App extends Component {
@@ -23,7 +24,8 @@ export default class App extends Component {
       <View style={{ flex: 1 }} >
         {/* <Map /> */}
         {/* <Signin/> */}
-        <SignUp/>
+        {/* <SignUp/> */}
+        <Dashboard/>
       </View>
     )
   }
