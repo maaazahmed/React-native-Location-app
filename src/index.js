@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text
+    Text,
+    Image
 } from 'react-native';
 import BottomNavigation, {
     FullTab,
     tab
 } from 'react-native-material-bottom-navigation'
-import Icon from "react-native-vector-icons/MaterialIcons"
+import Icon from "react-native-vector-icons/FontAwesome";
+
+import MyFriends from "./Components/myFriends/index"
 
 
 
@@ -16,37 +19,38 @@ export default class App extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = { activeTab: 0 }
+        this.state = { activeTab: "games" }
 
     }
-
+   
 
     tabs = [
         {
             key: 'games',
-            icon: 'gamepad-variant',
-            label: 'Games',
-            barColor: '#388E3C',
+            icon: require("./images/person_pin_circle.png"),
+            label: 'Friends',
+            barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
         {
             key: 'movies-tv',
-            icon: 'movie',
+           icon: require("./images/person_pin_circle.png"),
             label: 'Movies & TV',
             barColor: '#B71C1C',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
         {
             key: 'music',
-            icon: 'music-note',
-            label: 'Music',
+           icon: require("./images/search.png"),
+            label: 'Search',
             barColor: '#E64A19',
-            pressColor: '#312e3f'
+            pressColor: '#rgba(255, 255, 255, 0.16)'
         }
     ]
 
     renderIcon = icon => ({ isActive }) => (
-        <Icon size={24} color="white" name={icon} />
+        // <Icon size={24} color="white" name={icon} />
+        <Image source={icon} style={{height:25, width:25}} />
     )
 
     renderTab = ({ tab, isActive }) => {
@@ -62,25 +66,24 @@ export default class App extends React.Component {
     }
 
 
-    trnderScreen(){
-        console.log(this.state.activeTab, "-----")
-        if(this.state.activeTab == "games"){
-            return < View  style={{backgroundColor:"green", flex:1}} />
+    trnderScreen() {
+        if (this.state.activeTab == "games") {
+            return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
         }
-        else if (this.state.activeTab == "movies-tv"){
-            return < View  style={{backgroundColor:"red", flex:1}} />
+        else if (this.state.activeTab == "movies-tv") {
+            return < View style={{ backgroundColor: "red", flex: 1 }} />
         }
-        else if (this.state.activeTab == "music"){
-            return < View  style={{backgroundColor:"blue", flex:1}} />
+        else if (this.state.activeTab == "music") {
+            return < View style={{ backgroundColor: "blue", flex: 1 }} />
         }
     }
 
     render() {
         return (
             <View style={{ flex: 1 }}>
-               
-                {this.trnderScreen()}
-
+                <View style={{ flex: 1 }} >
+                    {this.trnderScreen()}
+                </View>
                 <BottomNavigation
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
@@ -150,72 +153,3 @@ export default class App extends React.Component {
 
 
 
-
-
-// import React, { Component } from 'react'
-// import { View, StyleSheet } from 'react-native'
-// import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
-// import Icon from 'react-native-vector-icons/MaterialIcons'
-
-/**
- * In this Example, the active Tab will be stored in the state.
- */
-
-// export default class StatefulBottomNavigation extends Component {
-//   constructor(props) {
-//     super(props)
-
-//     this.state = { activeTab: 0 }
-//     this.handleTabChange = this.handleTabChange.bind(this)
-//   }
-
-//   handleTabChange(newTabIndex, oldTabIndex) {
-//     this.setState({ activeTab: newTabIndex })
-//   }
-
-//   render() {
-//     return (
-//       <View style={{ flex: 1 }}>
-//         <BottomNavigation
-//           activeTab={this.state.activeTab}
-//           labelColor="white"
-//           rippleColor="white"
-//           style={styles.bottomNavigation}
-//           onTabChange={this.handleTabChange}
-
-//         >
-//           <Tab
-//             barBackgroundColor="#37474F"
-//             label="Movies & TV"
-//             icon={<Icon size={24} color="white" name="ondemand-video" />}
-//           />
-//           <Tab
-//             barBackgroundColor="#00796B"
-//             label="Music"
-//             icon={<Icon size={24} color="white" name="music-note" />}
-//           />
-//           <Tab
-//             barBackgroundColor="#5D4037"
-//             label="Books"
-//             icon={<Icon size={24} color="white" name="book" />}
-//           />
-//           <Tab
-//             barBackgroundColor="#3E2723"
-//             label="Newsstand"
-//             icon={<Icon size={24} color="white" name="newspaper" />}
-//           />
-//         </BottomNavigation>
-//       </View>
-//     )
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   bottomNavigation: {
-//     position: 'absolute',
-//     left: 0,
-//     right: 0,
-//     bottom: 0,
-//     height: 56
-//   }
-// })
