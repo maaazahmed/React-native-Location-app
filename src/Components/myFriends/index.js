@@ -3,6 +3,7 @@ import {
     View,
     Text
 } from 'react-native';
+import { Button, Card,  } from 'react-native-material-design';
 
 
 export default class MyFriends extends Component {

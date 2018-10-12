@@ -7,14 +7,9 @@ import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigati
 import { MyFriends, AllUsers } from "./Components"
  
 
-
-
-
-
 export default class App extends React.Component {
     constructor(props) {
         super(props)
-
         this.state = { activeTab: "games" }
 
     }
