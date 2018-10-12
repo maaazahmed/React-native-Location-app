@@ -48,7 +48,7 @@
 //                 label={tab.label}
 //                 renderIcon={this.renderIcon(tab.icon)}
 //             />
-            
+
 //         )
 //     }
 
@@ -88,33 +88,38 @@ const AlbumsRoute = () => <Text>Albums</Text>;
 
 const RecentsRoute = () => <Text>Recents</Text>;
 
+// const a = () => <Text>Recents</Text>;
+
 export default class MyComponent extends React.Component {
-  state = {
-    index: 0,
-    routes: [
-      { key: 'music', title: 'Music', icon: 'queue-music' },
-      { key: 'albums', title: 'Albums', icon: 'album' },
-      { key: 'recents', title: 'Recents', icon: 'history' },
-    ],
-  };
+    state = {
+        index: 0,
+        routes: [
+            { key: 'music', title: 'Friends', icon: 'place', color: '#312e3f' },
+            
+            { key: 'albums', title: 'Albums', icon: 'arrow-down', color: '#312e3f' },
+            { key: 'recents', title: 'Recents', icon: 'colorize', color: '#312e3f' },
+            { key: 'search', title: 'Search', icon: 'search', color: '#312e3f' },
+        ],
+    };
 
-  _handleIndexChange = index => this.setState({ index });
+    _handleIndexChange = index => this.setState({ index });
+    _renderScene = BottomNavigation.SceneMap({
+        music: MusicRoute,
+        albums: AlbumsRoute,
+        recents: RecentsRoute,
+        search: RecentsRoute,
+    });
 
-  _renderScene = BottomNavigation.SceneMap({
-    music: MusicRoute,
-    albums: AlbumsRoute,
-    recents: RecentsRoute,
-  });
 
-  render() {
-    return (
-      <BottomNavigation
-        navigationState={this.state}
-        onIndexChange={this._handleIndexChange}
-        renderScene={this._renderScene}
-      />
-    );
-  }
+    render() {
+        return (
+            <BottomNavigation
+                navigationState={this.state}
+                onIndexChange={this._handleIndexChange}
+                renderScene={this._renderScene}
+            />
+        );
+    }
 }
 
 
