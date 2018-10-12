@@ -34,22 +34,21 @@ export default class App extends React.Component {
         },
         {
             key: 'movies-tv',
-           icon: require("./images/person_pin_circle.png"),
-            label: 'Movies & TV',
-            barColor: '#B71C1C',
+           icon: require("./images/send_request.png"),
+            label: 'send',
+            barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
         {
             key: 'music',
            icon: require("./images/search.png"),
             label: 'Search',
-            barColor: '#E64A19',
+            barColor: '#312e3f',
             pressColor: '#rgba(255, 255, 255, 0.16)'
         }
     ]
 
     renderIcon = icon => ({ isActive }) => (
-        // <Icon size={24} color="white" name={icon} />
         <Image source={icon} style={{height:25, width:25}} />
     )
 
