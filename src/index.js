@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text,
     Image
 } from 'react-native';
-import BottomNavigation, {
-    FullTab,
-    tab
-} from 'react-native-material-bottom-navigation'
-import Icon from "react-native-vector-icons/FontAwesome";
+import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
+import { MyFriends, AllUsers } from "./Components"
+ 
 
-import MyFriends from "./Components/myFriends/index"
 
 
 
@@ -22,7 +18,7 @@ export default class App extends React.Component {
         this.state = { activeTab: "games" }
 
     }
-   
+
 
     tabs = [
         {
@@ -34,14 +30,14 @@ export default class App extends React.Component {
         },
         {
             key: 'movies-tv',
-           icon: require("./images/send_request.png"),
+            icon: require("./images/send_request.png"),
             label: 'send',
             barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
         {
             key: 'music',
-           icon: require("./images/search.png"),
+            icon: require("./images/search.png"),
             label: 'Search',
             barColor: '#312e3f',
             pressColor: '#rgba(255, 255, 255, 0.16)'
@@ -49,7 +45,7 @@ export default class App extends React.Component {
     ]
 
     renderIcon = icon => ({ isActive }) => (
-        <Image source={icon} style={{height:25, width:25}} />
+        <Image source={icon} style={{ height: 25, width: 25 }} />
     )
 
     renderTab = ({ tab, isActive }) => {
@@ -70,7 +66,7 @@ export default class App extends React.Component {
             return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
         }
         else if (this.state.activeTab == "movies-tv") {
-            return < View style={{ backgroundColor: "red", flex: 1 }} />
+            return < View style={{ backgroundColor: "red", flex: 1 }} ><AllUsers/></View>
         }
         else if (this.state.activeTab == "music") {
             return < View style={{ backgroundColor: "blue", flex: 1 }} />

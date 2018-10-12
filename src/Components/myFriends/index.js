@@ -4,6 +4,7 @@ import {
     Text
 } from 'react-native';
 
+
 export default class MyFriends extends Component {
     constructor() {
         super()
