@@ -5,7 +5,8 @@ import {
 } from 'react-native';
 import {
   Map,
-  Signin
+  Signin,
+  SignUp
 } from "./src/Components/index"
 
 
@@ -21,7 +22,8 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }} >
         {/* <Map /> */}
-        <Signin/>
+        {/* <Signin/> */}
+        <SignUp/>
       </View>
     )
   }

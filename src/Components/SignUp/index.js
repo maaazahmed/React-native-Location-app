@@ -13,7 +13,7 @@ import { Pulse } from 'react-native-loader';
 
 
 const { width, height } = Dimensions.get("window")
-export default class SignIn extends Component {
+export default class SignUp extends Component {
     constructor() {
         super()
         this.state = {
