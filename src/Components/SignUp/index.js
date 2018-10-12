@@ -12,7 +12,7 @@ import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
 
 
-const { width, height } = Dimensions.get("window")
+const { height } = Dimensions.get("window")
 export default class SignUp extends Component {
     constructor() {
         super()
@@ -22,7 +22,7 @@ export default class SignUp extends Component {
             heightWidth: new Animated.Value(0),
             email: "",
             password: "",
-            username:"",
+            username: "",
             isLoader: true
         }
 
