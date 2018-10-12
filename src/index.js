@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import {
     View,
+    Text
 } from 'react-native';
 import BottomNavigation, {
     FullTab,
-    
+    tab
 } from 'react-native-material-bottom-navigation'
 import Icon from "react-native-vector-icons/MaterialIcons"
 
@@ -50,31 +51,42 @@ export default class App extends React.Component {
 
     renderTab = ({ tab, isActive }) => {
         return (
-            <View>
-                <FullTab
-                    isActive={isActive}
-                    key={tab.key}
-                    label={tab.label}
-                    renderIcon={this.renderIcon(tab.icon)}
-                />
-            </View>
+            <FullTab
+                isActive={isActive}
+                key={tab.key}
+                label={tab.label}
+                renderIcon={this.renderIcon(tab.icon)}
+            />
 
         )
+    }
+
+
+    trnderScreen(){
+        console.log(this.state.activeTab, "-----")
+        if(this.state.activeTab == "games"){
+            return < View  style={{backgroundColor:"green", flex:1}} />
+        }
+        else if (this.state.activeTab == "movies-tv"){
+            return < View  style={{backgroundColor:"red", flex:1}} />
+        }
+        else if (this.state.activeTab == "music"){
+            return < View  style={{backgroundColor:"blue", flex:1}} />
+        }
     }
 
     render() {
         return (
             <View style={{ flex: 1 }}>
-                <View style={{ flex: 1 }}>
+               
+                {this.trnderScreen()}
 
-                </View>
                 <BottomNavigation
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
                     renderTab={this.renderTab}
                     tabs={this.tabs}
-                >
-                </BottomNavigation>
+                />
             </View>
         )
     }
