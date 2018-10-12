@@ -90,7 +90,6 @@ export default class SignUp extends Component {
                             style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
                         <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text>
                     </View>
-                    {/* <ion-icon name="contact"></ion-icon> */}
                     <Animated.View style={{ opacity }} >
                         <View style={[styles.InputView]} >
                             <Icon name="contact" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
