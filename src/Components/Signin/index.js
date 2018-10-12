@@ -41,6 +41,33 @@ export default class SignIn extends Component {
             }).start()
         }, 1000)
     }
+
+
+
+    signHendler() {
+        Animated.parallel([
+            Animated.timing(this.state.logoPostion, {
+                toValue: 0,
+                duration: 500
+            }),
+            Animated.timing(this.state.opacity, {
+                toValue: 0,
+                duration: 300
+            }),
+        ]).start()
+
+        Animated.timing(this.state.heightWidth, {
+            toValue: 0,
+            duration: 500
+        }).start()
+
+    }
+
+
+
+
+
+
     render() {
         const marginTop = this.state.logoPostion.interpolate({
             inputRange: [0, 1],
@@ -87,7 +114,7 @@ export default class SignIn extends Component {
                                 underlineColorAndroid="transparent"
                             />
                         </View>
-                        <TouchableOpacity activeOpacity={0.5} style={styles.buttonContainer} >
+                        <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer} >
                             <Text style={styles.buttonText} >Log In</Text>
                         </TouchableOpacity>
                     </Animated.View>
