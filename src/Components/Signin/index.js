@@ -9,7 +9,7 @@ import {
     Dimensions,
 } from 'react-native';
 import { Icon } from 'native-base';
-import { Pulse } from 'react-native-loader';
+import {  Pulse } from 'react-native-loader';
 
 
 const { width, height } = Dimensions.get("window")

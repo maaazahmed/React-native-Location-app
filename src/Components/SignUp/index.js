@@ -22,6 +22,7 @@ export default class SignUp extends Component {
             heightWidth: new Animated.Value(0),
             email: "",
             password: "",
+            username:"",
             isLoader: true
         }
 
@@ -89,7 +90,21 @@ export default class SignUp extends Component {
                             style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
                         <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text>
                     </View>
+                    {/* <ion-icon name="contact"></ion-icon> */}
                     <Animated.View style={{ opacity }} >
+                        <View style={[styles.InputView]} >
+                            <Icon name="contact" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
+                            <TextInput
+                                style={styles.Input}
+                                value={this.state.username}
+                                placeholder="Usernaem"
+                                returnKeyType="next"
+                                keyboardType="default"
+                                placeholderTextColor="#c3bfd8"
+                                underlineColorAndroid="transparent"
+                                onChangeText={(username) => this.setState({ username })}
+                            />
+                        </View>
                         <View style={[styles.InputView]} >
                             <Icon name="mail" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
                             <TextInput
@@ -155,7 +170,7 @@ const styles = StyleSheet.create({
         marginBottom: 30
     },
     TextFields: {
-        height: height / 1.8
+        height: height / 1.5
     },
     buttonContainer: {
         height: 60,
