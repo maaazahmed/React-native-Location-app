@@ -9,6 +9,7 @@ import {
     Dimensions,
 } from 'react-native';
 import { Icon } from 'native-base';
+import { Bubbles, DoubleBounce, Bars, Pulse } from 'react-native-loader';
 
 
 const { width, height } = Dimensions.get("window")
@@ -19,6 +20,9 @@ export default class SignIn extends Component {
             logoPostion: new Animated.Value(0),
             opacity: new Animated.Value(0),
             heightWidth: new Animated.Value(0),
+            email: "",
+            password: "",
+            isLoader: true
         }
 
     }
@@ -39,10 +43,9 @@ export default class SignIn extends Component {
                 toValue: 1,
                 duration: 500
             }).start()
+            this.setState({ isLoader: false })
         }, 1000)
     }
-
-
 
     signHendler() {
         Animated.parallel([
@@ -55,18 +58,13 @@ export default class SignIn extends Component {
                 duration: 300
             }),
         ]).start()
-
         Animated.timing(this.state.heightWidth, {
             toValue: 0,
             duration: 500
         }).start()
+        this.setState({ isLoader: true })
 
     }
-
-
-
-
-
 
     render() {
         const marginTop = this.state.logoPostion.interpolate({
@@ -96,28 +94,37 @@ export default class SignIn extends Component {
                             <Icon name="mail" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
                             <TextInput
                                 style={styles.Input}
+                                value={this.state.email}
                                 placeholder="Email"
                                 returnKeyType="next"
                                 keyboardType="email-address"
                                 placeholderTextColor="#c3bfd8"
                                 underlineColorAndroid="transparent"
+                                onChangeText={(email) => this.setState({ email })}
                             />
                         </View>
                         <View style={styles.InputView} >
                             <Icon name="lock" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 23 }} />
                             <TextInput
+                                value={this.state.password}
                                 style={styles.Input}
                                 placeholder="Password"
                                 returnKeyType="next"
                                 keyboardType="default"
                                 placeholderTextColor="#c3bfd8"
                                 underlineColorAndroid="transparent"
+                                onChangeText={(password) => this.setState({ password })}
                             />
                         </View>
                         <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer} >
                             <Text style={styles.buttonText} >Log In</Text>
                         </TouchableOpacity>
                     </Animated.View>
+                    {(this.state.isLoader) ?
+                        <View style={{ justifyContent: "center", width: "100%", alignItems: "center", position: "absolute", bottom: 10 }} >
+                            <Pulse size={20} color="#c3bfd8" style={{}} />
+                        </View>
+                        : null}
                 </View>
             </View>
         );
