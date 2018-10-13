@@ -7,9 +7,11 @@ import {
     TouchableOpacity,
     Animated,
     Dimensions,
+
+    Image
 } from 'react-native';
 import { Icon } from 'native-base';
-import {  Pulse } from 'react-native-loader';
+import { Pulse } from 'react-native-loader';
 
 
 const { width, height } = Dimensions.get("window")
@@ -69,7 +71,8 @@ export default class SignIn extends Component {
     render() {
         const marginTop = this.state.logoPostion.interpolate({
             inputRange: [0, 1],
-            outputRange: ["100%", "0%"],
+            // outputRange: ["100%", "0%"],
+            outputRange: ["50%", "-5%"],
         })
         const opacity = this.state.opacity.interpolate({
             inputRange: [0, 1],
@@ -77,17 +80,23 @@ export default class SignIn extends Component {
         })
         const heightWidth = this.state.heightWidth.interpolate({
             inputRange: [0, 1],
-            outputRange: [200, 100],
+            outputRange: [270, 170],
         })
 
         return (
             <View style={styles.container} >
                 <View style={styles.TextFields} >
-                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
+                    <View style={{
+                        flex: 1,
+                        // justifyContent: "center",
+                        alignItems: "center",
+                    }} >
+                        {/* <Image resizeMode="contain" /> */}
                         <Animated.Image
-                            source={require("./images/logo.png")}
+                            resizeMode="contain"
+                            source={require("./images/logo2.png")}
                             style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
-                        <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text>
+                        {/* <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text> */}
                     </View>
                     <Animated.View style={{ opacity }} >
                         <View style={[styles.InputView]} >
