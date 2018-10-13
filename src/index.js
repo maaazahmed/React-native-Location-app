@@ -58,10 +58,10 @@ export default class App extends React.Component {
 
     trnderScreen() {
         if (this.state.activeTab == "games") {
-            return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
+            return < View style={{ backgroundColor: "red", flex: 1 }} ><AllUsers/></View>
         }
         else if (this.state.activeTab == "movies-tv") {
-            return < View style={{ backgroundColor: "red", flex: 1 }} ><AllUsers/></View>
+            return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
         }
         else if (this.state.activeTab == "music") {
             return < View style={{ backgroundColor: "blue", flex: 1 }} />

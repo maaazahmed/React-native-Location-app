@@ -88,15 +88,12 @@ export default class SignIn extends Component {
                 <View style={styles.TextFields} >
                     <View style={{
                         flex: 1,
-                        // justifyContent: "center",
-                        alignItems: "center",
+                        alignItems: "center"
                     }} >
-                        {/* <Image resizeMode="contain" /> */}
                         <Animated.Image
                             resizeMode="contain"
                             source={require("./images/logo2.png")}
                             style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
-                        {/* <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text> */}
                     </View>
                     <Animated.View style={{ opacity }} >
                         <View style={[styles.InputView]} >
@@ -128,12 +125,17 @@ export default class SignIn extends Component {
                         <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer} >
                             <Text style={styles.buttonText} >Log In</Text>
                         </TouchableOpacity>
+                        <View style={{justifyContent:"center", alignItems:"center", flexDirection:"row", marginTop:10}} >
+                            <Text style={{color:"#c3bfd8", fontSize:15}} >Create an account? </Text>
+                            <TouchableOpacity><Text style={{color:"#c3bfd8", fontSize:17}} > Sign Up</Text></TouchableOpacity>
+                        </View>
                     </Animated.View>
                     {(this.state.isLoader) ?
                         <View style={{ justifyContent: "center", width: "100%", alignItems: "center", position: "absolute", bottom: 10 }} >
                             <Pulse size={20} color="#c3bfd8" style={{}} />
                         </View>
                         : null}
+                        
                 </View>
             </View>
         );

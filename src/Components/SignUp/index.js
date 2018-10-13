@@ -137,8 +137,12 @@ export default class SignUp extends Component {
                             />
                         </View>
                         <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer} >
-                            <Text style={styles.buttonText} >Log In</Text>
+                            <Text style={styles.buttonText} >Sign Up</Text>
                         </TouchableOpacity>
+                        <View style={{justifyContent:"center", alignItems:"center", flexDirection:"row", marginTop:10}} >
+                            <Text style={{color:"#c3bfd8", fontSize:15}} >Already have an account? </Text>
+                            <TouchableOpacity><Text style={{color:"#c3bfd8", fontSize:17}} > Sign In</Text></TouchableOpacity>
+                        </View>
                     </Animated.View>
                     {(this.state.isLoader) ?
                         <View style={{ justifyContent: "center", width: "100%", alignItems: "center", position: "absolute", bottom: 10 }} >

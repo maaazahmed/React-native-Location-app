@@ -13,7 +13,7 @@ export default class AllUsers extends Component {
     render() {
         return (
             <View style={{ flex: 1, justifyContent:"center", backgroundColor:"#fff" }} >
-                <Text>All Users</Text>
+               
             </View>
         )
     }
