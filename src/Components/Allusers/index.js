@@ -3,10 +3,11 @@ import {
     View,
     Text,
     Dimensions,
-    StyleSheet
+    StyleSheet,
+    Image
 } from 'react-native';
+import Icons from "react-native-vector-icons/FontAwesome"
 import { Container, Header, Content, Card, CardItem, Thumbnail, Button, Icon, Left, Body } from 'native-base';
-
 
 
 const { height, width } = Dimensions.get("window")
@@ -16,7 +17,7 @@ export default class AllUsers extends Component {
     }
     render() {
         return (
-            <View style={{ flex: 1, backgroundColor: "#373447" }} >
+            <View style={{ flex: 1, backgroundColor: "#312e3f" }} >
                 <Header style={{ paddingLeft: 5, paddingRight: 5, backgroundColor: "#312e3f" }} >
                     <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }} >
                         <View>
@@ -37,35 +38,28 @@ export default class AllUsers extends Component {
                         </View>
                     </View>
                 </Header>
-                <View style={{ flex: 1 }} >
-                    {/* <Card style={styles.card} >
-                        <CardItem style={{ flex: 1, width: "100%" }} >
-                            <Left>
-                                <Thumbnail source={{ uri: 'https://tse2.mm.bing.net/th?id=OIP.wVna9FeVjRDkvlsdMAg8wQHaJQ&pid=15.1&P=0&w=300&h=300' }} />
-                                <Body>
-                                    <Text>NativeBase</Text>
-                                    <Text note>GeekyAnts</Text>
-                                </Body>
-                            </Left>
-                        </CardItem>
-                    </Card>
-                    <Card style={styles.card} >
-                        <CardItem>
-                            <Left>
-                                <Thumbnail source={{ uri: 'https://tse2.mm.bing.net/th?id=OIP.wVna9FeVjRDkvlsdMAg8wQHaJQ&pid=15.1&P=0&w=300&h=300' }} />
-                                <Body>
-                                    <Text>NativeBase</Text>
-                                    <Text note>GeekyAnts</Text>
-                                </Body>
-                            </Left>
-                        </CardItem>
-                    </Card> */}
-                    <View style={{ height: "15%", width: width, backgroundColor: "#fff", flexDirection:"row" }} >
-                        <View style={{flex:1, backgroundColor:"red"}} ></View>
-                        <View style={{flex:3, backgroundColor:"blue"}}></View>
-                        <View style={{flex:1, backgroundColor:"yellow"}}></View>
+
+
+                {/* <View style={{ flex: 1, alignItems: "center" }} >
+                    <View style={styles.customCard} >
+                        <View style={styles.avatarContainer} >
+                            <Image style={{ height: 75, width: 75, borderRadius: width / 2 }} 
+                            resizeMode="cover" source={{ uri: 'http://2.bp.blogspot.com/_vW1GG83Zr1U/TPfiJbObpiI/AAAAAAAAHI8/etK921cL5l4/s400/hamid%2Bgul.jpg' }} />
+                            <Icons name="circle" style={{ color: "#ff2a68", alignSelf:"flex-start", fontSize:9, marginLeft:7, marginTop:1 }} />
+                        </View>
+                        <View style={{ flex: 3, marginTop:-5 }}>
+                            <View style={{ flex: 1, paddingLeft: 25, }} >
+                                <Text style={{ fontSize: 17, color: "#fff" }} >General Hameed Gul</Text>
+                                <Text style={{ color: "#c3bfd8" }} >maaz@gmail.com</Text>
+                                <Text style={{ color: "#c3bfd8" }} >Last update 4:30 AM </Text>
+                            </View>
+                        </View>
+                        <View style={{ flex: 1, width: "25%", backgroundColor: "yellow" }}></View>
                     </View>
-                </View>
+                </View> */}
+
+
+
             </View>
         )
     }
@@ -73,13 +67,21 @@ export default class AllUsers extends Component {
 
 
 const styles = StyleSheet.create({
-    card: {
-        margin: 0,
-        elevation: 0,
-        borderTopWidth: 0,
-        marginBottom: 0,
-        marginTop: 0,
-        height: 90,
+    customCard: {
+        height: 100,
+        width: width,
+        backgroundColor: "#312e3f",
+        flexDirection: "row",
+        padding: 20,
+        marginBottom: 20,
+    },
+    avatarContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        width: "25%",
+        flexDirection: "row",
+      
+
 
     }
 })
