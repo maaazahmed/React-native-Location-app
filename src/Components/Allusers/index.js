@@ -9,7 +9,8 @@ import {
     TouchableOpacity
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
-import { Container, Header, Content, Card, CardItem, Thumbnail, Button, Icon, Left, Body } from 'native-base';
+import { Header, Button, Icon, } from 'native-base';
+import { Searchbar } from 'react-native-paper';
 
 
 let arr = [
@@ -89,10 +90,15 @@ let arr = [
 
 
 
+
+
 const { height, width } = Dimensions.get("window")
 export default class AllUsers extends Component {
     constructor() {
         super()
+    }
+    searchUser() {
+        alert("")
     }
     render() {
         return (
@@ -100,7 +106,7 @@ export default class AllUsers extends Component {
                 <Header style={{ paddingLeft: 5, paddingRight: 5, backgroundColor: "#312e3f" }} >
                     <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }} >
                         <View>
-                            <Button transparent>
+                            <Button onPress={()=>this.searchUser()} transparent>
                                 <Icon name='menu' />
                             </Button>
                         </View>
@@ -110,10 +116,11 @@ export default class AllUsers extends Component {
                                 <Text style={{ color: "#fff", fontWeight: "400", fontSize: 20, }} >Find Friend</Text>
                             </View>
                         </View>
-                        <View>
+                        <View style={{ flexDirection: "row" }} >
                             <Button transparent>
                                 <Icon name='search' />
                             </Button>
+
                         </View>
                     </View>
                 </Header>
@@ -137,7 +144,7 @@ export default class AllUsers extends Component {
                                     </View>
                                     <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center" }}>
                                         <Button transparent >
-                                            <Icon name="person-add" style={{ color: "#ff2a68", }}  />
+                                            <Icon name="person-add" style={{ color: "#ff2a68", }} />
                                         </Button>
                                     </View>
                                 </View>
@@ -146,14 +153,6 @@ export default class AllUsers extends Component {
                     }} keyExtractor={(item) => {
                         return item.email
                     }} />
-
-
-
-
-
-
-
-
             </View>
         )
     }
