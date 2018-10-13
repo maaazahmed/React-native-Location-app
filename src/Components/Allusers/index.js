@@ -253,8 +253,8 @@ export default class AllUsers extends Component {
                                             <Text style={{ color: "#c3bfd8" }} >Last update {item.lastSeen}</Text>
                                         </View>
                                     </View>
-                                    <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center" }}>
-                                        <Button transparent >
+                                    <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center", }}>
+                                        <Button style={{alignSelf:"center"}}  transparent >
                                             <Icon name="person-add" style={{ color: "#ff2a68", }} />
                                         </Button>
                                     </View>

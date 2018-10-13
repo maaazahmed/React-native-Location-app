@@ -254,8 +254,8 @@ export default class MyFriends extends Component {
                                         </View>
                                     </View>
                                     <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center" }}>
-                                        <Button transparent >
-                                            <Icons name="map-marker" size={20} style={{ color: "#ff2a68",  }} />
+                                        <Button style={{alignSelf:"center"}} transparent  >
+                                            <Icons name="map-marker" size={30} style={{ color: "#ff2a68",  }} />
                                         </Button>
                                     </View>
                                 </View>
