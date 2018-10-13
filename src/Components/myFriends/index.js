@@ -95,7 +95,7 @@ let arr = [
 
 
 const { height, width } = Dimensions.get("window")
-export default class AllUsers extends Component {
+export default class MyFriends extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -255,7 +255,7 @@ export default class AllUsers extends Component {
                                     </View>
                                     <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center" }}>
                                         <Button transparent >
-                                            <Icon name="person-add" style={{ color: "#ff2a68", }} />
+                                            <Icons name="map-marker" size={20} style={{ color: "#ff2a68",  }} />
                                         </Button>
                                     </View>
                                 </View>
