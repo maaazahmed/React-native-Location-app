@@ -20,8 +20,8 @@ export default class App extends Component {
       <View style={{ flex: 1 }} >
         {/* <Map /> */}
         {/* <Signin/> */}
-        {/* <SignUp/> */}
-        <Dashboard/>
+        <SignUp/>
+        {/* <Dashboard/> */}
       </View>
     )
   }
