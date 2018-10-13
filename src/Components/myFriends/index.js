@@ -3,7 +3,6 @@ import {
     View,
     Text
 } from 'react-native';
-import { Button, Card,  } from 'react-native-material-design';
 
 
 export default class MyFriends extends Component {
@@ -11,17 +10,20 @@ export default class MyFriends extends Component {
         super()
     }
 
-
-
-
     render() {
         return (
-            <View style={{ flex: 1, justifyContent:"center", backgroundColor:"yellow" }} >
+            <View style={{ flex: 1, justifyContent: "center", backgroundColor: "yellow" }} >
                 <Text>Friends</Text>
             </View>
         )
     }
 }
+
+
+
+// MyFriends.propTypes = {
+//     oneOf:PropTypes.object
+// }
 
 
 

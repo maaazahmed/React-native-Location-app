@@ -23,9 +23,9 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }} >
         {/* <Map /> */}
-        {/* <Signin/> */}
+        <Signin/>
         {/* <SignUp/> */}
-        <Dashboard/>
+        {/* <Dashboard/> */}
       </View>
     )
   }
