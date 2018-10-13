@@ -100,7 +100,13 @@ export default class AllUsers extends Component {
         super()
         this.inputFeildAnim = new Animated.Value(0)
         this.opacity = new Animated.Value(0)
+        this.textInputOpacity = new Animated.Value(0)
+        this.state = {
+            searchVal: ""
+        }
     }
+
+
 
 
     searchUser() {
@@ -111,31 +117,65 @@ export default class AllUsers extends Component {
             }),
             Animated.timing(this.inputFeildAnim, {
                 toValue: 1,
-                duration: 500
+                duration: 300
             }),
         ]).start()
 
+        Animated.timing(this.textInputOpacity, {
+            toValue: 1,
+            duration: 300
+        }).start(() => {
+            setTimeout(() => {
+                if(this.state.searchVal === ""){
+                    this.cancleSearch()
+                }
+            }, 30000)
+        })
+    }
 
+
+    cancleSearch() {
+        Animated.parallel([
+            Animated.timing(this.opacity, {
+                toValue: 0,
+                duration: 300
+            }),
+            Animated.timing(this.inputFeildAnim, {
+                toValue: 0,
+                duration: 300
+            }),
+        ]).start()
+
+        Animated.timing(this.textInputOpacity, {
+            toValue: 0,
+            duration: 300
+        }).start()
     }
 
 
 
 
+
     render() {
-        let inputFeildWidth = this.inputFeildAnim.interpolate({
-            inputRange: [0, 1],
-            outputRange: ["0%", "100%"]
-        })
-        let ggOpacity = this.opacity.interpolate({
+
+        let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
             outputRange: [1, 0]
+        })
+        let inputFeildWidth = this.inputFeildAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: [-100, 0]
+        })
+        let textInputOpacity = this.textInputOpacity.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [0, 0.2, 1]
         })
 
         return (
             <View style={{ flex: 1, backgroundColor: "#312e3f" }} >
                 <Header style={{ paddingLeft: 5, paddingRight: 5, backgroundColor: "#312e3f" }} >
 
-                    <Animated.View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center", position: "absolute", width: "100%", zIndex: 1, opacity: ggOpacity }} >
+                    <Animated.View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center", position: "absolute", width: "100%", zIndex: 1, opacity: bgOpacity }} >
                         <View >
                             <Button transparent>
                                 <Icon name='menu' />
@@ -154,27 +194,50 @@ export default class AllUsers extends Component {
                         </View>
                     </Animated.View>
                 </Header>
+
+
                 <Animated.View style={{
                     flex: 1,
                     flexDirection: "row",
                     justifyContent: "space-between",
                     alignItems: "center",
                     position: "absolute",
-                    width: inputFeildWidth,
-                    // zIndex:-1
-                    // opacity: inputFeilOpacity
+                    width: "100%",
+                    top: inputFeildWidth,
+                    right: 0,
+                    opacity: textInputOpacity,
+                    backgroundColor: "#312e3f",
+                    paddingTop: 7,
+                    paddingLeft: 10,
+                    paddingRight: 10,
                 }} >
-                    <TextInput placeholder="Search by email"
+                    <TextInput placeholder="Search "
                         style={{
                             borderBottomColor: "#c3bfd8",
                             borderBottomWidth: 1,
-                            width: "100%",
+                            flex: 1,
                             height: "100%",
-                            backgroundColor: "#373447"
+                            backgroundColor: "#312e3f",
                         }}
+                        value={this.state.searchVal}
+                        onChange={(searchVal) => { this.setState({ searchVal }) }}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
+                    <View style={{
+                        width: 30, height: 30,
+                        alignItems: "center",
+                        alignSelf: "flex-end",
+                        borderBottomColor: "#c3bfd8",
+                        borderBottomWidth: 1
+                    }} >
+                        <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
+                            <Icon name='close' style={{ color: "#fff", fontSize: 20 }} />
+                        </TouchableOpacity>
+                    </View>
                 </Animated.View>
+
+
+
                 <FlatList
                     data={arr}
                     renderItem={({ item, index }) => {
