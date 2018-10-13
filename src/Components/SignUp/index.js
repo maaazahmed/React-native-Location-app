@@ -146,7 +146,7 @@ export default class SignUp extends Component {
                     </Animated.View>
                     {(this.state.isLoader) ?
                         <View style={{ justifyContent: "center", width: "100%", alignItems: "center", position: "absolute", bottom: 10 }} >
-                            <Pulse size={20} color="#c3bfd8" style={{}} />
+                            <Pulse size={20} color="#c3bfd8"/>
                         </View>
                         : null}
                 </View>
