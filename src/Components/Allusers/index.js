@@ -5,7 +5,8 @@ import {
     Dimensions,
     StyleSheet,
     Image,
-    FlatList
+    FlatList,
+    TouchableOpacity
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Container, Header, Content, Card, CardItem, Thumbnail, Button, Icon, Left, Body } from 'native-base';
@@ -124,17 +125,21 @@ export default class AllUsers extends Component {
                                 <View style={styles.customCard} >
                                     <View style={styles.avatarContainer} >
                                         <Image style={{ height: 75, width: 75, borderRadius: width / 2 }}
-                                            resizeMode="cover" source={{ uri: 'http://2.bp.blogspot.com/_vW1GG83Zr1U/TPfiJbObpiI/AAAAAAAAHI8/etK921cL5l4/s400/hamid%2Bgul.jpg' }} />
+                                            resizeMode="cover" source={{ uri: item.pic }} />
                                         <Icons name="circle" style={{ color: "#ff2a68", alignSelf: "flex-start", fontSize: 9, marginLeft: 7, marginTop: 1 }} />
                                     </View>
                                     <View style={{ flex: 3, marginTop: -5 }}>
                                         <View style={{ flex: 1, paddingLeft: 25, }} >
-                                            <Text style={{ fontSize: 17, color: "#fff" }} >General Hameed Gul</Text>
-                                            <Text style={{ color: "#c3bfd8" }} >maaz@gmail.com</Text>
-                                            <Text style={{ color: "#c3bfd8" }} >Last update 4:30 AM </Text>
+                                            <Text style={{ fontSize: 17, color: "#fff" }} >{item.username}</Text>
+                                            <Text style={{ color: "#c3bfd8" }} >{item.email}</Text>
+                                            <Text style={{ color: "#c3bfd8" }} >Last update {item.lastSeen}</Text>
                                         </View>
                                     </View>
-                                    <View style={{ flex: 1, width: "25%", backgroundColor: "yellow" }}></View>
+                                    <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center" }}>
+                                        <Button transparent >
+                                            <Icon name="person-add" style={{ color: "#ff2a68", }}  />
+                                        </Button>
+                                    </View>
                                 </View>
                             </View>
                         )
