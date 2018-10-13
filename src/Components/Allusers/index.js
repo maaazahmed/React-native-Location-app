@@ -6,7 +6,9 @@ import {
     StyleSheet,
     Image,
     FlatList,
-    TouchableOpacity
+    TouchableOpacity,
+    TextInput,
+    Animated
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
@@ -96,39 +98,88 @@ const { height, width } = Dimensions.get("window")
 export default class AllUsers extends Component {
     constructor() {
         super()
+        this.inputFeildAnim = new Animated.Value(0)
+        this.opacity = new Animated.Value(0)
     }
+
+
     searchUser() {
-        alert("")
+        Animated.parallel([
+            Animated.timing(this.opacity, {
+                toValue: 1,
+                duration: 300
+            }),
+            Animated.timing(this.inputFeildAnim, {
+                toValue: 1,
+                duration: 500
+            }),
+        ]).start()
+
+
     }
+
+
+
+
     render() {
+        let inputFeildWidth = this.inputFeildAnim.interpolate({
+            inputRange: [0, 1],
+            outputRange: ["0%", "100%"]
+        })
+        let ggOpacity = this.opacity.interpolate({
+            inputRange: [0, 1],
+            outputRange: [1, 0]
+        })
+
         return (
             <View style={{ flex: 1, backgroundColor: "#312e3f" }} >
                 <Header style={{ paddingLeft: 5, paddingRight: 5, backgroundColor: "#312e3f" }} >
-                    <View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center" }} >
-                        <View>
-                            <Button onPress={()=>this.searchUser()} transparent>
+
+                    <Animated.View style={{ flex: 1, flexDirection: "row", justifyContent: "space-between", alignItems: "center", position: "absolute", width: "100%", zIndex: 1, opacity: ggOpacity }} >
+                        <View >
+                            <Button transparent>
                                 <Icon name='menu' />
                             </Button>
                         </View>
-                        <View>
+                        <View  >
                             <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }} >
                                 <Icon name='search' style={{ color: "#fff", fontSize: 23, marginRight: 10 }} />
                                 <Text style={{ color: "#fff", fontWeight: "400", fontSize: 20, }} >Find Friend</Text>
                             </View>
                         </View>
                         <View style={{ flexDirection: "row" }} >
-                            <Button transparent>
+                            <Button style={{ zIndex: 1 }} onPress={() => this.searchUser()} transparent>
                                 <Icon name='search' />
                             </Button>
-
                         </View>
-                    </View>
+                    </Animated.View>
                 </Header>
+                <Animated.View style={{
+                    flex: 1,
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    position: "absolute",
+                    width: inputFeildWidth,
+                    // zIndex:-1
+                    // opacity: inputFeilOpacity
+                }} >
+                    <TextInput placeholder="Search by email"
+                        style={{
+                            borderBottomColor: "#c3bfd8",
+                            borderBottomWidth: 1,
+                            width: "100%",
+                            height: "100%",
+                            backgroundColor: "#373447"
+                        }}
+                        placeholderTextColor="#c3bfd8"
+                        underlineColorAndroid="transparent" />
+                </Animated.View>
                 <FlatList
                     data={arr}
                     renderItem={({ item, index }) => {
                         return (
-                            <View style={{ flex: 1, alignItems: "center" }} >
+                            <View style={{ flex: 1, alignItems: "center", }} >
                                 <View style={styles.customCard} >
                                     <View style={styles.avatarContainer} >
                                         <Image style={{ height: 75, width: 75, borderRadius: width / 2 }}
