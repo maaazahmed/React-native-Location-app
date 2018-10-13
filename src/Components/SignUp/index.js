@@ -70,7 +70,8 @@ export default class SignUp extends Component {
     render() {
         const marginTop = this.state.logoPostion.interpolate({
             inputRange: [0, 1],
-            outputRange: ["100%", "0%"],
+            // outputRange: ["100%", "0%"],
+            outputRange: ["50%", "1%"],
         })
         const opacity = this.state.opacity.interpolate({
             inputRange: [0, 1],
@@ -78,17 +79,22 @@ export default class SignUp extends Component {
         })
         const heightWidth = this.state.heightWidth.interpolate({
             inputRange: [0, 1],
-            outputRange: [200, 100],
+            // outputRange: [200, 100],
+            outputRange: [200, 170],
+
         })
 
         return (
             <View style={styles.container} >
                 <View style={styles.TextFields} >
-                    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
+                    <View style={{ flex: 1,
+                        //  justifyContent: "center", 
+                         alignItems: "center" }} >
                         <Animated.Image
-                            source={require("./images/logo.png")}
+                            resizeMode="contain"
+                            source={require("./images/logo2.png")}
                             style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
-                        <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text>
+                        {/* <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text> */}
                     </View>
                     <Animated.View style={{ opacity }} >
                         <View style={[styles.InputView]} >
@@ -166,7 +172,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomWidth: 1,
         borderBottomColor: "#c3bfd8",
-        marginBottom: 30
+        marginBottom: 5
     },
     TextFields: {
         height: height / 1.5

@@ -72,7 +72,7 @@ export default class SignIn extends Component {
         const marginTop = this.state.logoPostion.interpolate({
             inputRange: [0, 1],
             // outputRange: ["100%", "0%"],
-            outputRange: ["50%", "-5%"],
+            outputRange: ["50%", "1%"],
         })
         const opacity = this.state.opacity.interpolate({
             inputRange: [0, 1],
@@ -80,7 +80,7 @@ export default class SignIn extends Component {
         })
         const heightWidth = this.state.heightWidth.interpolate({
             inputRange: [0, 1],
-            outputRange: [270, 170],
+            outputRange: [200, 170],
         })
 
         return (
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomWidth: 1,
         borderBottomColor: "#c3bfd8",
-        marginBottom: 30
+        marginBottom: 5
     },
     TextFields: {
         height: height / 1.8
