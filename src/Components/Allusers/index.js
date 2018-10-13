@@ -12,7 +12,7 @@ import {
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
-import { Searchbar } from 'react-native-paper';
+// import { Searchbar } from 'react-native-paper';
 
 
 let arr = [
@@ -105,9 +105,6 @@ export default class AllUsers extends Component {
             searchVal: ""
         }
     }
-
-
-
 
     searchUser() {
         Animated.parallel([
