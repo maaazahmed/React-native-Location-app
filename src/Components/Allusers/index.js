@@ -60,13 +60,11 @@ export default class AllUsers extends Component {
                             </Left>
                         </CardItem>
                     </Card> */}
-                    <View style={{ height: height/9, width: width, backgroundColor: "#fff", flexDirection:"row" }} >
+                    <View style={{ height: "15%", width: width, backgroundColor: "#fff", flexDirection:"row" }} >
                         <View style={{flex:1, backgroundColor:"red"}} ></View>
                         <View style={{flex:3, backgroundColor:"blue"}}></View>
                         <View style={{flex:1, backgroundColor:"yellow"}}></View>
                     </View>
-                    
-                  
                 </View>
             </View>
         )
