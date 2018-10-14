@@ -4,7 +4,7 @@ import {
     Image
 } from 'react-native';
 import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
-import { MyFriends, AllUsers } from "./Components"
+import { MyFriends, AllUsers, TestComponent } from "./Components"
 
 
 export default class App extends React.Component {
@@ -58,13 +58,13 @@ export default class App extends React.Component {
 
     trnderScreen() {
         if (this.state.activeTab == "games") {
-            return < View style={{ backgroundColor: "red", flex: 1 }} ><AllUsers /></View>
+            return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
         }
         else if (this.state.activeTab == "movies-tv") {
-            return < View style={{ backgroundColor: "blue", flex: 1 }} />
+            return < View style={{ backgroundColor: "blue", flex: 1 }}><TestComponent /></View>
         }
         else if (this.state.activeTab == "music") {
-            return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
+            return < View style={{ backgroundColor: "red", flex: 1 }} ><AllUsers /></View>
         }
     }
 

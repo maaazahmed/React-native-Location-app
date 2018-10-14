@@ -8,7 +8,8 @@ import {
     FlatList,
     TouchableOpacity,
     TextInput,
-    Animated
+    Animated,
+    Easing
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, List, } from 'native-base';
@@ -103,9 +104,26 @@ export default class AllUsers extends Component {
         this.inputFeildAnim = new Animated.Value(0)
         this.opacity = new Animated.Value(0)
         this.textInputOpacity = new Animated.Value(0)
+        this.listOpacity = new Animated.Value(0)
+        this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: ""
         }
+    }
+
+    componentDidMount() {
+        Animated.parallel([
+            Animated.timing(this.listOpacity, {
+                toValue: 1,
+                duration: 500,
+            }),
+            Animated.timing(this.listPadding, {
+                toValue: 1,
+                duration: 500,
+                easing: Easing.elastic()
+            })
+        ]).start()
+
     }
 
     searchUser() {
@@ -119,7 +137,6 @@ export default class AllUsers extends Component {
                 duration: 300
             }),
         ]).start()
-
         Animated.timing(this.textInputOpacity, {
             toValue: 1,
             duration: 300
@@ -165,10 +182,18 @@ export default class AllUsers extends Component {
             outputRange: [0, 0.2, 1]
         })
 
+        let listOpacity = this.listOpacity.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [0, 0.5, 1]
+        })
+        let listPadding = this.listPadding.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [10, 5, 0]
+        })
         return (
             <View style={styles.container} >
                 <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity }]} >
+                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
                         <View >
                             <Button transparent>
                                 <Icon name='menu' />
@@ -200,35 +225,38 @@ export default class AllUsers extends Component {
                         </TouchableOpacity>
                     </View>
                 </Animated.View>
-                <FlatList
-                    data={arr}
-                    renderItem={({ item, index }) => {
-                        return (
-                            <View style={styles.customCardContainer} >
-                                <View style={styles.customCard} >
-                                    <View style={styles.avatarContainer} >
-                                        <Image style={styles.avatarPic}
-                                            resizeMode="cover" source={{ uri: item.pic }} />
-                                        <Icons name="circle" style={styles.circleIcon} />
-                                    </View>
-                                    <View style={styles.detiles}>
-                                        <View style={styles.usernameList} >
-                                            <Text style={styles.username} >{item.username}</Text>
-                                            <Text style={styles.emailAndSeenText} >{item.email}</Text>
-                                            <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
+
+                <Animated.View style={{}}  >
+                    <FlatList
+                        data={arr}
+                        renderItem={({ item, index }) => {
+                            return (
+                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                    <View style={styles.customCard} >
+                                        <View style={styles.avatarContainer} >
+                                            <Image style={styles.avatarPic}
+                                                resizeMode="cover" source={{ uri: item.pic }} />
+                                            <Icons name="circle" style={styles.circleIcon} />
+                                        </View>
+                                        <View style={styles.detiles}>
+                                            <View style={styles.usernameList} >
+                                                <Text style={styles.username} >{item.username}</Text>
+                                                <Text style={styles.emailAndSeenText} >{item.email}</Text>
+                                                <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
+                                            </View>
+                                        </View>
+                                        <View style={styles.listButnView}>
+                                            <Button style={styles.ListButn} transparent  >
+                                                <Icon name="person-add" style={styles.ListButnIcon} />
+                                            </Button>
                                         </View>
                                     </View>
-                                    <View style={styles.listButnView}>
-                                        <Button style={styles.ListButn} transparent  >
-                                            <Icon name="person-add" style={styles.ListButnIcon} />
-                                        </Button>
-                                    </View>
-                                </View>
-                            </View>
-                        )
-                    }} keyExtractor={(item) => {
-                        return item.email
-                    }} />
+                                </Animated.View>
+                            )
+                        }} keyExtractor={(item) => {
+                            return item.email
+                        }} />
+                </Animated.View>
             </View>
         )
     }
@@ -300,7 +328,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: "100%",
         backgroundColor: "#312e3f",
-        color:"#fff"
+        color: "#fff"
     },
     seachIconForInput: {
         color: "#fff",
