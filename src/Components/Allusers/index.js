@@ -220,7 +220,7 @@ export default class AllUsers extends Component {
                                     </View>
                                     <View style={styles.listButnView}>
                                         <Button style={styles.ListButn} transparent  >
-                                            <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
+                                            <Icon name="person-add" style={styles.ListButnIcon} />
                                         </Button>
                                     </View>
                                 </View>
