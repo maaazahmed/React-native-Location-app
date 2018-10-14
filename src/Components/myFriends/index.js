@@ -11,7 +11,7 @@ import {
     Animated
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
-import { Header, Button, Icon, } from 'native-base';
+import { Header, Button, Icon, List, } from 'native-base';
 import { Title } from 'react-native-paper';
 // import { Searchbar } from 'react-native-paper';
 
@@ -151,10 +151,6 @@ export default class MyFriends extends Component {
         }).start()
     }
 
-
-
-
-
     render() {
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
@@ -211,20 +207,20 @@ export default class MyFriends extends Component {
                             <View style={styles.customCardContainer} >
                                 <View style={styles.customCard} >
                                     <View style={styles.avatarContainer} >
-                                        <Image style={{ height: 75, width: 75, borderRadius: width / 2 }}
+                                        <Image style={styles.avatarPic}
                                             resizeMode="cover" source={{ uri: item.pic }} />
                                         <Icons name="circle" style={styles.circleIcon} />
                                     </View>
-                                    <View style={{ flex: 3, marginTop: -5 }}>
-                                        <View style={{ flex: 1, paddingLeft: 25, }} >
-                                            <Text style={{ fontSize: 17, color: "#fff" }} >{item.username}</Text>
-                                            <Text style={{ color: "#c3bfd8" }} >{item.email}</Text>
-                                            <Text style={{ color: "#c3bfd8" }} >Last update {item.lastSeen}</Text>
+                                    <View style={styles.detiles}>
+                                        <View style={styles.usernameList} >
+                                            <Text style={styles.username} >{item.username}</Text>
+                                            <Text style={styles.emailAndSeenText} >{item.email}</Text>
+                                            <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
                                         </View>
                                     </View>
-                                    <View style={{ flex: 1, width: "25%", justifyContent: "center", alignItems: "center" }}>
-                                        <Button style={{ alignSelf: "center" }} transparent  >
-                                            <Icons name="map-marker" size={25} style={{ color: "#ff2a68", }} />
+                                    <View style={styles.listButnView}>
+                                        <Button style={styles.ListButn} transparent  >
+                                            <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
                                         </Button>
                                     </View>
                                 </View>
@@ -325,5 +321,39 @@ const styles = StyleSheet.create({
         fontSize: 9,
         marginLeft: 7,
         marginTop: 1
+    },
+    avatarPic: {
+        height: 75,
+        width: 75,
+        borderRadius: width / 2
+    },
+    usernameList: {
+        flex: 1,
+        paddingLeft: 25,
+    },
+    detiles: {
+        flex: 3,
+        marginTop: -5
+    },
+    username: {
+        fontSize: 17,
+        color: "#fff"
+    },
+
+    emailAndSeenText: {
+        color: "#c3bfd8"
+    },
+    listButnView: {
+        flex: 1,
+        width: "25%",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    ListButn: {
+        alignSelf: "center"
+    },
+    ListButnIcon: {
+        color: "#ff2a68",
     }
+
 })
