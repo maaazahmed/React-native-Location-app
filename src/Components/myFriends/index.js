@@ -300,6 +300,7 @@ const styles = StyleSheet.create({
         flex: 1,
         height: "100%",
         backgroundColor: "#312e3f",
+        color:"#fff"
     },
     seachIconForInput: {
         color: "#fff",
