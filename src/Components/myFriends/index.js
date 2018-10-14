@@ -200,7 +200,7 @@ export default class MyFriends extends Component {
                         underlineColorAndroid="transparent" />
                     <View style={styles.searcBarIconButton} >
                         <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
-                            <Icon name='close' style={{ color: "#fff", fontSize: 20 }} />
+                            <Icon name='close' style={styles.closeIcon} />
                         </TouchableOpacity>
                     </View>
                 </Animated.View>
@@ -213,7 +213,7 @@ export default class MyFriends extends Component {
                                     <View style={styles.avatarContainer} >
                                         <Image style={{ height: 75, width: 75, borderRadius: width / 2 }}
                                             resizeMode="cover" source={{ uri: item.pic }} />
-                                        <Icons name="circle" style={{ color: "#ff2a68", alignSelf: "flex-start", fontSize: 9, marginLeft: 7, marginTop: 1 }} />
+                                        <Icons name="circle" style={styles.circleIcon} />
                                     </View>
                                     <View style={{ flex: 3, marginTop: -5 }}>
                                         <View style={{ flex: 1, paddingLeft: 25, }} >
@@ -314,5 +314,16 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "400",
         fontSize: 20,
+    },
+    closeIcon: {
+        color: "#fff",
+        fontSize: 20
+    },
+    circleIcon: {
+        color: "#ff2a68",
+        alignSelf: "flex-start",
+        fontSize: 9,
+        marginLeft: 7,
+        marginTop: 1
     }
 })
