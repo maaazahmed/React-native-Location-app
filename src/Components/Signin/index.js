@@ -105,18 +105,18 @@ class SignIn extends Component {
 
 
     backToSignIn() {
+        Animated.timing(this.state.signContentOpactiy, {
+            toValue: 0,
+            duration: 200
+        }).start()
+        Animated.timing(this.state.signUpRadius, {
+            toValue: 0,
+            duration: 200
+        }).start()
         Animated.parallel([
             Animated.timing(this.state.signContentClosOpactiy, {
                 toValue: 0,
                 duration: 500
-            }),
-            Animated.timing(this.state.signContentOpactiy, {
-                toValue: 0,
-                duration: 200
-            }),
-            Animated.timing(this.state.signUpRadius, {
-                toValue: 0,
-                duration: 350
             }),
             Animated.timing(this.state.signUpHeight, {
                 toValue: 0,
