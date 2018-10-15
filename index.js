@@ -1,4 +1,4 @@
 import { AppRegistry } from 'react-native';
-import App from './App';
+import MainComponent from './index.android';
 
-AppRegistry.registerComponent('reactNativeAnimation', () => App);
+AppRegistry.registerComponent('reactNativeAnimation', () => MainComponent);

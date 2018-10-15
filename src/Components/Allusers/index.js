@@ -173,23 +173,28 @@ export default class AllUsers extends Component {
             inputRange: [0, 1],
             outputRange: [1, 0]
         })
+        
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
             outputRange: [-100, 0]
         })
+        
         let textInputOpacity = this.textInputOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.2, 1]
         })
-
+        
         let listOpacity = this.listOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
         })
+        
         let listPadding = this.listPadding.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [10, 5, 0]
         })
+
+
         return (
             <View style={styles.container} >
                 <Header style={styles.header} >
@@ -226,7 +231,7 @@ export default class AllUsers extends Component {
                     </View>
                 </Animated.View>
 
-                <Animated.View style={{}}  >
+                <Animated.View  >
                     <FlatList
                         data={arr}
                         renderItem={({ item, index }) => {

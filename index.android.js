@@ -9,6 +9,8 @@ import {
   SignUp
 } from "./src/Components/index"
 import Dashboard from "./src/index"
+import { Provider } from "react-redux"
+import store from "./src/store/index"
 
 
 export default class App extends Component {
@@ -21,9 +23,11 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }} >
         {/* <Map /> */}
-        {/* <Signin/> */}
+        <Provider  store={store} >
+        <Signin />
+        </Provider>
         {/* <SignUp/> */}
-        <Dashboard/>
+        {/* <Dashboard/> */}
       </View>
     )
   }
