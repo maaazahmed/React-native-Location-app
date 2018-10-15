@@ -4,10 +4,10 @@ import ActionTypes from "../constant/constant"
 
 
 
-export const screenTitleAction = (data) => {
+export const signInScreenHideAction = (data) => {
     return dispatch => {
         dispatch({
-            type: ActionTypes.BACK_TO_SIGNIN,
+            type: ActionTypes.GO_TO_SIGNUP,
             payload: data,
         })
     }

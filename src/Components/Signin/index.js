@@ -13,7 +13,8 @@ import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
 import { SignUp } from "../index"
 const { width, height } = Dimensions.get("window")
-import { connect } from "react-redux"
+import { connect } from "react-redux";
+import { signUpScreenHideAction } from "../../store/action/action"
 
 
 
@@ -99,26 +100,26 @@ class SignIn extends Component {
     }
 
 
-    // backToSignIn() {
-    //     Animated.timing(this.state.signUpHeight, {
-    //         toValue: 0,
-    //         duration: 200
-    //     }).start()
-    //     Animated.sequence([
-    //         Animated.timing(this.state.signUpRadius, {
-    //             toValue: 0,
-    //             duration: 350
-    //         }),
-    //         Animated.timing(this.state.signContentOpactiy, {
-    //             toValue: 0,
-    //             duration: 500
-    //         })
-    //     ]).start()
-    //     Animated.timing(this.state.signContentMarginBottom, {
-    //         toValue: 0,
-    //         duration: 300
-    //     }).start()
-    // }
+    backToSignIn() {
+        // Animated.timing(this.state.signUpHeight, {
+        //     toValue: 0,
+        //     duration: 200
+        // }).start()
+        // Animated.sequence([
+        //     Animated.timing(this.state.signUpRadius, {
+        //         toValue: 0,
+        //         duration: 350
+        //     }),
+        //     Animated.timing(this.state.signContentOpactiy, {
+        //         toValue: 0,
+        //         duration: 500
+        //     })
+        // ]).start()
+        // Animated.timing(this.state.signContentMarginBottom, {
+        //     toValue: 0,
+        //     duration: 300
+        // }).start()
+    }
 
 
 
@@ -276,6 +277,18 @@ const styles = StyleSheet.create({
     },
 });
 
-// connect
+const mapStateToProp = (state) => {
+    return ({
+        request_list: state.root,
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        signUpScreenHideAction: (data) => {
+            dispatch(signUpScreenHideAction(data))
+        },
+    };
+};
 
-export default SignIn
+
+export default connect(mapStateToProp, mapDispatchToProp)(SignIn)

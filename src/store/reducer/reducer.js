@@ -1,15 +1,15 @@
 import ActionTypes from '../constant/constant';
 
 const INITIAL_STATE = {
-   backToSignIn:()=>{}
+   goToSignUp:()=>{}
 }
 
 export default (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case ActionTypes.CONFERM_RESULT:
+        case ActionTypes.GO_TO_SIGNIN:
             return ({
                 ...state,
-                backToSignIn: action.payload
+                goToSignUp: action.payload
             })
         default:
             return state;
