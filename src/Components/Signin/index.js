@@ -13,10 +13,11 @@ import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
 import { SignUp } from "../index"
 const { width, height } = Dimensions.get("window")
+import { connect } from "react-redux"
 
 
 
-export default class SignIn extends Component {
+class SignIn extends Component {
     constructor() {
         super()
         this.state = {
@@ -275,3 +276,6 @@ const styles = StyleSheet.create({
     },
 });
 
+// connect
+
+export default SignIn

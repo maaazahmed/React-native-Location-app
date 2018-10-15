@@ -23,8 +23,8 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }} >
         {/* <Map /> */}
-        <Provider  store={store} >
-        <Signin />
+        <Provider store={store} >
+          <Signin />
         </Provider>
         {/* <SignUp/> */}
         {/* <Dashboard/> */}
