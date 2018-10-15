@@ -1,5 +1,5 @@
 const ActionTypes = {
-    GO_TO_SIGNUP: "GO_TO_SIGNUP",
+    BACK_TO_SIGNIN: "BACK_TO_SIGNIN",
 }
 
 export default ActionTypes

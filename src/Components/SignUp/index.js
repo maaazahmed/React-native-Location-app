@@ -10,10 +10,11 @@ import {
 } from 'react-native';
 import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
+import { connect } from "react-redux"
 
 
 const { height } = Dimensions.get("window")
-export default class SignUp extends Component {
+ class SignUp extends Component {
     constructor() {
         super()
         this.state = {
@@ -68,6 +69,7 @@ export default class SignUp extends Component {
     }
 
     render() {
+        // const backToSignScreen = this.props.backToSignScreen.backToSignIn
         const marginTop = this.state.logoPostion.interpolate({
             inputRange: [0, 1],
             // outputRange: ["100%", "0%"],
@@ -85,11 +87,13 @@ export default class SignUp extends Component {
         })
 
         return (
-            <View style={styles.container} >
-                <View style={styles.TextFields} >
-                    <View style={{ flex: 1,
+            <View style={styles.container2} >
+                <View style={styles.TextFields2} >
+                    <View style={{
+                        flex: 1,
                         //  justifyContent: "center", 
-                         alignItems: "center" }} >
+                        alignItems: "center"
+                    }} >
                         <Animated.Image
                             resizeMode="contain"
                             source={require("./images/logo2.png")}
@@ -97,10 +101,10 @@ export default class SignUp extends Component {
                         {/* <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text> */}
                     </View>
                     <Animated.View style={{ opacity }} >
-                        <View style={[styles.InputView]} >
+                        <View style={[styles.InputView2]} >
                             <Icon name="contact" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
                             <TextInput
-                                style={styles.Input}
+                                style={styles.Input2}
                                 value={this.state.username}
                                 placeholder="Usernaem"
                                 returnKeyType="next"
@@ -110,10 +114,10 @@ export default class SignUp extends Component {
                                 onChangeText={(username) => this.setState({ username })}
                             />
                         </View>
-                        <View style={[styles.InputView]} >
+                        <View style={[styles.InputView2]} >
                             <Icon name="mail" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
                             <TextInput
-                                style={styles.Input}
+                                style={styles.Input2}
                                 value={this.state.email}
                                 placeholder="Email"
                                 returnKeyType="next"
@@ -123,11 +127,11 @@ export default class SignUp extends Component {
                                 onChangeText={(email) => this.setState({ email })}
                             />
                         </View>
-                        <View style={styles.InputView} >
+                        <View style={styles.InputView2} >
                             <Icon name="lock" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 23 }} />
                             <TextInput
                                 value={this.state.password}
-                                style={styles.Input}
+                                style={styles.Input2}
                                 placeholder="Password"
                                 returnKeyType="next"
                                 keyboardType="default"
@@ -136,17 +140,17 @@ export default class SignUp extends Component {
                                 onChangeText={(password) => this.setState({ password })}
                             />
                         </View>
-                        <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer} >
-                            <Text style={styles.buttonText} >Sign Up</Text>
+                        <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer2} >
+                            <Text style={styles.buttonText2} >Sign Up</Text>
                         </TouchableOpacity>
-                        <View style={{justifyContent:"center", alignItems:"center", flexDirection:"row", marginTop:10}} >
-                            <Text style={{color:"#c3bfd8", fontSize:15}} >Already have an account? </Text>
-                            <TouchableOpacity><Text style={{color:"#c3bfd8", fontSize:17}} > Sign In</Text></TouchableOpacity>
+                        <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "row", marginTop: 10 }} >
+                            <Text style={{ color: "#c3bfd8", fontSize: 15 }} >Already have an account? </Text>
+                            <TouchableOpacity onPress={()=>this.props.backToSignScreen.backToSignIn()} ><Text style={{ color: "#c3bfd8", fontSize: 17 }} > Sign In</Text></TouchableOpacity>
                         </View>
                     </Animated.View>
                     {(this.state.isLoader) ?
                         <View style={{ justifyContent: "center", width: "100%", alignItems: "center", position: "absolute", bottom: 10 }} >
-                            <Pulse size={20} color="#c3bfd8"/>
+                            <Pulse size={20} color="#c3bfd8" />
                         </View>
                         : null}
                 </View>
@@ -156,14 +160,14 @@ export default class SignUp extends Component {
 }
 
 const styles = StyleSheet.create({
-    container: {
+    container2: {
         flex: 1,
         padding: 60,
         justifyContent: "center",
         alignItems: "stretch",
         backgroundColor: "#373447"
     },
-    Input: {
+    Input2: {
         paddingLeft: 20,
         height: 50,
         fontSize: 15,
@@ -171,17 +175,17 @@ const styles = StyleSheet.create({
         color: "#c3bfd8",
         flex: 1,
     },
-    InputView: {
+    InputView2: {
         flexDirection: "row",
         alignItems: "center",
         borderBottomWidth: 1,
         borderBottomColor: "#c3bfd8",
         marginBottom: 5
     },
-    TextFields: {
+    TextFields2: {
         height: height / 1.5
     },
-    buttonContainer: {
+    buttonContainer2: {
         height: 60,
         backgroundColor: "#312e3f",
         justifyContent: "center",
@@ -189,9 +193,29 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop: 30
     },
-    buttonText: {
+    buttonText2: {
         color: "#c3bfd8",
         fontSize: 15,
     },
 });
+
+
+
+
+const mapStateToProp = (state) => {
+    return ({
+        backToSignScreen: state.root
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        // signUpScreenHideAction: (data) => {
+        //     dispatch(signUpScreenHideAction(data))
+        // },
+    };
+};
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(SignUp)
+
 
