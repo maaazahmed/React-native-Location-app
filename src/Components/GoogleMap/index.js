@@ -6,13 +6,14 @@ import {
   Text,
   View,
   ScrollView,
-  Button
+  Button,
+  Dimensions
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import  mapStyle from "./mapStyle.json"
+import mapStyle from "./mapStyle.json"
 
 
-
+const { width, height } = Dimensions.get("window")
 export default class Map extends Component {
   constructor() {
     super()
@@ -26,15 +27,29 @@ export default class Map extends Component {
       }
     }
   }
-  componentWillMount(){
+  componentWillMount() {
 
   }
   render() {
     return (
       <View style={styles.container}>
+        <View style={{
+          height: 60,
+          width: 60,
+          borderRadius: width,
+          backgroundColor: "#373447",
+          position: "absolute",
+          zIndex: 1, 
+          top:30,
+          left:30
+
+
+        }} >
+        </View>
         <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.map}
+          // customMapStyle={mapStyle}
           zoomLevel={100}
           loadingEnabled
           scrollEnabled
@@ -46,11 +61,12 @@ export default class Map extends Component {
           region={this.state.region}>
           <MapView.Marker
             title={"This is a title"}
-            // description="This is a description"
-            coordinate={this.state.region}
-          />
+            coordinate={this.state.region} />
         </MapView>
-      </View>
+        <View style={{ height: 90, width: "90%", backgroundColor: "#373447", position: "absolute", zIndex: 1, bottom: 20 }} >
+
+        </View>
+      </View >
     );
   }
 }

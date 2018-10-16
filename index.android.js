@@ -17,17 +17,14 @@ export default class App extends Component {
   constructor() {
     super()
   }
-
-
   render() {
     return (
       <View style={{ flex: 1 }} >
-        {/* <Map /> */}
-        <Provider store={store} >
+        {/* <Provider store={store} >
           <Signin />
-        </Provider>
-        {/* <SignUp/> */}
-        {/* <Dashboard/> */}
+        </Provider> */}
+        {/* <Dashboard /> */}
+        <Map/>
       </View>
     )
   }

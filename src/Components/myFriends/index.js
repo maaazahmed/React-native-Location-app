@@ -116,10 +116,10 @@ export default class AllUsers extends Component {
             toValue: 1,
             duration: 500,
         }).start()
-          Animated.timing(this.listPadding, {
+        Animated.timing(this.listPadding, {
             toValue: 1,
             duration: 500,
-            easing:Easing.elastic()
+            easing: Easing.elastic()
         }).start()
     }
 
@@ -223,12 +223,12 @@ export default class AllUsers extends Component {
                     </View>
                 </Animated.View>
 
-                <Animated.View style={{  }}  >
+                <Animated.View style={{}}  >
                     <FlatList
                         data={arr}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View style={[styles.customCardContainer,{opacity: listOpacity, margin:listPadding, }]} >
+                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
