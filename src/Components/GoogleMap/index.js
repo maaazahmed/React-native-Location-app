@@ -8,8 +8,9 @@ import {
   ScrollView,
   Button,
   Dimensions,
-  TouchableOpacity
-
+  TouchableOpacity,
+  Image,
+  Animated,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import mapStyle from "./mapStyle.json"
@@ -23,21 +24,32 @@ export default class Map extends Component {
     super()
     this.state = {
       region: {
-        latitude: 24.8955,
-        longitude: 67.0271,
+        latitude: 24.8937388,
+        longitude: 67.0287008,
         latitudeDelta: 0.01000,
         longitudeDelta: 0.0100,
 
-      }
+      },
+      markers: [{
+        title: 'hello',
+        coordinates: {
+          latitude: 3.148561,
+          longitude: 101.652778
+        },
+      },
+      {
+        title: 'hello',
+        coordinates: {
+          latitude: 3.149771,
+          longitude: 101.655449
+        },  
+      }]
     }
   }
-  componentWillMount() {
 
-  }
   render() {
     return (
       <View style={styles.container}>
-
         <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.map}
@@ -55,33 +67,29 @@ export default class Map extends Component {
             coordinate={this.state.region} />
         </MapView>
 
-        <View style={{
-          height: 60,
-          width: 60,
-          borderRadius: width,
-          position: "absolute",
-          zIndex: 1,
-          top: 30,
-          left: 30,
-        }} >
-          <TouchableOpacity activeOpacity={.5} style={{
-            flex:1,
-            backgroundColor: "rgba(55,52,71, 0.7)",
-            justifyContent: "center",
-            alignItems: "center",
-            borderRadius: width,
-          }} >
-            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 35 }} />
+        <View style={styles.backButtonContainer} >
+          <TouchableOpacity activeOpacity={.5} style={styles.backButton} >
+            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 33 }} />
           </TouchableOpacity>
         </View>
-        <View style={{ height: 80,
-         width: "90%", backgroundColor: "rgba(55,52,71, 0.7)",  position: "absolute", zIndex: 1, bottom: 20, borderRadius:3 }} >
-
+        <View style={styles.datailContainer} >
+          <View style={styles.locatDetail} >
+              <Text style={{fontSize:20, color:"#fff"}} >Maaz Ahmed</Text>
+              <Text style={{fontSize:15, color:"#fff"}} >maazahmed2k16@gmail.com</Text>
+              <Text style={{fontSize:15, color:"#fff"}} >Karachi</Text>
+          </View>
+          <View style={styles.imageContainer} >
+            <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
+              style={styles.image} />
+          </View>
         </View>
       </View >
     );
   }
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -101,7 +109,54 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
     zIndex: -1,
+  },
+  backButtonContainer: {
+    height: 60,
+    width: 60,
+    borderRadius: width,
+    position: "absolute",
+    zIndex: 1,
+    top: 30,
+    left: 30,
+    backgroundColor: "rgba(55,52,71, 0.5)",
+    padding:10
 
+  },
+  backButton: {
+    flex: 1,
+    backgroundColor: "rgba(55,52,71, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: width,
+  },
+  datailContainer: {
+    height: 90,
+    width: "95%",
+    backgroundColor: "rgba(55,52,71, 0.7)",
+    position: "absolute",
+    zIndex: 1,
+    bottom: 13,
+    borderRadius: 3,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
+  },
+  imageContainer: {
+    height: "100%",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  image: {
+    height: 75,
+    width: 75,
+    borderRadius: width,
+  },
+  locatDetail: {
+    flex: 3,
+    height: "100%",
+    justifyContent: "center",
+    paddingLeft:10
 
   }
 });
