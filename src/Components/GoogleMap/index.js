@@ -1,170 +1,170 @@
 
-import React, { Component } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Button,
-  Dimensions,
-  TouchableOpacity,
-  Image,
-  Animated,
-} from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import mapStyle from "./mapStyle.json"
-import Icons from "react-native-vector-icons/Ionicons"
-import { Icon } from "native-base"
+// import React, { Component } from 'react';
+// import {
+//   Platform,
+//   StyleSheet,
+//   Text,
+//   View,
+//   ScrollView,
+//   Button,
+//   Dimensions,
+//   TouchableOpacity,
+//   Image,
+//   Animated,
+// } from 'react-native';
+// import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+// import mapStyle from "./mapStyle.json"
+// import Icons from "react-native-vector-icons/Ionicons"
+// import { Icon } from "native-base"
 
 
-const { width, height } = Dimensions.get("window")
-export default class Map extends Component {
-  constructor() {
-    super()
-    this.state = {
-      region: {
-        latitude: 24.8937388,
-        longitude: 67.0287008,
-        latitudeDelta: 0.01000,
-        longitudeDelta: 0.0100,
+// const { width, height } = Dimensions.get("window")
+// export default class Map extends Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       region: {
+// latitude: 24.8937388,
+// longitude: 67.0287008,
+// latitudeDelta: 0.01000,
+// longitudeDelta: 0.0100,
 
-      },
-      markers: [{
-        title: 'hello',
-        coordinates: {
-          latitude: 3.148561,
-          longitude: 101.652778
-        },
-      },
-      {
-        title: 'hello',
-        coordinates: {
-          latitude: 3.149771,
-          longitude: 101.655449
-        },  
-      }]
-    }
-  }
+//       },
+//       markers: [{
+//         title: 'hello',
+//         coordinates: {
+//           latitude: 3.148561,
+//           longitude: 101.652778
+//         },
+//       },
+//       {
+//         title: 'hello',
+//         coordinates: {
+//           latitude: 3.149771,
+//           longitude: 101.655449
+//         },  
+//       }]
+//     }
+//   }
 
-  render() {
-    return (
-      <View style={styles.container}>
-        <MapView
-          provider={PROVIDER_GOOGLE}
-          style={styles.map}
-          zoomLevel={100}
-          loadingEnabled
-          scrollEnabled
-          showsUserLocation={true}
-          zoomEnabled
-          pitchEnabled
-          rotateEnabled
-          initialRegion={this.state.region}
-          region={this.state.region}>
-          <MapView.Marker
-            title={"This is a title"}
-            coordinate={this.state.region} />
-        </MapView>
+//   render() {
+//     return (
+//       <View style={styles.container}>
+//         <MapView
+//           provider={PROVIDER_GOOGLE}
+//           style={styles.map}
+//           zoomLevel={100}
+//           loadingEnabled
+//           scrollEnabled
+//           showsUserLocation={true}
+//           zoomEnabled
+//           pitchEnabled
+//           rotateEnabled
+//           initialRegion={this.state.region}
+//           region={this.state.region}>
+//           <MapView.Marker
+//             title={"This is a title"}
+//             coordinate={this.state.region} />
+//         </MapView>
 
-        <View style={styles.backButtonContainer} >
-          <TouchableOpacity activeOpacity={.5} style={styles.backButton} >
-            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 33 }} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.datailContainer} >
-          <View style={styles.locatDetail} >
-              <Text style={{fontSize:20, color:"#fff"}} >Maaz Ahmed</Text>
-              <Text style={{fontSize:15, color:"#fff"}} >maazahmed2k16@gmail.com</Text>
-              <Text style={{fontSize:15, color:"#fff"}} >Karachi</Text>
-          </View>
-          <View style={styles.imageContainer} >
-            <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
-              style={styles.image} />
-          </View>
-        </View>
-      </View >
-    );
-  }
-}
-
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    justifyContent: "flex-end",
-    alignItems: "center",
-    flex: 1
-  },
-  map: {
-    position: "absolute",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    zIndex: -1,
-  },
-  backButtonContainer: {
-    height: 60,
-    width: 60,
-    borderRadius: width,
-    position: "absolute",
-    zIndex: 1,
-    top: 30,
-    left: 30,
-    backgroundColor: "rgba(55,52,71, 0.5)",
-    padding:10
-
-  },
-  backButton: {
-    flex: 1,
-    backgroundColor: "rgba(55,52,71, 0.5)",
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: width,
-  },
-  datailContainer: {
-    height: 90,
-    width: "95%",
-    backgroundColor: "rgba(55,52,71, 0.7)",
-    position: "absolute",
-    zIndex: 1,
-    bottom: 13,
-    borderRadius: 3,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row"
-  },
-  imageContainer: {
-    height: "100%",
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
-  image: {
-    height: 75,
-    width: 75,
-    borderRadius: width,
-  },
-  locatDetail: {
-    flex: 3,
-    height: "100%",
-    justifyContent: "center",
-    paddingLeft:10
-
-  }
-});
+//         <View style={styles.backButtonContainer} >
+//           <TouchableOpacity activeOpacity={.5} style={styles.backButton} >
+//             <Icon name="arrow-back" style={{ color: "#fff", fontSize: 33 }} />
+//           </TouchableOpacity>
+//         </View>
+//         <View style={styles.datailContainer} >
+//           <View style={styles.locatDetail} >
+//               <Text style={{fontSize:20, color:"#fff"}} >Maaz Ahmed</Text>
+//               <Text style={{fontSize:15, color:"#fff"}} >maazahmed2k16@gmail.com</Text>
+//               <Text style={{fontSize:15, color:"#fff"}} >Karachi</Text>
+//           </View>
+//           <View style={styles.imageContainer} >
+//             <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
+//               style={styles.image} />
+//           </View>
+//         </View>
+//       </View >
+//     );
+//   }
+// }
 
 
 
 
+// const styles = StyleSheet.create({
+//   container: {
+//     position: "absolute",
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     bottom: 0,
+//     justifyContent: "flex-end",
+//     alignItems: "center",
+//     flex: 1
+//   },
+//   map: {
+//     position: "absolute",
+//     top: 0,
+//     left: 0,
+//     right: 0,
+//     bottom: 0,
+//     zIndex: -1,
+//   },
+//   backButtonContainer: {
+//     height: 60,
+//     width: 60,
+//     borderRadius: width,
+//     position: "absolute",
+//     zIndex: 1,
+//     top: 30,
+//     left: 30,
+//     backgroundColor: "rgba(55,52,71, 0.5)",
+//     padding:10
 
+//   },
+//   backButton: {
+//     flex: 1,
+//     backgroundColor: "rgba(55,52,71, 0.5)",
+//     justifyContent: "center",
+//     alignItems: "center",
+//     borderRadius: width,
+//   },
+//   datailContainer: {
+//     height: 90,
+//     width: "95%",
+//     backgroundColor: "rgba(55,52,71, 0.7)",
+//     position: "absolute",
+//     zIndex: 1,
+//     bottom: 13,
+//     borderRadius: 3,
+//     justifyContent: "center",
+//     alignItems: "center",
+//     flexDirection: "row"
+//   },
+//   imageContainer: {
+//     height: "100%",
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center"
+//   },
+//   image: {
+//     height: 75,
+//     width: 75,
+//     borderRadius: width,
+//   },
+//   locatDetail: {
+//     flex: 3,
+//     height: "100%",
+//     justifyContent: "center",
+//     paddingLeft:10
+
+//   }
+// });
+
+
+
+
+// //////////////////////////////////////
 
 // import React, { Component } from 'react';
 // import { AppRegistry, StyleSheet, View, Dimensions } from 'react-native';
@@ -243,3 +243,180 @@ const styles = StyleSheet.create({
 //     );
 //   }
 // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { Component } from "react";
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  ScrollView,
+  Animated,
+  Image,
+  Dimensions,
+} from "react-native";
+
+import MapView from "react-native-maps";
+
+const Images = [
+  { uri: "https://i.imgur.com/sNam9iJ.jpg" },
+  { uri: "https://i.imgur.com/N7rlQYt.jpg" },
+  { uri: "https://i.imgur.com/UDrH0wm.jpg" },
+  { uri: "https://i.imgur.com/Ka8kNST.jpg" }
+]
+
+const { width, height } = Dimensions.get("window");
+
+const CARD_HEIGHT = height / 4;
+const CARD_WIDTH = CARD_HEIGHT - 50;
+
+export default class screens extends Component {
+  constructor() {
+    super()
+    this.state = {
+      markers: [
+        {
+          coordinate: {
+            latitude: 24.8937322,
+            longitude: 67.0287092,
+          },
+          title: "Best Place",
+          description: "This is the best place in Portland",
+          image: Images[0],
+        },
+        {
+          coordinate: {
+            latitude: 24.8937311,
+            longitude: 67.0287022,
+
+          },
+          title: "Second Best Place",
+          description: "This is the second best place in Portland",
+          image: Images[1],
+        },
+      ],
+      region: {
+        latitude: 24.8937311,
+        longitude: 67.0287022,
+        latitudeDelta: 0.01000,
+        longitudeDelta: 0.0100,
+      },
+    };
+  }
+  componentWillMount() {
+    this.index = 0;
+    this.animation = new Animated.Value(0);
+  }
+  render() {
+    return (
+      <View style={styles.container}>
+        <MapView
+         onPress={(ev)=>{console.log(ev)}}
+          ref={map => this.map = map}
+          initialRegion={this.state.region}
+          style={styles.container}
+        >
+          {this.state.markers.map((marker, index) => {
+            return (
+              <MapView.Marker  key={index} coordinate={marker.coordinate}>
+                <Animated.View style={[styles.markerWrap]}>
+                  <Animated.View style={[styles.ring]} />
+                  <View style={styles.marker} />
+                </Animated.View>
+              </MapView.Marker>
+            );
+          })}
+        </MapView>
+      </View>
+    );
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  scrollView: {
+    position: "absolute",
+    bottom: 30,
+    left: 0,
+    right: 0,
+    paddingVertical: 10,
+  },
+  endPadding: {
+    paddingRight: width - CARD_WIDTH,
+  },
+  card: {
+    padding: 10,
+    elevation: 2,
+    backgroundColor: "#FFF",
+    marginHorizontal: 10,
+    shadowColor: "#000",
+    shadowRadius: 5,
+    shadowOpacity: 0.3,
+    shadowOffset: { x: 2, y: -2 },
+    height: CARD_HEIGHT,
+    width: CARD_WIDTH,
+    overflow: "hidden",
+  },
+  cardImage: {
+    flex: 3,
+    width: "100%",
+    height: "100%",
+    alignSelf: "center",
+  },
+  textContent: {
+    flex: 1,
+  },
+  cardtitle: {
+    fontSize: 12,
+    marginTop: 5,
+    fontWeight: "bold",
+  },
+  cardDescription: {
+    fontSize: 12,
+    color: "#444",
+    
+  },
+  markerWrap: {
+    alignItems: "center",
+    justifyContent: "center",
+    // borderRadius: width,
+  },
+  marker: {
+    width: 50,
+    height: 50,
+    borderRadius: width,
+    backgroundColor: "rgba(55 ,52,71, 0.5)",
+  },
+  ring: {
+    width: 24,
+    height: 24,
+    borderRadius: width,
+    position: "absolute",
+
+    
+  },
+});
