@@ -7,10 +7,14 @@ import {
   View,
   ScrollView,
   Button,
-  Dimensions
+  Dimensions,
+  TouchableOpacity
+
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import mapStyle from "./mapStyle.json"
+import Icons from "react-native-vector-icons/Ionicons"
+import { Icon } from "native-base"
 
 
 const { width, height } = Dimensions.get("window")
@@ -33,23 +37,10 @@ export default class Map extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{
-          height: 60,
-          width: 60,
-          borderRadius: width,
-          backgroundColor: "#373447",
-          position: "absolute",
-          zIndex: 1, 
-          top:30,
-          left:30
 
-
-        }} >
-        </View>
         <MapView
           provider={PROVIDER_GOOGLE}
           style={styles.map}
-          // customMapStyle={mapStyle}
           zoomLevel={100}
           loadingEnabled
           scrollEnabled
@@ -63,7 +54,28 @@ export default class Map extends Component {
             title={"This is a title"}
             coordinate={this.state.region} />
         </MapView>
-        <View style={{ height: 90, width: "90%", backgroundColor: "#373447", position: "absolute", zIndex: 1, bottom: 20 }} >
+
+        <View style={{
+          height: 60,
+          width: 60,
+          borderRadius: width,
+          position: "absolute",
+          zIndex: 1,
+          top: 30,
+          left: 30,
+        }} >
+          <TouchableOpacity activeOpacity={.5} style={{
+            flex:1,
+            backgroundColor: "rgba(55,52,71, 0.7)",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: width,
+          }} >
+            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 35 }} />
+          </TouchableOpacity>
+        </View>
+        <View style={{ height: 80,
+         width: "90%", backgroundColor: "rgba(55,52,71, 0.7)",  position: "absolute", zIndex: 1, bottom: 20, borderRadius:3 }} >
 
         </View>
       </View >
@@ -88,6 +100,8 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     bottom: 0,
+    zIndex: -1,
+
 
   }
 });
