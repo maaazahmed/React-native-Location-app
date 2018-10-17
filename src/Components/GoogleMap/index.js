@@ -1,16 +1,17 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
-  StyleSheet,
   Text,
   View,
-  ScrollView,
-  Button,
-  Dimensions,
-  TouchableOpacity,
   Image,
+  Button,
+  Platform,
   Animated,
+  StyleSheet,
+  Dimensions,
+  ScrollView,
+  TouchableOpacity,
+  PermissionsAndroid,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import mapStyle from "./mapStyle.json"
@@ -24,34 +25,34 @@ export default class Map extends Component {
     super()
     this.state = {
       // region: {
-      latitude: 24.8937388,
-      longitude: 67.0287008,
+      latitude: 0,
+      longitude: 0,
       latitudeDelta: 0.01000,
-      longitudeDelta: 0.0100,
+      longitudeDelta: 0.01000,
       // },
     }
   }
 
+
   componentDidMount() {
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        console.log(position, position.coords)
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           error: null,
         });
-      },
 
+      },
       (error) => this.setState({ error: error.message }),
-      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
-    );
+      { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 })
   }
 
   render() {
     return (
       <View style={styles.container}>
         <MapView
-          provider={PROVIDER_GOOGLE}
           style={styles.map}
           zoomLevel={100}
           loadingEnabled
@@ -59,8 +60,13 @@ export default class Map extends Component {
           zoomEnabled
           pitchEnabled
           rotateEnabled
-          mapType="satellite"
-          // initialRegion={this.state.region}
+          // mapType="satellite"
+          initialRegion={{
+            latitude: this.state.latitude,
+            longitude: this.state.longitude,
+            latitudeDelta: this.state.latitudeDelta,
+            longitudeDelta: this.state.longitudeDelta,
+          }}
           region={{
             latitude: this.state.latitude,
             longitude: this.state.longitude,
@@ -76,11 +82,11 @@ export default class Map extends Component {
               longitudeDelta: this.state.longitudeDelta,
             }} />
         </MapView>
-        
+
 
         <View style={styles.backButtonContainer} >
           <TouchableOpacity activeOpacity={.5} style={styles.backButton} >
-            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 33 }} />
+            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 30 }} />
           </TouchableOpacity>
         </View>
         <View style={styles.datailContainer} >
@@ -119,8 +125,8 @@ const styles = StyleSheet.create({
     zIndex: -1,
   },
   backButtonContainer: {
-    height: 60,
-    width: 60,
+    height: 57,
+    width: 57,
     borderRadius: width,
     position: "absolute",
     zIndex: 1,
@@ -154,13 +160,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    paddingRight:5
+    paddingRight: 5
   },
   image: {
     height: 75,
     width: 75,
     borderRadius: width,
-   
+
   },
   locatDetail: {
     flex: 3,
