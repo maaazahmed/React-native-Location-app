@@ -10,20 +10,9 @@ import {
 } from 'react-native';
 import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
-import { connect } from "react-redux"
-import firebase from "firebase"
-
-
-
-var config = {
-    apiKey: "AIzaSyBgWBdLgrKWzavJsUqghhWswvkAghIFE70",
-    authDomain: "adding-todo-app.firebaseapp.com",
-    databaseURL: "https://adding-todo-app.firebaseio.com",
-    projectId: "adding-todo-app",
-    storageBucket: "adding-todo-app.appspot.com",
-    messagingSenderId: "1007306870917"
-};
-firebase.initializeApp(config);
+import * as firebase from "firebase";
+import { connect } from "react-redux";
+import { currentUserAction } from "../../store/action/action"
 
 
 
@@ -104,10 +93,15 @@ class SignUp extends Component {
             .then((res) => {
                 database.child(`user/${res.user.uid}`).set(user)
                     .then(() => {
-                        setTimeout(() => {
-                            this.heideLoader()
-                            this.props.navigation.navigate("Dashboard")
-                        }, 2000)
+                        database.child(`user/${res.user.uid}`).on("value", (snap) => {
+                            let obj = snap.val()
+                            obj.id = snap.key;
+                            this.props.currentUserAction(obj)
+                            // setTimeout(() => {
+                                this.heideLoader()
+                                this.props.navigation.navigate("Dashboard")
+                            // }, 2000)
+                        })
                     })
             }).catch((error) => {
                 setTimeout(() => {
@@ -134,7 +128,7 @@ class SignUp extends Component {
 
         })
 
-        
+
 
         return (
             <View style={styles.container2} >
@@ -144,12 +138,12 @@ class SignUp extends Component {
                         alignItems: "center"
                     }} >
 
-                        <Animated.Image
+                        {/* <Animated.Image
                             resizeMode="contain"
                             source={require("./images/logo2.png")}
-                            style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
+                            style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} /> */}
                     </View>
-                    <Animated.View style={{ opacity }} >
+                    <Animated.View style={{ opacity:1 }} >
                         <View style={[styles.InputView2]} >
                             <Icon name="contact" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
                             <TextInput
@@ -251,6 +245,22 @@ const styles = StyleSheet.create({
 
 
 
-export default (SignUp)
+
+const mapStateToProp = (state) => {
+    return ({
+
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        currentUserAction: (data) => {
+            dispatch(currentUserAction(data))
+        },
+    };
+};
+
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(SignUp)
 
 

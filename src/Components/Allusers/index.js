@@ -15,6 +15,7 @@ import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, List, } from 'native-base';
 import { Title } from 'react-native-paper';
 // import { Searchbar } from 'react-native-paper';
+import { connect } from "react-redux"
 
 
 let arr = [
@@ -98,7 +99,7 @@ let arr = [
 
 
 const { height, width } = Dimensions.get("window")
-export default class AllUsers extends Component {
+ class AllUsers extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -173,27 +174,29 @@ export default class AllUsers extends Component {
             inputRange: [0, 1],
             outputRange: [1, 0]
         })
-        
+
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
             outputRange: [-100, 0]
         })
-        
+
         let textInputOpacity = this.textInputOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.2, 1]
         })
-        
+
         let listOpacity = this.listOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
         })
-        
+
         let listPadding = this.listPadding.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [10, 5, 0]
         })
 
+        console.log(this.props.currentUserData.currentUser,"===============")
+        alert(this.props.currentUserData.currentUser)
 
         return (
             <View style={styles.container} >
@@ -391,3 +394,27 @@ const styles = StyleSheet.create({
     }
 
 })
+
+
+
+
+
+
+const mapStateToProp = (state) => {
+    return ({
+        currentUserData:state.root 
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        // currentUserAction: (data) => {
+        //     dispatch(currentUserAction(data))
+    // },
+    };
+};
+
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(AllUsers)
+
+

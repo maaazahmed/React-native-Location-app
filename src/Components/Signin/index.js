@@ -11,13 +11,24 @@ import {
 } from 'react-native';
 import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
-import { SignUp } from "../index"
-const { width, height } = Dimensions.get("window")
 import { connect } from "react-redux";
-import { signUpScreenHideAction } from "../../store/action/action"
+import firebase from "firebase";
+import { currentUserAction } from "../../store/action/action"
+
+var config = {
+    apiKey: "AIzaSyBgWBdLgrKWzavJsUqghhWswvkAghIFE70",
+    authDomain: "adding-todo-app.firebaseapp.com",
+    databaseURL: "https://adding-todo-app.firebaseio.com",
+    projectId: "adding-todo-app",
+    storageBucket: "adding-todo-app.appspot.com",
+    messagingSenderId: "1007306870917"
+};
+firebase.initializeApp(config);
 
 
 
+let database = firebase.database().ref("/")
+const { width, height } = Dimensions.get("window")
 class SignIn extends Component {
     constructor() {
         super()
@@ -34,6 +45,27 @@ class SignIn extends Component {
             password: "",
             isLoader: true
         }
+    }
+
+
+    componentWillMount() {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                database.child(`user/${user.uid}`).on("value", (snap) => {
+                    let obj = snap.val()
+                    obj.id = snap.key;
+                    this.props.currentUserAction(obj)
+                    setTimeout(() => {
+                        this.props.navigation.navigate("Dashboard")
+                    }, 2000)
+                })
+            }
+            else {
+                setTimeout(() => {
+                    this.heideLoader()
+                }, 3000)
+            }
+        })
     }
 
 
@@ -60,9 +92,9 @@ class SignIn extends Component {
 
 
     componentDidMount() {
-        setTimeout(() => {
-            this.heideLoader()
-        }, 2000)
+        // setTimeout(() => {
+        //     this.heideLoader()
+        // }, 2000)
     }
 
     createAccountPage() {
@@ -86,7 +118,6 @@ class SignIn extends Component {
         }).start(() => {
             this.setState({ isLoader: true })
             setTimeout(() => {
-                this.props.navigation.navigate("Dashboard")
             }, 2000)
         })
     }
@@ -96,7 +127,28 @@ class SignIn extends Component {
 
 
     signHendler() {
+        let user = {
+            email: this.state.email,
+            password: this.state.password,
+        }
         this.showLoader()
+        firebase.auth().signInWithEmailAndPassword(user.email, user.password)
+            .then((users) => {
+                database.child(`user/${users.user.uid}`).on("value", (snap) => {
+                    let obj = snap.val()
+                    obj.id = snap.key;
+                    setTimeout(() => {
+                        this.heideLoader()
+                        this.props.currentUserAction(obj)
+                        this.props.navigation.navigate("Dashboard")
+                    }, 2000)
+                })
+            }).catch((error) => {
+                setTimeout(() => {
+                    this.heideLoader()
+                }, 2000)
+            });
+
     }
 
 
@@ -115,32 +167,32 @@ class SignIn extends Component {
             inputRange: [0, 1],
             outputRange: [200, 170],
         })
-        let signUpHeight = this.state.signUpHeight.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, height],
-        })
-        let signUpWidth = this.state.signUpHeight.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, height / 2, width],
-        })
-        let signUpRadius = this.state.signUpRadius.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [height, width, 0],
-        })
+        // let signUpHeight = this.state.signUpHeight.interpolate({
+        //     inputRange: [0, 1],
+        //     outputRange: [0, height],
+        // })
+        // let signUpWidth = this.state.signUpHeight.interpolate({
+        //     inputRange: [0, 0.5, 1],
+        //     outputRange: [0, height / 2, width],
+        // })
+        // let signUpRadius = this.state.signUpRadius.interpolate({
+        //     inputRange: [0, 0.5, 1],
+        //     outputRange: [height, width, 0],
+        // })
 
-        let signContentOpactiy = this.state.signContentOpactiy.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, 1],
-        })
+        // let signContentOpactiy = this.state.signContentOpactiy.interpolate({
+        //     inputRange: [0, 1],
+        //     outputRange: [0, 1],
+        // })
 
-        let signContentMarginBottom = this.state.signContentMarginBottom.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, 0],
-        })
-        let signContentClosOpactiy = this.state.signContentClosOpactiy.interpolate({
-            inputRange: [0, 1],
-            outputRange: [0, 1],
-        })
+        // let signContentMarginBottom = this.state.signContentMarginBottom.interpolate({
+        //     inputRange: [0, 1],
+        //     outputRange: [0, 0],
+        // })
+        // let signContentClosOpactiy = this.state.signContentClosOpactiy.interpolate({
+        //     inputRange: [0, 1],
+        //     outputRange: [0, 1],
+        // })
 
         return (
             <View style={{ flex: 1, justifyContent: "center", }} >
@@ -279,15 +331,28 @@ const styles = StyleSheet.create({
     },
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 const mapStateToProp = (state) => {
     return ({
-        request_list: state.root,
+        
     });
 };
 const mapDispatchToProp = (dispatch) => {
     return {
-        signUpScreenHideAction: (data) => {
-            dispatch(signUpScreenHideAction(data))
+        currentUserAction: (data) => {
+            dispatch(currentUserAction(data))
         },
     };
 };
