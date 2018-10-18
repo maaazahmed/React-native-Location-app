@@ -25,7 +25,7 @@ export default class Dashboard extends React.Component {
         },
         {
             key: 'movies-tv',
-            icon: require("./images/send_request.png"),
+            icon: require("./images/group.png"),
             label: 'send',
             barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
