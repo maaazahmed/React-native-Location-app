@@ -133,7 +133,8 @@ class SignUp extends Component {
             outputRange: [200, 170],
 
         })
-        let printError = this.state.printError
+
+        
 
         return (
             <View style={styles.container2} >
