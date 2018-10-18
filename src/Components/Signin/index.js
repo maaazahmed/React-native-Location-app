@@ -37,28 +37,39 @@ class SignIn extends Component {
     }
 
 
-    componentDidMount() {
-        setTimeout(() => {
-            Animated.sequence([
-                Animated.timing(this.state.logoPostion, {
-                    toValue: 1,
-                    duration: 500
-                }),
-                Animated.timing(this.state.opacity, {
-                    toValue: 1,
-                    duration: 500
-                }),
-
-            ]).start()
-            Animated.timing(this.state.heightWidth, {
+    heideLoader() {
+        Animated.sequence([
+            Animated.timing(this.state.logoPostion, {
                 toValue: 1,
                 duration: 500
-            }).start()
-            this.setState({ isLoader: false })
-        }, 1000)
+            }),
+            Animated.timing(this.state.opacity, {
+                toValue: 1,
+                duration: 500
+            }),
+
+        ]).start()
+        Animated.timing(this.state.heightWidth, {
+            toValue: 1,
+            duration: 500
+        }).start()
+        this.setState({ isLoader: false })
     }
 
-    signHendler() {
+
+
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.heideLoader()
+        }, 2000)
+    }
+
+    createAccountPage() {
+        this.props.navigation.navigate("SignUp")
+    }
+
+    showLoader() {
         Animated.parallel([
             Animated.timing(this.state.logoPostion, {
                 toValue: 0,
@@ -72,62 +83,22 @@ class SignIn extends Component {
         Animated.timing(this.state.heightWidth, {
             toValue: 0,
             duration: 500
-        }).start()
-        this.setState({ isLoader: true })
-    }
-
-    createAccountPage() {
-        Animated.parallel([
-            Animated.timing(this.state.signContentClosOpactiy, {
-                toValue: 1,
-                duration: 200
-            }),
-            Animated.timing(this.state.signUpHeight, {
-                toValue: 1,
-                duration: 200
-            }),
-        ]).start()
-        Animated.sequence([
-            Animated.timing(this.state.signUpRadius, {
-                toValue: 1,
-                duration: 350
-            }),
-            Animated.timing(this.state.signContentOpactiy, {
-                toValue: 1,
-                duration: 500
-            }),
-        ]).start()
-        Animated.timing(this.state.signContentMarginBottom, {
-            toValue: 1,
-            duration: 300
-        }).start()
+        }).start(() => {
+            this.setState({ isLoader: true })
+            setTimeout(() => {
+                this.props.navigation.navigate("Dashboard")
+            }, 2000)
+        })
     }
 
 
-    backToSignIn() {
-        Animated.timing(this.state.signContentOpactiy, {
-            toValue: 0,
-            duration: 200
-        }).start()
-        Animated.timing(this.state.signUpRadius, {
-            toValue: 0,
-            duration: 200
-        }).start()
-        Animated.parallel([
-            Animated.timing(this.state.signContentClosOpactiy, {
-                toValue: 0,
-                duration: 500
-            }),
-            Animated.timing(this.state.signUpHeight, {
-                toValue: 0,
-                duration: 500
-            }),
-            Animated.timing(this.state.signContentMarginBottom, {
-                toValue: 1,
-                duration: 500
-            }),
-        ]).start()
+
+
+
+    signHendler() {
+        this.showLoader()
     }
+
 
 
 
@@ -226,91 +197,6 @@ class SignIn extends Component {
                             : null}
                     </View>
                 </View>
-                <Animated.View style={{
-                    height: signUpHeight,
-                    width: signUpWidth,
-                    backgroundColor: "#fff",
-                    position: "absolute",
-                    borderRadius: signUpRadius,
-                    alignSelf: "center",
-                    alignContent: "flex-end",
-                    bottom: signContentMarginBottom,
-                    opacity: signContentClosOpactiy
-                }}>
-                    <Animated.View style={{ opacity: signContentOpactiy, flex: 1, borderRadius: signUpRadius, }} >
-                        {/* <SignUp <<==*/}
-                        {/* <SignUp <<==*/}
-                        {/* <SignUp <<==*/}
-                        {/* <SignUp <<==*/}
-                        <View style={styles.container2} >
-                            <View style={styles.TextFields2} >
-                                <View style={{
-                                    flex: 1,
-                                    alignItems: "center"
-                                }} >
-                                    <Animated.Image
-                                        resizeMode="contain"
-                                        source={require("./images/logo2.png")}
-                                        style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
-                                    {/* <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text> */}
-                                </View>
-                                <Animated.View style={{ opacity }} >
-                                    <View style={[styles.InputView2]} >
-                                        <Icon name="contact" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
-                                        <TextInput
-                                            style={styles.Input2}
-                                            value={this.state.username}
-                                            placeholder="Usernaem"
-                                            returnKeyType="next"
-                                            keyboardType="default"
-                                            placeholderTextColor="#c3bfd8"
-                                            underlineColorAndroid="transparent"
-                                            onChangeText={(username) => this.setState({ username })}
-                                        />
-                                    </View>
-                                    <View style={[styles.InputView2]} >
-                                        <Icon name="mail" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
-                                        <TextInput
-                                            style={styles.Input2}
-                                            value={this.state.email}
-                                            placeholder="Email"
-                                            returnKeyType="next"
-                                            keyboardType="email-address"
-                                            placeholderTextColor="#c3bfd8"
-                                            underlineColorAndroid="transparent"
-                                            onChangeText={(email) => this.setState({ email })}
-                                        />
-                                    </View>
-                                    <View style={styles.InputView2} >
-                                        <Icon name="lock" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 23 }} />
-                                        <TextInput
-                                            value={this.state.password}
-                                            style={styles.Input2}
-                                            placeholder="Password"
-                                            returnKeyType="next"
-                                            keyboardType="default"
-                                            placeholderTextColor="#c3bfd8"
-                                            underlineColorAndroid="transparent"
-                                            onChangeText={(password) => this.setState({ password })}
-                                        />
-                                    </View>
-                                    <TouchableOpacity onPress={() => this.signHendler()} activeOpacity={0.5} style={styles.buttonContainer2} >
-                                        <Text style={styles.buttonText2} >Sign Up</Text>
-                                    </TouchableOpacity>
-                                    <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "row", marginTop: 10 }} >
-                                        <Text style={{ color: "#c3bfd8", fontSize: 15 }} >Already have an account? </Text>
-                                        <TouchableOpacity onPress={() => this.backToSignIn()} ><Text style={{ color: "#c3bfd8", fontSize: 17 }} > Sign In</Text></TouchableOpacity>
-                                    </View>
-                                </Animated.View>
-                                {(this.state.isLoader) ?
-                                    <View style={{ justifyContent: "center", width: "100%", alignItems: "center", position: "absolute", bottom: 10 }} >
-                                        <Pulse size={20} color="#c3bfd8" />
-                                    </View>
-                                    : null}
-                            </View>
-                        </View>
-                    </Animated.View>
-                </Animated.View>
             </View>
         );
     }

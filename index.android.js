@@ -1,16 +1,12 @@
 import React, { Component } from 'react';
 import {
   View,
-  Animated,
 } from 'react-native';
-import {
-  Map,
-  Signin,
-  SignUp
-} from "./src/Components/index"
-import Dashboard from "./src/index"
 import { Provider } from "react-redux"
 import store from "./src/store/index"
+import Routers from "./src/Routes/Routers"
+import firebase from "firebase" 
+
 
 
 export default class App extends Component {
@@ -20,11 +16,9 @@ export default class App extends Component {
   render() {
     return (
       <View style={{ flex: 1 }} >
-        {/* <Provider store={store} >
-          <Signin />
-        </Provider> */}
-        {/* <Dashboard /> */}
-        <Map/>
+        <Provider store={store} >
+          <Routers />
+        </Provider>
       </View>
     )
   }

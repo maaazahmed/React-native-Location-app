@@ -11,45 +11,59 @@ import {
 import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
 import { connect } from "react-redux"
+import firebase from "firebase"
 
 
+
+var config = {
+    apiKey: "AIzaSyBgWBdLgrKWzavJsUqghhWswvkAghIFE70",
+    authDomain: "adding-todo-app.firebaseapp.com",
+    databaseURL: "https://adding-todo-app.firebaseio.com",
+    projectId: "adding-todo-app",
+    storageBucket: "adding-todo-app.appspot.com",
+    messagingSenderId: "1007306870917"
+};
+firebase.initializeApp(config);
+
+
+
+const database = firebase.database().ref()
 const { height } = Dimensions.get("window")
- class SignUp extends Component {
+class SignUp extends Component {
     constructor() {
         super()
         this.state = {
             logoPostion: new Animated.Value(0),
             opacity: new Animated.Value(0),
             heightWidth: new Animated.Value(0),
+            isLoader: true,
             email: "",
             password: "",
             username: "",
-            isLoader: true
+            printError: "assaas"
+
         }
 
     }
-    componentDidMount() {
-        setTimeout(() => {
-            Animated.sequence([
-                Animated.timing(this.state.logoPostion, {
-                    toValue: 1,
-                    duration: 500
-                }),
-                Animated.timing(this.state.opacity, {
-                    toValue: 1,
-                    duration: 500
-                }),
-
-            ]).start()
-            Animated.timing(this.state.heightWidth, {
+    heideLoader() {
+        Animated.sequence([
+            Animated.timing(this.state.logoPostion, {
                 toValue: 1,
                 duration: 500
-            }).start()
-            this.setState({ isLoader: false })
-        }, 1000)
-    }
+            }),
+            Animated.timing(this.state.opacity, {
+                toValue: 1,
+                duration: 500
+            }),
 
-    signHendler() {
+        ]).start()
+        Animated.timing(this.state.heightWidth, {
+            toValue: 1,
+            duration: 500
+        }).start()
+        this.setState({ isLoader: false })
+    }
+    showLoader() {
         Animated.parallel([
             Animated.timing(this.state.logoPostion, {
                 toValue: 0,
@@ -65,14 +79,49 @@ const { height } = Dimensions.get("window")
             duration: 500
         }).start()
         this.setState({ isLoader: true })
-
     }
 
+
+    componentDidMount() {
+        setTimeout(() => {
+            this.heideLoader()
+        }, 1000)
+    }
+
+
+    backToSignIn() {
+        this.props.navigation.navigate("SignIn")
+    }
+
+    signHendler() {
+        let user = {
+            username: this.state.username,
+            Email: this.state.email,
+            Password: this.state.password,
+        }
+        this.showLoader()
+        firebase.auth().createUserWithEmailAndPassword(user.Email, user.Password)
+            .then((res) => {
+                database.child(`user/${res.user.uid}`).set(user)
+                    .then(() => {
+                        setTimeout(() => {
+                            this.heideLoader()
+                            this.props.navigation.navigate("Dashboard")
+                        }, 2000)
+                    })
+            }).catch((error) => {
+                setTimeout(() => {
+                    this.heideLoader()
+                }, 2000)
+            });
+    }
+
+
+
+
     render() {
-        // const backToSignScreen = this.props.backToSignScreen.backToSignIn
         const marginTop = this.state.logoPostion.interpolate({
             inputRange: [0, 1],
-            // outputRange: ["100%", "0%"],
             outputRange: ["50%", "1%"],
         })
         const opacity = this.state.opacity.interpolate({
@@ -81,24 +130,23 @@ const { height } = Dimensions.get("window")
         })
         const heightWidth = this.state.heightWidth.interpolate({
             inputRange: [0, 1],
-            // outputRange: [200, 100],
             outputRange: [200, 170],
 
         })
+        let printError = this.state.printError
 
         return (
             <View style={styles.container2} >
                 <View style={styles.TextFields2} >
                     <View style={{
                         flex: 1,
-                        //  justifyContent: "center", 
                         alignItems: "center"
                     }} >
+
                         <Animated.Image
                             resizeMode="contain"
                             source={require("./images/logo2.png")}
                             style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
-                        {/* <Text style={{ color: "#c3bfd8", fontSize: 18, marginTop: 10 }} >F Location</Text> */}
                     </View>
                     <Animated.View style={{ opacity }} >
                         <View style={[styles.InputView2]} >
@@ -145,7 +193,7 @@ const { height } = Dimensions.get("window")
                         </TouchableOpacity>
                         <View style={{ justifyContent: "center", alignItems: "center", flexDirection: "row", marginTop: 10 }} >
                             <Text style={{ color: "#c3bfd8", fontSize: 15 }} >Already have an account? </Text>
-                            <TouchableOpacity onPress={()=>this.props.backToSignScreen.backToSignIn()} ><Text style={{ color: "#c3bfd8", fontSize: 17 }} > Sign In</Text></TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.backToSignIn()} ><Text style={{ color: "#c3bfd8", fontSize: 17 }} > Sign In</Text></TouchableOpacity>
                         </View>
                     </Animated.View>
                     {(this.state.isLoader) ?
@@ -202,20 +250,6 @@ const styles = StyleSheet.create({
 
 
 
-const mapStateToProp = (state) => {
-    return ({
-        backToSignScreen: state.root
-    });
-};
-const mapDispatchToProp = (dispatch) => {
-    return {
-        // signUpScreenHideAction: (data) => {
-        //     dispatch(signUpScreenHideAction(data))
-        // },
-    };
-};
-
-
-export default connect(mapStateToProp, mapDispatchToProp)(SignUp)
+export default (SignUp)
 
 
