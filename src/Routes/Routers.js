@@ -18,7 +18,7 @@ const Routers = StackNavigator({
         navigationOptions: {
             header: null
         },
-        initialRouteName: "SignUp"
+        initialRouteName: "SignIn"
     }
 )
 

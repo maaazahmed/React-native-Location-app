@@ -97,10 +97,10 @@ class SignUp extends Component {
                             let obj = snap.val()
                             obj.id = snap.key;
                             this.props.currentUserAction(obj)
-                            // setTimeout(() => {
+                            setTimeout(() => {
                                 this.heideLoader()
                                 this.props.navigation.navigate("Dashboard")
-                            // }, 2000)
+                            }, 2000)
                         })
                     })
             }).catch((error) => {
@@ -138,12 +138,12 @@ class SignUp extends Component {
                         alignItems: "center"
                     }} >
 
-                        {/* <Animated.Image
+                        <Animated.Image
                             resizeMode="contain"
                             source={require("./images/logo2.png")}
-                            style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} /> */}
+                            style={{ height: heightWidth, width: heightWidth, marginTop: marginTop }} />
                     </View>
-                    <Animated.View style={{ opacity:1 }} >
+                    <Animated.View style={{ opacity }} >
                         <View style={[styles.InputView2]} >
                             <Icon name="contact" style={{ color: "#c3bfd8", paddingBottom: 10, fontSize: 22 }} />
                             <TextInput

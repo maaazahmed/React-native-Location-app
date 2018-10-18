@@ -195,8 +195,6 @@ const { height, width } = Dimensions.get("window")
             outputRange: [10, 5, 0]
         })
 
-        console.log(this.props.currentUserData.currentUser,"===============")
-        alert(this.props.currentUserData.currentUser)
 
         return (
             <View style={styles.container} >
