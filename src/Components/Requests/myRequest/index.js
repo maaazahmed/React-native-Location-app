@@ -244,7 +244,8 @@ export default class MyRequest extends Component {
                                         </View>
                                         <View style={styles.listButnView}>
                                             <Button style={styles.ListButn} transparent  >
-                                                <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
+                                                {/* <Icons name="map-marker" size={25} style={styles.ListButnIcon} /> */}
+                                                <Image style={{height:18, width:18,}} source={require("./images/forward.png")} />
                                             </Button>
                                         </View>
                                     </View>

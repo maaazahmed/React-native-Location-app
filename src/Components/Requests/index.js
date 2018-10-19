@@ -260,7 +260,7 @@ export default class Dashboard extends React.Component {
         {
             key: 'profile',
             icon: require("./images/baseline_person_white_18dp.png"),
-            label: 'Requests',
+            label: 'Profile',
             barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
@@ -274,7 +274,7 @@ export default class Dashboard extends React.Component {
     ]
 
     renderIcon = icon => ({ isActive }) => (
-        <Image source={icon} style={{ height: 25, width: 25 }} />
+          <Image source={icon} style={{ height: 25, width: 25 }} />
     )
 
     renderTab = ({ tab, isActive }) => {
@@ -306,35 +306,44 @@ export default class Dashboard extends React.Component {
         return (
             <View style={{ flex: 1 }}>
                 <Header hasTabs style={styles.header} >
-                    <View style={[styles.headerContent]} >
-                        <View >
-                            <Button transparent>
-                                <Icon name='menu' />
-                            </Button>
+                    {(this.state.activeTab !== "profile") ?
+                        <View style={[styles.headerContent]} >
+                            <View >
+                                <Button transparent>
+                                    <Icon name='menu' />
+                                </Button>
+                            </View>
+                            <View >
+                                {(this.state.activeTab == "games") ?
+                                    <View style={styles.inputContainer} >
+                                        <Image source={require("./images/back-arrow.png")} style={styles.seachIconForInput} />
+                                        <Text style={styles.heandingTitle} > Received Request</Text>
+                                    </View>
+                                    :
+                                    <View style={styles.inputContainer} >
+                                        <Image source={require("./images/forward-arrow.png")} style={styles.seachIconForInput} />
+                                        <Text style={styles.heandingTitle} >Send Request</Text>
+                                    </View>
+                                }
+                            </View>
+                            <View style={{ flexDirection: "row" }} >
+                                <Button onPress={() => {}} transparent>
+                                    <Icon name='search' />
+                                </Button>
+                            </View>
                         </View>
-                        <View >
-                            {(this.state.activeTab == "games") ?
-                                <View style={styles.inputContainer} >
-                                    <Image source={require("./images/back-arrow.png")} style={styles.seachIconForInput} />
-                                    <Text style={styles.heandingTitle} > Received Request</Text>
-                                </View>
-                                :
-                                <View style={styles.inputContainer} >
-                                    <Image source={require("./images/forward-arrow.png")} style={styles.seachIconForInput} />
-                                    <Text style={styles.heandingTitle} >Send Request</Text>
-                                </View>
-                            }
+                        :
+                        <View style={{flex:1, justifyContent:"center", alignItems:"center"}} >
+                            <View style={styles.inputContainer} >
+                                <Image source={require("./images/baseline_person_white_18dp.png")} style={styles.seachIconForInput} />
+                                <Text style={styles.heandingTitle} >Profile</Text>
+                            </View>
                         </View>
-                        <View style={{ flexDirection: "row" }} >
-                            <Button onPress={() => this.searchUser()} transparent>
-                                <Icon name='search' />
-                            </Button>
-                        </View>
-                    </View>
+                    }
                 </Header>
 
-                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10 }} >
-                    <Image style={{ height: 120, width: 120, borderRadius: width }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
+                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10,  }} >
+                    <Image style={{ height: 120, width: 120, borderRadius: width, borderColor:"#fff", borderWidth:2 }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
                     <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
                 </View>
                 <BottomNavigation

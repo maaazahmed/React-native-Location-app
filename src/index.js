@@ -24,19 +24,19 @@ export default class Dashboard extends React.Component {
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
         {
-            key: 'movies-tv',
-            icon: require("./images/group.png"),
-            label: 'Requests',
-            barColor: '#312e3f',
-            pressColor: 'rgba(255, 255, 255, 0.16)'
-        },
-        {
             key: 'music',
             icon: require("./images/search.png"),
             label: 'Search',
             barColor: '#312e3f',
             pressColor: '#rgba(255, 255, 255, 0.16)'
-        }
+        },
+        {
+            key: 'movies-tv',
+            icon: require("./images/setting.png"),
+            label: 'More',
+            barColor: '#312e3f',
+            pressColor: 'rgba(255, 255, 255, 0.16)'
+        },
     ]
 
     renderIcon = icon => ({ isActive }) => (

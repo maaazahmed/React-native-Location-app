@@ -9,7 +9,8 @@ import {
     TouchableOpacity,
     TextInput,
     Animated,
-    Easing
+    Easing,
+
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, List, } from 'native-base';
@@ -244,7 +245,8 @@ export default class UserRequest extends Component {
                                         </View>
                                         <View style={styles.listButnView}>
                                             <Button style={styles.ListButn} transparent  >
-                                                <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
+                                                {/* <Icons name="map-marker" size={25} style={styles.ListButnIcon} /> */}
+                                                <Image style={{height:18, width:18,}} source={require("./images/backward.png")} />
                                             </Button>
                                         </View>
                                     </View>
