@@ -230,12 +230,13 @@ import {
     View,
     Image,
     StyleSheet,
-    Dimensions
+    Dimensions,
+    Text
 } from 'react-native';
 import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
 import UserRequest from "./UserRequest/index"
 import MyRequest from "./myRequest/index"
-import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Button } from 'native-base';
+import { Container, Header, Tab, Tabs, TabHeading, Icon, Button } from 'native-base';
 
 
 
@@ -324,6 +325,11 @@ export default class Dashboard extends React.Component {
                         </View>
                     </View>
                 </Header>
+
+                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding:10 }} >
+                    <Image style={{ height: 120, width: 120, borderRadius: width }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
+                    <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
+                </View>
                 <BottomNavigation
                     style={{ justifyContent: "space-between" }}
                     acactiveTab={this.state.activeTab}
@@ -331,7 +337,7 @@ export default class Dashboard extends React.Component {
                     renderTab={this.renderTab}
                     tabs={this.tabs}
                 />
-                <View style={{ flex: 1 }} >
+                <View style={{ flex: 3.5 }} >
                     {this.trnderScreen()}
                 </View>
             </View>
@@ -427,6 +433,7 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "400",
         fontSize: 20,
+        marginTop:5
     },
     closeIcon: {
         color: "#fff",
