@@ -251,9 +251,9 @@ export default class Dashboard extends React.Component {
 
     tabs = [
         {
-            key: 'games',
             icon: require("./images/back-arrow.png"),
-            label: 'Friends',
+            key: 'games',
+            label: 'Received Request',
             barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
@@ -265,9 +265,9 @@ export default class Dashboard extends React.Component {
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
         {
-            key: 'movies-tv',
             icon: require("./images/forward-arrow.png"),
-            label: 'Requests',
+            key: 'movies-tv',
+            label: 'Send Request',
             barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
@@ -312,11 +312,18 @@ export default class Dashboard extends React.Component {
                                 <Icon name='menu' />
                             </Button>
                         </View>
-                        <View  >
-                            <View style={styles.inputContainer} >
-                                <Image source={require("./images/group.png")} style={styles.seachIconForInput} />
-                                <Text style={styles.heandingTitle} >Requests</Text>
-                            </View>
+                        <View >
+                            {(this.state.activeTab == "games") ?
+                                <View style={styles.inputContainer} >
+                                    <Image source={require("./images/back-arrow.png")} style={styles.seachIconForInput} />
+                                    <Text style={styles.heandingTitle} > Received Request</Text>
+                                </View>
+                                :
+                                <View style={styles.inputContainer} >
+                                    <Image source={require("./images/forward-arrow.png")} style={styles.seachIconForInput} />
+                                    <Text style={styles.heandingTitle} >Send Request</Text>
+                                </View>
+                            }
                         </View>
                         <View style={{ flexDirection: "row" }} >
                             <Button onPress={() => this.searchUser()} transparent>
@@ -326,7 +333,7 @@ export default class Dashboard extends React.Component {
                     </View>
                 </Header>
 
-                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding:10 }} >
+                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10 }} >
                     <Image style={{ height: 120, width: 120, borderRadius: width }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
                     <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
                 </View>
@@ -432,8 +439,8 @@ const styles = StyleSheet.create({
     heandingTitle: {
         color: "#fff",
         fontWeight: "400",
-        fontSize: 20,
-        marginTop:5
+        fontSize: 18,
+        marginTop: 5
     },
     closeIcon: {
         color: "#fff",
