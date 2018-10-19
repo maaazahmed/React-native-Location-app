@@ -1,51 +1,484 @@
+
+
+
 // import React, { Component } from 'react';
-// import {
-//   View,
-//   Text
-// } from 'react-native';
-// import { Provider } from "react-redux"
-// import firebase from "firebase" 
+// import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Button } from 'native-base';
+// import { Image, StyleSheet, Dimensions, Animated, View } from "react-native"
+// import Icons from "react-native-vector-icons/MaterialIcons"
 
-
+// import UserRequest from "./UserRequest/index"
+// import MyRequest from "./myRequest/index"
+// const { height, width } = Dimensions.get("window")
 
 // export default class App extends Component {
-//   constructor() {
-//     super()
-//   }
-//   render() {
-//     return (
-//       <View style={{ flex: 1 }} >
-//           <Text>Hello</Text>
-//       </View>
-//     )
-//   }
+//     render() {
+//         return (
+//             <Container>
+//                 <Header hasTabs style={styles.header} >
+//                     <Animated.View style={[styles.headerContent]} >
+//                         <View >
+//                             <Button transparent>
+//                                 <Icon name='menu' />
+//                             </Button>
+//                         </View>
+//                         <View  >
+//                             <View style={styles.inputContainer} >
+//                                 <Image source={require("./images/group.png")}  style={styles.seachIconForInput} />
+//                                 <Text style={styles.heandingTitle} >Requests</Text>
+//                             </View>
+//                         </View>
+//                         <View style={{ flexDirection: "row" }} >
+//                             <Button onPress={() => this.searchUser()} transparent>
+//                                 <Icon name='search' />
+//                             </Button>
+//                         </View>
+//                     </Animated.View>
+//                 </Header>
+
+//                 <Tabs  tabBarUnderlineStyle={{ backgroundColor: "transparent" }} tabBarBackgroundColor={"#312e3f"}  >
+//                     <Tab
+//                         tabStyle={{ backgroundColor: '#312e3f' }}
+//                         activeTabStyle={{ backgroundColor: '#312e3f' }}
+//                         activeTextStyle={{ color: "#fff" }}
+//                         textStyle={{ color: '#f2f2f2' }}
+//                         heading={<TabHeading
+//                             style={{ backgroundColor: "#312e3f" }} >
+//                             <Image
+//                                 style={{ height: 30, width: 30 }}
+//                                 source={require("./images/back-arrow.png")} />
+//                         </TabHeading>}>
+//                         <UserRequest />
+//                     </Tab>
+//                     <Tab
+//                         tabStyle={{ backgroundColor: '#312e3f' }}
+//                         activeTabStyle={{ backgroundColor: '#312e3f' }}
+//                         activeTextStyle={{ color: "#fff" }}
+//                         textStyle={{ color: '#f2f2f2' }}
+//                         heading={<TabHeading
+//                             style={{ backgroundColor: "#312e3f" }} >
+//                             <Image
+//                                 style={{ height: 30, width: 30 }}
+//                                 source={require("./images/forward-arrow.png")} />
+//                         </TabHeading>}>
+//                         <MyRequest />
+//                     </Tab>
+//                 </Tabs>
+//             </Container>
+//         );
+//     }
 // }
 
 
 
-import React, { Component } from 'react';
-import { Container, Header, Tab, Tabs, TabHeading, Icon, Text } from 'native-base';
 
+
+
+
+
+
+
+
+
+
+
+
+
+// const styles = StyleSheet.create({
+//     container: { flex: 1, backgroundColor: "#312e3f" },
+//     customCardContainer: {
+//         flex: 1,
+//         alignItems: "center",
+//     },
+//     header: {
+//         paddingLeft: 5,
+//         paddingRight: 5,
+//         backgroundColor: "#312e3f",
+//         justifyContent:"center",
+//         alignItems:"center"
+//     },
+//     headerContent: {
+//         flex: 1,
+//         flexDirection: "row",
+//         justifyContent: "space-between",
+//         alignItems: "center",
+//         position: "absolute",
+//         width: "100%", zIndex: 1,
+//     },
+//     customCard: {
+//         height: 100,
+//         width: width,
+//         backgroundColor: "#312e3f",
+//         flexDirection: "row",
+//         padding: 20,
+//         marginBottom: 20,
+//     },
+//     avatarContainer: {
+//         justifyContent: "center",
+//         alignItems: "center",
+//         width: "25%",
+//         flexDirection: "row",
+//     },
+
+//     searcBarContainerr: {
+//         flex: 1,
+//         flexDirection: "row",
+//         justifyContent: "space-between",
+//         alignItems: "center",
+//         position: "absolute",
+//         width: "100%",
+//         right: 0,
+//         backgroundColor: "#312e3f",
+//         paddingTop: 7,
+//         paddingLeft: 10,
+//         paddingRight: 10,
+//     },
+//     searcBarIconButton: {
+//         width: 30, height: 30,
+//         alignItems: "center",
+//         alignSelf: "flex-end",
+//         borderBottomColor: "#c3bfd8",
+//         borderBottomWidth: 1
+//     },
+//     inputContainer: {
+//         flexDirection: "row",
+//         justifyContent: "space-between",
+//         alignItems: "center"
+//     },
+//     TextInput: {
+//         borderBottomColor: "#c3bfd8",
+//         borderBottomWidth: 1,
+//         flex: 1,
+//         height: "100%",
+//         backgroundColor: "#312e3f",
+//         color: "#fff"
+//     },
+//     seachIconForInput: {
+//         color: "#fff",
+//         // fontSize: 23,
+//         marginRight: 10,
+//         height:25,
+//         width:25
+//     },
+//     heandingTitle: {
+//         color: "#fff",
+//         fontWeight: "400",
+//         fontSize: 20,
+//     },
+//     closeIcon: {
+//         color: "#fff",
+//         fontSize: 20
+//     },
+//     circleIcon: {
+//         color: "#ff2a68",
+//         alignSelf: "flex-start",
+//         fontSize: 9,
+//         marginLeft: 7,
+//         marginTop: 1
+//     },
+//     avatarPic: {
+//         height: 75,
+//         width: 75,
+//         borderRadius: width / 2
+//     },
+//     usernameList: {
+//         flex: 1,
+//         paddingLeft: 25,
+//     },
+//     detiles: {
+//         flex: 3,
+//         marginTop: -5
+//     },
+//     username: {
+//         fontSize: 17,
+//         color: "#fff"
+//     },
+
+//     emailAndSeenText: {
+//         color: "#c3bfd8"
+//     },
+//     listButnView: {
+//         flex: 1,
+//         width: "25%",
+//         justifyContent: "center",
+//         alignItems: "center"
+//     },
+//     ListButn: {
+//         alignSelf: "center"
+//     },
+//     ListButnIcon: {
+//         color: "#ff2a68",
+//     }
+
+// })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { Component } from 'react';
+import {
+    View,
+    Image,
+    StyleSheet,
+    Dimensions
+} from 'react-native';
+import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
 import UserRequest from "./UserRequest/index"
 import MyRequest from "./myRequest/index"
+import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Button } from 'native-base';
 
-export default class App extends Component {
+
+
+const { height, width } = Dimensions.get("window")
+export default class Dashboard extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = { activeTab: "games" }
+
+    }
+
+
+    tabs = [
+        {
+            key: 'games',
+            icon: require("./images/back-arrow.png"),
+            label: 'Friends',
+            barColor: '#312e3f',
+            pressColor: 'rgba(255, 255, 255, 0.16)'
+        },
+        {
+            key: 'profile',
+            icon: require("./images/baseline_person_white_18dp.png"),
+            label: 'Requests',
+            barColor: '#312e3f',
+            pressColor: 'rgba(255, 255, 255, 0.16)'
+        },
+        {
+            key: 'movies-tv',
+            icon: require("./images/forward-arrow.png"),
+            label: 'Requests',
+            barColor: '#312e3f',
+            pressColor: 'rgba(255, 255, 255, 0.16)'
+        },
+    ]
+
+    renderIcon = icon => ({ isActive }) => (
+        <Image source={icon} style={{ height: 25, width: 25 }} />
+    )
+
+    renderTab = ({ tab, isActive }) => {
+        return (
+            <FullTab
+                isActive={isActive}
+                key={tab.key}
+                label={tab.label}
+                renderIcon={this.renderIcon(tab.icon)}
+            />
+
+        )
+    }
+
+
+    trnderScreen() {
+        if (this.state.activeTab == "games") {
+            return < View style={{ flex: 1 }} ><UserRequest /></View>
+        }
+        else if (this.state.activeTab == "profile") {
+            return < View style={{ flex: 1, backgroundColor: "#312e3f" }}></View>
+        }
+        else if (this.state.activeTab == "movies-tv") {
+            return < View style={{ flex: 1 }}><MyRequest /></View>
+        }
+    }
+
     render() {
         return (
-            <Container>
-                <Header style={{ backgroundColor: "#312e3f" }}  ></Header>
-                <Tabs tabContainerStyle={{ backgroundColor: "#312e3f"}} >
-                    <Tab heading={<TabHeading><Icon name="camera" /></TabHeading>}>
-                        <UserRequest />
-                    </Tab>
-                    <Tab heading={<TabHeading><Icon name="camera" /></TabHeading>}>
-                        <MyRequest />
-                    </Tab>
-                </Tabs>
-            </Container>
-        );
+            <View style={{ flex: 1 }}>
+                <Header hasTabs style={styles.header} >
+                    <View style={[styles.headerContent]} >
+                        <View >
+                            <Button transparent>
+                                <Icon name='menu' />
+                            </Button>
+                        </View>
+                        <View  >
+                            <View style={styles.inputContainer} >
+                                <Image source={require("./images/group.png")} style={styles.seachIconForInput} />
+                                <Text style={styles.heandingTitle} >Requests</Text>
+                            </View>
+                        </View>
+                        <View style={{ flexDirection: "row" }} >
+                            <Button onPress={() => this.searchUser()} transparent>
+                                <Icon name='search' />
+                            </Button>
+                        </View>
+                    </View>
+                </Header>
+                <BottomNavigation
+                    style={{ justifyContent: "space-between" }}
+                    acactiveTab={this.state.activeTab}
+                    onTabPress={newTab => this.setState({ activeTab: newTab.key })}
+                    renderTab={this.renderTab}
+                    tabs={this.tabs}
+                />
+                <View style={{ flex: 1 }} >
+                    {this.trnderScreen()}
+                </View>
+            </View>
+        )
     }
 }
+
+
+
+
+
+
+
+
+
+const styles = StyleSheet.create({
+    container: { flex: 1, backgroundColor: "#312e3f" },
+    customCardContainer: {
+        flex: 1,
+        alignItems: "center",
+    },
+    header: {
+        paddingLeft: 5,
+        paddingRight: 5,
+        backgroundColor: "#312e3f",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    headerContent: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        position: "absolute",
+        width: "100%", zIndex: 1,
+    },
+    customCard: {
+        height: 100,
+        width: width,
+        backgroundColor: "#312e3f",
+        flexDirection: "row",
+        padding: 20,
+        marginBottom: 20,
+    },
+    avatarContainer: {
+        justifyContent: "center",
+        alignItems: "center",
+        width: "25%",
+        flexDirection: "row",
+    },
+
+    searcBarContainerr: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        position: "absolute",
+        width: "100%",
+        right: 0,
+        backgroundColor: "#312e3f",
+        paddingTop: 7,
+        paddingLeft: 10,
+        paddingRight: 10,
+    },
+    searcBarIconButton: {
+        width: 30, height: 30,
+        alignItems: "center",
+        alignSelf: "flex-end",
+        borderBottomColor: "#c3bfd8",
+        borderBottomWidth: 1
+    },
+    inputContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    TextInput: {
+        borderBottomColor: "#c3bfd8",
+        borderBottomWidth: 1,
+        flex: 1,
+        height: "100%",
+        backgroundColor: "#312e3f",
+        color: "#fff"
+    },
+    seachIconForInput: {
+        color: "#fff",
+        // fontSize: 23,
+        marginRight: 10,
+        height: 25,
+        width: 25
+    },
+    heandingTitle: {
+        color: "#fff",
+        fontWeight: "400",
+        fontSize: 20,
+    },
+    closeIcon: {
+        color: "#fff",
+        fontSize: 20
+    },
+    circleIcon: {
+        color: "#ff2a68",
+        alignSelf: "flex-start",
+        fontSize: 9,
+        marginLeft: 7,
+        marginTop: 1
+    },
+    avatarPic: {
+        height: 75,
+        width: 75,
+        borderRadius: width / 2
+    },
+    usernameList: {
+        flex: 1,
+        paddingLeft: 25,
+    },
+    detiles: {
+        flex: 3,
+        marginTop: -5
+    },
+    username: {
+        fontSize: 17,
+        color: "#fff"
+    },
+
+    emailAndSeenText: {
+        color: "#c3bfd8"
+    },
+    listButnView: {
+        flex: 1,
+        width: "25%",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    ListButn: {
+        alignSelf: "center"
+    },
+    ListButnIcon: {
+        color: "#ff2a68",
+    }
+
+})
+
+
+
+
+
 
 
 

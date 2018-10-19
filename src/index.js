@@ -26,7 +26,7 @@ export default class Dashboard extends React.Component {
         {
             key: 'movies-tv',
             icon: require("./images/group.png"),
-            label: 'send',
+            label: 'Requests',
             barColor: '#312e3f',
             pressColor: 'rgba(255, 255, 255, 0.16)'
         },
@@ -71,7 +71,6 @@ export default class Dashboard extends React.Component {
     render() {
         return (
             <View style={{ flex: 1 }}>
-
                 <View style={{ flex: 1 }} >
                     {this.trnderScreen()}
                 </View>

@@ -198,8 +198,8 @@ export default class AllUsers extends Component {
                         </View>
                         <View  >
                             <View style={styles.inputContainer} >
-                                <Icon name='search' style={styles.seachIconForInput} />
-                                <Text style={styles.heandingTitle} >Find Friend</Text>
+                                <Icons name='map-marker' size={23} style={styles.seachIconForInput} />
+                                <Text style={styles.heandingTitle} >Friends</Text>
                             </View>
                         </View>
                         <View style={{ flexDirection: "row" }} >
@@ -269,7 +269,9 @@ const styles = StyleSheet.create({
     header: {
         paddingLeft: 5,
         paddingRight: 5,
-        backgroundColor: "#312e3f"
+        backgroundColor: "#312e3f",
+        justifyContent:"center",
+        alignItems:"center"
     },
     headerContent: {
         flex: 1,
