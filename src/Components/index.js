@@ -4,6 +4,7 @@ import SignUp from "./SignUp/index"
 import AllUsers from "./Allusers/index"
 import MyFriends from "./myFriends/index"
 import TestComponent from "./testComponent/index"
+import RequestComponent from "./Requests/index"
 
 export {
     Map,
@@ -11,5 +12,6 @@ export {
     SignUp,
     AllUsers,
     MyFriends,
-    TestComponent
+    TestComponent,
+    RequestComponent
 }

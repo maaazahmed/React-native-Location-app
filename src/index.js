@@ -4,7 +4,7 @@ import {
     Image
 } from 'react-native';
 import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
-import { MyFriends, AllUsers, TestComponent } from "./Components"
+import { MyFriends, AllUsers, RequestComponent } from "./Components"
 
 
 export default class Dashboard extends React.Component {
@@ -58,20 +58,20 @@ export default class Dashboard extends React.Component {
 
     trnderScreen() {
         if (this.state.activeTab == "games") {
-            return < View style={{ backgroundColor: "green", flex: 1 }} ><MyFriends /></View>
+            return < View style={{ flex: 1 }} ><MyFriends /></View>
         }
         else if (this.state.activeTab == "movies-tv") {
-            return < View style={{ backgroundColor: "blue", flex: 1 }}><TestComponent /></View>
+            return < View style={{ flex: 1 }}><RequestComponent /></View>
         }
         else if (this.state.activeTab == "music") {
-            return < View style={{ backgroundColor: "red", flex: 1 }} ><AllUsers /></View>
+            return < View style={{ flex: 1 }} ><AllUsers /></View>
         }
     }
 
     render() {
         return (
             <View style={{ flex: 1 }}>
-              
+
                 <View style={{ flex: 1 }} >
                     {this.trnderScreen()}
                 </View>
