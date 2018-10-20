@@ -75,7 +75,7 @@ export default class Dashboard extends React.Component {
                     {this.trnderScreen()}
                 </View>
                 <BottomNavigation
-                
+                 style={{ justifyContent: "space-between", elevation:0 }}
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
                     renderTab={this.renderTab}
