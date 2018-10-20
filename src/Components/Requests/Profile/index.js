@@ -120,7 +120,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.blockAndLocatBtn} >
-                                            <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >203+</Text>
+                                            <Text style={styles.numText} >203+</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -135,7 +135,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.blockAndLocatBtn} >
-                                            <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >20+</Text>
+                                            <Text style={styles.numText} >20+</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -248,6 +248,11 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 5
+    },
+    numText: {
+        fontSize: 15,
+        color: "#ff2a68",
+        fontWeight: "bold"
     }
 
 })
