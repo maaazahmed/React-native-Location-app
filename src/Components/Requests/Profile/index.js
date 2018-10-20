@@ -52,14 +52,15 @@ export default class Profile extends Component {
                 <View style={{ marginTop: 15 }} >
                     <ScrollView style={{}} >
                         <Animated.View style={[styles.profilePicCard, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
-                            <View style={{ flex: 1, flexDirection: "row", }} >
+                            <View style={styles.cardContent} >
                                 <View style={styles.profilePicCardContain}>
                                     <Image
                                         style={styles.profilePic}
                                         source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=88&v=4" }} />
                                 </View>
                                 <View style={styles.cameraContainer}>
-                                    <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5, }} >
+                                    <TouchableOpacity activeOpacity={0.5}
+                                        style={styles.camreBut} >
                                         <Icon name="camera" style={{ fontSize: 27, color: "#ff2a68" }} />
                                     </TouchableOpacity>
                                 </View>
@@ -67,8 +68,8 @@ export default class Profile extends Component {
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
-                            <View style={{ justifyContent: "center", flex: 1 }} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <View style={styles.ListContainer} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 1, padding: 5 }} >
                                         <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >Maaz Ahmed</Text>
                                     </View>
@@ -82,8 +83,8 @@ export default class Profile extends Component {
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
-                            <View style={{ justifyContent: "center", flex: 1 }} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <View style={styles.ListContainer} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >maazahmed2k16@gmail.com</Text>
                                     </View>
@@ -97,8 +98,8 @@ export default class Profile extends Component {
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
-                            <View style={{ justifyContent: "center", flex: 1 }} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <View style={styles.ListContainer} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Location</Text>
                                     </View>
@@ -112,8 +113,8 @@ export default class Profile extends Component {
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
-                            <View style={{ justifyContent: "center", flex: 1 }} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <View style={styles.ListContainer} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Friends</Text>
                                     </View>
@@ -127,8 +128,8 @@ export default class Profile extends Component {
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
-                            <View style={{ justifyContent: "center", flex: 1 }} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                            <View style={styles.ListContainer} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Blocked</Text>
                                     </View>
@@ -183,6 +184,27 @@ const styles = StyleSheet.create({
         borderTopColor: "#312e3f",
         borderTopWidth: 5,
         padding: 10,
-
+    },
+    cardContent: {
+        flex: 1,
+        flexDirection: "row",
+    },
+    camreBut: {
+        height: 40,
+        width: 40,
+        borderRadius: width / 2,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 5,
+    },
+    ListContainer: {
+        justifyContent: "center",
+        flex: 1
+    },
+    listContaint: {
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
     }
+
 })
