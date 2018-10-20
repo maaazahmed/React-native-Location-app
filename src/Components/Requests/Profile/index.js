@@ -5,7 +5,9 @@ import {
     Image,
     Dimensions,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    Animated,
+    Easing
 } from "react-native"
 import { Icon } from "native-base"
 import Icons from "react-native-vector-icons/FontAwesome"
@@ -13,12 +15,48 @@ import Icons from "react-native-vector-icons/FontAwesome"
 
 const { width, height } = Dimensions.get("window")
 export default class Profile extends Component {
+
+    constructor() {
+        super()
+        this.ProfileDataAnim = new Animated.Value(0),
+        this.listOpacity = new Animated.Value(0)
+    }
+
+
+    componentDidMount(){
+        Animated.timing(this.listOpacity, {
+            toValue: 1,
+            duration: 500,
+        }).start()
+        Animated.timing(this.ProfileDataAnim,{
+            toValue:1,
+            duration:500,
+            easing:Easing.elastic()
+        }).start()
+    }
+
+
+
+
+
+
+
     render() {
+        let ProfileDataAnim = this.ProfileDataAnim.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [10, 5, 0]
+        })
+        
+        let listOpacity = this.listOpacity.interpolate({
+            inputRange: [0, 0.5, 1],
+            outputRange: [0, 0.5, 1]
+        })
+
         return (
-            <View style={{ flex: 1, justifyContent: "center" }} >
-                <View  style={{}} >
-                    <ScrollView  >
-                        <View style={{ backgroundColor: "#373447", width: width, height: height / 8, borderTopColor: "#312e3f", borderTopWidth: 5, justifyContent: "center", alignItems: "center", padding: 10 }} >
+            <View style={{ flex: 1,}} >
+                <View>
+                    <ScrollView style={{}} >
+                        <Animated.View style={{ backgroundColor: "#373447", width: "100%", height: height / 8, borderTopColor: "#312e3f", borderTopWidth: 5, justifyContent: "center", alignItems: "center", marginTop: ProfileDataAnim, opacity:listOpacity  }} >
                             <View style={{ flex: 1, flexDirection: "row", }} >
                                 <View style={{ width: "20%", height: "100%", justifyContent: "center", alignItems: "center" }}>
                                     <Image
@@ -30,15 +68,15 @@ export default class Profile extends Component {
                                         source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=88&v=4" }} />
                                 </View>
                                 <View style={{ width: "80%", height: "100%", justifyContent: "center", alignItems: "flex-end" }}>
-                                    <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
+                                    <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5,  }} >
                                         <Icon name="camera" style={{ fontSize: 27, color: "#ff2a68" }} />
                                     </TouchableOpacity>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
 
                         {/* 7777777777777777777777777777777 */}
-                        <View style={{ backgroundColor: "#373447", width: width, height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10 }} >
+                        <Animated.View style={{ backgroundColor: "#373447",width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity:listOpacity  }} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 1, padding: 5 }} >
@@ -51,9 +89,9 @@ export default class Profile extends Component {
                                     </View>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <View style={{ backgroundColor: "#373447", width: width, height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10 }} >
+                        <Animated.View style={{ backgroundColor: "#373447",width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity:listOpacity  }} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -66,9 +104,9 @@ export default class Profile extends Component {
                                     </View>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <View style={{ backgroundColor: "#373447", width: width, height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10 }} >
+                        <Animated.View style={{ backgroundColor: "#373447",width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity:listOpacity  }} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -81,9 +119,9 @@ export default class Profile extends Component {
                                     </View>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <View style={{ backgroundColor: "#373447", width: width, height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10 }} >
+                        <Animated.View style={{ backgroundColor: "#373447",width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity:listOpacity  }} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -96,9 +134,9 @@ export default class Profile extends Component {
                                     </View>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <View style={{ backgroundColor: "#373447", width: width, height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10 }} >
+                        <Animated.View style={{ backgroundColor: "#373447",width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity:listOpacity  }} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -111,7 +149,7 @@ export default class Profile extends Component {
                                     </View>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
                     </ScrollView>
                 </View>
             </View>
