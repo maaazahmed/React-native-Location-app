@@ -75,6 +75,7 @@ export default class Dashboard extends React.Component {
                     {this.trnderScreen()}
                 </View>
                 <BottomNavigation
+                
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
                     renderTab={this.renderTab}

@@ -348,7 +348,8 @@ export default class Dashboard extends React.Component {
                     <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
                 </View>
                 <BottomNavigation
-                    style={{ justifyContent: "space-between" }}
+                    
+                    style={{ justifyContent: "space-between", elevation:0 }}
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
                     renderTab={this.renderTab}
