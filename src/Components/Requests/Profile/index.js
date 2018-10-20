@@ -70,7 +70,7 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={styles.listTextView} >
+                                    <View style={styles.listText} >
                                         <Text style={styles.nameSndEmailText} >Maaz Ahmed</Text>
                                     </View>
                                     <View style={styles.listButonContainer} >
@@ -120,7 +120,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
-                                            <Text style={[styles.textsStyle, { fontSize: 15 }]} >203+</Text>
+                                            <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >203+</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -135,7 +135,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
-                                            <Text style={[styles.textsStyle, { fontSize: 15 }]} >20+</Text>
+                                            <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >20+</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         padding: 5
     },
-    listTextView: {
+    listText: {
         flex: 1,
         padding: 5
     },
@@ -240,8 +240,6 @@ const styles = StyleSheet.create({
         fontSize: 27,
         color: "#ff2a68"
     },
-    locationIcon: {
-        color: "#ff2a68"
-    }
+    locationIcon:{ color: "#ff2a68" }
 
 })
