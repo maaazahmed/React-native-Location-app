@@ -13,14 +13,18 @@ export default class Profile extends Component {
         return (
             <View style={{ flex: 1 }} >
 
-                <View style={{ backgroundColor: "#373447", width: width, height: 110, borderTopColor: "#312e3f", borderTopWidth: 5, justifyContent: "center", alignItems: "center", padding:10 }} >
-                    <View style={{ flex: 1, backgroundColor: "green", flexDirection: "row", }} >
-                        <View style={{ width: "20%", height: "100%", backgroundColor: "blue" }}>
-                          <Image 
-                          style={{height:%}}
-                          source={{uri:"https://avatars2.githubusercontent.com/u/31310451?s=88&v=4"}} />                                                         
+                <View style={{ backgroundColor: "#373447", width: width, height: 110, borderTopColor: "#312e3f", borderTopWidth: 5, justifyContent: "center", alignItems: "center", padding: 10 }} >
+                    <View style={{ flex: 1, flexDirection: "row", }} >
+                        <View style={{ width: "20%", height: "100%", justifyContent:"center", alignItems:"center" }}>
+                            <Image
+                                style={{
+                                    height: 80,
+                                    width: 80,
+                                    borderRadius: width / 2
+                                }}
+                                source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=88&v=4" }} />
                         </View>
-                        <View style={{ width: "80%", height: "100%", backgroundColor: "yellow" }}>
+                        <View style={{ width: "80%", height: "100%", }}>
                         </View>
                     </View>
                 </View>
