@@ -66,7 +66,7 @@ export default class Profile extends Component {
                             </View>
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <Animated.View style={{ backgroundColor: "#373447", width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity: listOpacity }} >
+                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 1, padding: 5 }} >
@@ -81,7 +81,7 @@ export default class Profile extends Component {
                             </View>
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <Animated.View style={{ backgroundColor: "#373447", width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity: listOpacity }} >
+                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -96,7 +96,7 @@ export default class Profile extends Component {
                             </View>
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <Animated.View style={{ backgroundColor: "#373447", width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity: listOpacity }} >
+                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -111,7 +111,7 @@ export default class Profile extends Component {
                             </View>
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <Animated.View style={{ backgroundColor: "#373447", width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity: listOpacity }} >
+                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -126,7 +126,7 @@ export default class Profile extends Component {
                             </View>
                         </Animated.View>
                         {/* 7777777777777777777777777777777 */}
-                        <Animated.View style={{ backgroundColor: "#373447", width: "100%", height: height / 13, borderTopColor: "#312e3f", borderTopWidth: 5, padding: 10, marginTop: ProfileDataAnim, opacity: listOpacity }} >
+                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={{ justifyContent: "center", flex: 1 }} >
                                 <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
@@ -175,5 +175,14 @@ const styles = StyleSheet.create({
         height: "100%",
         justifyContent: "center",
         alignItems: "flex-end"
+    },
+    detileContaner: {
+        backgroundColor: "#373447",
+        width: "100%",
+        height: height / 13,
+        borderTopColor: "#312e3f",
+        borderTopWidth: 5,
+        padding: 10,
+
     }
 })
