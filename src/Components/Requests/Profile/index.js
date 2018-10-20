@@ -70,7 +70,7 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={styles.listText} >
+                                    <View style={styles.listTextView} >
                                         <Text style={styles.nameSndEmailText} >Maaz Ahmed</Text>
                                     </View>
                                     <View style={styles.listButonContainer} >
@@ -105,7 +105,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listButonContainer} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
-                                            <Icons name="map-marker" size={23} style={{ color: "#ff2a68" }} />
+                                            <Icons name="map-marker" size={23} style={styles.locationIcon} />
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -120,7 +120,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
-                                            <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >203+</Text>
+                                            <Text style={[styles.textsStyle, { fontSize: 15 }]} >203+</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -135,7 +135,7 @@ export default class Profile extends Component {
                                     </View>
                                     <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
-                                            <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >20+</Text>
+                                            <Text style={[styles.textsStyle, { fontSize: 15 }]} >20+</Text>
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         padding: 5
     },
-    listText: {
+    listTextView: {
         flex: 1,
         padding: 5
     },
@@ -238,6 +238,9 @@ const styles = StyleSheet.create({
     },
     firest3icon: {
         fontSize: 27,
+        color: "#ff2a68"
+    },
+    locationIcon: {
         color: "#ff2a68"
     }
 
