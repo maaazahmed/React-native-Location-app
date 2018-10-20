@@ -69,12 +69,12 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={styles.listContaint} >
+                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 1, padding: 5 }} >
                                         <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >Maaz Ahmed</Text>
                                     </View>
                                     <View style={{ width: "10%", alignItems: "flex-end" }} >
-                                        <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
+                                        <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
                                             <Icon name="create" style={{ fontSize: 27, color: "#ff2a68" }} />
                                         </TouchableOpacity>
                                     </View>
@@ -84,12 +84,12 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={styles.listContaint} >
+                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >maazahmed2k16@gmail.com</Text>
                                     </View>
                                     <View style={{ width: "10%", alignItems: "flex-end" }} >
-                                        <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
+                                        <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
                                             <Icon name="create" style={{ fontSize: 27, color: "#ff2a68" }} />
                                         </TouchableOpacity>
                                     </View>
@@ -104,7 +104,7 @@ export default class Profile extends Component {
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Location</Text>
                                     </View>
                                     <View style={{ width: "10%", alignItems: "flex-end" }} >
-                                        <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
+                                        <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
                                             <Icons name="map-marker" size={23} style={{ color: "#ff2a68" }} />
                                         </TouchableOpacity>
                                     </View>
@@ -114,7 +114,7 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={styles.listContaint} >
+                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Friends</Text>
                                     </View>
@@ -129,7 +129,7 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={styles.listContaint} >
+                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Blocked</Text>
                                     </View>
@@ -205,6 +205,14 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center"
+    },
+    listButon: {
+        height: 40,
+        width: 40,
+        borderRadius: width / 2,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 5
     }
 
 })
