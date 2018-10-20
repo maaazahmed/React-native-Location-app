@@ -5,6 +5,7 @@ import {
     Image,
     Dimensions
 } from "react-native"
+import {} from "ma"
 
 
 const { width, height } = Dimensions.get("window")
@@ -24,7 +25,8 @@ export default class Profile extends Component {
                                 }}
                                 source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=88&v=4" }} />
                         </View>
-                        <View style={{ width: "80%", height: "100%", }}>
+                        <View style={{ width: "80%", height: "100%", justifyContent:"center", alignItems:"flex-end" }}>
+                            
                         </View>
                     </View>
                 </View>
