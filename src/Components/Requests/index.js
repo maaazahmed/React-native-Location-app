@@ -14,75 +14,7 @@
 //     render() {
 //         return (
 //             <Container>
-//                 <Header hasTabs style={styles.header} >
-//                     <Animated.View style={[styles.headerContent]} >
-//                         <View >
-//                             <Button transparent>
-//                                 <Icon name='menu' />
-//                             </Button>
-//                         </View>
-//                         <View  >
-//                             <View style={styles.inputContainer} >
-//                                 <Image source={require("./images/group.png")}  style={styles.seachIconForInput} />
-//                                 <Text style={styles.heandingTitle} >Requests</Text>
-//                             </View>
-//                         </View>
-//                         <View style={{ flexDirection: "row" }} >
-//                             <Button onPress={() => this.searchUser()} transparent>
-//                                 <Icon name='search' />
-//                             </Button>
-//                         </View>
-//                     </Animated.View>
-//                 </Header>
-
-//                 <Tabs  tabBarUnderlineStyle={{ backgroundColor: "transparent" }} tabBarBackgroundColor={"#312e3f"}  >
-//                     <Tab
-//                         tabStyle={{ backgroundColor: '#312e3f' }}
-//                         activeTabStyle={{ backgroundColor: '#312e3f' }}
-//                         activeTextStyle={{ color: "#fff" }}
-//                         textStyle={{ color: '#f2f2f2' }}
-//                         heading={<TabHeading
-//                             style={{ backgroundColor: "#312e3f" }} >
-//                             <Image
-//                                 style={{ height: 30, width: 30 }}
-//                                 source={require("./images/back-arrow.png")} />
-//                         </TabHeading>}>
-//                         <UserRequest />
-//                     </Tab>
-//                     <Tab
-//                         tabStyle={{ backgroundColor: '#312e3f' }}
-//                         activeTabStyle={{ backgroundColor: '#312e3f' }}
-//                         activeTextStyle={{ color: "#fff" }}
-//                         textStyle={{ color: '#f2f2f2' }}
-//                         heading={<TabHeading
-//                             style={{ backgroundColor: "#312e3f" }} >
-//                             <Image
-//                                 style={{ height: 30, width: 30 }}
-//                                 source={require("./images/forward-arrow.png")} />
-//                         </TabHeading>}>
-//                         <MyRequest />
-//                     </Tab>
-//                 </Tabs>
-//             </Container>
-//         );
-//     }
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 
 
 
 
