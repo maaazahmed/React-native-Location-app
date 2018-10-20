@@ -61,7 +61,7 @@ export default class Profile extends Component {
                                 <View style={styles.cameraContainer}>
                                     <TouchableOpacity activeOpacity={0.5}
                                         style={styles.camreBut} >
-                                        <Icon name="camera" style={{ fontSize: 27, color: "#ff2a68" }} />
+                                        <Icon name="camera" style={styles.firest3icon} />
                                     </TouchableOpacity>
                                 </View>
                             </View>
@@ -73,9 +73,9 @@ export default class Profile extends Component {
                                     <View style={styles.listText} >
                                         <Text style={styles.nameSndEmailText} >Maaz Ahmed</Text>
                                     </View>
-                                    <View style={{ width: "10%", alignItems: "flex-end" }} >
+                                    <View style={styles.listButonContainer} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
-                                            <Icon name="create" style={{ fontSize: 27, color: "#ff2a68" }} />
+                                            <Icon name="create" style={styles.firest3icon} />
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -88,9 +88,9 @@ export default class Profile extends Component {
                                     <View style={styles.listText} >
                                         <Text style={styles.nameSndEmailText} >maazahmed2k16@gmail.com</Text>
                                     </View>
-                                    <View style={{ width: "10%", alignItems: "flex-end" }} >
+                                    <View style={styles.listButonContainer} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
-                                            <Icon name="create" style={{ fontSize: 27, color: "#ff2a68" }} />
+                                            <Icon name="create" style={styles.firest3icon} />
                                         </TouchableOpacity>
                                     </View>
                                 </View>
@@ -101,9 +101,9 @@ export default class Profile extends Component {
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
-                                        <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Location</Text>
+                                        <Text style={styles.textsStyle} >Location</Text>
                                     </View>
-                                    <View style={{ width: "10%", alignItems: "flex-end" }} >
+                                    <View style={styles.listButonContainer} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
                                             <Icons name="map-marker" size={23} style={{ color: "#ff2a68" }} />
                                         </TouchableOpacity>
@@ -116,9 +116,9 @@ export default class Profile extends Component {
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
-                                        <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Friends</Text>
+                                        <Text style={styles.textsStyle} >Friends</Text>
                                     </View>
-                                    <View style={{ width: "50%", alignItems: "flex-end" }} >
+                                    <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
                                             <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >203+</Text>
                                         </TouchableOpacity>
@@ -131,9 +131,9 @@ export default class Profile extends Component {
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
-                                        <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Blocked</Text>
+                                        <Text style={styles.textsStyle} >Blocked</Text>
                                     </View>
-                                    <View style={{ width: "50%", alignItems: "flex-end" }} >
+                                    <View style={styles.listIcon} >
                                         <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
                                             <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >20+</Text>
                                         </TouchableOpacity>
@@ -222,6 +222,23 @@ const styles = StyleSheet.create({
         fontSize: 17,
         color: "#fff",
         fontWeight: "300"
+    },
+    textsStyle: {
+        fontSize: 18,
+        color: "#fff",
+        fontWeight: "300"
+    },
+    listIcon: {
+        width: "50%",
+        alignItems: "flex-end"
+    },
+    listButonContainer: {
+        width: "10%",
+        alignItems: "flex-end"
+    },
+    firest3icon: {
+        fontSize: 27,
+        color: "#ff2a68"
     }
 
 })
