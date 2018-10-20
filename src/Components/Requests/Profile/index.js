@@ -69,7 +69,7 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 1, padding: 5 }} >
                                         <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >Maaz Ahmed</Text>
                                     </View>
@@ -84,7 +84,7 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >maazahmed2k16@gmail.com</Text>
                                     </View>
@@ -114,7 +114,7 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Friends</Text>
                                     </View>
@@ -129,7 +129,7 @@ export default class Profile extends Component {
                         {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
-                                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center" }} >
+                                <View style={styles.listContaint} >
                                     <View style={{ flex: 5, padding: 5 }} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Blocked</Text>
                                     </View>
