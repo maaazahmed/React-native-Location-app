@@ -119,7 +119,7 @@ export default class Profile extends Component {
                                         <Text style={styles.textsStyle} >Friends</Text>
                                     </View>
                                     <View style={styles.listIcon} >
-                                        <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
+                                        <TouchableOpacity activeOpacity={0.5} style={styles.blockAndLocatBtn} >
                                             <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >203+</Text>
                                         </TouchableOpacity>
                                     </View>
@@ -134,7 +134,7 @@ export default class Profile extends Component {
                                         <Text style={styles.textsStyle} >Blocked</Text>
                                     </View>
                                     <View style={styles.listIcon} >
-                                        <TouchableOpacity activeOpacity={0.5} style={{ borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
+                                        <TouchableOpacity activeOpacity={0.5} style={styles.blockAndLocatBtn} >
                                             <Text style={{ fontSize: 15, color: "#ff2a68", fontWeight: "bold" }} >20+</Text>
                                         </TouchableOpacity>
                                     </View>
@@ -240,6 +240,14 @@ const styles = StyleSheet.create({
         fontSize: 27,
         color: "#ff2a68"
     },
-    locationIcon:{ color: "#ff2a68" }
+    locationIcon: {
+        color: "#ff2a68"
+    },
+    blockAndLocatBtn: {
+        borderRadius: width / 2,
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 5
+    }
 
 })
