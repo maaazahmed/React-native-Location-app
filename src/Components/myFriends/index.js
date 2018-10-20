@@ -15,6 +15,9 @@ import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, List, } from 'native-base';
 import { Title } from 'react-native-paper';
 // import { Searchbar } from 'react-native-paper';
+import SearchInput, { createFilter } from 'react-native-search-filter';
+
+
 
 
 let arr = [
@@ -96,7 +99,7 @@ let arr = [
 
 
 
-
+const KEYS_TO_FILTERS = ["username"];
 const { height, width } = Dimensions.get("window")
 export default class AllUsers extends Component {
     constructor() {
@@ -107,7 +110,8 @@ export default class AllUsers extends Component {
         this.listOpacity = new Animated.Value(0)
         this.listPadding = new Animated.Value(0)
         this.state = {
-            searchVal: ""
+            searchVal: "",
+            searchTerm: ""
         }
     }
 
@@ -147,6 +151,8 @@ export default class AllUsers extends Component {
     }
 
 
+
+
     cancleSearch() {
         Animated.parallel([
             Animated.timing(this.opacity, {
@@ -165,7 +171,13 @@ export default class AllUsers extends Component {
         }).start()
     }
 
+    searchUpdated(term) {
+        this.setState({ searchTerm: term })
+    }
+
     render() {
+        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
             outputRange: [1, 0]
@@ -210,12 +222,13 @@ export default class AllUsers extends Component {
                     </Animated.View>
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <TextInput placeholder="Search "
-                        style={styles.TextInput}
-                        value={this.state.searchVal}
-                        onChange={(searchVal) => { this.setState({ searchVal }) }}
+                    <SearchInput
+                        placeholder="Search"
+                        onChangeText={(term) => { this.searchUpdated(term) }} 
+                        inputViewStyles={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
+
                     <View style={styles.searcBarIconButton} >
                         <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
                             <Icon name='close' style={styles.closeIcon} />
@@ -225,7 +238,7 @@ export default class AllUsers extends Component {
 
                 <Animated.View style={{}}  >
                     <FlatList
-                        data={arr}
+                        data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
                                 <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
@@ -270,8 +283,8 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         paddingRight: 5,
         backgroundColor: "#312e3f",
-        justifyContent:"center",
-        alignItems:"center"
+        justifyContent: "center",
+        alignItems: "center"
     },
     headerContent: {
         flex: 1,
