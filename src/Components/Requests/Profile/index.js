@@ -70,8 +70,8 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={{ flex: 1, padding: 5 }} >
-                                        <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >Maaz Ahmed</Text>
+                                    <View style={styles.listText} >
+                                        <Text style={styles.nameSndEmailText} >Maaz Ahmed</Text>
                                     </View>
                                     <View style={{ width: "10%", alignItems: "flex-end" }} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
@@ -85,8 +85,8 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={{ flex: 5, padding: 5 }} >
-                                        <Text style={{ fontSize: 17, color: "#fff", fontWeight: "300" }} >maazahmed2k16@gmail.com</Text>
+                                    <View style={styles.listText} >
+                                        <Text style={styles.nameSndEmailText} >maazahmed2k16@gmail.com</Text>
                                     </View>
                                     <View style={{ width: "10%", alignItems: "flex-end" }} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
@@ -100,7 +100,7 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={{ flex: 5, padding: 5 }} >
+                                    <View style={styles.listText} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Location</Text>
                                     </View>
                                     <View style={{ width: "10%", alignItems: "flex-end" }} >
@@ -115,7 +115,7 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={{ flex: 5, padding: 5 }} >
+                                    <View style={styles.listText} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Friends</Text>
                                     </View>
                                     <View style={{ width: "50%", alignItems: "flex-end" }} >
@@ -130,7 +130,7 @@ export default class Profile extends Component {
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
-                                    <View style={{ flex: 5, padding: 5 }} >
+                                    <View style={styles.listText} >
                                         <Text style={{ fontSize: 18, color: "#fff", fontWeight: "300" }} >Blocked</Text>
                                     </View>
                                     <View style={{ width: "50%", alignItems: "flex-end" }} >
@@ -213,6 +213,15 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         alignItems: "center",
         padding: 5
+    },
+    listText: {
+        flex: 1,
+        padding: 5
+    },
+    nameSndEmailText: {
+        fontSize: 17,
+        color: "#fff",
+        fontWeight: "300"
     }
 
 })
