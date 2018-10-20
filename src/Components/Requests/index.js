@@ -236,6 +236,7 @@ import {
 import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
 import UserRequest from "./UserRequest/index"
 import MyRequest from "./myRequest/index"
+import Profile from "./Profile/index"
 import { Container, Header, Tab, Tabs, TabHeading, Icon, Button } from 'native-base';
 
 
@@ -274,7 +275,7 @@ export default class Dashboard extends React.Component {
     ]
 
     renderIcon = icon => ({ isActive }) => (
-          <Image source={icon} style={{ height: 25, width: 25 }} />
+        <Image source={icon} style={{ height: 25, width: 25 }} />
     )
 
     renderTab = ({ tab, isActive }) => {
@@ -295,7 +296,7 @@ export default class Dashboard extends React.Component {
             return < View style={{ flex: 1 }} ><UserRequest /></View>
         }
         else if (this.state.activeTab == "profile") {
-            return < View style={{ flex: 1, backgroundColor: "#312e3f" }}></View>
+            return < View style={{ flex: 1, backgroundColor: "#312e3f" }}><Profile /></View>
         }
         else if (this.state.activeTab == "movies-tv") {
             return < View style={{ flex: 1 }}><MyRequest /></View>
@@ -327,13 +328,13 @@ export default class Dashboard extends React.Component {
                                 }
                             </View>
                             <View style={{ flexDirection: "row" }} >
-                                <Button onPress={() => {}} transparent>
+                                <Button onPress={() => { }} transparent>
                                     <Icon name='search' />
                                 </Button>
                             </View>
                         </View>
                         :
-                        <View style={{flex:1, justifyContent:"center", alignItems:"center"}} >
+                        <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
                             <View style={styles.inputContainer} >
                                 <Image source={require("./images/baseline_person_white_18dp.png")} style={styles.seachIconForInput} />
                                 <Text style={styles.heandingTitle} >Profile</Text>
@@ -342,8 +343,8 @@ export default class Dashboard extends React.Component {
                     }
                 </Header>
 
-                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10,  }} >
-                    <Image style={{ height: 120, width: 120, borderRadius: width, borderColor:"#fff", borderWidth:2 }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
+                <View style={{ flex: 1, backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10, }} >
+                    <Image style={{ height: 120, width: 120, borderRadius: width, borderColor: "#fff", borderWidth: 2 }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
                     <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
                 </View>
                 <BottomNavigation
