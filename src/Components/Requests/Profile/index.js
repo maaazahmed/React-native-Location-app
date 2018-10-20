@@ -74,7 +74,7 @@ export default class Profile extends Component {
                             </View>
                             <View style={{ width: "10%", alignItems: "flex-end" }} >
                                 <TouchableOpacity activeOpacity={0.5} style={{ height: 40, width: 40, borderRadius: width / 2, justifyContent: "center", alignItems: "center", padding: 5 }} >
-                                    <Icons2 name="place" style={{ fontSize: 27, color: "#ff2a68" }} />
+                                    <Icons name="place" style={{ fontSize: 27, color: "#ff2a68" }} />
                                 </TouchableOpacity>
                             </View>
                         </View>
