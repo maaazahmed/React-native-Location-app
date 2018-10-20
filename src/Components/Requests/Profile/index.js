@@ -12,10 +12,18 @@ export default class Profile extends Component {
     render() {
         return (
             <View style={{ flex: 1 }} >
-                <View style={{ backgroundColor: "#373447", width: width, height: 100, borderTopColor: "#312e3f", borderTopWidth: 5 }} >
 
+                <View style={{ backgroundColor: "#373447", width: width, height: 110, borderTopColor: "#312e3f", borderTopWidth: 5, justifyContent: "center", alignItems: "center", padding:10 }} >
+                    <View style={{ flex: 1, backgroundColor: "green", flexDirection: "row", }} >
+                        <View style={{ width: "20%", height: "100%", backgroundColor: "blue" }}>
+                          <Image>                                                         
+                        </View>
+                        <View style={{ width: "80%", height: "100%", backgroundColor: "yellow" }}>
+                        </View>
+                    </View>
                 </View>
-                <View style={{ backgroundColor: "#373447", width: width, height: 100, borderTopColor: "#312e3f", borderTopWidth: 5 }} >
+
+                <View style={{ backgroundColor: "#373447", width: width, height: 110, borderTopColor: "#312e3f", borderTopWidth: 5 }} >
 
                 </View>
             </View>
