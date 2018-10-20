@@ -1,31 +1,3 @@
-
-
-
-// import React, { Component } from 'react';
-// import { Container, Header, Tab, Tabs, TabHeading, Icon, Text, Button } from 'native-base';
-// import { Image, StyleSheet, Dimensions, Animated, View } from "react-native"
-// import Icons from "react-native-vector-icons/MaterialIcons"
-
-// import UserRequest from "./UserRequest/index"
-// import MyRequest from "./myRequest/index"
-// const { height, width } = Dimensions.get("window")
-
-// export default class App extends Component {
-//     render() {
-//         return (
-//             <Container>
-// 
-
-
-
-
-
-
-
-
-
-
-
 import React, { Component } from 'react';
 import {
     View,
