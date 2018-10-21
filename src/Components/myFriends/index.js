@@ -10,7 +10,6 @@ import {
     TextInput,
     Animated,
     Easing,
-  
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';

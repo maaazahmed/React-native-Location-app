@@ -5,7 +5,8 @@ import {
 import { Provider } from "react-redux"
 import store from "./src/store/index"
 import Routers from "./src/Routes/Routers"
-import firebase from "firebase" 
+import firebase from "firebase"
+import { TestComponent } from "./src/Components"
 
 
 
@@ -17,7 +18,8 @@ export default class App extends Component {
     return (
       <View style={{ flex: 1 }} >
         <Provider store={store} >
-          <Routers />
+          {/* <Routers /> */}
+          <TestComponent />
         </Provider>
       </View>
     )
