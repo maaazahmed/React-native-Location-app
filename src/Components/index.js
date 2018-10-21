@@ -1,4 +1,4 @@
-import Map from "./GoogleMap/index"
+import MapComponant from "./GoogleMap/index"
 import Signin from "./Signin/index"
 import SignUp from "./SignUp/index"
 import AllUsers from "./Allusers/index"
@@ -7,7 +7,7 @@ import TestComponent from "./testComponent/index"
 import RequestComponent from "./Requests/index"
 
 export {
-    Map,
+    MapComponant,
     Signin,
     SignUp,
     AllUsers,

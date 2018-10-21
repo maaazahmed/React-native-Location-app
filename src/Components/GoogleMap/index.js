@@ -13,7 +13,7 @@ import { Icon } from "native-base"
 
 
 const { width, height } = Dimensions.get("window")
-export default class Map extends Component {
+export default class MapComponant extends Component {
   constructor() {
     super()
     this.state = {

@@ -142,7 +142,7 @@ export default class AllUsers extends Component {
 
     render() {
 
-        console.log(this.props.navigation)
+        // console.log()
 
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
@@ -223,7 +223,7 @@ export default class AllUsers extends Component {
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
-                                            <Button style={styles.ListButn} transparent  >
+                                            <Button style={styles.ListButn} transparent onPress={()=>this.props.navigation.navigate("MapComponant")}  >
                                                 <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
                                             </Button>
                                         </View>
