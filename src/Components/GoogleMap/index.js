@@ -51,7 +51,6 @@ export default class MapComponant extends Component {
           zoomEnabled
           pitchEnabled
           rotateEnabled
-          // mapType="satellite"
           initialRegion={{
             latitude: this.state.latitude,
             longitude: this.state.longitude,
@@ -65,7 +64,7 @@ export default class MapComponant extends Component {
             longitudeDelta: this.state.longitudeDelta,
           }}>
           <MapView.Marker
-            title={"This is a title"}
+            title={"Maaz Ahmed are here"}
             coordinate={{
               latitude: this.state.latitude,
               longitude: this.state.longitude,
