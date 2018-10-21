@@ -237,10 +237,7 @@ const styles = StyleSheet.create({
     //         paddingTop: 7,
     //         paddingLeft: 10,
     //         paddingRight: 10,
-    //     },
-    //     searcBarIconButton: {
-    //         width: 30, height: 30,
-    //
+    \
 
   
 
