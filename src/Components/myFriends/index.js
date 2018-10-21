@@ -13,9 +13,7 @@ import {
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, List, } from 'native-base';
-import { Title } from 'react-native-paper';
-// import { Searchbar } from 'react-native-paper';
-import SearchInput, { createFilter } from 'react-native-search-filter';
+
 
 
 
@@ -99,7 +97,6 @@ let arr = [
 
 
 
-const KEYS_TO_FILTERS = ["username"];
 const { height, width } = Dimensions.get("window")
 export default class AllUsers extends Component {
     constructor() {
@@ -171,9 +168,6 @@ export default class AllUsers extends Component {
         }).start()
     }
 
-    searchUpdated(term) {
-        this.setState({ searchTerm: term })
-    }
 
     render() {
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
@@ -222,10 +216,11 @@ export default class AllUsers extends Component {
                     </Animated.View>
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <SearchInput
+                    <TextInput
+                        
                         placeholder="Search"
-                        onChangeText={(term) => { this.searchUpdated(term) }} 
-                        inputViewStyles={styles.TextInput}
+                        onChangeText={(searchVal) => { this.setState({searchVal}) }} 
+                        style={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
 
