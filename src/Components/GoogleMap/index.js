@@ -385,19 +385,7 @@ const styles = StyleSheet.create({
 //           style={styles.container}
 
 //         >
-//           {this.state.markers.map((marker, index) => {
-//             return (
-//               <MapView.Marker
-//                key={index}
-//                 title="Maaz Ahmed"
-//                 coordinate={marker}>
-//                 <View style={[styles.markerWrap]}>
-//                   <View style={styles.marker} >
-//                     <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
-//                       style={{ height: 30, width: 30, borderRadius: 100 }} />
-
-
-
+//   
 
 
 
