@@ -246,14 +246,7 @@ const styles = StyleSheet.create({
     //         borderBottomWidth: 1
     //     },
 
-    //     TextInput: {
-    //         borderBottomColor: "#c3bfd8",
-    //         borderBottomWidth: 1,
-    //         flex: 1,
-    //         height: "100%",
-    //         backgroundColor: "#312e3f",
-    //         color: "#fff"
-    //     },
+  
 
   
 
