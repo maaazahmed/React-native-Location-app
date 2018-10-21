@@ -231,7 +231,7 @@ export default class AllUsers extends Component {
 
                 <Animated.View style={{}}  >
                     <FlatList
-                        data={filteredEmails}
+                        data={arr}
                         renderItem={({ item, index }) => {
                             return (
                                 <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
