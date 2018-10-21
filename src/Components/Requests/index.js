@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
     View,
     Image,
@@ -10,11 +10,11 @@ import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigati
 import UserRequest from "./UserRequest/index"
 import MyRequest from "./myRequest/index"
 import Profile from "./Profile/index"
-import { Container, Header, Tab, Tabs, TabHeading, Icon, Button } from 'native-base';
+import { Header, Icon, Button } from 'native-base';
 
 
 
-const { height, width } = Dimensions.get("window")
+const { width } = Dimensions.get("window")
 export default class Dashboard extends React.Component {
     constructor(props) {
         super(props)
@@ -115,19 +115,18 @@ export default class Dashboard extends React.Component {
                         </View>
                     }
                 </Header>
-                {/* 312e3f */}
-                <View style={{ height:"25%", backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10, }} >
+                <View style={{ height: "25%", backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10, }} >
                     <Image style={{ height: 120, width: 120, borderRadius: width, borderColor: "#fff", borderWidth: 2 }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
                     <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
                 </View>
                 <BottomNavigation
-                    style={{ justifyContent: "space-between", elevation:0 }}
+                    style={{ justifyContent: "space-between", elevation: 0 }}
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
                     renderTab={this.renderTab}
                     tabs={this.tabs}
                 />
-                <View style={{ flex: 1}} >
+                <View style={{ flex: 1 }} >
                     {this.trnderScreen()}
                 </View>
             </View>
@@ -223,7 +222,7 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontWeight: "400",
         fontSize: 20,
-        fontWeight:"400",
+        fontWeight: "400",
         marginTop: 5
     },
     closeIcon: {

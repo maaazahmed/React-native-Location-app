@@ -7,14 +7,11 @@ import {
     Image,
     FlatList,
     TouchableOpacity,
-    TextInput,
     Animated,
     Easing,
-
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
-import { Header, Button, Icon, List, } from 'native-base';
-import { Title } from 'react-native-paper';
+
 
 
 
@@ -348,7 +345,7 @@ const styles = StyleSheet.create({
     },
     ListButn: {
         alignSelf: "center",
-        justifyContent:"center", alignItems:"center"
+        justifyContent: "center", alignItems: "center"
     },
     // ListButnIcon: {
     //     color: "#ff2a68",
