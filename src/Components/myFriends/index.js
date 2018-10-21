@@ -9,7 +9,8 @@ import {
     TouchableOpacity,
     TextInput,
     Animated,
-    Easing
+    Easing,
+  
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
@@ -220,7 +221,7 @@ export default class AllUsers extends Component {
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <TextInput
                         placeholder="Search"
-                        onChangeText={(searchVal) => this.searchHendle(searchVal)}
+                        onChangeText={(searchVal) => this.searchHendle()}
                         style={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         value={this.state.searchVal}
