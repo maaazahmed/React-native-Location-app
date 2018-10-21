@@ -189,10 +189,9 @@ import {
     Button,
     ScrollView,
 } from 'react-native';
+import SearchInput, { createFilter } from 'react-native-search-filter';
 
-
-
-
+const KEYS_TO_FILTERS = ['email', 'username'];
 let arr = [
     {
         username: "Maaz Ahmed",
@@ -282,7 +281,7 @@ export default class App extends Component {
         this.setState({ searchTerm: term })
     }
     render() {
-        const filteredEmails = emails.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         return (
             <View style={styles.container}>
                 <SearchInput
@@ -293,10 +292,10 @@ export default class App extends Component {
                 <ScrollView>
                     {filteredEmails.map(email => {
                         return (
-                            <TouchableOpacity onPress={() => alert(email.user.name)} key={email.id} style={styles.emailItem}>
+                            <TouchableOpacity>
                                 <View>
-                                    <Text>{email.user.name}</Text>
-                                    <Text style={styles.emailSubject}>{email.subject}</Text>
+                                    <Text>{email.username}</Text>
+                                    <Text style={styles.emailSubject}>{email.email}</Text>
                                 </View>
                             </TouchableOpacity>
                         )
