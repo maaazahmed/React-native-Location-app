@@ -21,41 +21,40 @@ let arr = [
         username: "Hameed Gull",
         email: "hameed@gmail.com",
         lastSeen: "04:30 AM",
-        pic: "https://tse4.mm.bing.net/th?id=OIP.ifutY-djFTb5U9I0ZASvYwHaJE&pid=15.1&P=0&w=300&h=300"
+        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
     },
     {
         username: "Maaz Ahmed",
         email: "maazahmed2k16@gmail.com",
         lastSeen: "04:30 AM",
-        pic: "https://tse2.mm.bing.net/th?id=OIP.O51F5Tx08mYTBsPxcr7HUwHaJ3&pid=15.1&P=0&w=300&h=300"
+        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
     },
 
     {
         username: "Haris Ahmed",
         email: "haris@gmail.com",
         lastSeen: "04:30 AM",
-        pic: "https://tse2.mm.bing.net/th?id=OIP.8UiX79bKZsDXbD-bIUz7AAHaJ4&pid=15.1&P=0&w=300&h=300"
+        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
 
     },
     {
         username: "Ghazi Ahmed",
         email: "ghazi@gmail.com",
         lastSeen: "04:30 AM",
-        pic: "https://tse3.mm.bing.net/th?id=OIP.rHVsvkMy5Z93RSgBSa2qBgHaE7&pid=15.1&P=0&w=230&h=153"
+        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
     },
     {
         username: "Aslam Khan",
         email: "aslam@gmail.com",
         lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
+        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
 
     },
     {
         username: "Salma Ahmed",
         email: "khan@gmail.com",
         lastSeen: "04:30 AM",
-        pic: "https://tse3.mm.bing.net/th?id=OIP.G7t0mS2Lrm5TIbxNDxRgnQHaJ6&pid=15.1&P=0&w=300&h=300"
-
+        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
     },
 
 ]

@@ -87,6 +87,7 @@ class SignUp extends Component {
             username: this.state.username,
             Email: this.state.email,
             Password: this.state.password,
+            profilePic:"http://media360summit.com/wp-content/themes/media360/images/dummy_profile_pic.png"
         }
         this.showLoader()
         firebase.auth().createUserWithEmailAndPassword(user.Email, user.Password)
