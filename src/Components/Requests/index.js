@@ -263,14 +263,7 @@ const styles = StyleSheet.create({
     //         alignSelf: "flex-start",
     //         fontSize: 9,
     //         marginLeft: 7,
-    //         marginTop: 1
-    //     },
-    //     avatarPic: {
-    //         height: 75,
-    //         width: 75,
-    //         borderRadius: width / 2
-    //     },
-    //     usernameList: {
+  
 
 
 
