@@ -10,10 +10,16 @@ import {
     Animated,
     Easing
 } from 'react-native';
-import Icons from "react-native-vector-icons/FontAwesome"
+import Icons from "react-native-vector-icons/FontAwesome";
 import { Header, Button, Icon, } from 'native-base';
 import { connect } from "react-redux"
 import SearchInput, { createFilter } from 'react-native-search-filter';
+import firebase from "firebase";
+import { connect } from "react-redux";
+import { } from "../../store/action/action"
+
+
+const database = firebase.database().ref()
 
 
 let arr = [
