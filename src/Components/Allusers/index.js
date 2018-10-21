@@ -72,8 +72,8 @@ class AllUsers extends Component {
         this.inputFeildAnim = new Animated.Value(0)
         this.opacity = new Animated.Value(0)
         this.textInputOpacity = new Animated.Value(0)
-        this.listOpacity = new Animated.Value(1)
-        this.listPadding = new Animated.Value(1)
+        this.listOpacity = new Animated.Value(0)
+        this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
             searchTerm: ""
@@ -82,14 +82,7 @@ class AllUsers extends Component {
 
 
     componentWillMount() {
-        database.child("user").on("value", (snapshoot) => {
-            let obj = snapshoot.val()
-            let users = []
-            for (let key in obj) {
-                users.push({ ...obj[key], key })
-            }
-            this.props.allUsersList(users)
-        })
+      
     }
 
     componentDidMount() {
@@ -103,7 +96,16 @@ class AllUsers extends Component {
                 duration: 500,
                 easing: Easing.elastic()
             })
-        ]).start()
+        ]).start(()=>{
+            database.child("user").on("value", (snapshoot) => {
+                let obj = snapshoot.val()
+                let users = []
+                for (let key in obj) {
+                    users.push({ ...obj[key], key })
+                }
+                this.props.allUsersList(users)
+            })
+        })
     }
 
     searchUser() {
