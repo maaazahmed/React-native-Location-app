@@ -200,20 +200,6 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         elevation: 0
     }
-
-
-
-
-
-
-  
-
-  
-
-  
-
-
-
 })
 
 
