@@ -15,8 +15,6 @@ import { Header, Button, Icon, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 
 
-
-
 const KEYS_TO_FILTERS = ['email', 'username'];
 let arr = [
     {

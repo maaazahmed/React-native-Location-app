@@ -16,29 +16,11 @@ import { Header, Button, Icon, List, } from 'native-base';
 import { Title } from 'react-native-paper';
 // import { Searchbar } from 'react-native-paper';
 import { connect } from "react-redux"
+import SearchInput, { createFilter } from 'react-native-search-filter';
 
 
 let arr = [
     {
-        username: "Maaz Ahmed",
-        email: "maazahmed2k16@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse2.mm.bing.net/th?id=OIP.O51F5Tx08mYTBsPxcr7HUwHaJ3&pid=15.1&P=0&w=300&h=300"
-    },
-    {
-        username: "Hameed Gull",
-        email: "hameed@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse4.mm.bing.net/th?id=OIP.ifutY-djFTb5U9I0ZASvYwHaJE&pid=15.1&P=0&w=300&h=300"
-    },
-    {
-        username: "Aslam Khan",
-        email: "aslam@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-
-    },
-    {
         username: "Hameed Gull",
         email: "hameed@gmail.com",
         lastSeen: "04:30 AM",
@@ -50,13 +32,7 @@ let arr = [
         lastSeen: "04:30 AM",
         pic: "https://tse2.mm.bing.net/th?id=OIP.O51F5Tx08mYTBsPxcr7HUwHaJ3&pid=15.1&P=0&w=300&h=300"
     },
-    {
-        username: "Aalam Khan",
-        email: "alam@gmail@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
 
-    },
     {
         username: "Haris Ahmed",
         email: "haris@gmail.com",
@@ -84,22 +60,14 @@ let arr = [
         pic: "https://tse3.mm.bing.net/th?id=OIP.G7t0mS2Lrm5TIbxNDxRgnQHaJ6&pid=15.1&P=0&w=300&h=300"
 
     },
-    {
-        username: "Aalam Khan",
-        email: "alam@gmail@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
-
-    },
 
 ]
 
 
 
-
-
+const KEYS_TO_FILTERS = ['email', 'username'];
 const { height, width } = Dimensions.get("window")
- class AllUsers extends Component {
+class AllUsers extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -108,7 +76,8 @@ const { height, width } = Dimensions.get("window")
         this.listOpacity = new Animated.Value(0)
         this.listPadding = new Animated.Value(0)
         this.state = {
-            searchVal: ""
+            searchVal: "",
+            searchTerm: ""
         }
     }
 
@@ -168,8 +137,14 @@ const { height, width } = Dimensions.get("window")
             duration: 300
         }).start()
     }
+    searchUpdated(term) {
+        this.setState({ searchTerm: term })
+    }
+
+
 
     render() {
+        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
             outputRange: [1, 0]
@@ -219,10 +194,10 @@ const { height, width } = Dimensions.get("window")
                     </Animated.View>
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <TextInput placeholder="Search "
-                        style={styles.TextInput}
+                    <SearchInput placeholder="Search "
+                        inputViewStyles={styles.TextInput}
                         value={this.state.searchVal}
-                        onChange={(searchVal) => { this.setState({ searchVal }) }}
+                        onChangeText={(term) => { this.searchUpdated(term) }}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
                     <View style={styles.searcBarIconButton} >
@@ -234,7 +209,7 @@ const { height, width } = Dimensions.get("window")
 
                 <Animated.View  >
                     <FlatList
-                        data={arr}
+                        data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
                                 <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
@@ -279,8 +254,8 @@ const styles = StyleSheet.create({
         paddingLeft: 5,
         paddingRight: 5,
         backgroundColor: "#312e3f",
-        justifyContent:"center",
-        alignItems:"center"
+        justifyContent: "center",
+        alignItems: "center"
     },
     headerContent: {
         flex: 1,
@@ -402,14 +377,14 @@ const styles = StyleSheet.create({
 
 const mapStateToProp = (state) => {
     return ({
-        currentUserData:state.root 
+        currentUserData: state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {
     return {
         // currentUserAction: (data) => {
         //     dispatch(currentUserAction(data))
-    // },
+        // },
     };
 };
 
