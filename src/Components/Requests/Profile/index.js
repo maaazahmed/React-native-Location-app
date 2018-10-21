@@ -11,18 +11,17 @@ import {
     StyleSheet
 } from "react-native"
 import { Icon } from "native-base"
-import Icons from "react-native-vector-icons/FontAwesome"
+import Icons from "react-native-vector-icons/FontAwesome";
+import { connect } from "react-redux"
 
 
 const { width, height } = Dimensions.get("window")
-export default class Profile extends Component {
-
+ class Profile extends Component {
     constructor() {
         super()
         this.ProfileDataAnim = new Animated.Value(0),
             this.listOpacity = new Animated.Value(0)
     }
-
 
     componentDidMount() {
         Animated.timing(this.listOpacity, {
@@ -46,7 +45,7 @@ export default class Profile extends Component {
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
         })
-
+        console.log(this.props.currentUserData)
         return (
             <View style={{ flex: 1 }} >
                 <View style={{ marginTop: 15 }} >
@@ -256,3 +255,26 @@ const styles = StyleSheet.create({
     }
 
 })
+
+
+
+
+
+const mapStateToProp = (state) => {
+    return ({
+        currentUserData: state.root,
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        // allUsersList: (data) => {
+        //     dispatch(allUsersList(data))
+        // },
+    };
+};
+
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(Profile)
+
+
