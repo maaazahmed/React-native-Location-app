@@ -211,12 +211,10 @@ export default class UserRequest extends Component {
                                         </View>
                                         <View style={styles.listButnView}>
                                             <Button style={styles.ListButn} transparent  >
-                                                <Icon name="checkmark-circle"  style={styles.ListButnIcon} />
-                                                {/* <Image style={{height:18, width:18,}} source={require("./images/check.png")} /> */}
+                                                <Image style={{ height: 18, width: 18, }} source={require("./images/checked.png")} />
                                             </Button>
-                                            {/* <ion-icon name="close-circle-outline"></ion-icon> */}
                                             <Button style={styles.ListButn} transparent  >
-                                                <Icon name="close-circle-outline"  style={styles.ListButnIcon} />
+                                                <Image style={{ height: 18, width: 18, }} source={require("./images/cancel.png")} />
                                             </Button>
                                         </View>
                                     </View>
@@ -346,7 +344,7 @@ const styles = StyleSheet.create({
         width: "25%",
         justifyContent: "space-around",
         alignItems: "center",
-        flexDirection:"row"
+        flexDirection: "row"
     },
     ListButn: {
         alignSelf: "center"
