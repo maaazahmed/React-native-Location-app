@@ -240,11 +240,7 @@ const styles = StyleSheet.create({
     //     },
     //     searcBarIconButton: {
     //         width: 30, height: 30,
-    //         alignItems: "center",
-    //         alignSelf: "flex-end",
-    //         borderBottomColor: "#c3bfd8",
-    //         borderBottomWidth: 1
-    //     },
+    //
 
   
 
