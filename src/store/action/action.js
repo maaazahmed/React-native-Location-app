@@ -13,3 +13,15 @@ export const currentUserAction = (data) => {
     }
 }
 
+
+
+export const allUsersList = (data) => {
+    return dispatch => {
+        dispatch({
+            type: ActionTypes.ALL_USER_LIST,
+            payload: data,
+        })
+    }
+}
+
+

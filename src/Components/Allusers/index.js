@@ -15,13 +15,10 @@ import { Header, Button, Icon, } from 'native-base';
 import { connect } from "react-redux"
 import SearchInput, { createFilter } from 'react-native-search-filter';
 import firebase from "firebase";
-import { connect } from "react-redux";
-import { } from "../../store/action/action"
+import { allUsersList } from "../../store/action/action"
 
 
 const database = firebase.database().ref()
-
-
 let arr = [
     {
         username: "Hameed Gull",
@@ -81,6 +78,13 @@ class AllUsers extends Component {
             searchVal: "",
             searchTerm: ""
         }
+    }
+
+
+    componentWillMount(){
+        database.child("user").on("value",(snapshoot)=>{
+            console.log(snapshoot.val())
+        })
     }
 
     componentDidMount() {
@@ -384,9 +388,9 @@ const mapStateToProp = (state) => {
 };
 const mapDispatchToProp = (dispatch) => {
     return {
-        // currentUserAction: (data) => {
-        //     dispatch(currentUserAction(data))
-        // },
+        allUsersList: (data) => {
+            dispatch(allUsersList(data))
+        },
     };
 };
 
