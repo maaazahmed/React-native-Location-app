@@ -190,7 +190,7 @@ export default class UserRequest extends Component {
         })
         return (
             <View style={styles.container} >
-                <Animated.View>
+                <Animated.View >
                     <FlatList
                         data={arr}
                         renderItem={({ item, index }) => {
@@ -211,7 +211,12 @@ export default class UserRequest extends Component {
                                         </View>
                                         <View style={styles.listButnView}>
                                             <Button style={styles.ListButn} transparent  >
-                                                <Image style={{height:18, width:18,}} source={require("./images/backward.png")} />
+                                                <Icon name="checkmark-circle"  style={styles.ListButnIcon} />
+                                                {/* <Image style={{height:18, width:18,}} source={require("./images/check.png")} /> */}
+                                            </Button>
+                                            {/* <ion-icon name="close-circle-outline"></ion-icon> */}
+                                            <Button style={styles.ListButn} transparent  >
+                                                <Icon name="close-circle-outline"  style={styles.ListButnIcon} />
                                             </Button>
                                         </View>
                                     </View>
@@ -339,8 +344,9 @@ const styles = StyleSheet.create({
     listButnView: {
         flex: 1,
         width: "25%",
-        justifyContent: "center",
-        alignItems: "center"
+        justifyContent: "space-around",
+        alignItems: "center",
+        flexDirection:"row"
     },
     ListButn: {
         alignSelf: "center"
