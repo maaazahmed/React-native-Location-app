@@ -78,7 +78,7 @@ export default class Dashboard extends React.Component {
 
     render() {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.container}>
                 <Header hasTabs style={styles.header} >
                     {(this.state.activeTab !== "profile") ?
                         <View style={[styles.headerContent]} >
@@ -179,11 +179,10 @@ const styles = StyleSheet.create({
         fontWeight: "400",
         marginTop: 5
     },
+    container: {
+        flex: 1,
+    },
     // USELESS///////////////////////////////
-//     container: {
-//         flex: 1,
-//         backgroundColor: "#312e3f"
-//     },
 //     customCardContainer: {
 //         flex: 1,
 //         alignItems: "center",
