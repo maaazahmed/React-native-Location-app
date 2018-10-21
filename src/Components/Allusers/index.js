@@ -64,7 +64,7 @@ let arr = [
 
 
 
-const KEYS_TO_FILTERS = ['email', 'username'];
+const KEYS_TO_FILTERS = ['Email', 'username'];
 const { height, width } = Dimensions.get("window")
 class AllUsers extends Component {
     constructor() {
@@ -81,9 +81,14 @@ class AllUsers extends Component {
     }
 
 
-    componentWillMount(){
-        database.child("user").on("value",(snapshoot)=>{
-            console.log(snapshoot.val())
+    componentWillMount() {
+        database.child("user").on("value", (snapshoot) => {
+            let obj = snapshoot.val()
+            let users = []
+            for (let key in obj) {
+                users.push({ ...obj[key], key })
+            }
+            this.props.allUsersList(users)
         })
     }
 
@@ -150,7 +155,9 @@ class AllUsers extends Component {
 
 
     render() {
-        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+        let allUsers = this.props.allUsers.allUserList
+        const filteredEmails = allUsers.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
             outputRange: [1, 0]
@@ -222,13 +229,13 @@ class AllUsers extends Component {
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic }} />
+                                                resizeMode="cover" source={{ uri: (item.pic) || (dummyPro) }} />
                                             <Icons name="circle" style={styles.circleIcon} />
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >
                                                 <Text style={styles.username} >{item.username}</Text>
-                                                <Text style={styles.emailAndSeenText} >{item.email}</Text>
+                                                <Text style={styles.emailAndSeenText} >{item.Email}</Text>
                                                 <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
                                             </View>
                                         </View>
@@ -383,7 +390,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProp = (state) => {
     return ({
-        currentUserData: state.root
+        currentUserData: state.root,
+        allUsers: state.root,
     });
 };
 const mapDispatchToProp = (dispatch) => {
