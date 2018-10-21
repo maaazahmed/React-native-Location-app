@@ -116,7 +116,9 @@ export default class Dashboard extends React.Component {
                     }
                 </Header>
                 <View style={{ height: "25%", backgroundColor: "#312e3f", justifyContent: "center", alignItems: "center", padding: 10, }} >
-                    <Image style={{ height: 120, width: 120, borderRadius: width, borderColor: "#fff", borderWidth: 2 }} source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
+                    <Image
+                        style={{ height: 120, width: 120, borderRadius: width, borderColor: "#fff", borderWidth: 2 }}
+                        source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
                     <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
                 </View>
                 <BottomNavigation
@@ -143,11 +145,6 @@ export default class Dashboard extends React.Component {
 
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: "#312e3f" },
-    customCardContainer: {
-        flex: 1,
-        alignItems: "center",
-    },
     header: {
         paddingLeft: 5,
         paddingRight: 5,
@@ -162,6 +159,33 @@ const styles = StyleSheet.create({
         alignItems: "center",
         position: "absolute",
         width: "100%", zIndex: 1,
+    },
+    inputContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center"
+    },
+    seachIconForInput: {
+        color: "#fff",
+        marginRight: 10,
+        height: 25,
+        width: 25
+    },
+    heandingTitle: {
+        color: "#fff",
+        fontWeight: "400",
+        fontSize: 20,
+        fontWeight: "400",
+        marginTop: 5
+    },
+    // USELESS///////////////////////////////
+    container: {
+        flex: 1,
+        backgroundColor: "#312e3f"
+    },
+    customCardContainer: {
+        flex: 1,
+        alignItems: "center",
     },
     customCard: {
         height: 100,
@@ -198,11 +222,7 @@ const styles = StyleSheet.create({
         borderBottomColor: "#c3bfd8",
         borderBottomWidth: 1
     },
-    inputContainer: {
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center"
-    },
+
     TextInput: {
         borderBottomColor: "#c3bfd8",
         borderBottomWidth: 1,
@@ -210,20 +230,6 @@ const styles = StyleSheet.create({
         height: "100%",
         backgroundColor: "#312e3f",
         color: "#fff"
-    },
-    seachIconForInput: {
-        color: "#fff",
-        // fontSize: 23,
-        marginRight: 10,
-        height: 25,
-        width: 25
-    },
-    heandingTitle: {
-        color: "#fff",
-        fontWeight: "400",
-        fontSize: 20,
-        fontWeight: "400",
-        marginTop: 5
     },
     closeIcon: {
         color: "#fff",
@@ -268,7 +274,7 @@ const styles = StyleSheet.create({
     },
     ListButnIcon: {
         color: "#ff2a68",
-    }
+    },
 
 })
 
