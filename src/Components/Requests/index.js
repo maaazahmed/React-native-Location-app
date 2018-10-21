@@ -182,6 +182,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
+
+
+
+
+    
     // USELESS///////////////////////////////
 //     customCardContainer: {
 //         flex: 1,
