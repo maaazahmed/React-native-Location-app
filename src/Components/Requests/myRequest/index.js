@@ -162,19 +162,6 @@ export default class MyRequest extends Component {
     }
 
     render() {
-        let bgOpacity = this.opacity.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1, 0]
-        })
-        let inputFeildWidth = this.inputFeildAnim.interpolate({
-            inputRange: [0, 1],
-            outputRange: [-100, 0]
-        })
-        let textInputOpacity = this.textInputOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.2, 1]
-        })
-
         let listOpacity = this.listOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
@@ -190,7 +177,7 @@ export default class MyRequest extends Component {
                         data={arr}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View  style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}

@@ -164,19 +164,6 @@ export default class UserRequest extends Component {
     }
 
     render() {
-        let bgOpacity = this.opacity.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1, 0]
-        })
-        let inputFeildWidth = this.inputFeildAnim.interpolate({
-            inputRange: [0, 1],
-            outputRange: [-100, 0]
-        })
-        let textInputOpacity = this.textInputOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.2, 1]
-        })
-
         let listOpacity = this.listOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
@@ -347,109 +334,9 @@ const styles = StyleSheet.create({
         alignSelf: "center",
         justifyContent: "center", alignItems: "center"
     },
-    // ListButnIcon: {
-    //     color: "#ff2a68",
-    // },
     AproveRejcetBtn: {
         height: 19,
         width: 19,
     }
 
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default class UserRequest extends Component {
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
