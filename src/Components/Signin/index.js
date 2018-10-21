@@ -91,12 +91,7 @@ class SignIn extends Component {
 
 
 
-    componentDidMount() {
-        // setTimeout(() => {
-        //     this.heideLoader()
-        // }, 2000)
-    }
-
+   
     createAccountPage() {
         this.props.navigation.navigate("SignUp")
     }
