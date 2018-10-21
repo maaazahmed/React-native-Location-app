@@ -140,11 +140,6 @@ export default class Dashboard extends React.Component {
 
 
 
-
-
-
-
-
 const styles = StyleSheet.create({
     header: {
         paddingLeft: 5,
