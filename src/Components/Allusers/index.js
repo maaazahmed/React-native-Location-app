@@ -7,14 +7,11 @@ import {
     Image,
     FlatList,
     TouchableOpacity,
-    TextInput,
     Animated,
     Easing
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
-import { Header, Button, Icon, List, } from 'native-base';
-import { Title } from 'react-native-paper';
-// import { Searchbar } from 'react-native-paper';
+import { Header, Button, Icon, } from 'native-base';
 import { connect } from "react-redux"
 import SearchInput, { createFilter } from 'react-native-search-filter';
 
