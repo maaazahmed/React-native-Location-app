@@ -190,41 +190,7 @@ export default class UserRequest extends Component {
         })
         return (
             <View style={styles.container} >
-                {/* <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
-                        <View >
-                            <Button transparent>
-                                <Icon name='menu' />
-                            </Button>
-                        </View>
-                        <View  >
-                            <View style={styles.inputContainer} >
-                                <Icon name='search' style={styles.seachIconForInput} />
-                                <Text style={styles.heandingTitle} >Find Friend</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: "row" }} >
-                            <Button onPress={() => this.searchUser()} transparent>
-                                <Icon name='search' />
-                            </Button>
-                        </View>
-                    </Animated.View>
-                </Header> */}
-                {/* <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <TextInput placeholder="Search "
-                        style={styles.TextInput}
-                        value={this.state.searchVal}
-                        onChange={(searchVal) => { this.setState({ searchVal }) }}
-                        placeholderTextColor="#c3bfd8"
-                        underlineColorAndroid="transparent" />
-                    <View style={styles.searcBarIconButton} >
-                        <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
-                            <Icon name='close' style={styles.closeIcon} />
-                        </TouchableOpacity>
-                    </View>
-                </Animated.View> */}
-
-                <Animated.View style={{}}  >
+                <Animated.View>
                     <FlatList
                         data={arr}
                         renderItem={({ item, index }) => {
