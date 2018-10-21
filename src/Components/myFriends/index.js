@@ -18,7 +18,7 @@ import SearchInput, { createFilter } from 'react-native-search-filter';
 
 
 
-const KEYS_TO_FILTERS = ['username', 'email'];
+const KEYS_TO_FILTERS = ['email', 'username'];
 let arr = [
     {
         username: "Maaz Ahmed",
@@ -154,7 +154,6 @@ export default class AllUsers extends Component {
 
 
 
-
     cancleSearch() {
         Animated.parallel([
             Animated.timing(this.opacity, {
@@ -228,7 +227,6 @@ export default class AllUsers extends Component {
                         onChangeText={(term) => { this.searchUpdated(term) }}
                         inputViewStyles	={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
-                        // value={this.state.searchVal}
                         underlineColorAndroid="transparent" />
 
                     <View style={styles.searcBarIconButton} >
