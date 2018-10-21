@@ -7,7 +7,6 @@ import {
     Image,
     FlatList,
     TouchableOpacity,
-    TextInput,
     Animated,
     Easing,
 } from 'react-native';
