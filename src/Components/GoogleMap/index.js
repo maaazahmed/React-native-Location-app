@@ -4,18 +4,11 @@ import {
   Text,
   View,
   Image,
-  Button,
-  Platform,
-  Animated,
   StyleSheet,
   Dimensions,
-  ScrollView,
   TouchableOpacity,
-  PermissionsAndroid,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import mapStyle from "./mapStyle.json"
-import Icons from "react-native-vector-icons/Ionicons"
 import { Icon } from "native-base"
 
 
@@ -24,12 +17,10 @@ export default class Map extends Component {
   constructor() {
     super()
     this.state = {
-      // region: {
       latitude: 0,
       longitude: 0,
       latitudeDelta: 0.01000,
       longitudeDelta: 0.01000,
-      // },
     }
   }
 
