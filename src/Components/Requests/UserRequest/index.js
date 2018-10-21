@@ -210,12 +210,12 @@ export default class UserRequest extends Component {
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
-                                            <Button style={styles.ListButn} transparent  >
-                                                <Image style={{ height: 18, width: 18, }} source={require("./images/checked.png")} />
-                                            </Button>
-                                            <Button style={styles.ListButn} transparent  >
-                                                <Image style={{ height: 18, width: 18, }} source={require("./images/cancel.png")} />
-                                            </Button>
+                                            <TouchableOpacity style={styles.ListButn} transparent  >
+                                                <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
+                                            </TouchableOpacity>
+                                            <TouchableOpacity style={styles.ListButn} transparent  >
+                                                <Image style={styles.AproveRejcetBtn} source={require("./images/cancel.png")} />
+                                            </TouchableOpacity>
                                         </View>
                                     </View>
                                 </Animated.View>
@@ -347,10 +347,15 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     ListButn: {
-        alignSelf: "center"
+        alignSelf: "center",
+        justifyContent:"center", alignItems:"center"
     },
-    ListButnIcon: {
-        color: "#ff2a68",
+    // ListButnIcon: {
+    //     color: "#ff2a68",
+    // },
+    AproveRejcetBtn: {
+        height: 19,
+        width: 19,
     }
 
 })
