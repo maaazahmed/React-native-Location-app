@@ -168,6 +168,10 @@ export default class AllUsers extends Component {
         }).start()
     }
 
+    searchHendle(searchVal) {
+        this.setState({ searchVal: searchVal })
+    }
+
 
     render() {
         let bgOpacity = this.opacity.interpolate({
@@ -215,11 +219,11 @@ export default class AllUsers extends Component {
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <TextInput
-                        
                         placeholder="Search"
-                        onChangeText={(searchVal) => { this.setState({searchVal}) }} 
+                        onChangeText={(searchVal) => this.searchHendle(searchVal)}
                         style={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
+                        value={this.state.searchVal}
                         underlineColorAndroid="transparent" />
 
                     <View style={styles.searcBarIconButton} >
