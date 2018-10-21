@@ -170,7 +170,6 @@ export default class AllUsers extends Component {
 
 
     render() {
-
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
             outputRange: [1, 0]
