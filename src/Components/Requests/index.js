@@ -283,21 +283,6 @@ const styles = StyleSheet.create({
     //         color: "#fff"
     //     },
 
-    //     emailAndSeenText: {
-    //         color: "#c3bfd8"
-    //     },
-    //     listButnView: {
-    //         flex: 1,
-    //         width: "25%",
-    //         justifyContent: "center",
-    //         alignItems: "center"
-    //     },
-    //     ListButn: {
-    //         alignSelf: "center"
-    //     },
-    //     ListButnIcon: {
-    //         color: "#ff2a68",
-    //     },
 
 })
 
