@@ -210,14 +210,7 @@ const styles = StyleSheet.create({
     //         flex: 1,
     //         alignItems: "center",
     //     },
-    //     customCard: {
-    //         height: 100,
-    //         width: width,
-    //         backgroundColor: "#312e3f",
-    //         flexDirection: "row",
-    //         padding: 20,
-    //         marginBottom: 20,
-    
+
 
   
 
