@@ -309,34 +309,7 @@ const styles = StyleSheet.create({
 
 
 
-
-
-
-// const { width, height } = Dimensions.get("window");
-
-// const CARD_HEIGHT = height / 4;
-// const CARD_WIDTH = CARD_HEIGHT - 50;
-
-// export default class screens extends Component {
-//   constructor() {
-//     super()
-//     this.state = {
-//       markers: [
-//         {
-//           coordinate: {
-//             latitude: 24.8937322,
-//             longitude: 67.0287092,
-//           },
-//           title: "Best Place",
-//           description: "This is the best place in Portland",
-//           image: Images[0],
-//         },
-//         {
-//           coordinate: {
-//             latitude: 24.8937311,
-//             longitude: 67.0287022,
-
-//           },
+,
 //           title: "Second Best Place",
 //           description: "This is the second best place in Portland",
 //           image: Images[1],
