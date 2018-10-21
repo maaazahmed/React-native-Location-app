@@ -154,6 +154,12 @@ class AllUsers extends Component {
         this.setState({ searchTerm: term })
     }
 
+    addUser(sender){
+
+        console.log(sender,"-------------")
+        
+    }
+
 
 
     render() {
@@ -241,7 +247,7 @@ class AllUsers extends Component {
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
-                                            <Button style={styles.ListButn} transparent  >
+                                            <Button style={styles.ListButn} transparent onPress={(item)=>this.addUser(item)}  >
                                                 <Icon name="person-add" style={styles.ListButnIcon} />
                                             </Button>
                                         </View>
