@@ -105,7 +105,6 @@ class AllUsers extends Component {
                 easing: Easing.elastic()
             })
         ]).start(() => {
-            // alert(this.state.userArr[1].username)
             this.props.allUsersList(this.state.userArr)
         })
     }
