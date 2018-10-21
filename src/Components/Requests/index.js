@@ -217,13 +217,7 @@ const styles = StyleSheet.create({
     //         flexDirection: "row",
     //         padding: 20,
     //         marginBottom: 20,
-    //     },
-    //     avatarContainer: {
-    //         justifyContent: "center",
-    //         alignItems: "center",
-    //         width: "25%",
-    //         flexDirection: "row",
-    //     },
+    
 
   
 
