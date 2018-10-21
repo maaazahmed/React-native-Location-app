@@ -55,7 +55,7 @@ let arr = [
     },
     {
         username: "Salma Ahmed",
-        email: "salma@gmail.com",
+        email: "khan@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse3.mm.bing.net/th?id=OIP.G7t0mS2Lrm5TIbxNDxRgnQHaJ6&pid=15.1&P=0&w=300&h=300"
 
