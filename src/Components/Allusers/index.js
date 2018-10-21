@@ -72,8 +72,8 @@ class AllUsers extends Component {
         this.inputFeildAnim = new Animated.Value(0)
         this.opacity = new Animated.Value(0)
         this.textInputOpacity = new Animated.Value(0)
-        this.listOpacity = new Animated.Value(0)
-        this.listPadding = new Animated.Value(0)
+        this.listOpacity = new Animated.Value(1)
+        this.listPadding = new Animated.Value(1)
         this.state = {
             searchVal: "",
             searchTerm: ""
@@ -104,7 +104,6 @@ class AllUsers extends Component {
                 easing: Easing.elastic()
             })
         ]).start()
-
     }
 
     searchUser() {
