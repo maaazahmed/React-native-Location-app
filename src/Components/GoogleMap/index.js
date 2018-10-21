@@ -348,29 +348,6 @@ const styles = StyleSheet.create({
 //       latitudeDelta: 0.01000,
 //       longitudeDelta: 0.0100,
 //       // },
-//     };
-//   }
-//   componentDidMount() {
-//     navigator.geolocation.getCurrentPosition(
-//       (position) => {
-//         this.setState({
-//           latitude: position.coords.latitude,
-//           longitude: position.coords.longitude,
-//           error: null,
-//         });
-//       },
-
-//       (error) => { console.log(error), this.setState({ error: error.message }) },
-//       { enableHighAccuracy: false, timeout: 200000, maximumAge: 1000 },
-//     );
-//   }
-//   render() {
-//     return (
-//       <View style={styles.container}>
-//         <MapView
-//           zoomLevel={100}
-//    
-
 
 
 
