@@ -76,7 +76,9 @@ export default class MapComponant extends Component {
 
 
         <View style={styles.backButtonContainer} >
-          <TouchableOpacity activeOpacity={.5} style={styles.backButton} >
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("Dashboard")}
+            activeOpacity={.5} style={styles.backButton} >
             <Icon name="arrow-back" style={{ color: "#fff", fontSize: 30 }} />
           </TouchableOpacity>
         </View>
