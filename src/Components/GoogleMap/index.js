@@ -311,6 +311,32 @@ const styles = StyleSheet.create({
 
 
 
+
+// const { width, height } = Dimensions.get("window");
+
+// const CARD_HEIGHT = height / 4;
+// const CARD_WIDTH = CARD_HEIGHT - 50;
+
+// export default class screens extends Component {
+//   constructor() {
+//     super()
+//     this.state = {
+//       markers: [
+//         {
+//           coordinate: {
+//             latitude: 24.8937322,
+//             longitude: 67.0287092,
+//           },
+//           title: "Best Place",
+//           description: "This is the best place in Portland",
+//           image: Images[0],
+//         },
+//         {
+//           coordinate: {
+//             latitude: 24.8937311,
+//             longitude: 67.0287022,
+
+//           },
 //           title: "Second Best Place",
 //           description: "This is the second best place in Portland",
 //           image: Images[1],
@@ -409,44 +435,67 @@ const styles = StyleSheet.create({
 //     width: CARD_WIDTH,
 //     overflow: "hidden",
 //   },
-//   cardImage: {
-//     flex: 3,
-//     width: "100%",
-//     height: "100%",
-//     alignSelf: "center",
-//   },
-//   textContent: {
-//     flex: 1,
-//   },
-//   cardtitle: {
-//     fontSize: 12,
-//     marginTop: 5,
-//     fontWeight: "bold",
-//   },
-//   cardDescription: {
-//     fontSize: 12,
-//     color: "#444",
-
-//   },
-//   markerWrap: {
-//     alignItems: "center",
-//     justifyContent: "center",
-//     // borderRadius: width,
-//   },
-//   marker: {
-//     width: 60,
-//     height: 60,
-//     borderRadius: width,
-//     backgroundColor: "rgba(55 ,52,71, 0.3)",
-//     justifyContent:"center",
-//     alignItems:"center"
-//   },
-//   ring: {
-//     width: 24,
-//     height: 24,
-//     borderRadius: width,
-//     position: "absolute",
 
 
-//   },
-// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// <View style={styles.container}></View>
+//         <MapView
+//           zoomLevel={100}
+//           loadingEnabled
+//           scrollEnabled
+//           zoomEnabled
+//           pitchEnabled
+//           rotateEnabled
+//           onRegionChange={(ev)=>console.log(ev)}
+//           ref={map => this.map = map}
+//           initialRegion={{
+//             latitude: this.state.latitude,
+//             longitude: this.state.longitude,
+//             latitudeDelta: this.state.latitudeDelta,
+//             longitudeDelta: this.state.longitudeDelta,
+//           }}
+//           style={styles.container}
+
+//         >
+//           {this.state.markers.map((marker, index) => {
+//             return (
+//               <MapView.Marker
+//                key={index}
+//                 title="Maaz Ahmed"
+//                 coordinate={marker}>
+//                 <View style={[styles.markerWrap]}>
+//                   <View style={styles.marker} >
+//                     <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
+//                       style={{ height: 30, width: 30, borderRadius: 100 }} />
+//                   </View>
+//                 </View>
+
+//               </MapView.Marker>
+//             );
+//           })
+//           }
+//         </MapView>
+//       </View>
