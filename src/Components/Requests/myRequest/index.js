@@ -189,22 +189,7 @@ export default class MyRequest extends Component {
         })
         return (
             <View style={styles.container} >
-              
-                {/* <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <TextInput placeholder="Search "
-                        style={styles.TextInput}
-                        value={this.state.searchVal}
-                        onChange={(searchVal) => { this.setState({ searchVal }) }}
-                        placeholderTextColor="#c3bfd8"
-                        underlineColorAndroid="transparent" />
-                    <View style={styles.searcBarIconButton} >
-                        <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
-                            <Icon name='close' style={styles.closeIcon} />
-                        </TouchableOpacity>
-                    </View>
-                </Animated.View> */}
-
-                <Animated.View style={{}}  >
+                <Animated.View  >
                     <FlatList
                         data={arr}
                         renderItem={({ item, index }) => {
