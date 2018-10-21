@@ -271,17 +271,7 @@ const styles = StyleSheet.create({
     //         borderRadius: width / 2
     //     },
     //     usernameList: {
-    //         flex: 1,
-    //         paddingLeft: 25,
-    //     },
-    //     detiles: {
-    //         flex: 3,
-    //         marginTop: -5
-    //     },
-    //     username: {
-    //         fontSize: 17,
-    //         color: "#fff"
-    //     },
+
 
 
 })
