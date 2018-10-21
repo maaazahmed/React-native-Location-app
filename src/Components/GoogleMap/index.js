@@ -395,26 +395,6 @@ const styles = StyleSheet.create({
 //                   <View style={styles.marker} >
 //                     <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
 //                       style={{ height: 30, width: 30, borderRadius: 100 }} />
-//                   </View>
-//                 </View>
-
-//               </MapView.Marker>
-//             );
-//           })
-//           }
-//         </MapView>
-//       </View>
-//     );
-//   }
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//   },
-//   scrollView: {
-//     position: "absolute",
-//   
 
 
 
