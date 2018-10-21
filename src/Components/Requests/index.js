@@ -109,7 +109,8 @@ export default class Dashboard extends React.Component {
                         :
                         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }} >
                             <View style={styles.inputContainer} >
-                                <Image source={require("./images/baseline_person_white_18dp.png")} style={styles.seachIconForInput} />
+                                <Image source={require("./images/baseline_person_white_18dp.png")}
+                                 style={styles.seachIconForInput} />
                                 <Text style={styles.heandingTitle} >Profile</Text>
                             </View>
                         </View>
@@ -179,102 +180,102 @@ const styles = StyleSheet.create({
         marginTop: 5
     },
     // USELESS///////////////////////////////
-    container: {
-        flex: 1,
-        backgroundColor: "#312e3f"
-    },
-    customCardContainer: {
-        flex: 1,
-        alignItems: "center",
-    },
-    customCard: {
-        height: 100,
-        width: width,
-        backgroundColor: "#312e3f",
-        flexDirection: "row",
-        padding: 20,
-        marginBottom: 20,
-    },
-    avatarContainer: {
-        justifyContent: "center",
-        alignItems: "center",
-        width: "25%",
-        flexDirection: "row",
-    },
+//     container: {
+//         flex: 1,
+//         backgroundColor: "#312e3f"
+//     },
+//     customCardContainer: {
+//         flex: 1,
+//         alignItems: "center",
+//     },
+//     customCard: {
+//         height: 100,
+//         width: width,
+//         backgroundColor: "#312e3f",
+//         flexDirection: "row",
+//         padding: 20,
+//         marginBottom: 20,
+//     },
+//     avatarContainer: {
+//         justifyContent: "center",
+//         alignItems: "center",
+//         width: "25%",
+//         flexDirection: "row",
+//     },
 
-    searcBarContainerr: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-        position: "absolute",
-        width: "100%",
-        right: 0,
-        backgroundColor: "#312e3f",
-        paddingTop: 7,
-        paddingLeft: 10,
-        paddingRight: 10,
-    },
-    searcBarIconButton: {
-        width: 30, height: 30,
-        alignItems: "center",
-        alignSelf: "flex-end",
-        borderBottomColor: "#c3bfd8",
-        borderBottomWidth: 1
-    },
+//     searcBarContainerr: {
+//         flex: 1,
+//         flexDirection: "row",
+//         justifyContent: "space-between",
+//         alignItems: "center",
+//         position: "absolute",
+//         width: "100%",
+//         right: 0,
+//         backgroundColor: "#312e3f",
+//         paddingTop: 7,
+//         paddingLeft: 10,
+//         paddingRight: 10,
+//     },
+//     searcBarIconButton: {
+//         width: 30, height: 30,
+//         alignItems: "center",
+//         alignSelf: "flex-end",
+//         borderBottomColor: "#c3bfd8",
+//         borderBottomWidth: 1
+//     },
 
-    TextInput: {
-        borderBottomColor: "#c3bfd8",
-        borderBottomWidth: 1,
-        flex: 1,
-        height: "100%",
-        backgroundColor: "#312e3f",
-        color: "#fff"
-    },
-    closeIcon: {
-        color: "#fff",
-        fontSize: 20
-    },
-    circleIcon: {
-        color: "#ff2a68",
-        alignSelf: "flex-start",
-        fontSize: 9,
-        marginLeft: 7,
-        marginTop: 1
-    },
-    avatarPic: {
-        height: 75,
-        width: 75,
-        borderRadius: width / 2
-    },
-    usernameList: {
-        flex: 1,
-        paddingLeft: 25,
-    },
-    detiles: {
-        flex: 3,
-        marginTop: -5
-    },
-    username: {
-        fontSize: 17,
-        color: "#fff"
-    },
+//     TextInput: {
+//         borderBottomColor: "#c3bfd8",
+//         borderBottomWidth: 1,
+//         flex: 1,
+//         height: "100%",
+//         backgroundColor: "#312e3f",
+//         color: "#fff"
+//     },
+//     closeIcon: {
+//         color: "#fff",
+//         fontSize: 20
+//     },
+//     circleIcon: {
+//         color: "#ff2a68",
+//         alignSelf: "flex-start",
+//         fontSize: 9,
+//         marginLeft: 7,
+//         marginTop: 1
+//     },
+//     avatarPic: {
+//         height: 75,
+//         width: 75,
+//         borderRadius: width / 2
+//     },
+//     usernameList: {
+//         flex: 1,
+//         paddingLeft: 25,
+//     },
+//     detiles: {
+//         flex: 3,
+//         marginTop: -5
+//     },
+//     username: {
+//         fontSize: 17,
+//         color: "#fff"
+//     },
 
-    emailAndSeenText: {
-        color: "#c3bfd8"
-    },
-    listButnView: {
-        flex: 1,
-        width: "25%",
-        justifyContent: "center",
-        alignItems: "center"
-    },
-    ListButn: {
-        alignSelf: "center"
-    },
-    ListButnIcon: {
-        color: "#ff2a68",
-    },
+//     emailAndSeenText: {
+//         color: "#c3bfd8"
+//     },
+//     listButnView: {
+//         flex: 1,
+//         width: "25%",
+//         justifyContent: "center",
+//         alignItems: "center"
+//     },
+//     ListButn: {
+//         alignSelf: "center"
+//     },
+//     ListButnIcon: {
+//         color: "#ff2a68",
+//     },
 
 })
 
