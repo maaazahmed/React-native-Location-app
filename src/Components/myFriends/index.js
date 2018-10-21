@@ -13,11 +13,12 @@ import {
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
+import SearchInput, { createFilter } from 'react-native-search-filter';
 
 
 
 
-
+const KEYS_TO_FILTERS = ['username', 'email'];
 let arr = [
     {
         username: "Maaz Ahmed",
@@ -108,7 +109,7 @@ export default class AllUsers extends Component {
         this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
-            searchTerm: ""
+            searchTerm: ''
         }
     }
 
@@ -147,6 +148,10 @@ export default class AllUsers extends Component {
         })
     }
 
+    searchUpdated(term) {
+        this.setState({ searchTerm: term })
+    }
+
 
 
 
@@ -168,12 +173,12 @@ export default class AllUsers extends Component {
         }).start()
     }
 
-    searchHendle(searchVal) {
-        this.setState({ searchVal: searchVal })
-    }
+  
 
 
     render() {
+        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
             outputRange: [1, 0]
@@ -218,12 +223,12 @@ export default class AllUsers extends Component {
                     </Animated.View>
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <TextInput
+                    <SearchInput
                         placeholder="Search"
-                        onChangeText={(searchVal) => this.searchHendle()}
-                        style={styles.TextInput}
+                        onChangeText={(term) => { this.searchUpdated(term) }}
+                        inputViewStyles	={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
-                        value={this.state.searchVal}
+                        // value={this.state.searchVal}
                         underlineColorAndroid="transparent" />
 
                     <View style={styles.searcBarIconButton} >
@@ -235,7 +240,7 @@ export default class AllUsers extends Component {
 
                 <Animated.View style={{}}  >
                     <FlatList
-                        data={arr}
+                        data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
                                 <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
