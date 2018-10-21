@@ -254,15 +254,7 @@ const styles = StyleSheet.create({
     //         backgroundColor: "#312e3f",
     //         color: "#fff"
     //     },
-    //     closeIcon: {
-    //         color: "#fff",
-    //         fontSize: 20
-    //     },
-    //     circleIcon: {
-    //         color: "#ff2a68",
-    //         alignSelf: "flex-start",
-    //         fontSize: 9,
-    //         marginLeft: 7,
+
   
 
 
