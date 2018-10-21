@@ -141,6 +141,9 @@ export default class AllUsers extends Component {
 
 
     render() {
+
+        console.log(this.props.navigation)
+
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
         let bgOpacity = this.opacity.interpolate({

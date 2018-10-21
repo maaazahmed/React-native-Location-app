@@ -57,14 +57,15 @@ export default class Dashboard extends React.Component {
 
 
     trnderScreen() {
+        let navigation = this.props.navigation
         if (this.state.activeTab == "games") {
-            return < View style={{ flex: 1 }} ><MyFriends /></View>
+            return < View style={{ flex: 1 }} ><MyFriends navigation={navigation} /></View>
         }
         else if (this.state.activeTab == "movies-tv") {
-            return < View style={{ flex: 1 }}><RequestComponent /></View>
+            return < View style={{ flex: 1 }}><RequestComponent navigation={navigation} /></View>
         }
         else if (this.state.activeTab == "music") {
-            return < View style={{ flex: 1 }} ><AllUsers /></View>
+            return < View style={{ flex: 1 }} ><AllUsers navigation={navigation} /></View>
         }
     }
 
@@ -75,7 +76,7 @@ export default class Dashboard extends React.Component {
                     {this.trnderScreen()}
                 </View>
                 <BottomNavigation
-                 style={{ justifyContent: "space-between", elevation:0 }}
+                    style={{ justifyContent: "space-between", elevation: 0 }}
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
                     renderTab={this.renderTab}

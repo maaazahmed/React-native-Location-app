@@ -14,6 +14,7 @@ import { Header, Icon, Button } from 'native-base';
 
 
 
+
 const { width } = Dimensions.get("window")
 export default class Dashboard extends React.Component {
     constructor(props) {
