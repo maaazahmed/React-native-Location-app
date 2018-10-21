@@ -76,13 +76,21 @@ class AllUsers extends Component {
         this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
-            searchTerm: ""
+            searchTerm: "",
+            userArr: []
         }
     }
 
 
     componentWillMount() {
-      
+        database.child("user").on("value", (snapshoot) => {
+            let obj = snapshoot.val()
+            let users = []
+            for (let key in obj) {
+                users.push({ ...obj[key], key })
+            }
+            this.setState({ userArr: users })
+        })
     }
 
     componentDidMount() {
@@ -96,15 +104,9 @@ class AllUsers extends Component {
                 duration: 500,
                 easing: Easing.elastic()
             })
-        ]).start(()=>{
-            database.child("user").on("value", (snapshoot) => {
-                let obj = snapshoot.val()
-                let users = []
-                for (let key in obj) {
-                    users.push({ ...obj[key], key })
-                }
-                this.props.allUsersList(users)
-            })
+        ]).start(() => {
+            // alert(this.state.userArr[1].username)
+            this.props.allUsersList(this.state.userArr)
         })
     }
 
