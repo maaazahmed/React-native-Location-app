@@ -309,21 +309,6 @@ const styles = StyleSheet.create({
 
 
 
-,
-//           title: "Second Best Place",
-//           description: "This is the second best place in Portland",
-//           image: Images[1],
-//         },
-//       ],
-//       // region: {
-//       latitude: 24.8937311,
-//       longitude: 67.0287022,
-//       latitudeDelta: 0.01000,
-//       longitudeDelta: 0.0100,
-//       // },
-
-
-
 
 
 
