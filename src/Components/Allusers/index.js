@@ -124,7 +124,7 @@ class AllUsers extends Component {
             duration: 300
         }).start(() => {
             setTimeout(() => {
-                if (this.state.searchVal === "") {
+                if (this.state.searchTerm === "") {
                     this.cancleSearch()
                 }
             }, 30000)
@@ -210,7 +210,6 @@ class AllUsers extends Component {
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <SearchInput placeholder="Search "
                         inputViewStyles={styles.TextInput}
-                        value={this.state.searchVal}
                         onChangeText={(term) => { this.searchUpdated(term) }}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
