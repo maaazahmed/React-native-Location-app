@@ -228,7 +228,6 @@ export default class AllUsers extends Component {
                         inputViewStyles	={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
-
                     <View style={styles.searcBarIconButton} >
                         <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
                             <Icon name='close' style={styles.closeIcon} />
