@@ -205,12 +205,6 @@ const styles = StyleSheet.create({
 
 
 
-    // USELESS///////////////////////////////
-    //     customCardContainer: {
-    //         flex: 1,
-    //         alignItems: "center",
-    //     },
-
 
   
 
