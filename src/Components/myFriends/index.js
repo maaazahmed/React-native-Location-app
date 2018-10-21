@@ -170,7 +170,6 @@ export default class AllUsers extends Component {
 
 
     render() {
-        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
