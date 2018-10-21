@@ -189,26 +189,7 @@ export default class MyRequest extends Component {
         })
         return (
             <View style={styles.container} >
-                {/* <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
-                        <View >
-                            <Button transparent>
-                                <Icon name='menu' />
-                            </Button>
-                        </View>
-                        <View  >
-                            <View style={styles.inputContainer} >
-                                <Icon name='search' style={styles.seachIconForInput} />
-                                <Text style={styles.heandingTitle} >Find Friend</Text>
-                            </View>
-                        </View>
-                        <View style={{ flexDirection: "row" }} >
-                            <Button onPress={() => this.searchUser()} transparent>
-                                <Icon name='search' />
-                            </Button>
-                        </View>
-                    </Animated.View>
-                </Header> */}
+              
                 {/* <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <TextInput placeholder="Search "
                         style={styles.TextInput}
