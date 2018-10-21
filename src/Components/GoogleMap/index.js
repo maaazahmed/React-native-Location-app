@@ -414,29 +414,7 @@ const styles = StyleSheet.create({
 //   },
 //   scrollView: {
 //     position: "absolute",
-//     bottom: 30,
-//     left: 0,
-//     right: 0,
-//     paddingVertical: 10,
-//   },
-//   endPadding: {
-//     paddingRight: width - CARD_WIDTH,
-//   },
-//   card: {
-//     padding: 10,
-//     elevation: 2,
-//     backgroundColor: "#FFF",
-//     marginHorizontal: 10,
-//     shadowColor: "#000",
-//     shadowRadius: 5,
-//     shadowOpacity: 0.3,
-//     shadowOffset: { x: 2, y: -2 },
-//     height: CARD_HEIGHT,
-//     width: CARD_WIDTH,
-//     overflow: "hidden",
-//   },
-
-
+//   
 
 
 
