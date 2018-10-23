@@ -162,17 +162,6 @@ class SignIn extends Component {
             inputRange: [0, 1],
             outputRange: [200, 170],
         })
-      
-
-        // let signContentMarginBottom = this.state.signContentMarginBottom.interpolate({
-        //     inputRange: [0, 1],
-        //     outputRange: [0, 0],
-        // })
-        // let signContentClosOpactiy = this.state.signContentClosOpactiy.interpolate({
-        //     inputRange: [0, 1],
-        //     outputRange: [0, 1],
-        // })
-
         return (
             <View style={{ flex: 1, justifyContent: "center", }} >
                 <View style={styles.container} >
