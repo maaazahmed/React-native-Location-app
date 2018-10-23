@@ -27,7 +27,7 @@ firebase.initializeApp(config);
 
 
 let database = firebase.database().ref("/")
-const { width, height } = Dimensions.get("window")
+const {  height } = Dimensions.get("window")
 class SignIn extends Component {
     constructor() {
         super()
