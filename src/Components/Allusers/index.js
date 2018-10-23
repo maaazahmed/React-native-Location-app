@@ -87,7 +87,9 @@ class AllUsers extends Component {
             let obj = snapshoot.val()
             let users = []
             for (let key in obj) {
-                users.push({ ...obj[key], key })
+                if (this.props.currentUserData.currentUser.id !== key) {
+                    users.push({ ...obj[key], key })
+                }
             }
             this.setState({ userArr: users })
         })
