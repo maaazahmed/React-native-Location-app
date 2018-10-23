@@ -162,7 +162,6 @@ class AllUsers extends Component {
             sender,
             currentUser
         }
-        alert()
         database.child(`Request/${sender.key}/${currentUser.id}`).set(obj)
     }
 
