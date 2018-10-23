@@ -155,7 +155,8 @@ class AllUsers extends Component {
     }
 
     addUser(sender) {
-        console.log(sender, "-------------")
+        const currentUser = this.props.currentUserData.currentUser
+        database.child(`user/${sender.key}/senders/${currentUser.id}`).set(currentUser)
     }
 
 
