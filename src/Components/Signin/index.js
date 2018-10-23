@@ -7,7 +7,6 @@ import {
     TouchableOpacity,
     Animated,
     Dimensions,
-    Image
 } from 'react-native';
 import { Icon } from 'native-base';
 import { Pulse } from 'react-native-loader';
