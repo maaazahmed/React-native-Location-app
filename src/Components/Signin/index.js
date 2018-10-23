@@ -162,23 +162,7 @@ class SignIn extends Component {
             inputRange: [0, 1],
             outputRange: [200, 170],
         })
-        // let signUpHeight = this.state.signUpHeight.interpolate({
-        //     inputRange: [0, 1],
-        //     outputRange: [0, height],
-        // })
-        // let signUpWidth = this.state.signUpHeight.interpolate({
-        //     inputRange: [0, 0.5, 1],
-        //     outputRange: [0, height / 2, width],
-        // })
-        // let signUpRadius = this.state.signUpRadius.interpolate({
-        //     inputRange: [0, 0.5, 1],
-        //     outputRange: [height, width, 0],
-        // })
-
-        // let signContentOpactiy = this.state.signContentOpactiy.interpolate({
-        //     inputRange: [0, 1],
-        //     outputRange: [0, 1],
-        // })
+      
 
         // let signContentMarginBottom = this.state.signContentMarginBottom.interpolate({
         //     inputRange: [0, 1],
