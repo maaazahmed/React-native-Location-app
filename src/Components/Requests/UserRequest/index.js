@@ -13,7 +13,7 @@ import {
 import Icons from "react-native-vector-icons/FontAwesome"
 import firebase from "firebase"
 import { connect } from "react-redux";
-import { UserRequestAction } from "../../../store/action/action"
+import { userRequestAction } from "../../../store/action/action"
 
 
 
@@ -100,7 +100,7 @@ let arr = [
 
 
 const { height, width } = Dimensions.get("window")
-export default class UserRequest extends Component {
+ class UserRequest extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -115,16 +115,16 @@ export default class UserRequest extends Component {
     }
 
     componentWillMount() {
-        // database.child("user").on("value", (snapshoot) => {
-        //     let obj = snapshoot.val()
-        //     let users = []
-        //     for (let key in obj) {
-        //         if (this.props.currentUserData.currentUser.id !== key) {
-        //             users.push({ ...obj[key], key })
-        //         }
-        //     }
-        //     this.setState({ userRquest: users })
-        // })
+        database.child(`Request/${this.props.currentUserData.currentUser.id}`).on("value", (snapshoot) => {
+            let obj = snapshoot.val()
+            let users = []
+            for (let key in obj) {
+                users.push({ ...obj[key], key })
+            }
+            users
+
+            this.setState({ userRquest: users })
+        })
     }
 
     componentDidMount() {
@@ -356,5 +356,22 @@ const styles = StyleSheet.create({
         height: 19,
         width: 19,
     }
-
 })
+
+
+const mapStateToProp = (state) => {
+    return ({
+        userRequestList: state.root,
+        currentUser: state.root
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        userRequestAction: (data) => {
+            dispatch(userRequestAction(data))
+        },
+    };
+};
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(UserRequest)
