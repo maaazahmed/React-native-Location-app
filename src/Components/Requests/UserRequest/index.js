@@ -11,10 +11,14 @@ import {
     Easing,
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
+import firebase from "firebase"
+import { connect } from "react-redux";
+import { UserRequestAction } from "../../../store/action/action"
 
 
 
 
+const database = firebase.database().ref("/")
 let arr = [
     {
         username: "Maaz Ahmed",
@@ -105,8 +109,22 @@ export default class UserRequest extends Component {
         this.listOpacity = new Animated.Value(0)
         this.listPadding = new Animated.Value(0)
         this.state = {
-            searchVal: ""
+            searchVal: "",
+            userRquest: ""
         }
+    }
+
+    componentWillMount() {
+        // database.child("user").on("value", (snapshoot) => {
+        //     let obj = snapshoot.val()
+        //     let users = []
+        //     for (let key in obj) {
+        //         if (this.props.currentUserData.currentUser.id !== key) {
+        //             users.push({ ...obj[key], key })
+        //         }
+        //     }
+        //     this.setState({ userRquest: users })
+        // })
     }
 
     componentDidMount() {
