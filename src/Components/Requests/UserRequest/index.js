@@ -122,12 +122,12 @@ const { height, width } = Dimensions.get("window")
                 users.push({ ...obj[key], key })
             }
             users
-
             this.setState({ userRquest: users })
         })
     }
 
     componentDidMount() {
+
         Animated.timing(this.listOpacity, {
             toValue: 1,
             duration: 500,
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
 const mapStateToProp = (state) => {
     return ({
         userRequestList: state.root,
-        currentUser: state.root
+        currentUserData: state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {

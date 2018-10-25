@@ -56,6 +56,7 @@ class SignIn extends Component {
                     this.props.currentUserAction(obj)
                     setTimeout(() => {
                         this.props.navigation.navigate("Dashboard")
+                        // this.heideLoader()
                     }, 1000)
                 })
             }
