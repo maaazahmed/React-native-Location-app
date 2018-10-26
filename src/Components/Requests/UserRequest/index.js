@@ -61,7 +61,6 @@ class UserRequest extends Component {
             duration: 500,
             easing: Easing.elastic()
         }).start(() => {
-            console.log(this.state.userRquest)
             this.props.userRequestAction(this.state.userRquest)
         })
     }
