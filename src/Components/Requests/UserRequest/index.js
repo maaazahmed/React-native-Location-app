@@ -61,6 +61,7 @@ class UserRequest extends Component {
             duration: 500,
             easing: Easing.elastic()
         }).start(() => {
+            console.log(this.state.userRquest)
             this.props.userRequestAction(this.state.userRquest)
         })
     }
@@ -135,7 +136,7 @@ class UserRequest extends Component {
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >
-                                                <Text style={styles.username} >{item.username}</Text>
+                                                <Text style={styles.username} >{item.currentUser.username}</Text>
                                                 <Text style={styles.emailAndSeenText} >{item.currentUser.Email}</Text>
                                                 <Text style={styles.emailAndSeenText}>Last update {item.currentUser.username}</Text>
                                             </View>

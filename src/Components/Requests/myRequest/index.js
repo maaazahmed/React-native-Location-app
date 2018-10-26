@@ -196,7 +196,7 @@ class MyRequest extends Component {
             inputRange: [0, 0.5, 1],
             outputRange: [10, 5, 0]
         })
-  
+
         return (
             <View style={styles.container} >
                 <Animated.View  >
@@ -208,14 +208,14 @@ class MyRequest extends Component {
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic|| dummyPro }} />
+                                                resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
                                             <Icons name="circle" style={styles.circleIcon} />
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >
-                                                <Text style={styles.username} >{item.username}</Text>
-                                                <Text style={styles.emailAndSeenText} >{item.email}</Text>
-                                                <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
+                                                <Text style={styles.username} >{item.sender.username}</Text>
+                                                <Text style={styles.emailAndSeenText} >{item.sender.Email}</Text>
+                                                <Text style={styles.emailAndSeenText}>Last update {item.sender.username}</Text>
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
