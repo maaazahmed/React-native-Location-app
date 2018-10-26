@@ -176,10 +176,20 @@ class UserRequest extends Component {
                                     Are you sure you want to delete this request ?
                                 </Text>
                             </View>
+
                             <View style={styles.modalThing}>
-                                <Button title={"Click"} onPress={() => this.setState({
-                                    isModalVisible: false
-                                })} />
+                                <View style={{ height: "100%", width: "100%", flexDirection: "row", justifyContent: "space-around", backgroundColor: "red", alignItems: "center" }} >
+                                    <TouchableOpacity
+                                        onPress={() => this.setState({ isModalVisible: false })}
+                                        style={{ height: 40, width: 100, backgroundColor: "#c3bfd8" }} >
+
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => this.setState({ isModalVisible: false })}
+                                        style={{ height: 40, width: 100, backgroundColor: "#c3bfd8" }} >
+
+                                    </TouchableOpacity>
+                                </View>
                             </View>
                         </View>
                     </View>
