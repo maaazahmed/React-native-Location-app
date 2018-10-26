@@ -21,21 +21,7 @@ import { userRequestAction } from "../../../store/action/action"
 const database = firebase.database().ref("/")
 let arr = [
    
-    {
-  
-    {
-        username: "Maaz Ahmed",
-        email: "maazahmed2k16@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse2.mm.bing.net/th?id=OIP.O51F5Tx08mYTBsPxcr7HUwHaJ3&pid=15.1&P=0&w=300&h=300"
-    },
-    {
-        username: "Aalam Khan",
-        email: "alam@gmail@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
-
-    },
+   
     {
         username: "Haris Ahmed",
         email: "haris@gmail.com",
