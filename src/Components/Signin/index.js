@@ -55,8 +55,8 @@ class SignIn extends Component {
                     obj.id = snap.key;
                     this.props.currentUserAction(obj)
                     setTimeout(() => {
-                        // this.props.navigation.navigate("Dashboard")
-                        this.heideLoader()
+                        this.props.navigation.navigate("Dashboard")
+                        // this.heideLoader()
                     }, 1000)
                 })
             }

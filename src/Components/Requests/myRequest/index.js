@@ -11,6 +11,10 @@ import {
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Button } from 'native-base';
+import { connect } from "react-redux"
+import firebase from "firebase";
+
+
 
 
 let arr = [
@@ -31,7 +35,7 @@ let arr = [
         email: "aslam@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-
+        
     },
     {
         username: "Hameed Gull",
@@ -50,14 +54,14 @@ let arr = [
         email: "alam@gmail@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
-
+        
     },
     {
         username: "Haris Ahmed",
         email: "haris@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse2.mm.bing.net/th?id=OIP.8UiX79bKZsDXbD-bIUz7AAHaJ4&pid=15.1&P=0&w=300&h=300"
-
+        
     },
     {
         username: "Ghazi Ahmed",
@@ -70,31 +74,32 @@ let arr = [
         email: "aslam@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-
+        
     },
     {
         username: "Salma Ahmed",
         email: "salma@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse3.mm.bing.net/th?id=OIP.G7t0mS2Lrm5TIbxNDxRgnQHaJ6&pid=15.1&P=0&w=300&h=300"
-
+        
     },
     {
         username: "Aalam Khan",
         email: "alam@gmail@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
-
+        
     },
-
+    
 ]
 
 
 
 
 
+const database = firebase.database().ref()
 const { height, width } = Dimensions.get("window")
-export default class MyRequest extends Component {
+ class MyRequest extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -105,6 +110,20 @@ export default class MyRequest extends Component {
         this.state = {
             searchVal: ""
         }
+    }
+
+    componentWillMount() {
+        database.child(`Request`).on("value", (snapshoot) => {
+            let obj = snapshoot.val()
+            let users = []
+            for (let key in obj) {
+                for (let id in obj[key]) {
+                    users.push({ ...obj[key][id], id })
+                }
+            }
+            // this.setState({ userRquest: users })
+            console.log(users)
+        })
     }
 
     componentDidMount() {
@@ -330,8 +349,31 @@ const styles = StyleSheet.create({
     ListButnIcon: {
         color: "#ff2a68",
     }
-
 })
+
+
+
+
+
+
+
+const mapStateToProp = (state) => {
+    return ({
+        currentUserData: state.root,
+          allUsers: state.root,
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+      
+    };
+};
+
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(MyRequest)
+
+
 
 
 
