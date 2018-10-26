@@ -166,10 +166,16 @@ class UserRequest extends Component {
                     visible={this.state.isModalVisible} >
                     <View style={styles.modalContainer}>
                         <View style={styles.modalContent} >
-                            <View style={styles.modalThing}>
-                                <Image source={{ uri: dummyPro }} style={{height:120, width:120, borderRadius:width, borderColor:"#fff", borderWidth:1}} />
+                            <View style={[styles.modalThing, { flex: 2 }]}>
+                                <Image
+                                    source={{ uri: dummyPro }}
+                                    style={styles.modalImg} />
                             </View>
-                            <View style={styles.modalThing}></View>
+                            <View style={[styles.modalThing, { padding: 20 }]}>
+                                <Text style={{ color: "#fff", fontSize: 15, textAlign: "center" }} >
+                                    Are you sure you want to delete this request ?
+                                </Text>
+                            </View>
                             <View style={styles.modalThing}>
                                 <Button title={"Click"} onPress={() => this.setState({
                                     isModalVisible: false
@@ -312,7 +318,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "rgba(0, 0, 0, 0.5)",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+
     },
     modalContent: {
         width: width / 1.5,
@@ -320,13 +327,24 @@ const styles = StyleSheet.create({
         backgroundColor: "#312e3f",
         justifyContent: "center",
         alignItems: "center",
-        elevation: 20, borderRadius: 3
+        elevation: 20,
+        borderRadius: 3,
+
     },
     modalThing: {
         flex: 1,
         width: "100%",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        padding: 10
+
+    },
+    modalImg: {
+        height: 100,
+        width: 100,
+        borderRadius: width,
+        borderColor: "#fff",
+        borderWidth: 1
     }
 })
 
