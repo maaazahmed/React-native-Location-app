@@ -13,6 +13,7 @@ import Icons from "react-native-vector-icons/FontAwesome"
 import { Button } from 'native-base';
 import { connect } from "react-redux"
 import firebase from "firebase";
+import { myRequestAction } from "../../../store/action/action"
 
 
 
@@ -35,7 +36,7 @@ let arr = [
         email: "aslam@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-        
+
     },
     {
         username: "Hameed Gull",
@@ -54,14 +55,14 @@ let arr = [
         email: "alam@gmail@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
-        
+
     },
     {
         username: "Haris Ahmed",
         email: "haris@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse2.mm.bing.net/th?id=OIP.8UiX79bKZsDXbD-bIUz7AAHaJ4&pid=15.1&P=0&w=300&h=300"
-        
+
     },
     {
         username: "Ghazi Ahmed",
@@ -74,23 +75,23 @@ let arr = [
         email: "aslam@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-        
+
     },
     {
         username: "Salma Ahmed",
         email: "salma@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse3.mm.bing.net/th?id=OIP.G7t0mS2Lrm5TIbxNDxRgnQHaJ6&pid=15.1&P=0&w=300&h=300"
-        
+
     },
     {
         username: "Aalam Khan",
         email: "alam@gmail@gmail.com",
         lastSeen: "04:30 AM",
         pic: "https://tse1.mm.bing.net/th?id=OIP.G-aZmAKu77bzDA8JuXBS3AAAAA&pid=15.1&P=0&w=300&h=300"
-        
+
     },
-    
+
 ]
 
 
@@ -99,7 +100,7 @@ let arr = [
 
 const database = firebase.database().ref()
 const { height, width } = Dimensions.get("window")
- class MyRequest extends Component {
+class MyRequest extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -108,7 +109,8 @@ const { height, width } = Dimensions.get("window")
         this.listOpacity = new Animated.Value(0)
         this.listPadding = new Animated.Value(0)
         this.state = {
-            searchVal: ""
+            searchVal: "",
+            MyRequestList: {}
         }
     }
 
@@ -121,7 +123,7 @@ const { height, width } = Dimensions.get("window")
                     users.push({ ...obj[key][id], id })
                 }
             }
-            // this.setState({ userRquest: users })
+            this.setState({ MyRequestList: users })
             console.log(users)
         })
     }
@@ -135,7 +137,9 @@ const { height, width } = Dimensions.get("window")
             toValue: 1,
             duration: 500,
             easing: Easing.elastic()
-        }).start()
+        }).start(()=>{
+            this.props.myRequestAction(this.state.MyRequestList)
+        })
     }
 
     searchUser() {
@@ -196,7 +200,7 @@ const { height, width } = Dimensions.get("window")
                         data={arr}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View  style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
@@ -212,7 +216,7 @@ const { height, width } = Dimensions.get("window")
                                         </View>
                                         <View style={styles.listButnView}>
                                             <Button style={styles.ListButn} transparent  >
-                                                <Image style={{height:18, width:18,}} source={require("./images/forward.png")} />
+                                                <Image style={{ height: 18, width: 18, }} source={require("./images/forward.png")} />
                                             </Button>
                                         </View>
                                     </View>
@@ -360,12 +364,14 @@ const styles = StyleSheet.create({
 const mapStateToProp = (state) => {
     return ({
         currentUserData: state.root,
-          allUsers: state.root,
+        allUsers: state.root,
     });
 };
 const mapDispatchToProp = (dispatch) => {
     return {
-      
+        myRequestAction: (data) => {
+            dispatch(myRequestAction(data))
+        },
     };
 };
 

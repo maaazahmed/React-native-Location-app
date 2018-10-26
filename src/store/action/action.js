@@ -35,5 +35,16 @@ export const userRequestAction = (data) => {
     }
 }
 
+export const myRequestAction = (data) => {
+    return dispatch => {
+        dispatch({
+            type: ActionTypes.MY_REQUEST_ACTION,
+            payload: data,
+        })
+    }
+}
+
+
+
 
 
