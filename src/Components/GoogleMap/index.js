@@ -50,6 +50,7 @@ export default class MapComponant extends Component {
           scrollEnabled
           zoomEnabled
           pitchEnabled
+          mapType="satellite"
           rotateEnabled
           initialRegion={{
             latitude: this.state.latitude,
