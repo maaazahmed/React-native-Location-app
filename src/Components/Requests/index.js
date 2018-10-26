@@ -11,12 +11,12 @@ import UserRequest from "./UserRequest/index"
 import MyRequest from "./myRequest/index"
 import Profile from "./Profile/index"
 import { Header, Icon, Button } from 'native-base';
-
+import { connect } from "react-redux"
 
 
 
 const { width } = Dimensions.get("window")
-export default class Dashboard extends React.Component {
+class Dashboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = { activeTab: "games" }
@@ -202,6 +202,27 @@ const styles = StyleSheet.create({
         elevation: 0
     }
 })
+
+
+
+
+const mapStateToProp = (state) => {
+    return ({
+        currentUserData: state.root,
+
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        // allUsersList: (data) => {
+        //     dispatch(allUsersList(data))
+        // },
+    };
+};
+
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(Dashboard)
 
 
 
