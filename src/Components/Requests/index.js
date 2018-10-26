@@ -20,7 +20,6 @@ class Dashboard extends React.Component {
     constructor(props) {
         super(props)
         this.state = { activeTab: "games" }
-
     }
 
 
@@ -78,6 +77,8 @@ class Dashboard extends React.Component {
     }
 
     render() {
+        const currentUserData = this.props.currentUserData.currentUser;
+        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         return (
             <View style={styles.container}>
                 <Header hasTabs style={styles.header} >
@@ -120,8 +121,8 @@ class Dashboard extends React.Component {
                 <View style={styles.profileImgContainer} >
                     <Image
                         style={styles.profileImg}
-                        source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }} ></Image>
-                    <Text style={styles.heandingTitle} >Maaz Ahmed</Text>
+                        source={{ uri: currentUserData.profilePic || dummyPro }} ></Image>
+                    <Text style={styles.heandingTitle} >{currentUserData.username}</Text>
                 </View>
                 <BottomNavigation
                     style={styles.BottomNavigation}
