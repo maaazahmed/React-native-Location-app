@@ -100,7 +100,7 @@ let arr = [
 
 
 const { height, width } = Dimensions.get("window")
- class UserRequest extends Component {
+class UserRequest extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -121,13 +121,12 @@ const { height, width } = Dimensions.get("window")
             for (let key in obj) {
                 users.push({ ...obj[key], key })
             }
-            users
+            // console.log(users)
             this.setState({ userRquest: users })
         })
     }
 
     componentDidMount() {
-
         Animated.timing(this.listOpacity, {
             toValue: 1,
             duration: 500,
@@ -136,7 +135,10 @@ const { height, width } = Dimensions.get("window")
             toValue: 1,
             duration: 500,
             easing: Easing.elastic()
-        }).start()
+        }).start(() => {
+            console.log(this.state.userRquest)
+            this.props.userRequestAction(this.state.userRquest)
+        })
     }
 
     searchUser() {
@@ -182,6 +184,9 @@ const { height, width } = Dimensions.get("window")
     }
 
     render() {
+        console.log(this.props.userRequestList.requestList)
+        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
+        let requestList = this.props.userRequestList.requestList
         let listOpacity = this.listOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
@@ -194,21 +199,21 @@ const { height, width } = Dimensions.get("window")
             <View style={styles.container} >
                 <Animated.View >
                     <FlatList
-                        data={arr}
+                        data={requestList}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View key={index} style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic }} />
+                                                resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
                                             <Icons name="circle" style={styles.circleIcon} />
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >
                                                 <Text style={styles.username} >{item.username}</Text>
-                                                <Text style={styles.emailAndSeenText} >{item.email}</Text>
-                                                <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
+                                                <Text style={styles.emailAndSeenText} >{item.currentUser.Email}</Text>
+                                                <Text style={styles.emailAndSeenText}>Last update {item.currentUser.username}</Text>
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
