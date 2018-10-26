@@ -368,7 +368,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#ff2a68",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 3,
+        borderRadius:2,
     },
     modalButtonContainer: {
         height: "100%",
