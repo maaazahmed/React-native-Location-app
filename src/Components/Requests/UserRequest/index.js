@@ -11,7 +11,7 @@ import {
     Easing,
     Modal,
     Button
-    
+
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import firebase from "firebase"
@@ -146,7 +146,7 @@ class UserRequest extends Component {
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
-                                            <TouchableOpacity onPress={()=>this.setState({isModalVisible:true})}  style={styles.ListButn} transparent  >
+                                            <TouchableOpacity onPress={() => this.setState({ isModalVisible: true })} style={styles.ListButn} transparent  >
                                                 <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.ListButn} transparent  >
@@ -161,10 +161,21 @@ class UserRequest extends Component {
                         }} />
                 </Animated.View>
                 <Modal
-                animationType="fade"
-                 visible={this.state.isModalVisible} >
-                    <View style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.3)" }}>
-                        <Button title="Close"  onPress={()=>this.setState({isModalVisible:false})}/>
+                    animationType="fade"
+                    transparent={true}
+                    visible={this.state.isModalVisible} >
+                    <View style={styles.modalContainer}>
+                        <View style={styles.modalContent} >
+                            <View style={styles.modalThing}>
+                                <Image source={{ uri: dummyPro }} style={{height:120, width:120, borderRadius:width, borderColor:"#fff", borderWidth:1}} />
+                            </View>
+                            <View style={styles.modalThing}></View>
+                            <View style={styles.modalThing}>
+                                <Button title={"Click"} onPress={() => this.setState({
+                                    isModalVisible: false
+                                })} />
+                            </View>
+                        </View>
                     </View>
                 </Modal>
             </View>
@@ -296,6 +307,26 @@ const styles = StyleSheet.create({
     AproveRejcetBtn: {
         height: 19,
         width: 19,
+    },
+    modalContainer: {
+        flex: 1,
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    modalContent: {
+        width: width / 1.5,
+        height: height / 2,
+        backgroundColor: "#312e3f",
+        justifyContent: "center",
+        alignItems: "center",
+        elevation: 20, borderRadius: 3
+    },
+    modalThing: {
+        flex: 1,
+        width: "100%",
+        justifyContent: "center",
+        alignItems: "center"
     }
 })
 
