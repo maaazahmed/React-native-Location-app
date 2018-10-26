@@ -24,19 +24,6 @@ let arr = [
    
   
     {
-        username: "Ghazi Ahmed",
-        email: "ghazi@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse3.mm.bing.net/th?id=OIP.rHVsvkMy5Z93RSgBSa2qBgHaE7&pid=15.1&P=0&w=230&h=153"
-    },
-    {
-        username: "Aslam Khan",
-        email: "aslam@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-
-    },
-    {
         username: "Salma Ahmed",
         email: "salma@gmail.com",
         lastSeen: "04:30 AM",
