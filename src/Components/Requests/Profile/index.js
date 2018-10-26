@@ -46,6 +46,8 @@ const { width, height } = Dimensions.get("window")
             outputRange: [0, 0.5, 1]
         })
         console.log(this.props.currentUserData)
+        let currentUserData = this.props.currentUserData.currentUser;
+
         return (
             <View style={{ flex: 1 }} >
                 <View style={{ marginTop: 15 }} >
@@ -70,7 +72,7 @@ const { width, height } = Dimensions.get("window")
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
-                                        <Text style={styles.nameSndEmailText} >Maaz Ahmed</Text>
+                                        <Text style={styles.nameSndEmailText} >{currentUserData.username}</Text>
                                     </View>
                                     <View style={styles.listButonContainer} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >
@@ -85,7 +87,7 @@ const { width, height } = Dimensions.get("window")
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
-                                        <Text style={styles.nameSndEmailText} >maazahmed2k16@gmail.com</Text>
+                                        <Text style={styles.nameSndEmailText} >{currentUserData.Email}</Text>
                                     </View>
                                     <View style={styles.listButonContainer} >
                                         <TouchableOpacity activeOpacity={0.5} style={styles.listButon} >

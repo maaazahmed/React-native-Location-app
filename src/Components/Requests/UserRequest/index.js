@@ -9,11 +9,14 @@ import {
     TouchableOpacity,
     Animated,
     Easing,
+    Modal,
+    Button
+    
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import firebase from "firebase"
 import { connect } from "react-redux";
-import { userRequestAction } from "../../../store/action/action"
+import { userRequestAction } from "../../../store/action/action";
 
 
 
@@ -35,7 +38,8 @@ class UserRequest extends Component {
         this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
-            userRquest: ""
+            userRquest: "",
+            isModalVisible: false
         }
     }
 
@@ -142,7 +146,7 @@ class UserRequest extends Component {
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
-                                            <TouchableOpacity style={styles.ListButn} transparent  >
+                                            <TouchableOpacity onPress={()=>this.setState({isModalVisible:true})}  style={styles.ListButn} transparent  >
                                                 <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
                                             </TouchableOpacity>
                                             <TouchableOpacity style={styles.ListButn} transparent  >
@@ -156,6 +160,13 @@ class UserRequest extends Component {
                             return item.email
                         }} />
                 </Animated.View>
+                <Modal
+                animationType="fade"
+                 visible={this.state.isModalVisible} >
+                    <View style={{ flex: 1, backgroundColor: "rgba(0, 0, 0, 0.3)" }}>
+                        <Button title="Close"  onPress={()=>this.setState({isModalVisible:false})}/>
+                    </View>
+                </Modal>
             </View>
         )
     }
