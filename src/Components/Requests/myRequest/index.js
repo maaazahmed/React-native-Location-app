@@ -137,7 +137,7 @@ class MyRequest extends Component {
             toValue: 1,
             duration: 500,
             easing: Easing.elastic()
-        }).start(()=>{
+        }).start(() => {
             this.props.myRequestAction(this.state.MyRequestList)
         })
     }
@@ -185,6 +185,9 @@ class MyRequest extends Component {
     }
 
     render() {
+        let MyRequest_List = this.props.MyRequest_List.myRequestList
+        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
+
         let listOpacity = this.listOpacity.interpolate({
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.5, 1]
@@ -193,18 +196,19 @@ class MyRequest extends Component {
             inputRange: [0, 0.5, 1],
             outputRange: [10, 5, 0]
         })
+  
         return (
             <View style={styles.container} >
                 <Animated.View  >
                     <FlatList
-                        data={arr}
+                        data={MyRequest_List}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View key={index} style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic }} />
+                                                resizeMode="cover" source={{ uri: item.pic|| dummyPro }} />
                                             <Icons name="circle" style={styles.circleIcon} />
                                         </View>
                                         <View style={styles.detiles}>
@@ -364,7 +368,7 @@ const styles = StyleSheet.create({
 const mapStateToProp = (state) => {
     return ({
         currentUserData: state.root,
-        allUsers: state.root,
+        MyRequest_List: state.root,
     });
 };
 const mapDispatchToProp = (dispatch) => {
