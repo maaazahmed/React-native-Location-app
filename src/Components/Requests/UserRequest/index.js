@@ -178,16 +178,20 @@ class UserRequest extends Component {
                             </View>
 
                             <View style={styles.modalThing}>
-                                <View style={{ height: "100%", width: "100%", flexDirection: "row", justifyContent: "space-around", backgroundColor: "red", alignItems: "center" }} >
+                                <View style={{ height: "100%", width: "100%", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }} >
                                     <TouchableOpacity
                                         onPress={() => this.setState({ isModalVisible: false })}
-                                        style={{ height: 40, width: 100, backgroundColor: "#c3bfd8" }} >
-
+                                        style={{ height: 40, width: 100, backgroundColor: "#ff2a68", justifyContent: "center", alignItems: "center" }} >
+                                        <Text style={{ color: "#fff", fontSize: 15, textAlign: "center" }} >
+                                            Accapte
+                                           </Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         onPress={() => this.setState({ isModalVisible: false })}
-                                        style={{ height: 40, width: 100, backgroundColor: "#c3bfd8" }} >
-
+                                        style={{ height: 40, width: 100, backgroundColor: "#ff2a68", justifyContent: "center", alignItems: "center" }} >
+                                        <Text style={{ color: "#fff", fontSize: 15, textAlign: "center" }} >
+                                            Delete
+                                           </Text>
                                     </TouchableOpacity>
                                 </View>
                             </View>
