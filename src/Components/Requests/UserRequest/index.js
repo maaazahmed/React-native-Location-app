@@ -172,24 +172,26 @@ class UserRequest extends Component {
                                     style={styles.modalImg} />
                             </View>
                             <View style={[styles.modalThing, { padding: 20 }]}>
-                                <Text style={{ color: "#fff", fontSize: 15, textAlign: "center" }} >
+                                <Text style={styles.modalText} >
                                     Are you sure you want to delete this request ?
                                 </Text>
                             </View>
 
                             <View style={styles.modalThing}>
-                                <View style={{ height: "100%", width: "100%", flexDirection: "row", justifyContent: "space-around", alignItems: "center" }} >
+                                <View style={styles.modalButtonContainer} >
                                     <TouchableOpacity
+                                        activeOpacity={0.6}
                                         onPress={() => this.setState({ isModalVisible: false })}
-                                        style={{ height: 40, width: 100, backgroundColor: "#ff2a68", justifyContent: "center", alignItems: "center" }} >
-                                        <Text style={{ color: "#fff", fontSize: 15, textAlign: "center" }} >
+                                        style={styles.modalButton} >
+                                        <Text style={styles.modalText} >
                                             Accapte
                                            </Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity
+                                        activeOpacity={0.6}
                                         onPress={() => this.setState({ isModalVisible: false })}
-                                        style={{ height: 40, width: 100, backgroundColor: "#ff2a68", justifyContent: "center", alignItems: "center" }} >
-                                        <Text style={{ color: "#fff", fontSize: 15, textAlign: "center" }} >
+                                        style={styles.modalButton} >
+                                        <Text style={styles.modalText} >
                                             Delete
                                            </Text>
                                     </TouchableOpacity>
@@ -359,6 +361,26 @@ const styles = StyleSheet.create({
         borderRadius: width,
         borderColor: "#fff",
         borderWidth: 1
+    },
+    modalButton: {
+        height: 35,
+        width: 100,
+        backgroundColor: "#ff2a68",
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: 3,
+    },
+    modalButtonContainer: {
+        height: "100%",
+        width: "100%",
+        flexDirection: "row",
+        justifyContent: "space-around",
+        alignItems: "center"
+    },
+    modalText: {
+        color: "#fff",
+        fontSize: 15,
+        textAlign: "center"
     }
 })
 
