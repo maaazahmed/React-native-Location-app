@@ -278,17 +278,7 @@
 //     this.watchID = navigator.geolocation.watchPosition(
 //       position => {
 //         this.setState({
-//           region: {
-//             latitude: position.coords.latitude,
-//             longitude: position.coords.longitude,
-//             latitudeDelta: LATITUDE_DELTA,
-//             longitudeDelta: LONGITUDE_DELTA,
-
-
-
-
-
-
+//           
 
 
 
