@@ -35,7 +35,6 @@ class AllUsers extends Component {
         }
     }
 
-
     componentWillMount() {
         database.child("user").on("value", (snapshoot) => {
             let obj = snapshoot.val()
@@ -45,23 +44,8 @@ class AllUsers extends Component {
                     users.push({ ...obj[key], key })
                 }
             }
-            this.setState({ userArr: users })
-        })
-    }
-
-    componentDidMount() {
-        Animated.parallel([
-            Animated.timing(this.listOpacity, {
-                toValue: 1,
-                duration: 500,
-            }),
-            Animated.timing(this.listPadding, {
-                toValue: 1,
-                duration: 500,
-                easing: Easing.elastic()
-            })
-        ]).start(() => {
-            this.props.allUsersList(this.state.userArr)
+            console.log()
+            this.props.allUsersList(users)
         })
     }
 
