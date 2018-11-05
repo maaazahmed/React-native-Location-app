@@ -203,7 +203,7 @@ export default class AllUsers extends Component {
                     </View>
                 </Animated.View>
 
-                <Animated.View>
+                <View>
                     <FlatList
                         data={filteredEmails}
                         renderItem={({ item, index }) => {
@@ -234,7 +234,7 @@ export default class AllUsers extends Component {
                         }} keyExtractor={(item) => {
                             return item.key
                         }} />
-                </Animated.View>
+                </View>
             </View>
         )
     }
