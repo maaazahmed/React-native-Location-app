@@ -240,7 +240,6 @@
 
 // import React, { Component } from 'react';
 // import { AppRegistry, StyleSheet, View, Dimensions } from 'react-native';
-// import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 
