@@ -21,7 +21,7 @@ const Routers = StackNavigator({
         navigationOptions: {
             header: null
         },
-        initialRouteName: "SignIn"
+        initialRouteName: "MapComponant"
     }
 )
 

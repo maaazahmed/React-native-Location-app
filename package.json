@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "firebase": "^5.5.4",
+    "haversine": "^1.1.0",
     "native-base": "^2.8.0",
     "prop-types": "^15.6.2",
     "react": "16.3.1",
@@ -15,6 +16,7 @@
     "react-native-firebase": "^4.3.8",
     "react-native-loader": "^1.2.1",
     "react-native-maps": "0.20.0",
+    "react-native-maps-directions": "^1.6.0",
     "react-native-material-bottom-navigation": "^1.0.1",
     "react-native-material-design": "^0.3.7",
     "react-native-material-textfield": "^0.12.0",

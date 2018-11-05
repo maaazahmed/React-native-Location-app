@@ -130,6 +130,7 @@ class UserRequest extends Component {
                     <FlatList
                         data={requestList}
                         renderItem={({ item, index }) => {
+                            console.log(index,"=================================")
                             return (
                                 <Animated.View key={index} style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
@@ -184,7 +185,7 @@ class UserRequest extends Component {
                                         onPress={() => this.setState({ isModalVisible: false })}
                                         style={styles.modalButton} >
                                         <Text style={styles.modalText} >
-                                            Accapte
+                                            Delete
                                            </Text>
                                     </TouchableOpacity>
                                     <TouchableOpacity
@@ -192,7 +193,7 @@ class UserRequest extends Component {
                                         onPress={() => this.setState({ isModalVisible: false })}
                                         style={styles.modalButton} >
                                         <Text style={styles.modalText} >
-                                            Delete
+                                            Cancel
                                            </Text>
                                     </TouchableOpacity>
                                 </View>
@@ -368,7 +369,7 @@ const styles = StyleSheet.create({
         backgroundColor: "#ff2a68",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius:2,
+        borderRadius: 2,
     },
     modalButtonContainer: {
         height: "100%",

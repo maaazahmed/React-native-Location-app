@@ -193,7 +193,7 @@ export default class AllUsers extends Component {
                     <SearchInput
                         placeholder="Search"
                         onChangeText={(term) => { this.searchUpdated(term) }}
-                        inputViewStyles	={styles.TextInput}
+                        inputViewStyles={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
                     <View style={styles.searcBarIconButton} >
@@ -208,7 +208,8 @@ export default class AllUsers extends Component {
                         data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View key={index} 
+                                style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
@@ -231,7 +232,7 @@ export default class AllUsers extends Component {
                                 </Animated.View>
                             )
                         }} keyExtractor={(item) => {
-                            return item.email
+                            return item.key
                         }} />
                 </Animated.View>
             </View>
