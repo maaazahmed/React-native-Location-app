@@ -253,14 +253,7 @@
 //     super();
 //     this.state = {
 //       region: {
-//         latitude: LATITUDE,
-//         longitude: LONGITUDE,
-//         latitudeDelta: LATITUDE_DELTA,
-//         longitudeDelta: LONGITUDE_DELTA,
-//       }
-//     };
-//   }
-
+/
 
 
 
