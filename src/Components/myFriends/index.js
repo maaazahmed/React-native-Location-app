@@ -142,11 +142,7 @@ export default class AllUsers extends Component {
 
 
     render() {
-
-        // console.log()
-
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
             outputRange: [-100, 0]
