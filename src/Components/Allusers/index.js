@@ -116,6 +116,10 @@ class AllUsers extends Component {
         database.child(`Request/${sender.key}/${currentUser.id}`).set(obj)
     }
 
+    componentWillReceiveProps(props){
+      console.log(props)
+    }
+
 
 
     render() {
@@ -170,7 +174,7 @@ class AllUsers extends Component {
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <TextInput placeholder="Search "
-                        styles={styles.TextInput}
+                        style={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
                     <View style={styles.searcBarIconButton} >
@@ -182,7 +186,7 @@ class AllUsers extends Component {
 
                 <Animated.View  >
                     <FlatList
-                        data={filteredEmails}
+                        data={this.props.allUsers.allUserList}
                         renderItem={({ item, index }) => {
                             return (
                                 <View
@@ -210,7 +214,7 @@ class AllUsers extends Component {
                                 </View>
                             )
                         }} keyExtractor={(item) => {
-                            return item.email
+                            return item.key
                         }} />
                 </Animated.View>
             </View>
