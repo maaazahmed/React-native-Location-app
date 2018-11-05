@@ -249,10 +249,6 @@
 // const LATITUDE_DELTA = 0.0922;
 // const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 // export default class Map extends Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       region: {
 
 
 
