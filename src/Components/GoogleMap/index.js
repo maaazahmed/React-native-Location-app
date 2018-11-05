@@ -245,7 +245,6 @@
 // let { width, height } = Dimensions.get('window');
 // const ASPECT_RATIO = width / height;
 // const LATITUDE = 0;
-// const LONGITUDE = 0;
 
 
 
