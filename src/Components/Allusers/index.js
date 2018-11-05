@@ -172,7 +172,7 @@ class AllUsers extends Component {
                         </View>
                     </Animated.View>
                 </Header>
-                <Animated.View style={[styles.searcBarContainerr]} >
+                <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <TextInput placeholder="Search "
                         style={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
