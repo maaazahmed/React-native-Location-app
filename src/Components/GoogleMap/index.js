@@ -160,7 +160,6 @@
 //     height: 75,
 //     width: 75,
 //     borderRadius: width,
-
 //   },
 //   locatDetail: {
 //     flex: 3,
@@ -194,11 +193,16 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Platform
+  Platform,
+  Dimensions,
+  Image
 } from "react-native";
 import MapView, { Marker, AnimatedRegion, Polyline } from "react-native-maps";
 import haversine from "haversine";
+import { Icon } from "native-base"
 
+
+const { width, height } = Dimensions.get("window")
 const LATITUDE = 29.95539;
 const LONGITUDE = 78.07513;
 const LATITUDE_DELTA = 0.009;
@@ -223,8 +227,8 @@ class MapComponant extends React.Component {
 
   componentWillMount() {
     navigator.geolocation.getCurrentPosition(
-      position => { 
-        console.log(position,"")
+      position => {
+        console.log(position, "")
       }, error => alert(error.message),
       {
         enableHighAccuracy: true,
@@ -240,7 +244,7 @@ class MapComponant extends React.Component {
     const { coordinate } = this.state;
     this.watchID = navigator.geolocation.watchPosition(
       position => {
-        console.log(position,"")
+        console.log(position, "")
         const { coordinate, routeCoordinates, distanceTravelled } = this.state;
         const { latitude, longitude } = position.coords;
 
@@ -288,7 +292,7 @@ class MapComponant extends React.Component {
 
   getMapRegion = () => ({
     latitude: this.state.latitude,
-    longitude: this.state.longitude,
+    longitude: this.state.longitude, // from 
     latitudeDelta: LATITUDE_DELTA,
     longitudeDelta: LONGITUDE_DELTA
   });
@@ -310,7 +314,7 @@ class MapComponant extends React.Component {
             }}
             coordinate={this.state.coordinate} />
         </MapView>
-        <View style={styles.buttonContainer}>
+        {/* <View style={styles.buttonContainer}>
           <TouchableOpacity style={[styles.bubble, styles.button]}>
             <Text style={[styles.bottomBarContent, { color: "#fff" }]}>
               {parseFloat(this.state.distanceTravelled).toFixed(2)} km
@@ -319,6 +323,24 @@ class MapComponant extends React.Component {
               {this.state.latitude}  {this.state.longitude}
             </Text>
           </TouchableOpacity>
+        </View> */}
+        <View style={styles.backButtonContainer} >
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("Dashboard")}
+            activeOpacity={.5} style={styles.backButton} >
+            <Icon name="arrow-back" style={{ color: "#fff", fontSize: 30 }} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.datailContainer} >
+          <View style={styles.locatDetail} >
+            <Text style={{ fontSize: 19, color: "#fff" }} >Maaz Ahmed</Text>
+            <Text style={{ fontSize: 15, color: "#fff" }} >maazahmed2k16@gmail.com</Text>
+            <Text style={{ fontSize: 15, color: "#fff" }} >Karachi</Text>
+          </View>
+          <View style={styles.imageContainer} >
+            <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
+              style={styles.image} />
+          </View>
         </View>
       </View>
     );
@@ -333,6 +355,25 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject
+  },
+  backButtonContainer: {
+    height: 57,
+    width: 57,
+    borderRadius: width,
+    position: "absolute",
+    zIndex: 1,
+    top: 20,
+    left: 20,
+    backgroundColor: "rgba(55,52,71, 0.5)",
+    padding: 10
+
+  },
+  backButton: {
+    flex: 1,
+    backgroundColor: "rgba(55,52,71, 0.5)",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: width,
   },
   bubble: {
     flex: 1,
@@ -355,7 +396,39 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     marginVertical: 20,
     backgroundColor: "transparent"
-  }
+  },
+  datailContainer: {
+    height: 90,
+    width: "95%",
+    backgroundColor: "rgba(55,52,71, 0.7)",
+    position: "absolute",
+    zIndex: 1,
+    bottom: 13,
+    borderRadius: 3,
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row"
+  },
+  locatDetail: {
+    flex: 3,
+    height: "100%",
+    justifyContent: "center",
+    paddingLeft: 10
+
+  },
+  imageContainer: {
+    height: "100%",
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingRight: 5
+  },
+  image: {
+    height: 75,
+    width: 75,
+    borderRadius: width,
+
+  },
 });
 
 export default MapComponant;
