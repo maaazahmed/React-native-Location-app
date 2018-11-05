@@ -272,14 +272,7 @@
 //           }
 //         });
 //       },
-//     (error) => console.log(error.message),
-//     { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 },
-//     );
-//     this.watchID = navigator.geolocation.watchPosition(
-//       position => {
-//         this.setState({
-//           
-
+// 
 
 
 
