@@ -26,8 +26,8 @@ class AllUsers extends Component {
         this.inputFeildAnim = new Animated.Value(0)
         this.opacity = new Animated.Value(0)
         this.textInputOpacity = new Animated.Value(0)
-        this.listOpacity = new Animated.Value(0)
-        this.listPadding = new Animated.Value(0)
+        // this.listOpacity = new Animated.Value(0)
+        // this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
             searchTerm: "",
