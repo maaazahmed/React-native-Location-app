@@ -260,11 +260,7 @@
 //       }
 //     };
 //   }
-//   componentDidMount() {
-//     navigator.geolocation.getCurrentPosition(
-//       position => {
-//         this.setState({
-// 
+
 
 
 
