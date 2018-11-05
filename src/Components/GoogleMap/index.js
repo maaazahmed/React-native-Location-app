@@ -299,10 +299,7 @@
 //         loadingEnabled
 //         scrollEnabled
 //         showsUserLocation={true}
-//         zoomEnabled
-//         pitchEnabled
-//         rotateEnabled
-//   
+//      
 // }
 
 
