@@ -192,36 +192,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import React from "react";
 import {
   StyleSheet,
@@ -257,7 +227,9 @@ class MapComponant extends React.Component {
 
   componentWillMount() {
     navigator.geolocation.getCurrentPosition(
-      position => { }, error => alert(error.message),
+      position => { 
+        console.log(position,"")
+      }, error => alert(error.message),
       {
         enableHighAccuracy: true,
         timeout: 20000,
@@ -266,10 +238,13 @@ class MapComponant extends React.Component {
     );
   }
 
+
+
   componentDidMount() {
     const { coordinate } = this.state;
     this.watchID = navigator.geolocation.watchPosition(
       position => {
+        console.log(position,"")
         const { coordinate, routeCoordinates, distanceTravelled } = this.state;
         const { latitude, longitude } = position.coords;
 
@@ -302,6 +277,9 @@ class MapComponant extends React.Component {
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
   }
+
+
+
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.watchID);
