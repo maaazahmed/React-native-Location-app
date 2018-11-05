@@ -119,7 +119,6 @@ class AllUsers extends Component {
 
 
     render() {
-        let allUsers = this.props.allUsers.allUserList
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],

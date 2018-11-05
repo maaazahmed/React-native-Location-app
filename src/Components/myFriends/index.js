@@ -152,10 +152,10 @@ export default class AllUsers extends Component {
             outputRange: [0, 0.2, 1]
         })
 
-        // let bgOpacity = this.opacity.interpolate({
-        //     inputRange: [0, 1],
-        //     outputRange: [1, 0]
-        // })
+        let bgOpacity = this.opacity.interpolate({
+            inputRange: [0, 1],
+            outputRange: [1, 0]
+        })
         // let listOpacity = this.listOpacity.interpolate({
         //     inputRange: [0, 0.5, 1],
         //     outputRange: [0, 0.5, 1]
@@ -167,7 +167,7 @@ export default class AllUsers extends Component {
         return (
             <View style={styles.container} >
                 <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent,]} >
+                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
                         <View >
                             <Button transparent>
                                 <Icon name='menu' />
