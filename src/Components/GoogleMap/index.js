@@ -302,18 +302,7 @@
 //         zoomEnabled
 //         pitchEnabled
 //         rotateEnabled
-//         style={{height:"100%", width:"100%"} }
-//         showsUserLocation={ true }
-//         region={ this.state.region }
-//         onRegionChange={ region => this.setState({region}) }
-//         onRegionChangeComplete={ region => this.setState({region}) }
-//       >
-//         <MapView.Marker
-//           coordinate={ this.state.region }
-//         />
-//       </MapView>
-//     );
-//   }
+//   
 // }
 
 
