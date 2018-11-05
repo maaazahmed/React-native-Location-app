@@ -146,10 +146,6 @@ export default class AllUsers extends Component {
 
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
-        let bgOpacity = this.opacity.interpolate({
-            inputRange: [0, 1],
-            outputRange: [1, 0]
-        })
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
             outputRange: [-100, 0]
@@ -159,14 +155,18 @@ export default class AllUsers extends Component {
             outputRange: [0, 0.2, 1]
         })
 
-        let listOpacity = this.listOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.5, 1]
-        })
-        let listPadding = this.listPadding.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [10, 5, 0]
-        })
+        // let bgOpacity = this.opacity.interpolate({
+        //     inputRange: [0, 1],
+        //     outputRange: [1, 0]
+        // })
+        // let listOpacity = this.listOpacity.interpolate({
+        //     inputRange: [0, 0.5, 1],
+        //     outputRange: [0, 0.5, 1]
+        // })
+        // let listPadding = this.listPadding.interpolate({
+        //     inputRange: [0, 0.5, 1],
+        //     outputRange: [10, 5, 0]
+        // })
         return (
             <View style={styles.container} >
                 <Header style={styles.header} >
@@ -242,7 +242,10 @@ export default class AllUsers extends Component {
 
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: "#312e3f" },
+    container: {
+        flex: 1,
+        backgroundColor: "#312e3f"
+    },
     customCardContainer: {
         flex: 1,
         alignItems: "center",
