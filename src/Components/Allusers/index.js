@@ -8,7 +8,8 @@ import {
     FlatList,
     TouchableOpacity,
     Animated,
-    Easing
+    Easing,
+    TextInput
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome";
 import { Header, Button, Icon, } from 'native-base';
@@ -220,7 +221,7 @@ class AllUsers extends Component {
                     </Animated.View>
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <SearchInput placeholder="Search "
+                    <TextInput placeholder="Search "
                         inputViewStyles={styles.TextInput}
                         onChangeText={(term) => { this.searchUpdated(term) }}
                         placeholderTextColor="#c3bfd8"
@@ -237,7 +238,9 @@ class AllUsers extends Component {
                         data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View 
+                                key={index}
+                                style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
@@ -260,7 +263,7 @@ class AllUsers extends Component {
                                 </Animated.View>
                             )
                         }} keyExtractor={(item) => {
-                            return item.email
+                            return item.key
                         }} />
                 </Animated.View>
             </View>
