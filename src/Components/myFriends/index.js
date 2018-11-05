@@ -29,7 +29,7 @@ let arr = [
         lastSeen: "04:30 AM",
         pic: "https://tse2.mm.bing.net/th?id=OIP.O51F5Tx08mYTBsPxcr7HUwHaJ3&pid=15.1&P=0&w=300&h=300"
     },
-  
+
     {
         username: "Haris Ahmed",
         email: "haris@gmail.com",
@@ -137,7 +137,7 @@ export default class AllUsers extends Component {
         }).start()
     }
 
-  
+
 
 
     render() {
@@ -170,7 +170,7 @@ export default class AllUsers extends Component {
         return (
             <View style={styles.container} >
                 <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent]} >
+                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
                         <View >
                             <Button transparent>
                                 <Icon name='menu' />
@@ -208,8 +208,8 @@ export default class AllUsers extends Component {
                         data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View key={index} 
-                                style={[styles.customCardContainer]} >
+                                <Animated.View key={index}
+                                    style={[styles.customCardContainer]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
@@ -224,7 +224,7 @@ export default class AllUsers extends Component {
                                             </View>
                                         </View>
                                         <View style={styles.listButnView}>
-                                            <Button style={styles.ListButn} transparent onPress={()=>this.props.navigation.navigate("MapComponant")}  >
+                                            <Button style={styles.ListButn} transparent onPress={() => this.props.navigation.navigate("MapComponant")}  >
                                                 <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
                                             </Button>
                                         </View>
