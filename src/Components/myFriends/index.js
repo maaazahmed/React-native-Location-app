@@ -9,6 +9,7 @@ import {
     TouchableOpacity,
     Animated,
     Easing,
+    TextInput
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
@@ -190,7 +191,7 @@ export default class AllUsers extends Component {
                     </Animated.View>
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <SearchInput
+                    <TextInput
                         placeholder="Search"
                         onChangeText={(term) => { this.searchUpdated(term) }}
                         inputViewStyles={styles.TextInput}
@@ -232,7 +233,7 @@ export default class AllUsers extends Component {
                                 </Animated.View>
                             )
                         }} keyExtractor={(item) => {
-                            return item.key
+                            return item.email
                         }} />
                 </View>
             </View>
