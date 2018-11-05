@@ -209,7 +209,7 @@ export default class AllUsers extends Component {
                         renderItem={({ item, index }) => {
                             return (
                                 <Animated.View key={index} 
-                                style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                style={[styles.customCardContainer]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
