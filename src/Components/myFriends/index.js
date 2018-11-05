@@ -64,7 +64,7 @@ let arr = [
 
 
 
-const { height, width } = Dimensions.get("window")
+const { width } = Dimensions.get("window")
 export default class AllUsers extends Component {
     constructor() {
         super()
@@ -151,11 +151,6 @@ export default class AllUsers extends Component {
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.2, 1]
         })
-
-        // let bgOpacity = this.opacity.interpolate({
-        //     inputRange: [0, 1],
-        //     outputRange: [1, 0]
-        // })
         // let listOpacity = this.listOpacity.interpolate({
         //     inputRange: [0, 0.5, 1],
         //     outputRange: [0, 0.5, 1]
@@ -199,7 +194,6 @@ export default class AllUsers extends Component {
                         </TouchableOpacity>
                     </View>
                 </Animated.View>
-
                 <View>
                     <FlatList
                         data={filteredEmails}
