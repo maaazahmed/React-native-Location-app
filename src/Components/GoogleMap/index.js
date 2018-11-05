@@ -362,19 +362,7 @@
 //             latitudeDelta: this.state.latitudeDelta,
 //             longitudeDelta: this.state.longitudeDelta,
 //           }}
-//           style={styles.container}
-
-//         >
-//           {this.state.markers.map((marker, index) => {
-//             return (
-//               <MapView.Marker
-//                key={index}
-//                 title="Maaz Ahmed"
-//                 coordinate={marker}>
-//                 <View style={[styles.markerWrap]}>
-//       
-
-
+//   
 
 
 
