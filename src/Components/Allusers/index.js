@@ -185,9 +185,9 @@ class AllUsers extends Component {
                         data={filteredEmails}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View 
+                                <View 
                                 key={index}
-                                style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                style={[styles.customCardContainer]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
@@ -207,7 +207,7 @@ class AllUsers extends Component {
                                             </Button>
                                         </View>
                                     </View>
-                                </Animated.View>
+                                </View>
                             )
                         }} keyExtractor={(item) => {
                             return item.key
