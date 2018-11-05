@@ -116,8 +116,8 @@ class AllUsers extends Component {
         database.child(`Request/${sender.key}/${currentUser.id}`).set(obj)
     }
 
-    componentWillReceiveProps(props){
-      console.log(props)
+    componentWillReceiveProps(props) {
+        console.log(props)
     }
 
 
@@ -139,15 +139,15 @@ class AllUsers extends Component {
             outputRange: [0, 0.2, 1]
         })
 
-        let listOpacity = this.listOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.5, 1]
-        })
+        // let listOpacity = this.listOpacity.interpolate({
+        //     inputRange: [0, 0.5, 1],
+        //     outputRange: [0, 0.5, 1]
+        // })
 
-        let listPadding = this.listPadding.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [10, 5, 0]
-        })
+        // let listPadding = this.listPadding.interpolate({
+        //     inputRange: [0, 0.5, 1],
+        //     outputRange: [10, 5, 0]
+        // })
 
 
         return (
@@ -184,7 +184,7 @@ class AllUsers extends Component {
                     </View>
                 </Animated.View>
 
-                <Animated.View  >
+                <View  >
                     <FlatList
                         data={this.props.allUsers.allUserList}
                         renderItem={({ item, index }) => {
@@ -216,7 +216,7 @@ class AllUsers extends Component {
                         }} keyExtractor={(item) => {
                             return item.key
                         }} />
-                </Animated.View>
+                </View>
             </View>
         )
     }
