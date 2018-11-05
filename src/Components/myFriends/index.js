@@ -170,7 +170,7 @@ export default class AllUsers extends Component {
         return (
             <View style={styles.container} >
                 <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
+                    <Animated.View style={[styles.headerContent]} >
                         <View >
                             <Button transparent>
                                 <Icon name='menu' />
