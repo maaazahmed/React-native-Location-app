@@ -297,14 +297,7 @@
 //         provider={ PROVIDER_GOOGLE }
 //         zoomLevel={100}
 //         loadingEnabled
-//         scrollEnabled
-//         showsUserLocation={true}
-//      
-// }
-
-
-
-
+//    
 
 
 
