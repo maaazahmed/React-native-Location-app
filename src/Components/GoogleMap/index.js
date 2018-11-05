@@ -12,6 +12,7 @@
 // import { Icon } from "native-base"
 
 
+
 // const { width, height } = Dimensions.get("window")
 // export default class MapComponant extends Component {
 //   constructor() {
@@ -170,11 +171,6 @@
 //   }
 // });
 
-
-
-
-
-
 // 8888888888888888888888888888888
 
 
@@ -307,7 +303,7 @@ class MapComponant extends React.Component {
           loadingEnabled
           region={this.getMapRegion()}
         >
-          <Polyline coordinates={this.state.routeCoordinates} strokeWidth={5} />
+          {/* <Polyline coordinates={this.state.routeCoordinates} strokeWidth={5} /> */}
           <Marker.Animated
             ref={marker => {
               this.marker = marker;
