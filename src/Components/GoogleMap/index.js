@@ -346,33 +346,6 @@
 
 
 
-// <View style={styles.container}></View>
-//         <MapView
-//           zoomLevel={100}
-//           loadingEnabled
-//           scrollEnabled
-//           zoomEnabled
-//           pitchEnabled
-//           rotateEnabled
-//           onRegionChange={(ev)=>console.log(ev)}
-//           ref={map => this.map = map}
-//           initialRegion={{
-//             latitude: this.state.latitude,
-//             longitude: this.state.longitude,
-//             latitudeDelta: this.state.latitudeDelta,
-//             longitudeDelta: this.state.longitudeDelta,
-//           }}
-//   
-
-
-
-
-
-
-
-
-
-
 
 
 
