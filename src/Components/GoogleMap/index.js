@@ -244,7 +244,6 @@
 // import RetroMapStyles from './mapStyle.json';
 // let { width, height } = Dimensions.get('window');
 // const ASPECT_RATIO = width / height;
-// const LATITUDE = 0;
 
 
 
