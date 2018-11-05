@@ -307,7 +307,7 @@ class MapComponant extends React.Component {
           loadingEnabled
           region={this.getMapRegion()}
         >
-          {/* <Polyline coordinates={this.state.routeCoordinates} strokeWidth={5} /> */}
+          <Polyline coordinates={this.state.routeCoordinates} strokeWidth={1} />
           <Marker.Animated
             ref={marker => {
               this.marker = marker;
@@ -335,7 +335,10 @@ class MapComponant extends React.Component {
           <View style={styles.locatDetail} >
             <Text style={{ fontSize: 19, color: "#fff" }} >Maaz Ahmed</Text>
             <Text style={{ fontSize: 15, color: "#fff" }} >maazahmed2k16@gmail.com</Text>
-            <Text style={{ fontSize: 15, color: "#fff" }} >Karachi</Text>
+            {/* <Text style={{ fontSize: 15, color: "#fff" }} >Karachi</Text> */}
+            <Text style={[styles.bottomBarContent, { fontSize: 15, color: "#fff" }]}>
+              {this.state.latitude}  {this.state.longitude}
+            </Text>
           </View>
           <View style={styles.imageContainer} >
             <Image source={{ uri: "https://avatars2.githubusercontent.com/u/31310451?s=460&v=4" }}
