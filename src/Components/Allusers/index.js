@@ -19,17 +19,6 @@ import { allUsersList } from "../../store/action/action"
 
 
 const database = firebase.database().ref()
-let arr = [
-
-    
-
-    
- 
-   
-]
-
-
-
 const { width } = Dimensions.get("window")
 class AllUsers extends Component {
     constructor() {
