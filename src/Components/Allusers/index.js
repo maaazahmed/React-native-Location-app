@@ -14,7 +14,6 @@ import {
 import Icons from "react-native-vector-icons/FontAwesome";
 import { Header, Button, Icon, } from 'native-base';
 import { connect } from "react-redux"
-import SearchInput, { createFilter } from 'react-native-search-filter';
 import firebase from "firebase";
 import { allUsersList } from "../../store/action/action"
 
@@ -65,8 +64,7 @@ let arr = [
 
 
 
-const KEYS_TO_FILTERS = ['Email', 'username'];
-const { height, width } = Dimensions.get("window")
+const { width } = Dimensions.get("window")
 class AllUsers extends Component {
     constructor() {
         super()
@@ -153,9 +151,6 @@ class AllUsers extends Component {
             duration: 300
         }).start()
     }
-    searchUpdated(term) {
-        this.setState({ searchTerm: term })
-    }
 
     addUser(sender) {
         const currentUser = this.props.currentUserData.currentUser
@@ -170,7 +165,6 @@ class AllUsers extends Component {
 
     render() {
         let allUsers = this.props.allUsers.allUserList
-        const filteredEmails = allUsers.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let bgOpacity = this.opacity.interpolate({
             inputRange: [0, 1],
@@ -222,8 +216,7 @@ class AllUsers extends Component {
                 </Header>
                 <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
                     <TextInput placeholder="Search "
-                        inputViewStyles={styles.TextInput}
-                        onChangeText={(term) => { this.searchUpdated(term) }}
+                        styles={styles.TextInput}
                         placeholderTextColor="#c3bfd8"
                         underlineColorAndroid="transparent" />
                     <View style={styles.searcBarIconButton} >
