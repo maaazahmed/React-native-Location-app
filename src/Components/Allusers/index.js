@@ -44,7 +44,6 @@ class AllUsers extends Component {
                     users.push({ ...obj[key], key })
                 }
             }
-            console.log()
             this.props.allUsersList(users)
         })
     }
@@ -122,17 +121,6 @@ class AllUsers extends Component {
             inputRange: [0, 0.5, 1],
             outputRange: [0, 0.2, 1]
         })
-
-        // let listOpacity = this.listOpacity.interpolate({
-        //     inputRange: [0, 0.5, 1],
-        //     outputRange: [0, 0.5, 1]
-        // })
-
-        // let listPadding = this.listPadding.interpolate({
-        //     inputRange: [0, 0.5, 1],
-        //     outputRange: [10, 5, 0]
-        // })
-
 
         return (
             <View style={styles.container} >
