@@ -25,13 +25,7 @@ let arr = [
 
     
  
-    {
-        username: "Aslam Khan",
-        email: "aslam@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
-
-    },
+   
     {
         username: "Salma Ahmed",
         email: "khan@gmail.com",
