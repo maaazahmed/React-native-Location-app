@@ -283,17 +283,7 @@
 //             longitude: position.coords.longitude,
 //             latitudeDelta: LATITUDE_DELTA,
 //             longitudeDelta: LONGITUDE_DELTA,
-//           }
-//         });
-//       }
-//     );
-//   }
-//   componentWillUnmount() {
-//     navigator.geolocation.clearWatch(this.watchID);
-//   }
-//   render() {
-//     return (
-//   
+
 
 
 
