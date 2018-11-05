@@ -242,7 +242,6 @@
 // import { AppRegistry, StyleSheet, View, Dimensions } from 'react-native';
 // import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 // import RetroMapStyles from './mapStyle.json';
-// let { width, height } = Dimensions.get('window');
 
 
 
