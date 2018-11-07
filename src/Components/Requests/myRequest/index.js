@@ -95,14 +95,7 @@ class MyRequest extends Component {
         let MyRequest_List = this.props.MyRequest_List.myRequestList
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
 
-        let listOpacity = this.listOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.5, 1]
-        })
-        let listPadding = this.listPadding.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [10, 5, 0]
-        })
+    
 
         return (
             (this.state.isLoader) ?
@@ -116,7 +109,7 @@ class MyRequest extends Component {
                         data={MyRequest_List}
                         renderItem={({ item, index }) => {
                             return (
-                                <Animated.View key={index} style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View key={index} style={[styles.customCardContainer]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
