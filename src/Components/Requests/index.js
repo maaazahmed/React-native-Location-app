@@ -136,17 +136,40 @@ class Dashboard extends React.Component {
                     {this.trnderScreen()}
                 </View> */}
                 <Tabs
-                    tabContainerStyle={{ paddingTop: 5, paddingBottom: 5, backgroundColor: "green" }}
-                    tabBarUnderlineStyle={{ backgroundColor: "green" }} >
+                    tabContainerStyle={{ paddingTop: 5, paddingBottom: 5, backgroundColor: "#312e3f" }}
+                    tabBarUnderlineStyle={{ backgroundColor: "#312e3f" }} >
                     <Tab
-                       
                         heading={
-                            <TabHeading style={{ flexDirection: "column", backgroundColor:"green" }} >
+                            <TabHeading style={{ flexDirection: "column", backgroundColor: "#312e3f" }} >
                                 <View>
                                     <Icon name="camera" />
                                 </View>
                                 <View>
-                                    <Text>Camera</Text>
+                                    <Text style={{color:"#fff"}} >Camera</Text>
+                                </View>
+                            </TabHeading>}>
+                        <UserRequest />
+                    </Tab>
+                    <Tab
+                        heading={
+                            <TabHeading style={{ flexDirection: "column", backgroundColor: "#312e3f" }} >
+                                <View>
+                                    <Icon name="camera" />
+                                </View>
+                                <View>
+                                    <Text style={{color:"#fff"}} >Camera</Text>
+                                </View>
+                            </TabHeading>}>
+                        <UserRequest />
+                    </Tab>
+                    <Tab
+                        heading={
+                            <TabHeading style={{ flexDirection: "column", backgroundColor: "#312e3f" }} >
+                                <View>
+                                    <Icon name="camera" />
+                                </View>
+                                <View>
+                                    <Text style={{color:"#fff"}} >Camera</Text>
                                 </View>
                             </TabHeading>}>
                         <UserRequest />
