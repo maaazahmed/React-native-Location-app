@@ -30,7 +30,7 @@ class AllUsers extends Component {
             searchVal: "",
             searchTerm: "",
             userArr: [],
-            isLoader: false,
+            isLoader: true,
         }
     }
 
@@ -43,9 +43,12 @@ class AllUsers extends Component {
                     users.push({ ...obj[key], key })
                 }
             }
-            setTimeout(()=>{
-                this.props.allUsersList(users)
-            })
+            this.props.allUsersList(users)
+            setTimeout(() => {
+                this.setState({
+                    isLoader: false
+                })
+            }, 2000)
 
         })
     }
@@ -122,7 +125,7 @@ class AllUsers extends Component {
         })
 
         return (
-            (!this.state.isLoader) ?
+            (this.state.isLoader) ?
                 <View style={[styles.container, styles.isLoaderContainer]} >
 
 
@@ -323,9 +326,9 @@ const styles = StyleSheet.create({
     ListButnIcon: {
         color: "#ff2a68",
     },
-    isLoaderContainer:{
-        justifyContent:"center",
-        alignItems:"center"
+    isLoaderContainer: {
+        justifyContent: "center",
+        alignItems: "center"
     }
 
 })
