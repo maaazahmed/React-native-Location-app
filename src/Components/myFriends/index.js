@@ -75,7 +75,8 @@ export default class AllUsers extends Component {
         this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
-            searchTerm: ''
+            searchTerm: '',
+            isLoader:false
         }
     }
 
@@ -165,6 +166,12 @@ export default class AllUsers extends Component {
         //     outputRange: [10, 5, 0]
         // })
         return (
+            (!this.state.isLoader)?
+            <View style={[styles.container,styles.isLoaderContainer]} >
+            
+             
+            </View>
+            :
             <View style={styles.container} >
                 <Header style={styles.header} >
                     <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
@@ -362,6 +369,10 @@ const styles = StyleSheet.create({
     },
     ListButnIcon: {
         color: "#ff2a68",
+    },
+    isLoaderContainer:{
+        justifyContent:"center",
+        alignItems:"center"
     }
 
 })

@@ -227,9 +227,7 @@ class MapComponant extends React.Component {
 
   componentWillMount() {
     navigator.geolocation.getCurrentPosition(
-      position => {
-        console.log(position, "")
-      }, error => alert(error.message),
+      position => {   }, error => alert(error.message),
       {
         enableHighAccuracy: true,
         timeout: 20000,
@@ -244,7 +242,6 @@ class MapComponant extends React.Component {
     const { coordinate } = this.state;
     this.watchID = navigator.geolocation.watchPosition(
       position => {
-        console.log(position, "")
         const { coordinate, routeCoordinates, distanceTravelled } = this.state;
         const { latitude, longitude } = position.coords;
 
@@ -279,6 +276,9 @@ class MapComponant extends React.Component {
   }
 
 
+  componentWillUpdate(){
+    console.log(this.state)
+  }
 
 
   componentWillUnmount() {
@@ -292,7 +292,7 @@ class MapComponant extends React.Component {
 
   getMapRegion = () => ({
     latitude: this.state.latitude,
-    longitude: this.state.longitude, // from 
+    longitude: this.state.longitude, 
     latitudeDelta: LATITUDE_DELTA,
     longitudeDelta: LONGITUDE_DELTA
   });
@@ -314,16 +314,6 @@ class MapComponant extends React.Component {
             }}
             coordinate={this.state.coordinate} />
         </MapView>
-        {/* 
-          <TouchableOpacity style={[styles.bubble, styles.button]}>
-            <Text style={[styles.bottomBarContent, { color: "#fff" }]}>
-              {parseFloat(this.state.distanceTravelled).toFixed(2)} km
-            </Text>
-            <Text style={[styles.bottomBarContent, { color: "#fff" }]}>
-              {this.state.latitude}  {this.state.longitude}
-            </Text>
-          </TouchableOpacity>
-        </View> */}
         <View style={styles.backButtonContainer} >
           <TouchableOpacity
             onPress={() => this.props.navigation.navigate("Dashboard")}
