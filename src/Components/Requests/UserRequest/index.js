@@ -43,30 +43,14 @@ class UserRequest extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         database.child(`Request/${this.props.currentUserData.currentUser.id}`).on("value", (snapshoot) => {
             let obj = snapshoot.val()
             let users = []
             for (let key in obj) {
                 users.push({ ...obj[key], key })
             }
-            // console.log(users)
-            this.setState({ userRquest: users })
-        })
-    }
-
-    componentDidMount() {
-        Animated.timing(this.listOpacity, {
-            toValue: 1,
-            duration: 500,
-        }).start()
-        Animated.timing(this.listPadding, {
-            toValue: 1,
-            duration: 500,
-            easing: Easing.elastic()
-        }).start(() => {
-            console.log(this.state.userRquest)
-            this.props.userRequestAction(this.state.userRquest)
+            this.props.userRequestAction(users)
         })
     }
 
@@ -130,9 +114,8 @@ class UserRequest extends Component {
                     <FlatList
                         data={requestList}
                         renderItem={({ item, index }) => {
-                            console.log(index,"=================================")
                             return (
-                                <Animated.View key={index} style={[styles.customCardContainer, { opacity: listOpacity, margin: listPadding, }]} >
+                                <Animated.View key={index} style={[styles.customCardContainer]} >
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}

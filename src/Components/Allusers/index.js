@@ -16,6 +16,7 @@ import { Header, Button, Icon, } from 'native-base';
 import { connect } from "react-redux"
 import firebase from "firebase";
 import { allUsersList } from "../../store/action/action"
+import { Pulse } from 'react-native-loader';
 
 
 const database = firebase.database().ref()
@@ -127,8 +128,7 @@ class AllUsers extends Component {
         return (
             (this.state.isLoader) ?
                 <View style={[styles.container, styles.isLoaderContainer]} >
-
-
+                    <Pulse size={25} color="#c3bfd8"/>
                 </View>
                 :
                 <View style={styles.container} >
