@@ -35,32 +35,19 @@ class MyRequest extends Component {
         }
     }
 
-    componentWillMount() {
-        database.child(`Request`).on("value", (snapshoot) => {
-            let obj = snapshoot.val()
-            let users = []
-            for (let key in obj) {
-                for (let id in obj[key]) {
-                    users.push({ ...obj[key][id], id })
-                }
-            }
-            this.setState({ MyRequestList: users })
-            console.log(users)
-        })
-    }
-
+    
     componentDidMount() {
-        Animated.timing(this.listOpacity, {
-            toValue: 1,
-            duration: 500,
-        }).start()
-        Animated.timing(this.listPadding, {
-            toValue: 1,
-            duration: 500,
-            easing: Easing.elastic()
-        }).start(() => {
-            this.props.myRequestAction(this.state.MyRequestList)
-        })
+      
+            database.child(`Request`).on("value", (snapshoot) => {
+                let obj = snapshoot.val()
+                let users = []
+                for (let key in obj) {
+                    for (let id in obj[key]) {
+                        users.push({ ...obj[key][id], id })
+                    }
+                }
+                this.props.myRequestAction(users)
+            })
     }
 
     searchUser() {
