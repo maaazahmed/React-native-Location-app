@@ -18,18 +18,6 @@ import { myRequestAction } from "../../../store/action/action"
 
 
 
-let arr = [
-    {
-
-  
-  
-   
-]
-
-
-
-
-
 const database = firebase.database().ref()
 const { height, width } = Dimensions.get("window")
 class MyRequest extends Component {
