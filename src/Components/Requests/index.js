@@ -139,12 +139,9 @@ class Dashboard extends React.Component {
                     tabContainerStyle={{ paddingTop: 5, paddingBottom: 5, backgroundColor: "green" }}
                     tabBarUnderlineStyle={{ backgroundColor: "green" }} >
                     <Tab
-                        tabStyle={{ backgroundColor: '#00bcd4' }}
-                        activeTabStyle={{ backgroundColor: '#00bcd4' }}
-                        activeTextStyle={{ color: "#fff" }}
-                        textStyle={{ color: '#f2f2f2' }}
+                       
                         heading={
-                            <TabHeading style={{ flexDirection: "column" }} >
+                            <TabHeading style={{ flexDirection: "column", backgroundColor:"green" }} >
                                 <View>
                                     <Icon name="camera" />
                                 </View>
@@ -152,15 +149,6 @@ class Dashboard extends React.Component {
                                     <Text>Camera</Text>
                                 </View>
                             </TabHeading>}>
-                        <UserRequest />
-                    </Tab>
-                    <Tab heading={
-                        <TabHeading>
-                            <Text>No Icon</Text>
-                        </TabHeading>}>
-                        <UserRequest />
-                    </Tab>
-                    <Tab heading={<TabHeading><Icon name="apps" /></TabHeading>}>
                         <UserRequest />
                     </Tab>
                 </Tabs>
