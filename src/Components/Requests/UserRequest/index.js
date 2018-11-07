@@ -21,12 +21,10 @@ import { userRequestAction } from "../../../store/action/action";
 
 
 
+
+
+
 const database = firebase.database().ref("/")
-
-
-
-
-
 const { height, width } = Dimensions.get("window")
 class UserRequest extends Component {
     constructor() {
@@ -97,17 +95,8 @@ class UserRequest extends Component {
     }
 
     render() {
-        console.log(this.props.userRequestList.requestList)
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let requestList = this.props.userRequestList.requestList
-        let listOpacity = this.listOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.5, 1]
-        })
-        let listPadding = this.listPadding.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [10, 5, 0]
-        })
         return (
             <View style={styles.container} >
                 <Animated.View >
