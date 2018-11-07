@@ -134,7 +134,7 @@ class UserRequest extends Component {
                                     </Animated.View>
                                 )
                             }} keyExtractor={(item) => {
-                                return item.email
+                                return item.key
                             }} />
                     </Animated.View>
                     <Modal
