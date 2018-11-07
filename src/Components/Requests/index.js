@@ -10,8 +10,9 @@ import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigati
 import UserRequest from "./UserRequest/index"
 import MyRequest from "./myRequest/index"
 import Profile from "./Profile/index"
-import { Header, Icon, Button } from 'native-base';
+import { Header, Icon, Button, Tab, Tabs, TabHeading, } from 'native-base';
 import { connect } from "react-redux"
+
 
 
 
@@ -134,6 +135,17 @@ class Dashboard extends React.Component {
                 <View style={{ flex: 1 }} >
                     {this.trnderScreen()}
                 </View> */}
+                <Tabs>
+                    <Tab heading={<TabHeading><Icon name="camera" /><Text>Camera</Text></TabHeading>}>
+                        <UserRequest />
+                    </Tab>
+                    <Tab heading={<TabHeading><Text>No Icon</Text></TabHeading>}>
+                        <UserRequest />
+                    </Tab>
+                    <Tab heading={<TabHeading><Icon name="apps" /></TabHeading>}>
+                        <UserRequest />
+                    </Tab>
+                </Tabs>
             </View>
         )
     }
