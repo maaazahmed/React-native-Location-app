@@ -324,9 +324,6 @@ class MapComponant extends React.Component {
         <View style={styles.datailContainer} >
           <View style={styles.locatDetail} >
             <Text style={{ fontSize: 19, color: "#fff" }} >Maaz Ahmed</Text>
-            <Text style={{ fontSize: 15, color: "#fff" }} >maazahmed2k16@gmail.com</Text>
-              {this.state.latitude}  {this.state.longitude}
-            </Text> */}
             <Text style={[styles.bottomBarContent, { color: "#fff" }]}>
               {parseFloat(this.state.distanceTravelled).toFixed(2)} km
             </Text>
