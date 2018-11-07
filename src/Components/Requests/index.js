@@ -160,7 +160,7 @@ class Dashboard extends React.Component {
                                     <Text style={{color:"#fff"}} >Camera</Text>
                                 </View>
                             </TabHeading>}>
-                        <UserRequest />
+                        <Profile />
                     </Tab>
                     <Tab
                         heading={
@@ -171,7 +171,7 @@ class Dashboard extends React.Component {
                                 <View>
                                     <Text style={{color:"#fff"}} >Camera</Text>
                                 </View>
-                            </TabHeading>}>
+                            </MyRequest>}>
                         <UserRequest />
                     </Tab>
                 </Tabs>
