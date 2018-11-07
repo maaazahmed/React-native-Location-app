@@ -31,13 +31,7 @@ let arr = [
         lastSeen: "04:30 AM",
         pic: "https://tse4.mm.bing.net/th?id=OIP.ifutY-djFTb5U9I0ZASvYwHaJE&pid=15.1&P=0&w=300&h=300"
     },
-    {
-        username: "Aslam Khan",
-        email: "aslam@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
-
-    },
+  
   
   
    
