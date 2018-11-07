@@ -29,7 +29,6 @@ class UserRequest extends Component {
         this.inputFeildAnim = new Animated.Value(0)
         this.opacity = new Animated.Value(0)
         this.textInputOpacity = new Animated.Value(0)
-  
         this.state = {
             searchVal: "",
             userRquest: "",
@@ -38,7 +37,8 @@ class UserRequest extends Component {
     }
 
     componentDidMount() {
-        database.child(`Request/${this.props.currentUserData.currentUser.id}`).on("value", (snapshoot) => {
+        const currentUser = this.props.currentUserData.currentUser
+        database.child(`Request/${currentUser.id}`).on("value", (snapshoot) => {
             let obj = snapshoot.val()
             let users = []
             for (let key in obj) {
