@@ -14,7 +14,7 @@ import { Button } from 'native-base';
 import { connect } from "react-redux"
 import firebase from "firebase";
 import { myRequestAction } from "../../../store/action/action"
-
+import { Pulse } from "react-native-loader"
 
 
 
@@ -31,22 +31,27 @@ class MyRequest extends Component {
         this.state = {
             searchVal: "",
             MyRequestList: {},
-            isLoader:true
+            isLoader: true
         }
     }
 
-    
+
     componentDidMount() {
-            database.child(`Request`).on("value", (snapshoot) => {
-                let obj = snapshoot.val()
-                let users = []
-                for (let key in obj) {
-                    for (let id in obj[key]) {
-                        users.push({ ...obj[key][id], id })
-                    }
+        database.child(`Request`).on("value", (snapshoot) => {
+            let obj = snapshoot.val()
+            let users = []
+            for (let key in obj) {
+                for (let id in obj[key]) {
+                    users.push({ ...obj[key][id], id })
                 }
-                this.props.myRequestAction(users)
-            })
+            }
+            this.props.myRequestAction(users)
+            setTimeout(() => {
+                this.setState({
+                    isLoader: false
+                })
+            }, 2000)
+        })
     }
 
     searchUser() {
@@ -95,47 +100,47 @@ class MyRequest extends Component {
         let MyRequest_List = this.props.MyRequest_List.myRequestList
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
 
-    
+
 
         return (
             (this.state.isLoader) ?
-            <View style={[styles.container, styles.isLoaderContainer]} >
-                <Pulse size={25} color="#c3bfd8"/>
-            </View>
-            :
-            <View style={styles.container} >
-                <Animated.View  >
-                    <FlatList
-                        data={MyRequest_List}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <Animated.View key={index} style={[styles.customCardContainer]} >
-                                    <View style={styles.customCard} >
-                                        <View style={styles.avatarContainer} >
-                                            <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
-                                            <Icons name="circle" style={styles.circleIcon} />
-                                        </View>
-                                        <View style={styles.detiles}>
-                                            <View style={styles.usernameList} >
-                                                <Text style={styles.username} >{item.sender.username}</Text>
-                                                <Text style={styles.emailAndSeenText} >{item.sender.Email}</Text>
-                                                <Text style={styles.emailAndSeenText}>Last update {item.sender.username}</Text>
+                <View style={[styles.container, styles.isLoaderContainer]} >
+                    <Pulse size={25} color="#c3bfd8" />
+                </View>
+                :
+                <View style={styles.container} >
+                    <Animated.View  >
+                        <FlatList
+                            data={MyRequest_List}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <Animated.View key={index} style={[styles.customCardContainer]} >
+                                        <View style={styles.customCard} >
+                                            <View style={styles.avatarContainer} >
+                                                <Image style={styles.avatarPic}
+                                                    resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
+                                                <Icons name="circle" style={styles.circleIcon} />
+                                            </View>
+                                            <View style={styles.detiles}>
+                                                <View style={styles.usernameList} >
+                                                    <Text style={styles.username} >{item.sender.username}</Text>
+                                                    <Text style={styles.emailAndSeenText} >{item.sender.Email}</Text>
+                                                    <Text style={styles.emailAndSeenText}>Last update {item.sender.username}</Text>
+                                                </View>
+                                            </View>
+                                            <View style={styles.listButnView}>
+                                                <Button style={styles.ListButn} transparent  >
+                                                    <Image style={{ height: 18, width: 18, }} source={require("./images/forward.png")} />
+                                                </Button>
                                             </View>
                                         </View>
-                                        <View style={styles.listButnView}>
-                                            <Button style={styles.ListButn} transparent  >
-                                                <Image style={{ height: 18, width: 18, }} source={require("./images/forward.png")} />
-                                            </Button>
-                                        </View>
-                                    </View>
-                                </Animated.View>
-                            )
-                        }} keyExtractor={(item) => {
-                            return item.email
-                        }} />
-                </Animated.View>
-            </View>
+                                    </Animated.View>
+                                )
+                            }} keyExtractor={(item) => {
+                                return item.email
+                            }} />
+                    </Animated.View>
+                </View>
         )
     }
 }
@@ -261,6 +266,10 @@ const styles = StyleSheet.create({
     },
     ListButnIcon: {
         color: "#ff2a68",
+    },
+    isLoaderContainer: {
+        justifyContent: "center",
+        alignItems: "center"
     }
 })
 
