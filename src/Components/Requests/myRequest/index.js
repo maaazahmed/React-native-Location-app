@@ -77,13 +77,6 @@ let arr = [
         pic: "https://tse1.mm.bing.net/th?id=OIP.o5mjydXPukRieEiTAETvPQHaKK&pid=15.1&P=0&w=300&h=300"
 
     },
-    {
-        username: "Salma Ahmed",
-        email: "salma@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse3.mm.bing.net/th?id=OIP.G7t0mS2Lrm5TIbxNDxRgnQHaJ6&pid=15.1&P=0&w=300&h=300"
-
-    },
    
 ]
 
