@@ -124,7 +124,7 @@ class Dashboard extends React.Component {
                         source={{ uri: currentUserData.profilePic || dummyPro }} ></Image>
                     <Text style={styles.heandingTitle} >{currentUserData.username}</Text>
                 </View>
-                <BottomNavigation
+                {/* <BottomNavigation
                     style={styles.BottomNavigation}
                     acactiveTab={this.state.activeTab}
                     onTabPress={newTab => this.setState({ activeTab: newTab.key })}
@@ -133,7 +133,7 @@ class Dashboard extends React.Component {
                 />
                 <View style={{ flex: 1 }} >
                     {this.trnderScreen()}
-                </View>
+                </View> */}
             </View>
         )
     }

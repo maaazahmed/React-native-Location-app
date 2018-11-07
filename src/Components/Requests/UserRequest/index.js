@@ -153,7 +153,6 @@ class UserRequest extends Component {
                                         Are you sure you want to delete this request ?
                                 </Text>
                                 </View>
-
                                 <View style={styles.modalThing}>
                                     <View style={styles.modalButtonContainer} >
                                         <TouchableOpacity
