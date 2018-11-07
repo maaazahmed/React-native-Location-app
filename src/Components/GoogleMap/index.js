@@ -314,7 +314,7 @@ class MapComponant extends React.Component {
             }}
             coordinate={this.state.coordinate} />
         </MapView>
-        {/* <View style={styles.buttonContainer}>
+        {/* 
           <TouchableOpacity style={[styles.bubble, styles.button]}>
             <Text style={[styles.bottomBarContent, { color: "#fff" }]}>
               {parseFloat(this.state.distanceTravelled).toFixed(2)} km
