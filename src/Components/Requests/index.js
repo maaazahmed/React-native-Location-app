@@ -142,7 +142,8 @@ class Dashboard extends React.Component {
                         heading={
                             <TabHeading style={{ flexDirection: "column", backgroundColor: "#312e3f" }} >
                                 <View>
-                                    <Icon name="camera" />
+                                    {/* <Icon name="camera" /> */}
+                                    <Image style={{ height: 25, width: 25 }}  source={require("./images/forward-arrow.png")} />
                                 </View>
                                 <View>
                                     <Text style={{color:"#fff"}} >Camera</Text>
@@ -157,7 +158,7 @@ class Dashboard extends React.Component {
                                     <Icon name="camera" />
                                 </View>
                                 <View>
-                                    <Text style={{color:"#fff"}} >Camera</Text>
+                                    <Text style={{color:"#fff"}} >Profile</Text>
                                 </View>
                             </TabHeading>}>
                         <Profile />
@@ -171,8 +172,8 @@ class Dashboard extends React.Component {
                                 <View>
                                     <Text style={{color:"#fff"}} >Camera</Text>
                                 </View>
-                            </MyRequest>}>
-                        <UserRequest />
+                            </TabHeading>}>
+                        <MyRequest />
                     </Tab>
                 </Tabs>
             </View>
