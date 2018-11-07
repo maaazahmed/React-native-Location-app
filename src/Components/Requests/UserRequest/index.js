@@ -14,6 +14,7 @@ import Icons from "react-native-vector-icons/FontAwesome"
 import firebase from "firebase"
 import { connect } from "react-redux";
 import { userRequestAction } from "../../../store/action/action";
+import { Pulse } from "react-native-loader"
 
 
 
@@ -28,7 +29,8 @@ class UserRequest extends Component {
         this.state = {
             searchVal: "",
             userRquest: "",
-            isModalVisible: false
+            isModalVisible: false,
+            isLoader: true
         }
     }
 
@@ -40,6 +42,11 @@ class UserRequest extends Component {
             for (let key in obj) {
                 users.push({ ...obj[key], key })
             }
+            setTimeout(() => {
+                this.setState({
+                    isLoader: false
+                })
+            }, 2000);
             this.props.userRequestAction(users)
         })
     }
@@ -90,83 +97,87 @@ class UserRequest extends Component {
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let requestList = this.props.userRequestList.requestList
         return (
-            
-            <View style={styles.container} >
-                <Animated.View >
-                    <FlatList
-                        data={requestList}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <Animated.View key={index} style={[styles.customCardContainer]} >
-                                    <View style={styles.customCard} >
-                                        <View style={styles.avatarContainer} >
-                                            <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
-                                            <Icons name="circle" style={styles.circleIcon} />
-                                        </View>
-                                        <View style={styles.detiles}>
-                                            <View style={styles.usernameList} >
-                                                <Text style={styles.username} >{item.currentUser.username}</Text>
-                                                <Text style={styles.emailAndSeenText} >{item.currentUser.Email}</Text>
-                                                <Text style={styles.emailAndSeenText}>Last update {item.currentUser.username}</Text>
+            (this.state.isLoader) ?
+                <View style={[styles.container, styles.isLoaderContainer]} >
+                    <Pulse size={25} color="#c3bfd8" />
+                </View>
+                :
+                <View style={styles.container} >
+                    <Animated.View >
+                        <FlatList
+                            data={requestList}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <Animated.View key={index} style={[styles.customCardContainer]} >
+                                        <View style={styles.customCard} >
+                                            <View style={styles.avatarContainer} >
+                                                <Image style={styles.avatarPic}
+                                                    resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
+                                                <Icons name="circle" style={styles.circleIcon} />
+                                            </View>
+                                            <View style={styles.detiles}>
+                                                <View style={styles.usernameList} >
+                                                    <Text style={styles.username} >{item.currentUser.username}</Text>
+                                                    <Text style={styles.emailAndSeenText} >{item.currentUser.Email}</Text>
+                                                    <Text style={styles.emailAndSeenText}>Last update {item.currentUser.username}</Text>
+                                                </View>
+                                            </View>
+                                            <View style={styles.listButnView}>
+                                                <TouchableOpacity onPress={() => this.setState({ isModalVisible: true })} style={styles.ListButn} transparent  >
+                                                    <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
+                                                </TouchableOpacity>
+                                                <TouchableOpacity style={styles.ListButn} transparent  >
+                                                    <Image style={styles.AproveRejcetBtn} source={require("./images/cancel.png")} />
+                                                </TouchableOpacity>
                                             </View>
                                         </View>
-                                        <View style={styles.listButnView}>
-                                            <TouchableOpacity onPress={() => this.setState({ isModalVisible: true })} style={styles.ListButn} transparent  >
-                                                <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
-                                            </TouchableOpacity>
-                                            <TouchableOpacity style={styles.ListButn} transparent  >
-                                                <Image style={styles.AproveRejcetBtn} source={require("./images/cancel.png")} />
-                                            </TouchableOpacity>
-                                        </View>
-                                    </View>
-                                </Animated.View>
-                            )
-                        }} keyExtractor={(item) => {
-                            return item.email
-                        }} />
-                </Animated.View>
-                <Modal
-                    animationType="fade"
-                    transparent={true}
-                    visible={this.state.isModalVisible} >
-                    <View style={styles.modalContainer}>
-                        <View style={styles.modalContent} >
-                            <View style={[styles.modalThing, { flex: 2 }]}>
-                                <Image
-                                    source={{ uri: dummyPro }}
-                                    style={styles.modalImg} />
-                            </View>
-                            <View style={[styles.modalThing, { padding: 20 }]}>
-                                <Text style={styles.modalText} >
-                                    Are you sure you want to delete this request ?
+                                    </Animated.View>
+                                )
+                            }} keyExtractor={(item) => {
+                                return item.email
+                            }} />
+                    </Animated.View>
+                    <Modal
+                        animationType="fade"
+                        transparent={true}
+                        visible={this.state.isModalVisible} >
+                        <View style={styles.modalContainer}>
+                            <View style={styles.modalContent} >
+                                <View style={[styles.modalThing, { flex: 2 }]}>
+                                    <Image
+                                        source={{ uri: dummyPro }}
+                                        style={styles.modalImg} />
+                                </View>
+                                <View style={[styles.modalThing, { padding: 20 }]}>
+                                    <Text style={styles.modalText} >
+                                        Are you sure you want to delete this request ?
                                 </Text>
-                            </View>
+                                </View>
 
-                            <View style={styles.modalThing}>
-                                <View style={styles.modalButtonContainer} >
-                                    <TouchableOpacity
-                                        activeOpacity={0.6}
-                                        onPress={() => this.setState({ isModalVisible: false })}
-                                        style={styles.modalButton} >
-                                        <Text style={styles.modalText} >
-                                            Delete
+                                <View style={styles.modalThing}>
+                                    <View style={styles.modalButtonContainer} >
+                                        <TouchableOpacity
+                                            activeOpacity={0.6}
+                                            onPress={() => this.setState({ isModalVisible: false })}
+                                            style={styles.modalButton} >
+                                            <Text style={styles.modalText} >
+                                                Delete
                                            </Text>
-                                    </TouchableOpacity>
-                                    <TouchableOpacity
-                                        activeOpacity={0.6}
-                                        onPress={() => this.setState({ isModalVisible: false })}
-                                        style={styles.modalButton} >
-                                        <Text style={styles.modalText} >
-                                            Cancel
+                                        </TouchableOpacity>
+                                        <TouchableOpacity
+                                            activeOpacity={0.6}
+                                            onPress={() => this.setState({ isModalVisible: false })}
+                                            style={styles.modalButton} >
+                                            <Text style={styles.modalText} >
+                                                Cancel
                                            </Text>
-                                    </TouchableOpacity>
+                                        </TouchableOpacity>
+                                    </View>
                                 </View>
                             </View>
                         </View>
-                    </View>
-                </Modal>
-            </View>
+                    </Modal>
+                </View>
         )
     }
 }

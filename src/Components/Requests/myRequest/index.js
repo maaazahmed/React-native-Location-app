@@ -7,7 +7,6 @@ import {
     Image,
     FlatList,
     Animated,
-    Easing
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Button } from 'native-base';
@@ -19,7 +18,7 @@ import { Pulse } from "react-native-loader"
 
 
 const database = firebase.database().ref()
-const { height, width } = Dimensions.get("window")
+const { width } = Dimensions.get("window")
 class MyRequest extends Component {
     constructor() {
         super()
@@ -30,7 +29,6 @@ class MyRequest extends Component {
         this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
-            MyRequestList: {},
             isLoader: true
         }
     }
@@ -99,9 +97,6 @@ class MyRequest extends Component {
     render() {
         let MyRequest_List = this.props.MyRequest_List.myRequestList
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
-
-
-
         return (
             (this.state.isLoader) ?
                 <View style={[styles.container, styles.isLoaderContainer]} >
