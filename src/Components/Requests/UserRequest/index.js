@@ -8,10 +8,7 @@ import {
     FlatList,
     TouchableOpacity,
     Animated,
-    Easing,
     Modal,
-    Button
-
 } from 'react-native';
 import Icons from "react-native-vector-icons/FontAwesome"
 import firebase from "firebase"
