@@ -159,7 +159,7 @@ class Dashboard extends React.Component {
                                 <View>
                                     {/* <Icon name="camera" /> */}
                                     <Image style={{ height: 25, width: 25 }}
-                                        source={ require("./images/back-arrow.png") } />
+                                        source={ require("./images/baseline_person_white_18dp.png") } />
                                 </View>
                                 <View>
                                     <Text style={{ color: "#fff" }} >Profile</Text>
