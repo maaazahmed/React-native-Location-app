@@ -332,6 +332,10 @@ const styles = StyleSheet.create({
         padding: 10
 
     },
+    isLoaderContainer: {
+        justifyContent: "center",
+        alignItems: "center"
+    },
     modalImg: {
         height: 100,
         width: 100,
