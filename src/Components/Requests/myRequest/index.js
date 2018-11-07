@@ -110,7 +110,8 @@ class MyRequest extends Component {
         this.listPadding = new Animated.Value(0)
         this.state = {
             searchVal: "",
-            MyRequestList: {}
+            MyRequestList: {},
+            isLoader:true
         }
     }
 
@@ -198,6 +199,11 @@ class MyRequest extends Component {
         })
 
         return (
+            (this.state.isLoader) ?
+            <View style={[styles.container, styles.isLoaderContainer]} >
+                <Pulse size={25} color="#c3bfd8"/>
+            </View>
+            :
             <View style={styles.container} >
                 <Animated.View  >
                     <FlatList

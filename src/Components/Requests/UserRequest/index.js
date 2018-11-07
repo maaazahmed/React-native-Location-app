@@ -17,10 +17,6 @@ import { userRequestAction } from "../../../store/action/action";
 
 
 
-
-
-
-
 const database = firebase.database().ref("/")
 const { height, width } = Dimensions.get("window")
 class UserRequest extends Component {
@@ -94,6 +90,7 @@ class UserRequest extends Component {
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let requestList = this.props.userRequestList.requestList
         return (
+            
             <View style={styles.container} >
                 <Animated.View >
                     <FlatList
