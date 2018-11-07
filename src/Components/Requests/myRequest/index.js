@@ -37,7 +37,6 @@ class MyRequest extends Component {
 
     
     componentDidMount() {
-      
             database.child(`Request`).on("value", (snapshoot) => {
                 let obj = snapshoot.val()
                 let users = []
