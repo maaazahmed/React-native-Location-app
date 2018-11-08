@@ -123,10 +123,10 @@ class UserRequest extends Component {
                                                 </View>
                                             </View>
                                             <View style={styles.listButnView}>
-                                                <TouchableOpacity onPress={() => this.setState({ isModalVisible: true })} style={styles.ListButn} transparent  >
+                                                <TouchableOpacity activeOpacity={0.6} onPress={() => this.setState({ isModalVisible: true })} style={styles.ListButn} transparent  >
                                                     <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
                                                 </TouchableOpacity>
-                                                <TouchableOpacity style={styles.ListButn} transparent  >
+                                                <TouchableOpacity activeOpacity={0.6} style={styles.ListButn} transparent  >
                                                     <Image style={styles.AproveRejcetBtn} source={require("./images/cancel.png")} />
                                                 </TouchableOpacity>
                                             </View>
@@ -138,7 +138,7 @@ class UserRequest extends Component {
                             }} />
                     </Animated.View>
                     <Modal
-                        onRequestClose={()=>{console.log()}}
+                        onRequestClose={() => { console.log() }}
                         animationType="fade"
                         transparent={true}
                         visible={this.state.isModalVisible} >
@@ -157,7 +157,7 @@ class UserRequest extends Component {
                                 <View style={styles.modalThing}>
                                     <View style={styles.modalButtonContainer} >
                                         <TouchableOpacity
-                                            activeOpacity={0.6}
+                                            activeOpacity={0.7}
                                             onPress={() => this.setState({ isModalVisible: false })}
                                             style={styles.modalButton} >
                                             <Text style={styles.modalText} >
@@ -165,7 +165,7 @@ class UserRequest extends Component {
                                            </Text>
                                         </TouchableOpacity>
                                         <TouchableOpacity
-                                            activeOpacity={0.6}
+                                            activeOpacity={0.7}
                                             onPress={() => this.setState({ isModalVisible: false })}
                                             style={styles.modalButton} >
                                             <Text style={styles.modalText} >
