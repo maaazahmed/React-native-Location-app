@@ -16,7 +16,7 @@ import { connect } from "react-redux"
 
 
 const { width, height } = Dimensions.get("window")
- class Profile extends Component {
+class Profile extends Component {
     constructor() {
         super()
         this.ProfileDataAnim = new Animated.Value(0),
@@ -49,8 +49,8 @@ const { width, height } = Dimensions.get("window")
         let currentUserData = this.props.currentUserData.currentUser;
 
         return (
-            <View style={{ flex: 1 }} >
-                <View style={{ marginTop: 15 }} >
+            <View style={styles.container} >
+                <View style={styles.content} >
                     <ScrollView style={{}} >
                         <Animated.View style={[styles.profilePicCard, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.cardContent} >
@@ -151,6 +151,11 @@ const { width, height } = Dimensions.get("window")
 
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: "#312e3f",
+    },
+    content: { marginTop: 15, },
     profilePicCard: {
         padding: 10,
         backgroundColor: "#373447",
