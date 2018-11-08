@@ -63,8 +63,8 @@ class UserRequest extends Component {
     deleteRequest() {
         this.setState({ isModalVisible: false })
         const selectedRequest = this.props.selected_Request.selectedRequest
-        database.child(`Request/${selectedRequest.key}/${selectedRequest.currentUser.id}`).remove()
-        console.log(selectedRequest.key, selectedRequest.currentUser)
+        database.child(`Request/${selectedRequest.key}/${selectedRequest.sender.id}`).remove()
+        console.log(selectedRequest.key, selectedRequest.sender)
     }
 
     render() {
