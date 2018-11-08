@@ -58,10 +58,6 @@ class UserRequest extends Component {
         })
     }
 
-
-
-
-
     render() {
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let requestList = this.props.userRequestList.requestList
