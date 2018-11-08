@@ -49,7 +49,7 @@ export const myRequestAction = (data) => {
 export const selectedRequest = (data) => {
     return dispatch => {
         dispatch({
-            type: ActionTypes.MY_REQUEST_ACTION,
+            type: ActionTypes.SELECTED_REQUEST,
             payload: data,
         })
     }

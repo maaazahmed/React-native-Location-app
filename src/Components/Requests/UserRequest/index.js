@@ -140,7 +140,7 @@ class UserRequest extends Component {
                                         {(this.state.replyType === "approve") ?
                                             <TouchableOpacity
                                                 activeOpacity={0.7}
-                                                onPress={() => this.setState({ isModalVisible: false })}
+                                                onPress={() => console.log(this.props.selected_Request.selectedRequest)}
                                                 style={styles.modalButton} >
                                                 <Text style={styles.modalText} >
                                                     Approve
@@ -352,7 +352,8 @@ const styles = StyleSheet.create({
 const mapStateToProp = (state) => {
     return ({
         userRequestList: state.root,
-        currentUserData: state.root
+        currentUserData: state.root,
+        selected_Request:state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {

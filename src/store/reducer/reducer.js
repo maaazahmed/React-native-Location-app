@@ -2,6 +2,7 @@ import ActionTypes from '../constant/constant';
 
 const INITIAL_STATE = {
     currentUser: {},
+    selectedRequest: {},
     allUserList: [],
     requestList: [],
     myRequestList: []
@@ -28,6 +29,11 @@ export default (state = INITIAL_STATE, action) => {
             return ({
                 ...state,
                 myRequestList: action.payload
+            })
+        case ActionTypes.SELECTED_REQUEST:
+            return ({
+                ...state,
+                selectedRequest: action.payload
             })
         default:
             return state;
