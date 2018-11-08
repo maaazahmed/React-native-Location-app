@@ -99,8 +99,8 @@ class AllUsers extends Component {
     addUser(sender) {
         const currentUser = this.props.currentUserData.currentUser
         const obj = {
-            sender,
-            currentUser
+            reciveer: sender,
+            sender: currentUser
         }
         database.child(`Request/${sender.key}/${currentUser.id}`).set(obj)
     }
@@ -128,7 +128,7 @@ class AllUsers extends Component {
         return (
             (this.state.isLoader) ?
                 <View style={[styles.container, styles.isLoaderContainer]} >
-                    <Pulse size={25} color="#c3bfd8"/>
+                    <Pulse size={25} color="#c3bfd8" />
                 </View>
                 :
                 <View style={styles.container} >
