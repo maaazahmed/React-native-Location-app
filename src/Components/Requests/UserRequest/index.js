@@ -59,6 +59,13 @@ class UserRequest extends Component {
         })
     }
 
+
+    canceleRequest() {
+        this.setState({ isModalVisible: false })
+        const selectedRequest = this.props.selected_Request.selectedRequest
+        console.log(selectedRequest)
+    }
+
     render() {
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
         let requestList = this.props.userRequestList.requestList
@@ -111,7 +118,7 @@ class UserRequest extends Component {
                             }} />
                     </Animated.View>
                     <Modal
-                        onRequestClose={() => { this.setState({replyType:""})}}
+                        onRequestClose={() => { this.setState({ replyType: "" }) }}
                         animationType="fade"
                         transparent={true}
                         visible={this.state.isModalVisible} >
@@ -131,7 +138,7 @@ class UserRequest extends Component {
                                     <View style={styles.modalButtonContainer} >
                                         <TouchableOpacity
                                             activeOpacity={0.7}
-                                            onPress={() => this.setState({ isModalVisible: false })}
+                                            onPress={this.canceleRequest.bind(this)}
                                             style={styles.modalButton} >
                                             <Text style={styles.modalText} >
                                                 Cancele
@@ -140,7 +147,6 @@ class UserRequest extends Component {
                                         {(this.state.replyType === "approve") ?
                                             <TouchableOpacity
                                                 activeOpacity={0.7}
-                                                onPress={() => console.log(this.props.selected_Request.selectedRequest)}
                                                 style={styles.modalButton} >
                                                 <Text style={styles.modalText} >
                                                     Approve
@@ -353,7 +359,7 @@ const mapStateToProp = (state) => {
     return ({
         userRequestList: state.root,
         currentUserData: state.root,
-        selected_Request:state.root
+        selected_Request: state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {
