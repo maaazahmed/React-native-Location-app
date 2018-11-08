@@ -42,8 +42,8 @@ class MyRequest extends Component {
             for (let key in obj) {
                 for (let id in obj[key]) {
 
-                    console.log(obj[key][id].sender.key, currentUserData.id, "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
-                    if (obj[key][id].sender.key === currentUserData.id) {
+                    console.log(obj[key][id].currentUser.id, currentUserData.id, "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
+                    if (obj[key][id].currentUser.id === currentUserData.id) {
                         users.push({ ...obj[key][id], id })
                     }
                 }
