@@ -64,7 +64,7 @@ class UserRequest extends Component {
         this.setState({ isModalVisible: false })
         const selectedRequest = this.props.selected_Request.selectedRequest
         database.child(`Request/${selectedRequest.key}/${selectedRequest.currentUser.id}`).remove()
-        console.log(selectedRequest.currentUser)
+        console.log(selectedRequest.key)
     }
 
     render() {
