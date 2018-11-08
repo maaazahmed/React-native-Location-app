@@ -138,6 +138,7 @@ class UserRequest extends Component {
                             }} />
                     </Animated.View>
                     <Modal
+                        onRequestClose={()=>{console.log()}}
                         animationType="fade"
                         transparent={true}
                         visible={this.state.isModalVisible} >
@@ -149,9 +150,9 @@ class UserRequest extends Component {
                                         style={styles.modalImg} />
                                 </View>
                                 <View style={[styles.modalThing, { padding: 20 }]}>
-                                    {/* <Text style={styles.modalText} >
+                                    <Text style={styles.modalText} >
                                         Are you sure you want to delete this request ?
-                                </Text> */}
+                                </Text>
                                 </View>
                                 <View style={styles.modalThing}>
                                     <View style={styles.modalButtonContainer} >

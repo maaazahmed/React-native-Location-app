@@ -109,7 +109,8 @@ class MyRequest extends Component {
                             data={MyRequest_List}
                             renderItem={({ item, index }) => {
                                 return (
-                                    <Animated.View key={index} style={[styles.customCardContainer]} >
+                                    <Animated.View key={index} 
+                                    style={[styles.customCardContainer]} >
                                         <View style={styles.customCard} >
                                             <View style={styles.avatarContainer} >
                                                 <Image style={styles.avatarPic}
@@ -132,7 +133,7 @@ class MyRequest extends Component {
                                     </Animated.View>
                                 )
                             }} keyExtractor={(item) => {
-                                return item.email
+                                return item.key+item.key
                             }} />
                     </Animated.View>
                 </View>
