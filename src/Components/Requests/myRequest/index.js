@@ -146,7 +146,10 @@ class MyRequest extends Component {
 
 
 const styles = StyleSheet.create({
-    container: { flex: 1, backgroundColor: "#312e3f" },
+    container: {
+        flex: 1,
+        backgroundColor: "#312e3f"
+    },
     customCardContainer: {
         flex: 1,
         alignItems: "center",
