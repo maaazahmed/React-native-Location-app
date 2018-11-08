@@ -91,9 +91,9 @@ class UserRequest extends Component {
                                             </View>
                                             <View style={styles.detiles}>
                                                 <View style={styles.usernameList} >
-                                                    <Text style={styles.username} >{item.currentUser.username}</Text>
-                                                    <Text style={styles.emailAndSeenText} >{item.currentUser.Email}</Text>
-                                                    <Text style={styles.emailAndSeenText}>Last update {item.currentUser.username}</Text>
+                                                    <Text style={styles.username} >{item.sender.username}</Text>
+                                                    <Text style={styles.emailAndSeenText} >{item.sender.Email}</Text>
+                                                    <Text style={styles.emailAndSeenText}>Last update {item.sender.username}</Text>
                                                 </View>
                                             </View>
                                             <View style={styles.listButnView}>
