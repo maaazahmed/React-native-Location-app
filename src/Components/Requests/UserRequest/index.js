@@ -52,8 +52,10 @@ class UserRequest extends Component {
     }
 
     rquestListButtonuest(data, replyType) {
-        console.log(data)
-        this.setState({ isModalVisible: true, replyType: replyType })
+        this.setState({
+            isModalVisible: true,
+            replyType
+        })
     }
 
 
@@ -299,7 +301,7 @@ const styles = StyleSheet.create({
 
     },
     modalContent: {
-        width: width / 1.7,
+        width: width / 1.5,
         height: height / 2,
         backgroundColor: "#312e3f",
         justifyContent: "center",
@@ -328,12 +330,12 @@ const styles = StyleSheet.create({
         borderWidth: 1
     },
     modalButton: {
-        height: 35,
+        height: 30,
         width: 100,
         backgroundColor: "#ff2a68",
         justifyContent: "center",
         alignItems: "center",
-        borderRadius: 2,
+        borderRadius: 0,
     },
     modalButtonContainer: {
         height: "100%",
