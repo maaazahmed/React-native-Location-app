@@ -273,6 +273,7 @@ class MapComponant extends React.Component {
       error => console.log(error),
       { enableHighAccuracy: true, timeout: 20000, maximumAge: 1000 }
     );
+    console.log(this.state)
   }
 
 
