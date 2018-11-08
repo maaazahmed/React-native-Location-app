@@ -50,29 +50,14 @@ class UserRequest extends Component {
         })
     }
 
-    // searchUser() {
-    //     Animated.parallel([
-    //         Animated.timing(this.opacity, {
-    //             toValue: 1,
-    //             duration: 300
-    //         }),
-    //         Animated.timing(this.inputFeildAnim, {
-    //             toValue: 1,
-    //             duration: 300
-    //         }),
-    //     ]).start()
-    //     Animated.timing(this.textInputOpacity, {
-    //         toValue: 1,
-    //         duration: 300
-    //     }).start(() => {
-    //         setTimeout(() => {
-    //             if (this.state.searchVal === "") {
-    //                 this.cancleSearch()
-    //             }
-    //         }, 30000)
-    //     })
-    // }
-   
+    approveRequest(data) {
+        console.log(data)
+        this.setState({ isModalVisible: true })
+    }
+
+
+
+
 
     render() {
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
@@ -104,8 +89,8 @@ class UserRequest extends Component {
                                                 </View>
                                             </View>
                                             <View style={styles.listButnView}>
-                                                <TouchableOpacity activeOpacity={0.6} onPress={() => this.setState({ isModalVisible: true })} 
-                                                style={styles.ListButn} transparent  >
+                                                <TouchableOpacity activeOpacity={0.6} onPress={this.approveRequest.bind(this, item)}
+                                                    style={styles.ListButn} transparent  >
                                                     <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
                                                 </TouchableOpacity>
                                                 <TouchableOpacity activeOpacity={0.6} style={styles.ListButn} transparent  >
