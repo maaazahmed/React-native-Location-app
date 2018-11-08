@@ -46,5 +46,16 @@ export const myRequestAction = (data) => {
 
 
 
+export const selectedRequest = (data) => {
+    return dispatch => {
+        dispatch({
+            type: ActionTypes.MY_REQUEST_ACTION,
+            payload: data,
+        })
+    }
+}
+
+
+
 
 

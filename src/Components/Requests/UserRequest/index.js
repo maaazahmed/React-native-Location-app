@@ -13,7 +13,7 @@ import {
 import Icons from "react-native-vector-icons/FontAwesome"
 import firebase from "firebase"
 import { connect } from "react-redux";
-import { userRequestAction } from "../../../store/action/action";
+import { userRequestAction, selectedRequest } from "../../../store/action/action";
 import { Pulse } from "react-native-loader"
 
 
@@ -52,6 +52,7 @@ class UserRequest extends Component {
     }
 
     rquestListButtonuest(data, replyType) {
+        this.props.selectedRequest(data)
         this.setState({
             isModalVisible: true,
             replyType
@@ -110,7 +111,7 @@ class UserRequest extends Component {
                             }} />
                     </Animated.View>
                     <Modal
-                        onRequestClose={() => { console.log() }}
+                        onRequestClose={() => { this.setState({replyType:""})}}
                         animationType="fade"
                         transparent={true}
                         visible={this.state.isModalVisible} >
@@ -358,6 +359,9 @@ const mapDispatchToProp = (dispatch) => {
     return {
         userRequestAction: (data) => {
             dispatch(userRequestAction(data))
+        },
+        selectedRequest: (data) => {
+            dispatch(selectedRequest(data))
         },
     };
 };
