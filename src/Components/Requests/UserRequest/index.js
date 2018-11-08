@@ -60,7 +60,7 @@ class UserRequest extends Component {
     }
 
 
-    canceleRequest() {
+    deleteRequest() {
         this.setState({ isModalVisible: false })
         const selectedRequest = this.props.selected_Request.selectedRequest
         console.log(selectedRequest)
@@ -138,7 +138,7 @@ class UserRequest extends Component {
                                     <View style={styles.modalButtonContainer} >
                                         <TouchableOpacity
                                             activeOpacity={0.7}
-                                            onPress={this.canceleRequest.bind(this)}
+                                            onPress={() => this.setState({ isModalVisible: false })}
                                             style={styles.modalButton} >
                                             <Text style={styles.modalText} >
                                                 Cancele
@@ -155,7 +155,7 @@ class UserRequest extends Component {
                                             :
                                             <TouchableOpacity
                                                 activeOpacity={0.7}
-                                                onPress={() => this.setState({ isModalVisible: false })}
+                                                onPress={this.deleteRequest.bind(this)}
                                                 style={styles.modalButton} >
                                                 <Text style={styles.modalText} >
                                                     Delete
