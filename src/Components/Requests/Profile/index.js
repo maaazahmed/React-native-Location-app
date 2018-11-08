@@ -19,35 +19,11 @@ const { width, height } = Dimensions.get("window")
 class Profile extends Component {
     constructor() {
         super()
-        this.ProfileDataAnim = new Animated.Value(0),
-            this.listOpacity = new Animated.Value(0)
-    }
-
-    componentDidMount() {
-        Animated.timing(this.listOpacity, {
-            toValue: 1,
-            duration: 500,
-        }).start()
-        Animated.timing(this.ProfileDataAnim, {
-            toValue: 1,
-            duration: 500,
-            easing: Easing.elastic()
-        }).start()
+       
     }
 
     render() {
-        let ProfileDataAnim = this.ProfileDataAnim.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [10, 5, 0]
-        })
-
-        let listOpacity = this.listOpacity.interpolate({
-            inputRange: [0, 0.5, 1],
-            outputRange: [0, 0.5, 1]
-        })
-        console.log(this.props.currentUserData)
         let currentUserData = this.props.currentUserData.currentUser;
-
         return (
             <View style={styles.container} >
                 <View style={styles.content} >
