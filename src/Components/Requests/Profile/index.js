@@ -52,7 +52,7 @@ class Profile extends Component {
             <View style={styles.container} >
                 <View style={styles.content} >
                     <ScrollView>
-                        <Animated.View style={[styles.profilePicCard, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
+                        <Animated.View style={[styles.profilePicCard]} >
                             <View style={styles.cardContent} >
                                 <View style={styles.profilePicCardContain}>
                                     <Image
@@ -67,7 +67,7 @@ class Profile extends Component {
                                 </View>
                             </View>
                         </Animated.View>
-                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
+                        <Animated.View style={[styles.detileContaner]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
@@ -81,7 +81,7 @@ class Profile extends Component {
                                 </View>
                             </View>
                         </Animated.View>
-                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
+                        <Animated.View style={[styles.detileContaner]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
@@ -95,7 +95,7 @@ class Profile extends Component {
                                 </View>
                             </View>
                         </Animated.View>
-                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
+                        <Animated.View style={[styles.detileContaner]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
@@ -109,7 +109,7 @@ class Profile extends Component {
                                 </View>
                             </View>
                         </Animated.View>
-                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
+                        <Animated.View style={[styles.detileContaner]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
@@ -123,7 +123,7 @@ class Profile extends Component {
                                 </View>
                             </View>
                         </Animated.View>
-                        <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
+                        <Animated.View style={[styles.detileContaner]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
                                     <View style={styles.listText} >
