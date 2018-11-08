@@ -41,7 +41,8 @@ class MyRequest extends Component {
             let users = []
             for (let key in obj) {
                 for (let id in obj[key]) {
-                    if (obj[key][id].currentUser.id === currentUserData.id) {
+                    console.log(obj[key][id])
+                    if (obj[key][id].reciveer.id === currentUserData.id) {
                         users.push({ ...obj[key][id], id })
                     }
                 }
@@ -122,9 +123,9 @@ class MyRequest extends Component {
                                             </View>
                                             <View style={styles.detiles}>
                                                 <View style={styles.usernameList} >
-                                                    <Text style={styles.username} >{item.sender.username}</Text>
-                                                    <Text style={styles.emailAndSeenText} >{item.sender.Email}</Text>
-                                                    <Text style={styles.emailAndSeenText}>Last update {item.sender.username}</Text>
+                                                    <Text style={styles.username} >{item.reciveer.username}</Text>
+                                                    <Text style={styles.emailAndSeenText} >{item.reciveer.Email}</Text>
+                                                    <Text style={styles.emailAndSeenText}>Last update {item.reciveer.username}</Text>
                                                 </View>
                                             </View>
                                             <View style={styles.listButnView}>
