@@ -81,7 +81,6 @@ class Profile extends Component {
                                 </View>
                             </View>
                         </Animated.View>
-                        {/* 7777777777777777777777777777777 */}
                         <Animated.View style={[styles.detileContaner, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.ListContainer} >
                                 <View style={styles.listContaint} >
