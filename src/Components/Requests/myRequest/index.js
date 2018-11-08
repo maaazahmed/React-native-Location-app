@@ -133,7 +133,8 @@ class MyRequest extends Component {
                                     </Animated.View>
                                 )
                             }} keyExtractor={(item) => {
-                                return item.key+item.key
+                                console.log(item.id)
+                                return item.id
                             }} />
                     </Animated.View>
                 </View>

@@ -136,7 +136,9 @@ class Dashboard extends React.Component {
                     {this.trnderScreen()}
                 </View> */}
                 <Tabs
-                    tabContainerStyle={{ paddingTop: 5, paddingBottom: 5, backgroundColor: "#312e3f" , elevation:0}} >
+                    tabContainerStyle={{ paddingTop: 5, paddingBottom: 5, backgroundColor: "#312e3f" , elevation:0}}
+                    tabBarUnderlineStyle={{backgroundColor:"#312e3f"}}
+                     >
                     <Tab
                         heading={
                             <TabHeading style={{ flexDirection: "column", backgroundColor: "#312e3f" }} >
