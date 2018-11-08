@@ -35,12 +35,17 @@ class MyRequest extends Component {
 
 
     componentDidMount() {
+        const currentUserData = this.props.currentUserData.currentUser
         database.child(`Request`).on("value", (snapshoot) => {
             let obj = snapshoot.val()
             let users = []
             for (let key in obj) {
                 for (let id in obj[key]) {
-                    users.push({ ...obj[key][id], id })
+
+                    console.log(obj[key][id].sender.key, currentUserData.id, "LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL")
+                    if (obj[key][id].sender.key === currentUserData.id) {
+                        users.push({ ...obj[key][id], id })
+                    }
                 }
             }
             this.props.myRequestAction(users)
@@ -109,8 +114,8 @@ class MyRequest extends Component {
                             data={MyRequest_List}
                             renderItem={({ item, index }) => {
                                 return (
-                                    <Animated.View key={index} 
-                                    style={[styles.customCardContainer]} >
+                                    <Animated.View key={index}
+                                        style={[styles.customCardContainer]} >
                                         <View style={styles.customCard} >
                                             <View style={styles.avatarContainer} >
                                                 <Image style={styles.avatarPic}
@@ -133,7 +138,6 @@ class MyRequest extends Component {
                                     </Animated.View>
                                 )
                             }} keyExtractor={(item) => {
-                                console.log(item.id)
                                 return item.id
                             }} />
                     </Animated.View>

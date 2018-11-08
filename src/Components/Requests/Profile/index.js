@@ -7,7 +7,6 @@ import {
     TouchableOpacity,
     ScrollView,
     Animated,
-    Easing,
     StyleSheet
 } from "react-native"
 import { Icon } from "native-base"
