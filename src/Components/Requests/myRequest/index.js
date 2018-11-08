@@ -47,6 +47,8 @@ class MyRequest extends Component {
                     }
                 }
             }
+            console.log(users)
+
             this.props.myRequestAction(users)
             setTimeout(() => {
                 this.setState({
