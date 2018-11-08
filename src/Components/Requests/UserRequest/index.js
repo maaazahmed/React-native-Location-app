@@ -91,14 +91,17 @@ class UserRequest extends Component {
                                             </View>
                                             <View style={styles.listButnView}>
                                                 <TouchableOpacity activeOpacity={0.6}
-                                                    onPress={this.rquestListButtonuest.bind(this, item, "Approve")}
+                                                    onPress={this.rquestListButtonuest.bind(this, item, "approve")}
                                                     style={styles.ListButn} transparent  >
-                                                    <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
+                                                    <Image style={styles.AproveRejcetBtn}
+                                                        source={require("./images/checked.png")} />
                                                 </TouchableOpacity>
-                                                <TouchableOpacity onPress={this.rquestListButtonuest.bind(this, item, "Delete")}
+                                                <TouchableOpacity
+                                                    onPress={this.rquestListButtonuest.bind(this, item, "delete")}
                                                     activeOpacity={0.6}
                                                     style={styles.ListButn} transparent  >
-                                                    <Image style={styles.AproveRejcetBtn} source={require("./images/cancel.png")} />
+                                                    <Image style={styles.AproveRejcetBtn}
+                                                        source={require("./images/cancel.png")} />
                                                 </TouchableOpacity>
                                             </View>
                                         </View>
@@ -122,7 +125,7 @@ class UserRequest extends Component {
                                 </View>
                                 <View style={[styles.modalThing, { padding: 20 }]}>
                                     <Text style={styles.modalText} >
-                                        Are you sure you want to delete this request ?
+                                        Are you sure you want to {this.state.replyType} this request ?
                                    </Text>
                                 </View>
                                 <View style={styles.modalThing}>
@@ -132,17 +135,27 @@ class UserRequest extends Component {
                                             onPress={() => this.setState({ isModalVisible: false })}
                                             style={styles.modalButton} >
                                             <Text style={styles.modalText} >
-                                                Delete
+                                                Cancele
                                            </Text>
                                         </TouchableOpacity>
-                                        <TouchableOpacity
-                                            activeOpacity={0.7}
-                                            onPress={() => this.setState({ isModalVisible: false })}
-                                            style={styles.modalButton} >
-                                            <Text style={styles.modalText} >
-                                                Aprove
-                                           </Text>
-                                        </TouchableOpacity>
+                                        {(this.state.replyType === "approve") ?
+                                            <TouchableOpacity
+                                                activeOpacity={0.7}
+                                                onPress={() => this.setState({ isModalVisible: false })}
+                                                style={styles.modalButton} >
+                                                <Text style={styles.modalText} >
+                                                    Approve
+                                               </Text>
+                                            </TouchableOpacity>
+                                            :
+                                            <TouchableOpacity
+                                                activeOpacity={0.7}
+                                                onPress={() => this.setState({ isModalVisible: false })}
+                                                style={styles.modalButton} >
+                                                <Text style={styles.modalText} >
+                                                    Delete
+                                             </Text>
+                                            </TouchableOpacity>}
                                     </View>
                                 </View>
                             </View>
