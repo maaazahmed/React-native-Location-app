@@ -29,7 +29,8 @@ class UserRequest extends Component {
         this.state = {
             userRquest: "",
             isModalVisible: false,
-            isLoader: true
+            isLoader: true,
+            replyType: ""
         }
     }
 
@@ -50,9 +51,9 @@ class UserRequest extends Component {
         })
     }
 
-    approveRequest(data) {
+    rquestListButtonuest(data, replyType) {
         console.log(data)
-        this.setState({ isModalVisible: true })
+        this.setState({ isModalVisible: true, replyType: replyType })
     }
 
 
@@ -89,11 +90,14 @@ class UserRequest extends Component {
                                                 </View>
                                             </View>
                                             <View style={styles.listButnView}>
-                                                <TouchableOpacity activeOpacity={0.6} onPress={this.approveRequest.bind(this, item)}
+                                                <TouchableOpacity activeOpacity={0.6}
+                                                    onPress={this.rquestListButtonuest.bind(this, item, "Approve")}
                                                     style={styles.ListButn} transparent  >
                                                     <Image style={styles.AproveRejcetBtn} source={require("./images/checked.png")} />
                                                 </TouchableOpacity>
-                                                <TouchableOpacity activeOpacity={0.6} style={styles.ListButn} transparent  >
+                                                <TouchableOpacity onPress={this.rquestListButtonuest.bind(this, item, "Delete")}
+                                                    activeOpacity={0.6}
+                                                    style={styles.ListButn} transparent  >
                                                     <Image style={styles.AproveRejcetBtn} source={require("./images/cancel.png")} />
                                                 </TouchableOpacity>
                                             </View>
@@ -119,7 +123,7 @@ class UserRequest extends Component {
                                 <View style={[styles.modalThing, { padding: 20 }]}>
                                     <Text style={styles.modalText} >
                                         Are you sure you want to delete this request ?
-                                </Text>
+                                   </Text>
                                 </View>
                                 <View style={styles.modalThing}>
                                     <View style={styles.modalButtonContainer} >
@@ -136,7 +140,7 @@ class UserRequest extends Component {
                                             onPress={() => this.setState({ isModalVisible: false })}
                                             style={styles.modalButton} >
                                             <Text style={styles.modalText} >
-                                                Cancel
+                                                Aprove
                                            </Text>
                                         </TouchableOpacity>
                                     </View>
@@ -282,7 +286,7 @@ const styles = StyleSheet.create({
 
     },
     modalContent: {
-        width: width / 1.5,
+        width: width / 1.7,
         height: height / 2,
         backgroundColor: "#312e3f",
         justifyContent: "center",
