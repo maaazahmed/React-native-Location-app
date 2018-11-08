@@ -51,7 +51,7 @@ class Profile extends Component {
         return (
             <View style={styles.container} >
                 <View style={styles.content} >
-                    <ScrollView style={{}} >
+                    <ScrollView>
                         <Animated.View style={[styles.profilePicCard, { marginTop: ProfileDataAnim, opacity: listOpacity }]} >
                             <View style={styles.cardContent} >
                                 <View style={styles.profilePicCardContain}>
