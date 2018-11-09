@@ -63,9 +63,20 @@ class UserRequest extends Component {
     deleteRequest() {
         this.setState({ isModalVisible: false })
         const selectedRequest = this.props.selected_Request.selectedRequest
-        // database.child(`Request/${selectedRequest.key}/${selectedRequest.sender.id}`).remove()
-        console.log(" Recsiver ", selectedRequest.reciveer.key, " Sender: ", selectedRequest.sender.id)
+        database.child(`Request/${selectedRequest.reciveer.key}/${selectedRequest.sender.id}`).remove()
     }
+
+
+    approveRequest() {
+        this.setState({ isModalVisible: false })
+        const selectedRequest = this.props.selected_Request.selectedRequest
+        database.child(`Request/${selectedRequest.reciveer.key}/${selectedRequest.sender.id}`).remove()
+        database.child(`user/${selectedRequest.reciveer.key}/friends/`)
+        // database.child(`friends/`).push(selectedRequest)
+
+
+    }
+
 
     render() {
         let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
@@ -147,6 +158,7 @@ class UserRequest extends Component {
                                         </TouchableOpacity>
                                         {(this.state.replyType === "approve") ?
                                             <TouchableOpacity
+                                                onPress={this.approveRequest.bind(this)}
                                                 activeOpacity={0.7}
                                                 style={styles.modalButton} >
                                                 <Text style={styles.modalText} >
