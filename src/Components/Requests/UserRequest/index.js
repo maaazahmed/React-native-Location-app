@@ -73,9 +73,6 @@ class UserRequest extends Component {
         database.child(`Request/${selectedRequest.reciveer.key}/${selectedRequest.sender.id}`).remove()
         database.child(`user/${selectedRequest.reciveer.key}/friends/`).push(selectedRequest.sender)
         database.child(`user/${selectedRequest.sender.id}/friends/`).push(selectedRequest.reciveer)
-        // database.child(`friends/`).push(selectedRequest)
-
-
     }
 
 
