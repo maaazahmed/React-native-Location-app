@@ -64,7 +64,7 @@ class UserRequest extends Component {
         this.setState({ isModalVisible: false })
         const selectedRequest = this.props.selected_Request.selectedRequest
         // database.child(`Request/${selectedRequest.key}/${selectedRequest.sender.id}`).remove()
-        console.log(selectedRequest.reciveer, selectedRequest.sender)
+        console.log(" Recsiver ", selectedRequest.reciveer.key, " Sender: ", selectedRequest.sender.id)
     }
 
     render() {
