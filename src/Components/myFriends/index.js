@@ -14,6 +14,11 @@ import {
 import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
+import firebase from "firebase"
+
+
+
+
 
 
 const KEYS_TO_FILTERS = ['email', 'username'];
@@ -81,15 +86,15 @@ export default class AllUsers extends Component {
     }
 
     componentDidMount() {
-        Animated.timing(this.listOpacity, {
-            toValue: 1,
-            duration: 500,
-        }).start()
-        Animated.timing(this.listPadding, {
-            toValue: 1,
-            duration: 500,
-            easing: Easing.elastic()
-        }).start()
+        // Animated.timing(this.listOpacity, {
+        //     toValue: 1,
+        //     duration: 500,
+        // }).start()
+        // Animated.timing(this.listPadding, {
+        //     toValue: 1,
+        //     duration: 500,
+        //     easing: Easing.elastic()
+        // }).start()
     }
 
     searchUser() {
