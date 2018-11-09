@@ -24,12 +24,7 @@ import { connect } from "react-redux"
 
 const KEYS_TO_FILTERS = ['email', 'username'];
 let arr = [
-    {
-        username: "Hameed Gull",
-        email: "hameed@gmail.com",
-        lastSeen: "04:30 AM",
-        pic: "https://tse4.mm.bing.net/th?id=OIP.ifutY-djFTb5U9I0ZASvYwHaJE&pid=15.1&P=0&w=300&h=300"
-    },
+   
     {
         username: "Maaz Ahmed",
         email: "maazahmed2k16@gmail.com",
