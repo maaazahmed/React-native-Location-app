@@ -15,6 +15,7 @@ import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 import firebase from "firebase"
+import { connect } from "react-redux"
 
 
 
@@ -70,7 +71,7 @@ let arr = [
 
 
 const { width } = Dimensions.get("window")
-export default class AllUsers extends Component {
+class AllUsers extends Component {
     constructor() {
         super()
         this.inputFeildAnim = new Animated.Value(0)
@@ -81,7 +82,7 @@ export default class AllUsers extends Component {
         this.state = {
             searchVal: "",
             searchTerm: '',
-            isLoader:false
+            isLoader: false
         }
     }
 
@@ -95,6 +96,7 @@ export default class AllUsers extends Component {
         //     duration: 500,
         //     easing: Easing.elastic()
         // }).start()
+
     }
 
     searchUser() {
@@ -171,79 +173,79 @@ export default class AllUsers extends Component {
         //     outputRange: [10, 5, 0]
         // })
         return (
-            (!this.state.isLoader)?
-            <View style={[styles.container,styles.isLoaderContainer]} >
-            
-             
-            </View>
-            :
-            <View style={styles.container} >
-                <Header style={styles.header} >
-                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
-                        <View >
-                            <Button transparent>
-                                <Icon name='menu' />
-                            </Button>
-                        </View>
-                        <View  >
-                            <View style={styles.inputContainer} >
-                                <Icons name='map-marker' size={23} style={styles.seachIconForInput} />
-                                <Text style={styles.heandingTitle} >Friends</Text>
+            (!this.state.isLoader) ?
+                <View style={[styles.container, styles.isLoaderContainer]} >
+
+
+                </View>
+                :
+                <View style={styles.container} >
+                    <Header style={styles.header} >
+                        <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
+                            <View >
+                                <Button transparent>
+                                    <Icon name='menu' />
+                                </Button>
                             </View>
-                        </View>
-                        <View style={{ flexDirection: "row" }} >
-                            <Button onPress={() => this.searchUser()} transparent>
-                                <Icon name='search' />
-                            </Button>
+                            <View  >
+                                <View style={styles.inputContainer} >
+                                    <Icons name='map-marker' size={23} style={styles.seachIconForInput} />
+                                    <Text style={styles.heandingTitle} >Friends</Text>
+                                </View>
+                            </View>
+                            <View style={{ flexDirection: "row" }} >
+                                <Button onPress={() => this.searchUser()} transparent>
+                                    <Icon name='search' />
+                                </Button>
+                            </View>
+                        </Animated.View>
+                    </Header>
+                    <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
+                        <TextInput
+                            placeholder="Search"
+                            onChangeText={(term) => { this.searchUpdated(term) }}
+                            inputViewStyles={styles.TextInput}
+                            placeholderTextColor="#c3bfd8"
+                            underlineColorAndroid="transparent" />
+                        <View style={styles.searcBarIconButton} >
+                            <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
+                                <Icon name='close' style={styles.closeIcon} />
+                            </TouchableOpacity>
                         </View>
                     </Animated.View>
-                </Header>
-                <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                    <TextInput
-                        placeholder="Search"
-                        onChangeText={(term) => { this.searchUpdated(term) }}
-                        inputViewStyles={styles.TextInput}
-                        placeholderTextColor="#c3bfd8"
-                        underlineColorAndroid="transparent" />
-                    <View style={styles.searcBarIconButton} >
-                        <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
-                            <Icon name='close' style={styles.closeIcon} />
-                        </TouchableOpacity>
-                    </View>
-                </Animated.View>
-                <View>
-                    <FlatList
-                        data={filteredEmails}
-                        renderItem={({ item, index }) => {
-                            return (
-                                <Animated.View key={index}
-                                    style={[styles.customCardContainer]} >
-                                    <View style={styles.customCard} >
-                                        <View style={styles.avatarContainer} >
-                                            <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic }} />
-                                            <Icons name="circle" style={styles.circleIcon} />
-                                        </View>
-                                        <View style={styles.detiles}>
-                                            <View style={styles.usernameList} >
-                                                <Text style={styles.username} >{item.username}</Text>
-                                                <Text style={styles.emailAndSeenText} >{item.email}</Text>
-                                                <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
+                    <View>
+                        <FlatList
+                            data={filteredEmails}
+                            renderItem={({ item, index }) => {
+                                return (
+                                    <Animated.View key={index}
+                                        style={[styles.customCardContainer]} >
+                                        <View style={styles.customCard} >
+                                            <View style={styles.avatarContainer} >
+                                                <Image style={styles.avatarPic}
+                                                    resizeMode="cover" source={{ uri: item.pic }} />
+                                                <Icons name="circle" style={styles.circleIcon} />
+                                            </View>
+                                            <View style={styles.detiles}>
+                                                <View style={styles.usernameList} >
+                                                    <Text style={styles.username} >{item.username}</Text>
+                                                    <Text style={styles.emailAndSeenText} >{item.email}</Text>
+                                                    <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
+                                                </View>
+                                            </View>
+                                            <View style={styles.listButnView}>
+                                                <Button style={styles.ListButn} transparent onPress={() => this.props.navigation.navigate("MapComponant")}  >
+                                                    <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
+                                                </Button>
                                             </View>
                                         </View>
-                                        <View style={styles.listButnView}>
-                                            <Button style={styles.ListButn} transparent onPress={() => this.props.navigation.navigate("MapComponant")}  >
-                                                <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
-                                            </Button>
-                                        </View>
-                                    </View>
-                                </Animated.View>
-                            )
-                        }} keyExtractor={(item) => {
-                            return item.email
-                        }} />
+                                    </Animated.View>
+                                )
+                            }} keyExtractor={(item) => {
+                                return item.email
+                            }} />
+                    </View>
                 </View>
-            </View>
         )
     }
 }
@@ -375,9 +377,33 @@ const styles = StyleSheet.create({
     ListButnIcon: {
         color: "#ff2a68",
     },
-    isLoaderContainer:{
-        justifyContent:"center",
-        alignItems:"center"
+    isLoaderContainer: {
+        justifyContent: "center",
+        alignItems: "center"
     }
 
 })
+
+
+
+const mapStateToProp = (state) => {
+    return ({
+        selected_Request: state.root
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        // userRequestAction: (data) => {
+        //     dispatch(userRequestAction(data))
+        // },
+        // selectedRequest: (data) => {
+        //     dispatch(selectedRequest(data))
+        // },
+    };
+};
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(AllUsers)
+
+
+
