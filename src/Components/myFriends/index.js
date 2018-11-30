@@ -216,7 +216,7 @@ class AllUsers extends Component {
                                 </Animated.View>
                             )
                         }} keyExtractor={(item) => {
-                            return item.email
+                            return item.key
                         }} />
                 </View>
             </View>
