@@ -226,7 +226,7 @@ class AllUsers extends Component {
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >
-                                                <Text style={styles.username} >{item.username}</Text>
+                                                <Text style={styles.username} >{item.friend}</Text>
                                                 <Text style={styles.emailAndSeenText} >{item.email}</Text>
                                                 <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
                                             </View>
