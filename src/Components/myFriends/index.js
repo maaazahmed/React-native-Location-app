@@ -21,7 +21,7 @@ import { connect } from "react-redux"
 
 
 
-
+const database = firebase.database().ref("/")
 const KEYS_TO_FILTERS = ['email', 'username'];
 let arr = [
    
@@ -57,6 +57,17 @@ class AllUsers extends Component {
         //     duration: 500,
         //     easing: Easing.elastic()
         // }).start()
+
+        database.child("friends").on("value", (snapshot)=>{
+            let obj = snapshot.val()
+            let arr = []
+            for(key in obj){
+                arr.push({...obj[key], key})
+            }
+            console.log(arr)
+        })
+
+        
 
     }
 
@@ -137,7 +148,7 @@ class AllUsers extends Component {
             (!this.state.isLoader) ?
                 <View style={[styles.container, styles.isLoaderContainer]} >
 
-
+ 
                 </View>
                 :
                 <View style={styles.container} >
