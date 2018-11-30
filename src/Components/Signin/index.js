@@ -48,24 +48,24 @@ class SignIn extends Component {
 
 
     componentWillMount() {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                database.child(`user/${user.uid}`).on("value", (snap) => {
-                    let obj = snap.val()
-                    obj.id = snap.key;
-                    this.props.currentUserAction(obj)
-                    setTimeout(() => {
-                        this.props.navigation.navigate("Dashboard")
-                        this.heideLoader()
-                    }, 1000)
-                })
-            }
-            else {
+        // firebase.auth().onAuthStateChanged((user) => {
+        //     if (user) {
+        //         database.child(`user/${user.uid}`).on("value", (snap) => {
+        //             let obj = snap.val()
+        //             obj.id = snap.key;
+        //             this.props.currentUserAction(obj)
+        //             setTimeout(() => {
+        //                 this.props.navigation.navigate("Dashboard")
+        //                 // this.heideLoader()
+        //             }, 1000)
+        //         })
+        //     }
+        //     else {
                 setTimeout(() => {
                     this.heideLoader()
                 }, 1000)
-            }
-        })
+        //     }
+        // })
     }
 
 
