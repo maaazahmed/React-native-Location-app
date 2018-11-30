@@ -60,14 +60,16 @@ class AllUsers extends Component {
         // }).start()
 
         const currentUser = this.props.currentUser.currentUser;
-        console.log(currentUser)
+        console.log()
 
         database.child("friends").on("value", (snapshot) => {
             let obj = snapshot.val()
             let arr = []
             for (key in obj) {
-                console.log(obj[key])
-                arr.push({ ...obj[key], key })
+                console.log(currentUser.id === obj[key].id_2 || currentUser.id === obj[key].id_1)
+                if(currentUser.id === obj[key].id_2 || currentUser.id === obj[key].id_1){
+                    arr.push({ ...obj[key], key })
+                }
             }
             this.props.friendsListAction(arr)
         })
