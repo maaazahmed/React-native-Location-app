@@ -63,6 +63,7 @@ class AllUsers extends Component {
             let obj = snapshot.val()
             let arr = []
             for (key in obj) {
+                console.log(obj[key])
                 arr.push({ ...obj[key], key })
             }
             this.props.friendsListAction(arr)
