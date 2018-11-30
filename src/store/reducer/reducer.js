@@ -38,6 +38,7 @@ export default (state = INITIAL_STATE, action) => {
                 selectedRequest: action.payload
             })
         case ActionTypes.FRIEND_LIST:
+            // console.log(action.payload,"====")
             return ({
                 ...state,
                 friendList: action.payload

@@ -189,7 +189,7 @@ class AllUsers extends Component {
                 </Animated.View>
                 <View>
                     <FlatList
-                        data={filteredEmails}
+                        data={this.props.myFriends.friendList}
                         renderItem={({ item, index }) => {
                             return (
                                 <Animated.View key={index}
