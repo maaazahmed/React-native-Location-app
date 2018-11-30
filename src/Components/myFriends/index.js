@@ -16,6 +16,7 @@ import { Header, Button, Icon, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 import firebase from "firebase"
 import { connect } from "react-redux"
+import { friendsListAction } from "../../store/action/action"
 
 
 
@@ -365,12 +366,9 @@ const mapStateToProp = (state) => {
 };
 const mapDispatchToProp = (dispatch) => {
     return {
-        // userRequestAction: (data) => {
-        //     dispatch(userRequestAction(data))
-        // },
-        // selectedRequest: (data) => {
-        //     dispatch(selectedRequest(data))
-        // },
+        friendsListAction: (data) => {
+            dispatch(friendsListAction(data))
+        },
     };
 };
 

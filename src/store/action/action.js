@@ -57,5 +57,20 @@ export const selectedRequest = (data) => {
 
 
 
+export const friendsListAction = (data) => {
+    return dispatch => {
+        dispatch({
+            type: ActionTypes.FRIEND_LIST,
+            payload: data,
+        })
+    }
+}
+
+
+
+
+
+
+
 
 

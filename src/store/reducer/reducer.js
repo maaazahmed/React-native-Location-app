@@ -5,7 +5,9 @@ const INITIAL_STATE = {
     selectedRequest: {},
     allUserList: [],
     requestList: [],
-    myRequestList: []
+    myRequestList: [],
+    friendList: [],
+
 }
 
 export default (state = INITIAL_STATE, action) => {
@@ -34,6 +36,11 @@ export default (state = INITIAL_STATE, action) => {
             return ({
                 ...state,
                 selectedRequest: action.payload
+            })
+        case ActionTypes.FRIEND_LIST:
+            return ({
+                ...state,
+                friendList: action.payload
             })
         default:
             return state;
