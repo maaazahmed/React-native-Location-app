@@ -77,6 +77,8 @@ class UserRequest extends Component {
         let obj = {
             friend_1:selectedRequest.sender.username,
             friend_2:selectedRequest.reciveer.username,
+            id_1:selectedRequest.sender.key,
+            id_2:selectedRequest.reciveer.key,
         }
         console.log(obj)
     }
