@@ -75,7 +75,8 @@ class UserRequest extends Component {
         // database.child(`user/${selectedRequest.sender.id}/friends/`).push(selectedRequest.reciveer)
         // database.child(`friends/`).push(selectedRequest)
         let obj = {
-            friend_1:selectedRequest.sender.username
+            friend_1:selectedRequest.sender.username,
+            friend_2:selectedRequest.reciveer.username,
         }
         console.log(obj)
     }
