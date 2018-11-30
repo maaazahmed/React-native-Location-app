@@ -69,11 +69,16 @@ class AllUsers extends Component {
                 //     arr.push({ ...obj[key], key })
                 // }
 
-                if (currentUser.id === obj[key].id_2) {
+                if (currentUser.id === obj[key].id_1) {
                     console.log(obj[key].friend_2)
                     // arr.push({ ...obj[key], key })
+                    let obj = {
+                        friend_1:obj[key].friend_1,
+                        id_1:obj[key].id_1,
+                        email_1:obj[key].email_1,
+                    }
                 }
-                else if (currentUser.id === obj[key].id_1) {
+                else if (currentUser.id === obj[key].id_2) {
                     console.log(obj[key].friend_1)
                 }
             }
