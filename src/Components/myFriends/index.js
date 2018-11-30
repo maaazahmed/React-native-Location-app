@@ -25,7 +25,7 @@ import { friendsListAction } from "../../store/action/action"
 const database = firebase.database().ref("/")
 const KEYS_TO_FILTERS = ['email', 'username'];
 let arr = [
-   
+
 
 ]
 
@@ -59,16 +59,16 @@ class AllUsers extends Component {
         //     easing: Easing.elastic()
         // }).start()
 
-        database.child("friends").on("value", (snapshot)=>{
+        database.child("friends").on("value", (snapshot) => {
             let obj = snapshot.val()
             let arr = []
-            for(key in obj){
-                arr.push({...obj[key], key})
+            for (key in obj) {
+                arr.push({ ...obj[key], key })
             }
             console.log(arr)
         })
 
-        
+
 
     }
 
@@ -123,6 +123,7 @@ class AllUsers extends Component {
 
 
     render() {
+        console.log(this.props.myFriends)
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
@@ -146,79 +147,79 @@ class AllUsers extends Component {
         //     outputRange: [10, 5, 0]
         // })
         return (
-            (!this.state.isLoader) ?
-                <View style={[styles.container, styles.isLoaderContainer]} >
+            // (!this.state.isLoader) ?
+            //     <View style={[styles.container, styles.isLoaderContainer]} >
 
- 
-                </View>
-                :
-                <View style={styles.container} >
-                    <Header style={styles.header} >
-                        <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
-                            <View >
-                                <Button transparent>
-                                    <Icon name='menu' />
-                                </Button>
+
+            //     </View>
+            //     :
+            <View style={styles.container} >
+                <Header style={styles.header} >
+                    <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
+                        <View >
+                            <Button transparent>
+                                <Icon name='menu' />
+                            </Button>
+                        </View>
+                        <View  >
+                            <View style={styles.inputContainer} >
+                                <Icons name='map-marker' size={23} style={styles.seachIconForInput} />
+                                <Text style={styles.heandingTitle} >Friends</Text>
                             </View>
-                            <View  >
-                                <View style={styles.inputContainer} >
-                                    <Icons name='map-marker' size={23} style={styles.seachIconForInput} />
-                                    <Text style={styles.heandingTitle} >Friends</Text>
-                                </View>
-                            </View>
-                            <View style={{ flexDirection: "row" }} >
-                                <Button onPress={() => this.searchUser()} transparent>
-                                    <Icon name='search' />
-                                </Button>
-                            </View>
-                        </Animated.View>
-                    </Header>
-                    <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
-                        <TextInput
-                            placeholder="Search"
-                            onChangeText={(term) => { this.searchUpdated(term) }}
-                            inputViewStyles={styles.TextInput}
-                            placeholderTextColor="#c3bfd8"
-                            underlineColorAndroid="transparent" />
-                        <View style={styles.searcBarIconButton} >
-                            <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
-                                <Icon name='close' style={styles.closeIcon} />
-                            </TouchableOpacity>
+                        </View>
+                        <View style={{ flexDirection: "row" }} >
+                            <Button onPress={() => this.searchUser()} transparent>
+                                <Icon name='search' />
+                            </Button>
                         </View>
                     </Animated.View>
-                    <View>
-                        <FlatList
-                            data={filteredEmails}
-                            renderItem={({ item, index }) => {
-                                return (
-                                    <Animated.View key={index}
-                                        style={[styles.customCardContainer]} >
-                                        <View style={styles.customCard} >
-                                            <View style={styles.avatarContainer} >
-                                                <Image style={styles.avatarPic}
-                                                    resizeMode="cover" source={{ uri: item.pic }} />
-                                                <Icons name="circle" style={styles.circleIcon} />
-                                            </View>
-                                            <View style={styles.detiles}>
-                                                <View style={styles.usernameList} >
-                                                    <Text style={styles.username} >{item.username}</Text>
-                                                    <Text style={styles.emailAndSeenText} >{item.email}</Text>
-                                                    <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
-                                                </View>
-                                            </View>
-                                            <View style={styles.listButnView}>
-                                                <Button style={styles.ListButn} transparent onPress={() => this.props.navigation.navigate("MapComponant")}  >
-                                                    <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
-                                                </Button>
+                </Header>
+                <Animated.View style={[styles.searcBarContainerr, { top: inputFeildWidth, opacity: textInputOpacity, }]} >
+                    <TextInput
+                        placeholder="Search"
+                        onChangeText={(term) => { this.searchUpdated(term) }}
+                        inputViewStyles={styles.TextInput}
+                        placeholderTextColor="#c3bfd8"
+                        underlineColorAndroid="transparent" />
+                    <View style={styles.searcBarIconButton} >
+                        <TouchableOpacity onPress={() => this.cancleSearch()} style={{ flex: 1 }} >
+                            <Icon name='close' style={styles.closeIcon} />
+                        </TouchableOpacity>
+                    </View>
+                </Animated.View>
+                <View>
+                    <FlatList
+                        data={filteredEmails}
+                        renderItem={({ item, index }) => {
+                            return (
+                                <Animated.View key={index}
+                                    style={[styles.customCardContainer]} >
+                                    <View style={styles.customCard} >
+                                        <View style={styles.avatarContainer} >
+                                            <Image style={styles.avatarPic}
+                                                resizeMode="cover" source={{ uri: item.pic }} />
+                                            <Icons name="circle" style={styles.circleIcon} />
+                                        </View>
+                                        <View style={styles.detiles}>
+                                            <View style={styles.usernameList} >
+                                                <Text style={styles.username} >{item.username}</Text>
+                                                <Text style={styles.emailAndSeenText} >{item.email}</Text>
+                                                <Text style={styles.emailAndSeenText}>Last update {item.lastSeen}</Text>
                                             </View>
                                         </View>
-                                    </Animated.View>
-                                )
-                            }} keyExtractor={(item) => {
-                                return item.email
-                            }} />
-                    </View>
+                                        <View style={styles.listButnView}>
+                                            <Button style={styles.ListButn} transparent onPress={() => this.props.navigation.navigate("MapComponant")}  >
+                                                <Icons name="map-marker" size={25} style={styles.ListButnIcon} />
+                                            </Button>
+                                        </View>
+                                    </View>
+                                </Animated.View>
+                            )
+                        }} keyExtractor={(item) => {
+                            return item.email
+                        }} />
                 </View>
+            </View>
         )
     }
 }
@@ -361,7 +362,8 @@ const styles = StyleSheet.create({
 
 const mapStateToProp = (state) => {
     return ({
-        selected_Request: state.root
+        selected_Request: state.root,
+        myFriends: state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {
