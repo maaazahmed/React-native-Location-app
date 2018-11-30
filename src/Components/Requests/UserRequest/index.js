@@ -82,8 +82,8 @@ class UserRequest extends Component {
             email_1:selectedRequest.sender.Email,
             email_2:selectedRequest.reciveer.Email,
         }
-        database.child(`friends/`).push(selectedRequest)
-        console.log(obj)
+        database.child(`friends/`).push(obj)
+        // console.log(obj)
     }
 
 
