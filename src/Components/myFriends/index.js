@@ -66,7 +66,11 @@ class AllUsers extends Component {
             let obj = snapshot.val()
             let arr = []
             for (key in obj) {
-                if(currentUser.id === obj[key].id_2 || currentUser.id === obj[key].id_1){
+                // if(currentUser.id === obj[key].id_2 || currentUser.id === obj[key].id_1){
+                //     arr.push({ ...obj[key], key })
+                // }
+
+                if (currentUser.id === obj[key].id_2 || currentUser.id === obj[key].id_1) {
                     arr.push({ ...obj[key], key })
                 }
             }
@@ -369,7 +373,7 @@ const mapStateToProp = (state) => {
     return ({
         selected_Request: state.root,
         myFriends: state.root,
-        currentUser:state.root
+        currentUser: state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {
