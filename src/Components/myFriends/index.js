@@ -78,7 +78,7 @@ class AllUsers extends Component {
                     }
                     console.log(obj_1, "---------------------- 1")
                 }
-                else {
+                else if (currentUser.id === obj[key].id_2) {
                     let obj_2 = {
                         friend: obj[key].friend_1,
                         id: obj[key].id_1,
