@@ -76,7 +76,7 @@ class AllUsers extends Component {
                         id: obj[key].id_2,
                         email: obj[key].email_2,
                     }
-                    console.log(obj_1, "---------------------- 1")
+                    console.log(obj_1, obj[key], "---------------------- 1")
                 }
                 else if (currentUser.id === obj[key].id_2) {
                     let obj_2 = {
@@ -84,7 +84,7 @@ class AllUsers extends Component {
                         id: obj[key].id_1,
                         email: obj[key].email_1,
                     }
-                    console.log(obj_2, "---------------------- 1")
+                    console.log(obj_2, obj[key], "---------------------- 1")
                 }
             }
             this.props.friendsListAction(arr)
