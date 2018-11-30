@@ -59,6 +59,9 @@ class AllUsers extends Component {
         //     easing: Easing.elastic()
         // }).start()
 
+        const currentUser = this.props.currentUser.currentUser;
+        console.log(currentUser)
+
         database.child("friends").on("value", (snapshot) => {
             let obj = snapshot.val()
             let arr = []
@@ -124,7 +127,7 @@ class AllUsers extends Component {
 
 
     render() {
-        console.log(this.props.myFriends.friendList)
+        console.log(this.props.currentUser.currentUser)
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
@@ -364,7 +367,8 @@ const styles = StyleSheet.create({
 const mapStateToProp = (state) => {
     return ({
         selected_Request: state.root,
-        myFriends: state.root
+        myFriends: state.root,
+        currentUser:state.root
     });
 };
 const mapDispatchToProp = (dispatch) => {
