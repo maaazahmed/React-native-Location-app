@@ -65,7 +65,7 @@ class AllUsers extends Component {
             for (key in obj) {
                 arr.push({ ...obj[key], key })
             }
-            console.log(arr)
+            this.props.friendsListAction(arr)
         })
 
 
@@ -123,7 +123,7 @@ class AllUsers extends Component {
 
 
     render() {
-        console.log(this.props.myFriends)
+        console.log(this.props.myFriends.friendList)
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
