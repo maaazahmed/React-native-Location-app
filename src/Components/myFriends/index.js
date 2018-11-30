@@ -70,13 +70,13 @@ class AllUsers extends Component {
                 // }
 
                 if (currentUser.id === obj[key].id_1) {
-                    // arr.push({ ...obj[key], key })
                     let obj_1 = {
                         friend: obj[key].friend_2,
                         id: obj[key].id_2,
                         email: obj[key].email_2,
                     }
-                    console.log(obj_1, obj[key], "---------------------- 1")
+                    console.log(obj_1, key, "---------------------- 1")
+                    arr.push({ ...obj_1, key })
                 }
                 else if (currentUser.id === obj[key].id_2) {
                     let obj_2 = {
@@ -84,9 +84,11 @@ class AllUsers extends Component {
                         id: obj[key].id_1,
                         email: obj[key].email_1,
                     }
-                    console.log(obj_2, obj[key], "---------------------- 1")
+                    console.log(obj_2, key, "---------------------- 1")
+                    arr.push({ ...obj_2, key })
                 }
             }
+            console.log(arr,"Arr")
             this.props.friendsListAction(arr)
         })
 
