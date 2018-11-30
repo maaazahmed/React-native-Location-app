@@ -71,20 +71,20 @@ class AllUsers extends Component {
 
                 if (currentUser.id === obj[key].id_1) {
                     // arr.push({ ...obj[key], key })
-                    let obj = {
-                        friend_2:obj[key].friend_2,
-                        id_2:obj[key].id_2,
-                        email_2:obj[key].email_2,
+                    let obj_1 = {
+                        friend: obj[key].friend_2,
+                        id: obj[key].id_2,
+                        email: obj[key].email_2,
                     }
-                    console.log(obj)
+                    console.log(obj_1, "---------------------- 1")
                 }
-                else if (currentUser.id === obj[key].id_2) {
-                    let obj = {
-                        friend_1:obj[key].friend_1,
-                        id_1:obj[key].id_1,
-                        email_1:obj[key].email_1,
+                else {
+                    let obj_2 = {
+                        friend: obj[key].friend_1,
+                        id: obj[key].id_1,
+                        email: obj[key].email_1,
                     }
-                    console.log(obj)
+                    console.log(obj_2, "---------------------- 1")
                 }
             }
             this.props.friendsListAction(arr)
@@ -145,7 +145,7 @@ class AllUsers extends Component {
 
 
     render() {
-        console.log(this.props.currentUser.currentUser)
+        // console.log(this.props.currentUser.currentUser)
         const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
