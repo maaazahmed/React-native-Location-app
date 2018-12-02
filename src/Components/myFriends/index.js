@@ -129,7 +129,7 @@ class AllUsers extends Component {
 
     render() {
         // console.log(this.props.currentUser.currentUser)
-        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
+        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png";
         // const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
@@ -155,12 +155,6 @@ class AllUsers extends Component {
 
         console.log(this.props.myFriends.friendList)
         return (
-            // (!this.state.isLoader) ?
-            //     <View style={[styles.container, styles.isLoaderContainer]} >
-
-
-            //     </View>
-            //     :
             <View style={styles.container} >
                 <Header style={styles.header} >
                     <Animated.View style={[styles.headerContent, { opacity: bgOpacity, }]} >
@@ -206,7 +200,10 @@ class AllUsers extends Component {
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
                                                 resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
-                                            {/* <Icons name="circle" style={styles.circleIcon} /> */}
+                                           {(item.isOnline)?
+                                            <Icons name="circle" style={styles.circleIcon} />
+                                            :
+                                            <Icons name="circle" style={[styles.circleIcon,{color:"#bfbfbf"}]} />}
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >

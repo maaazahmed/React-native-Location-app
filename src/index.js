@@ -35,9 +35,10 @@ class Dashboard extends React.Component {
                         friend: obj[key].friend_2,
                         id: obj[key].id_2,
                         email: obj[key].email_2,
+                        nodeKey:key,
+                        isOnline:obj[key].isOnline
                     }
-                    
-                    console.log(obj[key].currentUser.id)
+                    console.log(obj[key])
                     arr.push({ ...obj_1, key })
                 }
                 else if (currentUser.id === obj[key].id_2) {
@@ -45,18 +46,22 @@ class Dashboard extends React.Component {
                         friend: obj[key].friend_1,
                         id: obj[key].id_1,
                         email: obj[key].email_1,
+                        nodeKey:key,
+                        isOnline:obj[key].isOnline
                     }
-                    console.log(obj[key].currentUser.id)
+
+                    // console.log(obj[key])
+                    // for(var a in obj[key]){
+                    //     console.log( obj[key][a])
+                    // }
                     arr.push({ ...obj_2, key })
                 }
                 if (currentUser.id === obj[key].id_1 || currentUser.id === obj[key].id_2) {
-                    database.child(`friends/${key}/${currentUser.id}`).set({ isOnline: true })
+                    database.child(`friends/${key}/isOnline`).set( true )
                 }
             }
             this.props.friendsListAction(arr)
         })
-
-
     }
 
 
