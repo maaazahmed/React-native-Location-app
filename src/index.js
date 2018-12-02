@@ -25,7 +25,6 @@ class Dashboard extends React.Component {
 
 
     componentWillMount() {
-        // console.log(AppState.currentState)
         const currentUser = this.props.currentUser.currentUser;
         database.child("friends").on("value", (snapshot) => {
             let obj = snapshot.val()
@@ -37,6 +36,8 @@ class Dashboard extends React.Component {
                         id: obj[key].id_2,
                         email: obj[key].email_2,
                     }
+                    
+                    console.log(obj[key].currentUser.id)
                     arr.push({ ...obj_1, key })
                 }
                 else if (currentUser.id === obj[key].id_2) {
@@ -45,10 +46,13 @@ class Dashboard extends React.Component {
                         id: obj[key].id_1,
                         email: obj[key].email_1,
                     }
+                    console.log(obj[key].currentUser.id)
                     arr.push({ ...obj_2, key })
                 }
+                if (currentUser.id === obj[key].id_1 || currentUser.id === obj[key].id_2) {
+                    database.child(`friends/${key}/${currentUser.id}`).set({ isOnline: true })
+                }
             }
-
             this.props.friendsListAction(arr)
         })
 

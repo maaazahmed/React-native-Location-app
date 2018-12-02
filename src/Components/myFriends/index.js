@@ -152,6 +152,8 @@ class AllUsers extends Component {
         //     inputRange: [0, 0.5, 1],
         //     outputRange: [10, 5, 0]
         // })
+
+        console.log(this.props.myFriends.friendList)
         return (
             // (!this.state.isLoader) ?
             //     <View style={[styles.container, styles.isLoaderContainer]} >
