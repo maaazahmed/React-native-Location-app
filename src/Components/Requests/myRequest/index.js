@@ -121,7 +121,7 @@ class MyRequest extends Component {
                                             <View style={styles.avatarContainer} >
                                                 <Image style={styles.avatarPic}
                                                     resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
-                                                <Icons name="circle" style={styles.circleIcon} />
+                                                {/* <Icons name="circle" style={styles.circleIcon} /> */}
                                             </View>
                                             <View style={styles.detiles}>
                                                 <View style={styles.usernameList} >

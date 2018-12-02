@@ -15,8 +15,8 @@ import Icons from "react-native-vector-icons/FontAwesome"
 import { Header, Button, Icon, } from 'native-base';
 import SearchInput, { createFilter } from 'react-native-search-filter';
 import firebase from "firebase"
-import { connect } from "react-redux"
-import { friendsListAction } from "../../store/action/action"
+import { connect } from "react-redux";
+// import { friendsListAction } from "../../store/action/action"
 
 
 
@@ -24,13 +24,6 @@ import { friendsListAction } from "../../store/action/action"
 
 const database = firebase.database().ref("/")
 const KEYS_TO_FILTERS = ['email', 'username'];
-let arr = [
-
-
-]
-
-
-
 
 const { width } = Dimensions.get("window")
 class AllUsers extends Component {
@@ -59,41 +52,30 @@ class AllUsers extends Component {
         //     easing: Easing.elastic()
         // }).start()
 
-        const currentUser = this.props.currentUser.currentUser;
-
-        database.child("friends").on("value", (snapshot) => {
-            let obj = snapshot.val()
-            let arr = []
-            for (key in obj) {
-                // if(currentUser.id === obj[key].id_2 || currentUser.id === obj[key].id_1){
-                //     arr.push({ ...obj[key], key })
-                // }
-
-                if (currentUser.id === obj[key].id_1) {
-                    let obj_1 = {
-                        friend: obj[key].friend_2,
-                        id: obj[key].id_2,
-                        email: obj[key].email_2,
-                    }
-                    console.log(obj_1, key, "---------------------- 1")
-                    arr.push({ ...obj_1, key })
-                }
-                else if (currentUser.id === obj[key].id_2) {
-                    let obj_2 = {
-                        friend: obj[key].friend_1,
-                        id: obj[key].id_1,
-                        email: obj[key].email_1,
-                    }
-                    console.log(obj_2, key, "---------------------- 1")
-                    arr.push({ ...obj_2, key })
-                }
-            }
-            console.log(arr,"Arr")
-            this.props.friendsListAction(arr)
-        })
-
-
-
+        // const currentUser = this.props.currentUser.currentUser;
+        // database.child("friends").on("value", (snapshot) => {
+        //     let obj = snapshot.val()
+        //     let arr = []
+        //     for (key in obj) {
+        //         if (currentUser.id === obj[key].id_1) {
+        //             let obj_1 = {
+        //                 friend: obj[key].friend_2,
+        //                 id: obj[key].id_2,
+        //                 email: obj[key].email_2,
+        //             }
+        //             arr.push({ ...obj_1, key })
+        //         }
+        //         else if (currentUser.id === obj[key].id_2) {
+        //             let obj_2 = {
+        //                 friend: obj[key].friend_1,
+        //                 id: obj[key].id_1,
+        //                 email: obj[key].email_1,
+        //             }
+        //             arr.push({ ...obj_2, key })
+        //         }
+        //     }
+        //     this.props.friendsListAction(arr)
+        // })
     }
 
     searchUser() {
@@ -124,7 +106,6 @@ class AllUsers extends Component {
     }
 
 
-
     cancleSearch() {
         Animated.parallel([
             Animated.timing(this.opacity, {
@@ -148,7 +129,8 @@ class AllUsers extends Component {
 
     render() {
         // console.log(this.props.currentUser.currentUser)
-        const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+        let dummyPro = "https://www.shareicon.net/data/512x512/2015/10/07/113704_user_512x512.png"
+        // const filteredEmails = arr.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
         let inputFeildWidth = this.inputFeildAnim.interpolate({
             inputRange: [0, 1],
             outputRange: [-100, 0]
@@ -221,8 +203,8 @@ class AllUsers extends Component {
                                     <View style={styles.customCard} >
                                         <View style={styles.avatarContainer} >
                                             <Image style={styles.avatarPic}
-                                                resizeMode="cover" source={{ uri: item.pic }} />
-                                            <Icons name="circle" style={styles.circleIcon} />
+                                                resizeMode="cover" source={{ uri: item.pic || dummyPro }} />
+                                            {/* <Icons name="circle" style={styles.circleIcon} /> */}
                                         </View>
                                         <View style={styles.detiles}>
                                             <View style={styles.usernameList} >
@@ -393,9 +375,9 @@ const mapStateToProp = (state) => {
 };
 const mapDispatchToProp = (dispatch) => {
     return {
-        friendsListAction: (data) => {
-            dispatch(friendsListAction(data))
-        },
+        // friendsListAction: (data) => {
+        //     dispatch(friendsListAction(data))
+        // },
     };
 };
 

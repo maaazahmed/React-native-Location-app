@@ -1,18 +1,60 @@
 import React, { Component } from 'react';
 import {
     View,
-    Image
+    Image,
+    AppState
 } from 'react-native';
 import BottomNavigation, { FullTab } from 'react-native-material-bottom-navigation'
 import { MyFriends, AllUsers, RequestComponent } from "./Components"
+import firebase from "firebase";
+import { friendsListAction } from "./store/action/action"
+import { connect } from "react-redux"
 
 
-export default class Dashboard extends React.Component {
+
+
+let database = firebase.database().ref()
+class Dashboard extends React.Component {
     constructor(props) {
         super(props)
-        this.state = { activeTab: "games" }
+        this.state = {
+            activeTab: "games",
+            appState: AppState.currentState
+        }
+    }
+
+
+    componentWillMount() {
+        // console.log(AppState.currentState)
+        const currentUser = this.props.currentUser.currentUser;
+        database.child("friends").on("value", (snapshot) => {
+            let obj = snapshot.val()
+            let arr = []
+            for (key in obj) {
+                if (currentUser.id === obj[key].id_1) {
+                    let obj_1 = {
+                        friend: obj[key].friend_2,
+                        id: obj[key].id_2,
+                        email: obj[key].email_2,
+                    }
+                    arr.push({ ...obj_1, key })
+                }
+                else if (currentUser.id === obj[key].id_2) {
+                    let obj_2 = {
+                        friend: obj[key].friend_1,
+                        id: obj[key].id_1,
+                        email: obj[key].email_1,
+                    }
+                    arr.push({ ...obj_2, key })
+                }
+            }
+
+            this.props.friendsListAction(arr)
+        })
+
 
     }
+
 
 
     tabs = [
@@ -86,6 +128,24 @@ export default class Dashboard extends React.Component {
         )
     }
 }
+
+const mapStateToProp = (state) => {
+    return ({
+        myFriends: state.root,
+        currentUser: state.root
+    });
+};
+const mapDispatchToProp = (dispatch) => {
+    return {
+        friendsListAction: (data) => {
+            dispatch(friendsListAction(data))
+        },
+    };
+};
+
+
+export default connect(mapStateToProp, mapDispatchToProp)(Dashboard)
+
 
 
 
