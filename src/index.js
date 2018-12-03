@@ -71,7 +71,7 @@ class Dashboard extends React.Component {
         const currentUser = this.props.currentUser.currentUser;
         for (let i = 0; i < friendList.length; i++) {
             const element = friendList[i];
-            console.log(element.currentUser.id)
+            console.log(element)
             database.child(`friends/${element.nodeKey}/${currentUser.id}`).set(false)
         }
     }
