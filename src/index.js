@@ -35,8 +35,8 @@ class Dashboard extends React.Component {
                         friend: obj[key].friend_2,
                         id: obj[key].id_2,
                         email: obj[key].email_2,
-                        nodeKey:key,
-                        isOnline:obj[key].isOnline
+                        nodeKey: key,
+                        isOnline: obj[key].isOnline
                     }
                     console.log(obj[key])
                     arr.push({ ...obj_1, key })
@@ -46,8 +46,8 @@ class Dashboard extends React.Component {
                         friend: obj[key].friend_1,
                         id: obj[key].id_1,
                         email: obj[key].email_1,
-                        nodeKey:key,
-                        isOnline:obj[key].isOnline
+                        nodeKey: key,
+                        isOnline: obj[key].isOnline
                     }
 
                     // console.log(obj[key])
@@ -57,11 +57,23 @@ class Dashboard extends React.Component {
                     arr.push({ ...obj_2, key })
                 }
                 if (currentUser.id === obj[key].id_1 || currentUser.id === obj[key].id_2) {
-                    database.child(`friends/${key}/isOnline`).set( true )
+                    // database.child(`friends/${key}/isOnline`).set(true)
+                    database.child(`friends/${key}/${currentUser.id}`).set(true)
                 }
             }
             this.props.friendsListAction(arr)
         })
+    }
+
+    componentWillUnmount() {
+        // console.log(this.props.myFriendsList.friendList)
+        let friendList = this.props.myFriendsList.friendList
+        const currentUser = this.props.currentUser.currentUser;
+        for (let i = 0; i < friendList.length; i++) {
+            const element = friendList[i];
+            console.log(element.currentUser.id)
+            database.child(`friends/${element.nodeKey}/${currentUser.id}`).set(false)
+        }
     }
 
 
@@ -140,7 +152,7 @@ class Dashboard extends React.Component {
 
 const mapStateToProp = (state) => {
     return ({
-        myFriends: state.root,
+        myFriendsList: state.root,
         currentUser: state.root
     });
 };

@@ -27,7 +27,7 @@ firebase.initializeApp(config);
 
 
 let database = firebase.database().ref("/")
-const {  height } = Dimensions.get("window")
+const { height } = Dimensions.get("window")
 class SignIn extends Component {
     constructor() {
         super()
@@ -48,24 +48,24 @@ class SignIn extends Component {
 
 
     componentWillMount() {
-        firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-                database.child(`user/${user.uid}`).on("value", (snap) => {
-                    let obj = snap.val()
-                    obj.id = snap.key;
-                    this.props.currentUserAction(obj)
-                    setTimeout(() => {
-                        this.props.navigation.navigate("Dashboard")
-                        // this.heideLoader()
-                    }, 1000)
-                })
-            }
-            else {
-                setTimeout(() => {
-                    this.heideLoader()
-                }, 1000)
-            }
-        })
+        // firebase.auth().onAuthStateChanged((user) => {
+        //     if (user) {
+        //         database.child(`user/${user.uid}`).on("value", (snap) => {
+        //             let obj = snap.val()
+        //             obj.id = snap.key;
+        //             this.props.currentUserAction(obj)
+        //             setTimeout(() => {
+        //                 this.props.navigation.navigate("Dashboard")
+        //                 // this.heideLoader()
+        //             }, 1000)
+        //         })
+        //     }
+        //     else {
+        setTimeout(() => {
+            this.heideLoader()
+        }, 1000)
+        //     }
+        // })
     }
 
 
@@ -91,7 +91,7 @@ class SignIn extends Component {
 
 
 
-   
+
     createAccountPage() {
         this.props.navigation.navigate("SignUp")
     }
@@ -139,6 +139,7 @@ class SignIn extends Component {
                     }, 2000)
                 })
             }).catch((error) => {
+                alert("Ponka Dubara try kr")
                 setTimeout(() => {
                     this.heideLoader()
                 }, 2000)
@@ -314,7 +315,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProp = (state) => {
     return ({
-        
+
     });
 };
 const mapDispatchToProp = (dispatch) => {
